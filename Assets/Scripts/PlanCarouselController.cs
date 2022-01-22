@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CarouselController : MonoBehaviour
+public class PlanCarouselController : MonoBehaviour
 {
     public List<Card> cards = new List<Card>(); 
     public int left_index = 0;         
@@ -20,7 +20,7 @@ public class CarouselController : MonoBehaviour
 
     public bool isFlip = false;   // Tells whether the card is flipped or not
 
-    public int currentDeck = 0;  // 0 -> Abilities 
+    public string currentDeck = "Abilities";  // 0 -> Abilities 
 
     void Start(){
         left_card_button.onClick.AddListener(CarouselRotationLeft);
