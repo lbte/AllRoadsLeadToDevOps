@@ -18,9 +18,7 @@ public class PlanCarouselController : MonoBehaviour
     public Button center_card_button;
     public Button right_card_button;
 
-    public bool isFlip = false;   // Tells whether the card is flipped or not
-
-    public string currentDeck = "Abilities";  // 0 -> Abilities 
+    private bool isFlip = false;   // Tells whether the card is flipped or not
 
     void Start(){
         left_card_button.onClick.AddListener(CarouselRotationLeft);
@@ -63,15 +61,20 @@ public class PlanCarouselController : MonoBehaviour
         UpdateCardImages();
     }
 
-    // Shows the reverse of the center card
-    void FlipCard(){
-        if(isFlip){
+    void FlipCard()
+    {
+        if (isFlip)
+        {
             center_image.sprite = cards[center_index].card_image;
             isFlip = false;
         }
-        else{
+        else
+        {
             center_image.sprite = cards[center_index].card_description;
             isFlip = true;
-        } 
+        }
+        // Si la tarjeta queda en la descripción, cuando se pase a otra carta
+        // se debe dar clic dos veces para que voltee a la descripción, porque
+        // había quedado en la descripción en el flip anterior.
     }
 }
