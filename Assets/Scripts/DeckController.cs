@@ -30,8 +30,7 @@ public class DeckController : MonoBehaviour
         plan_abilities.SetActive(false);
         plan_tools.SetActive(false);
 
-        // to trigger events when specific buttons are clicked
-        deck_button.onClick.AddListener(DeckButton);
+        // to show views when the arrow buttons are clicked
         up_arrow_button.onClick.AddListener(UpButton);
         down_arrow_button.onClick.AddListener(DownButton);
 
@@ -44,27 +43,23 @@ public class DeckController : MonoBehaviour
     // Update the text that appears on the deck button
     public void UpdateButtonText()
     {
+        // change the button text
         deck_button_text.text = plan_parts[word_index];
-    }
 
-    // TODO: QUE CAMBIE EL VIEW DEPENDIENDO DE LA PALABRA, NO DANDO CLICK AL BOTÓN.
-    // activate or deactivate the view of for part of the plan stage according to the deck button
-    public void DeckButton()
-    {
-       if (deck_button_text.text == "Project")
+        if (deck_button_text.text == "Project")
         {
             plan_project.SetActive(true);
             plan_architecture.SetActive(false);
             plan_abilities.SetActive(false);
             plan_tools.SetActive(false);
-        } 
+        }
         else if (deck_button_text.text == "Architecture")
         {
             plan_project.SetActive(false);
             plan_architecture.SetActive(true);
             plan_abilities.SetActive(false);
             plan_tools.SetActive(false);
-        } 
+        }
         else if (deck_button_text.text == "Abilities")
         {
             plan_project.SetActive(false);
@@ -79,22 +74,23 @@ public class DeckController : MonoBehaviour
             plan_abilities.SetActive(false);
             plan_tools.SetActive(true);
         }
-
     }
 
-    // move up on the arrows
+    // move up on the arrows and show different views according to that
     public void UpButton()
     {
         word_index++;
         if (word_index >= plan_parts.Count) word_index = 0;
-        UpdateButtonText();
+
+        UpdateButtonText();      
     }
 
-    // move down on the arrows
+    // move down on the arrows and show different views according to that
     public void DownButton()
     {
         word_index--;
         if (word_index < 0) word_index = plan_parts.Count - 1;
+
         UpdateButtonText();
     }
 }

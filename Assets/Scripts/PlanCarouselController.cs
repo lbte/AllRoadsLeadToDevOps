@@ -46,6 +46,8 @@ public class PlanCarouselController : MonoBehaviour
         if(left_index >= cards.Count) left_index = 0;
 
         UpdateCardImages();
+
+        isFlip = false;
     }
 
     // Rotates the carousel of cards to the left
@@ -59,6 +61,8 @@ public class PlanCarouselController : MonoBehaviour
         if(left_index < 0) left_index = cards.Count-1;
 
         UpdateCardImages();
+
+        isFlip = false;
     }
 
     void FlipCard()
@@ -73,8 +77,5 @@ public class PlanCarouselController : MonoBehaviour
             center_image.sprite = cards[center_index].card_description;
             isFlip = true;
         }
-        // Si la tarjeta queda en la descripción, cuando se pase a otra carta
-        // se debe dar clic dos veces para que voltee a la descripción, porque
-        // había quedado en la descripción en el flip anterior.
     }
 }
