@@ -1,0 +1,96 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class CodeCarouselController : MonoBehaviour
+{
+    public List<List<Card>> decks = new List<List<Card>>();
+    public List<Card> impact_elements = new List<Card>();
+    public List<Card> holding_elements = new List<Card>();
+    public List<Card> mechanism_elements = new List<Card>();
+    public List<Card> bait_elements = new List<Card>();
+    public int current_deck_index = 0;
+    private int left_index = 0;
+    private int center_index = 1;
+    private int right_index = 2;
+
+    public Image left_image;
+    public Image center_image;
+    public Image right_image;
+
+    public Button left_card_button;
+    public Button center_card_button;
+    public Button right_card_button;
+
+    private bool isFlip = false;   // Tells whether the card is flipped or not
+
+    void Start()
+    {
+        decks.Add(impact_elements);
+        decks.Add(holding_elements);
+        decks.Add(mechanism_elements);
+        decks.Add(bait_elements);
+        left_card_button.onClick.AddListener(CarouselRotationLeft);
+        center_card_button.onClick.AddListener(FlipCard);
+        right_card_button.onClick.AddListener(CarouselRotationRight);
+
+        UpdateCardImages();
+    }
+
+    // Updates cards images
+    public void UpdateCardImages()
+    {
+        left_image.sprite = decks[current_deck_index][left_index].card_image;
+        center_image.sprite = decks[current_deck_index][center_index].card_image;
+        right_image.sprite = decks[current_deck_index][right_index].card_image;
+
+        isFlip = false;
+    }
+
+    // Rotates the carousel of cards to the right
+    void CarouselRotationRight()
+    {
+        left_index++;
+        center_index++;
+        right_index++;
+
+        if (right_index >= decks[current_deck_index].Count) right_index = 0;
+        if (center_index >= decks[current_deck_index].Count) center_index = 0;
+        if (left_index >= decks[current_deck_index].Count) left_index = 0;
+
+        UpdateCardImages();
+
+        isFlip = false;
+    }
+
+    // Rotates the carousel of cards to the left
+    void CarouselRotationLeft()
+    {
+        left_index--;
+        center_index--;
+        right_index--;
+
+        if (right_index < 0) right_index = decks[current_deck_index].Count - 1;
+        if (center_index < 0) center_index = decks[current_deck_index].Count - 1;
+        if (left_index < 0) left_index = decks[current_deck_index].Count - 1;
+
+        UpdateCardImages();
+
+        isFlip = false;
+    }
+
+    void FlipCard()
+    {
+        if (isFlip)
+        {
+            center_image.sprite = decks[current_deck_index][center_index].card_image;
+            isFlip = false;
+        }
+        else
+        {
+            center_image.sprite = decks[current_deck_index][center_index].card_description;
+            isFlip = true;
+        }
+    }
+}

@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PlanCarouselController : MonoBehaviour
 {
-    public List<Card> cards = new List<Card>(); 
-    public int left_index = 0;         
-    public int center_index = 1;       
-    public int right_index = 2;        
+    public List<Card> cards = new List<Card>();
+    private int left_index = 0;
+    private int center_index = 1;
+    private int right_index = 2;
 
     public Image left_image;
     public Image center_image;
@@ -20,7 +20,8 @@ public class PlanCarouselController : MonoBehaviour
 
     private bool isFlip = false;   // Tells whether the card is flipped or not
 
-    void Start(){
+    void Start()
+    {
         left_card_button.onClick.AddListener(CarouselRotationLeft);
         center_card_button.onClick.AddListener(FlipCard);
         right_card_button.onClick.AddListener(CarouselRotationRight);
@@ -29,21 +30,23 @@ public class PlanCarouselController : MonoBehaviour
     }
 
     // Updates cards images
-    void UpdateCardImages(){
+    void UpdateCardImages()
+    {
         left_image.sprite = cards[left_index].card_image;
         center_image.sprite = cards[center_index].card_image;
         right_image.sprite = cards[right_index].card_image;
     }
 
     // Rotates the carousel of cards to the right
-    void CarouselRotationRight(){
+    void CarouselRotationRight()
+    {
         left_index++;
         center_index++;
         right_index++;
 
-        if(right_index >= cards.Count) right_index = 0;
-        if(center_index >= cards.Count) center_index = 0;
-        if(left_index >= cards.Count) left_index = 0;
+        if (right_index >= cards.Count) right_index = 0;
+        if (center_index >= cards.Count) center_index = 0;
+        if (left_index >= cards.Count) left_index = 0;
 
         UpdateCardImages();
 
@@ -51,14 +54,15 @@ public class PlanCarouselController : MonoBehaviour
     }
 
     // Rotates the carousel of cards to the left
-    void CarouselRotationLeft(){
+    void CarouselRotationLeft()
+    {
         left_index--;
         center_index--;
         right_index--;
 
-        if(right_index < 0) right_index = cards.Count-1;
-        if(center_index < 0) center_index = cards.Count-1;
-        if(left_index < 0) left_index = cards.Count-1;
+        if (right_index < 0) right_index = cards.Count - 1;
+        if (center_index < 0) center_index = cards.Count - 1;
+        if (left_index < 0) left_index = cards.Count - 1;
 
         UpdateCardImages();
 

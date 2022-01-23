@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class CardController : MonoBehaviour
+public class FlipCardController : MonoBehaviour
 {  
     public Image card_image;
     public Card card;

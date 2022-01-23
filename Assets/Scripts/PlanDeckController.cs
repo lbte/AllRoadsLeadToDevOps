@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class DeckController : MonoBehaviour
+public class PlanDeckController : MonoBehaviour
 {
     // buttons for each deck of each part
     public Button deck_button;
     public Button up_arrow_button;
     public Button down_arrow_button;
     public Text deck_button_text;
+    public Button select_button;
 
     // each section objects
     public GameObject plan_project;
@@ -40,6 +40,14 @@ public class DeckController : MonoBehaviour
 
     }
 
+    void DeactivateParts()
+    {
+        plan_project.SetActive(false);
+        plan_architecture.SetActive(false);
+        plan_abilities.SetActive(false);
+        plan_tools.SetActive(false);
+    }
+
     // Update the text that appears on the deck button
     public void UpdateButtonText()
     {
@@ -48,31 +56,27 @@ public class DeckController : MonoBehaviour
 
         if (deck_button_text.text == "Project")
         {
+            DeactivateParts();
             plan_project.SetActive(true);
-            plan_architecture.SetActive(false);
-            plan_abilities.SetActive(false);
-            plan_tools.SetActive(false);
+            select_button.gameObject.SetActive(false);
         }
         else if (deck_button_text.text == "Architecture")
         {
-            plan_project.SetActive(false);
+            DeactivateParts();
             plan_architecture.SetActive(true);
-            plan_abilities.SetActive(false);
-            plan_tools.SetActive(false);
+            select_button.gameObject.SetActive(false);
         }
         else if (deck_button_text.text == "Abilities")
         {
-            plan_project.SetActive(false);
-            plan_architecture.SetActive(false);
+            DeactivateParts();
             plan_abilities.SetActive(true);
-            plan_tools.SetActive(false);
+            select_button.gameObject.SetActive(true);
         }
         else
         {
-            plan_project.SetActive(false);
-            plan_architecture.SetActive(false);
-            plan_abilities.SetActive(false);
+            DeactivateParts();
             plan_tools.SetActive(true);
+            select_button.gameObject.SetActive(false);
         }
     }
 
