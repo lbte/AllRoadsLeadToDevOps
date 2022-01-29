@@ -64,7 +64,7 @@ public class PlanDeckController : MonoBehaviour
         {
             DeactivateParts();
             plan_architecture.SetActive(true);
-            select_button.gameObject.SetActive(false);
+            select_button.gameObject.SetActive(true);
         }
         else if (deck_button_text.text == "Abilities")
         {
