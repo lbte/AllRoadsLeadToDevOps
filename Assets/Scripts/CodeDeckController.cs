@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CodeDeckController : MonoBehaviour
 {
-    // buttons for each deck of each part
+     // buttons for each deck of each part
     public Button deck_button;
     public Button up_arrow_button;
     public Button down_arrow_button;
@@ -60,7 +60,7 @@ public class CodeDeckController : MonoBehaviour
         word_index--;
         if (word_index < 0) word_index = plan_parts.Count - 1;
         carousel_script.current_deck_index--;
-        if (carousel_script.current_deck_index < 0) carousel_script.current_deck_index = carousel_script.decks.Count-1;
+        if (carousel_script.current_deck_index < 0) carousel_script.current_deck_index = carousel_script.decks.Count - 1;
 
         UpdateButtonText();
         carousel_script.UpdateCardImages();
