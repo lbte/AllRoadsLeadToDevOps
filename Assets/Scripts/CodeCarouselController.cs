@@ -5,12 +5,7 @@ using UnityEngine.UI;
 
 public class CodeCarouselController : MonoBehaviour
 {
-    public List<List<Card>> decks = new List<List<Card>>();
-    public List<Card> impact_elements = new List<Card>();
-    public List<Card> holding_elements = new List<Card>();
-    public List<Card> mechanism_elements = new List<Card>();
-    public List<Card> bait_elements = new List<Card>();
-    public int current_deck_index = 0;
+    public List<Card> deck = new List<Card>();
     private int left_index = 0;
     private int center_index = 1;
     private int right_index = 2;
@@ -34,10 +29,6 @@ public class CodeCarouselController : MonoBehaviour
 
     void Start()
     {
-        decks.Add(impact_elements);
-        decks.Add(holding_elements);
-        decks.Add(mechanism_elements);
-        decks.Add(bait_elements);
         select_button.onClick.AddListener(SelectButtonHandler);
         left_card_button.onClick.AddListener(CarouselRotationLeft);
         center_card_button.onClick.AddListener(FlipCard);
@@ -50,9 +41,9 @@ public class CodeCarouselController : MonoBehaviour
     // Updates cards images
     public void UpdateCardImages()
     {
-        left_image.sprite = decks[current_deck_index][left_index].card_image;
-        center_image.sprite = decks[current_deck_index][center_index].card_image;
-        right_image.sprite = decks[current_deck_index][right_index].card_image;
+        left_image.sprite = deck[left_index].card_image;
+        center_image.sprite = deck[center_index].card_image;
+        right_image.sprite = deck[right_index].card_image;
 
         isFlip = false;
     }
@@ -64,9 +55,9 @@ public class CodeCarouselController : MonoBehaviour
         center_index++;
         right_index++;
 
-        if (right_index >= decks[current_deck_index].Count) right_index = 0;
-        if (center_index >= decks[current_deck_index].Count) center_index = 0;
-        if (left_index >= decks[current_deck_index].Count) left_index = 0;
+        if (right_index >= deck.Count) right_index = 0;
+        if (center_index >= deck.Count) center_index = 0;
+        if (left_index >= deck.Count) left_index = 0;
 
         UpdateCardImages();
         DisableSelectedIcon();
@@ -82,9 +73,9 @@ public class CodeCarouselController : MonoBehaviour
         center_index--;
         right_index--;
 
-        if (right_index < 0) right_index = decks[current_deck_index].Count - 1;
-        if (center_index < 0) center_index = decks[current_deck_index].Count - 1;
-        if (left_index < 0) left_index = decks[current_deck_index].Count - 1;
+        if (right_index < 0) right_index = deck.Count - 1;
+        if (center_index < 0) center_index = deck.Count - 1;
+        if (left_index < 0) left_index = deck.Count - 1;
 
         UpdateCardImages();
         DisableSelectedIcon();
@@ -97,22 +88,22 @@ public class CodeCarouselController : MonoBehaviour
     {
         if (isFlip)
         {
-            center_image.sprite = decks[current_deck_index][center_index].card_image;
+            center_image.sprite = deck[center_index].card_image;
             isFlip = false;
         }
         else
         {
-            center_image.sprite = decks[current_deck_index][center_index].card_description;
+            center_image.sprite = deck[center_index].card_description;
             isFlip = true;
         }
     }
 
     void SelectButtonHandler(){
-        if(decks[current_deck_index][center_index].selected == true){
-            decks[current_deck_index][center_index].selected = false;
+        if(deck[center_index].selected == true){
+            deck[center_index].selected = false;
         }
         else{
-            decks[current_deck_index][center_index].selected = true;
+            deck[center_index].selected = true;
         }
         DisableSelectedIcon();
         UpdateSelectedIcon();
@@ -125,15 +116,15 @@ public class CodeCarouselController : MonoBehaviour
     }
 
     void UpdateSelectedIcon(){
-        if(decks[current_deck_index][left_index].selected == true){
+        if(deck[left_index].selected == true){
             left_card_selected_icon.gameObject.SetActive(true);
             left_card_selected_icon.sprite = card_selected_icon;
         }
-        if(decks[current_deck_index][center_index].selected == true){
+        if(deck[center_index].selected == true){
             center_card_selected_icon.gameObject.SetActive(true);
             center_card_selected_icon.sprite = card_selected_icon;
         }
-        if(decks[current_deck_index][right_index].selected == true){
+        if(deck[right_index].selected == true){
             right_card_selected_icon.gameObject.SetActive(true);
             right_card_selected_icon.sprite = card_selected_icon;
         }
