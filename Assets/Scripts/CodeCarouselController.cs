@@ -19,9 +19,16 @@ public class CodeCarouselController : MonoBehaviour
     public Image center_image;
     public Image right_image;
 
+    public Image left_card_selected_icon;
+    public Image center_card_selected_icon;
+    public Image right_card_selected_icon;
+    public Sprite card_selected_icon;
+
     public Button left_card_button;
     public Button center_card_button;
     public Button right_card_button;
+
+    public Button select_button;
 
     private bool isFlip = false;   // Tells whether the card is flipped or not
 
@@ -31,10 +38,12 @@ public class CodeCarouselController : MonoBehaviour
         decks.Add(holding_elements);
         decks.Add(mechanism_elements);
         decks.Add(bait_elements);
+        select_button.onClick.AddListener(SelectButtonHandler);
         left_card_button.onClick.AddListener(CarouselRotationLeft);
         center_card_button.onClick.AddListener(FlipCard);
         right_card_button.onClick.AddListener(CarouselRotationRight);
 
+        DisableSelectedIcon();
         UpdateCardImages();
     }
 
@@ -60,6 +69,8 @@ public class CodeCarouselController : MonoBehaviour
         if (left_index >= decks[current_deck_index].Count) left_index = 0;
 
         UpdateCardImages();
+        DisableSelectedIcon();
+        UpdateSelectedIcon();
 
         isFlip = false;
     }
@@ -76,6 +87,8 @@ public class CodeCarouselController : MonoBehaviour
         if (left_index < 0) left_index = decks[current_deck_index].Count - 1;
 
         UpdateCardImages();
+        DisableSelectedIcon();
+        UpdateSelectedIcon();
 
         isFlip = false;
     }
@@ -91,6 +104,38 @@ public class CodeCarouselController : MonoBehaviour
         {
             center_image.sprite = decks[current_deck_index][center_index].card_description;
             isFlip = true;
+        }
+    }
+
+    void SelectButtonHandler(){
+        if(decks[current_deck_index][center_index].selected == true){
+            decks[current_deck_index][center_index].selected = false;
+        }
+        else{
+            decks[current_deck_index][center_index].selected = true;
+        }
+        DisableSelectedIcon();
+        UpdateSelectedIcon();
+    }
+
+    void DisableSelectedIcon(){
+        left_card_selected_icon.gameObject.SetActive(false);
+        center_card_selected_icon.gameObject.SetActive(false);
+        right_card_selected_icon.gameObject.SetActive(false);
+    }
+
+    void UpdateSelectedIcon(){
+        if(decks[current_deck_index][left_index].selected == true){
+            left_card_selected_icon.gameObject.SetActive(true);
+            left_card_selected_icon.sprite = card_selected_icon;
+        }
+        if(decks[current_deck_index][center_index].selected == true){
+            center_card_selected_icon.gameObject.SetActive(true);
+            center_card_selected_icon.sprite = card_selected_icon;
+        }
+        if(decks[current_deck_index][right_index].selected == true){
+            right_card_selected_icon.gameObject.SetActive(true);
+            right_card_selected_icon.sprite = card_selected_icon;
         }
     }
 }
