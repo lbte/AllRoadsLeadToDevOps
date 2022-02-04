@@ -9,4 +9,5 @@ public class Card
     public Sprite card_image;
     public Sprite card_description;
     public bool selected = false;
+    public string category = "";
 }

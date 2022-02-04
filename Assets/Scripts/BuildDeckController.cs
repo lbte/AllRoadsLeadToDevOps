@@ -10,14 +10,14 @@ public class BuildDeckController : MonoBehaviour
     public Button up_arrow_button;
     public Button down_arrow_button;
     public Text deck_button_text;
-    public Button select_button;
 
     // list with the decks names
     private List<string> plan_parts = new List<string>() { "Impact", "Holding", "Mechanism", "Bait" };
     private int word_index;
 
     void Start()
-    {
+    {   
+
         // to show views when the arrow buttons are clicked
         up_arrow_button.onClick.AddListener(UpButton);
         down_arrow_button.onClick.AddListener(DownButton);
