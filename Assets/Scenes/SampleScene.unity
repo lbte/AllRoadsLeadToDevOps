@@ -1923,10 +1923,14 @@ MonoBehaviour:
   left_card_selected_icon: {fileID: 2002230425}
   center_card_selected_icon: {fileID: 122238883}
   right_card_selected_icon: {fileID: 881024011}
-  card_selected_icon_impact: {fileID: 21300000, guid: 9ee6a0fee23e1cb45b77b6cfbe51755f, type: 3}
-  card_selected_icon_holding: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
-  card_selected_icon_mechanism: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
-  card_selected_icon_bait: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4, type: 3}
+  card_selected_icon_impact: {fileID: 21300000, guid: 9ee6a0fee23e1cb45b77b6cfbe51755f,
+    type: 3}
+  card_selected_icon_holding: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509,
+    type: 3}
+  card_selected_icon_mechanism: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d,
+    type: 3}
+  card_selected_icon_bait: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4,
+    type: 3}
   left_card_button: {fileID: 688137898}
   center_card_button: {fileID: 2128192971}
   right_card_button: {fileID: 1353708894}
@@ -9841,6 +9845,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994063989}
   m_CullTransparentMesh: 1
+--- !u!1 &2002053674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2002053675}
+  m_Layer: 0
+  m_Name: papa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2002053675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002053674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 146.28444, y: 87.358444, z: -26.110561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002230423
 GameObject:
   m_ObjectHideFlags: 0
