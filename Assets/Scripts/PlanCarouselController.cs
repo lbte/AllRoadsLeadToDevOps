@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlanCarouselController : MonoBehaviour
 {
     public List<Card> cards = new List<Card>();
-    private int left_index = 0;
-    private int center_index = 1;
-    private int right_index = 2;
+    public int left_index = 0;
+    public int center_index = 1;
+    public int right_index = 2;
 
     public Image left_image;
     public Image center_image;
@@ -20,11 +20,16 @@ public class PlanCarouselController : MonoBehaviour
 
     private bool isFlip = false;   // Tells whether the card is flipped or not
 
+    public GameObject plan;
+    public PlanDeckController plan_deck_controller;
+
     void Start()
     {
         left_card_button.onClick.AddListener(CarouselRotationLeft);
         center_card_button.onClick.AddListener(FlipCard);
         right_card_button.onClick.AddListener(CarouselRotationRight);
+
+        plan_deck_controller = plan.GetComponent<PlanDeckController>();
 
         UpdateCardImages();
     }
@@ -51,6 +56,9 @@ public class PlanCarouselController : MonoBehaviour
         UpdateCardImages();
 
         isFlip = false;
+
+        plan_deck_controller.DisableLevelIcon();
+        plan_deck_controller.UpdateLevelIcon();
     }
 
     // Rotates the carousel of cards to the left
@@ -67,6 +75,8 @@ public class PlanCarouselController : MonoBehaviour
         UpdateCardImages();
 
         isFlip = false;
+        plan_deck_controller.DisableLevelIcon();
+        plan_deck_controller.UpdateLevelIcon();
     }
 
     void FlipCard()

@@ -23,7 +23,7 @@ public class PlanDeckController : MonoBehaviour
     private int word_index;
 
     // Level icons
-    /* public Sprite levelIcon;
+    public Sprite levelIcon;
 
     public Image left_card_level_icon_1;
     public Image left_card_level_icon_2;
@@ -35,11 +35,13 @@ public class PlanDeckController : MonoBehaviour
     
     public Image right_card_level_icon_1;
     public Image right_card_level_icon_2;
-    public Image right_card_level_icon_3; */
+    public Image right_card_level_icon_3;
 
+    // Abilities cards
+    public PlanCarouselController plan_abilities_script;
 
     void Start()
-    {
+    {   
         // the default view is the project view
         plan_project.SetActive(true);
         plan_architecture.SetActive(false);
@@ -53,7 +55,7 @@ public class PlanDeckController : MonoBehaviour
         // default index for the project window
         word_index = plan_parts.IndexOf("Project"); // default screen
         UpdateButtonText();
-
+        DisableLevelIcon();
     }
 
     void DeactivateParts()
@@ -88,9 +90,11 @@ public class PlanDeckController : MonoBehaviour
             plan_abilities.SetActive(true);
             select_button.gameObject.SetActive(true);
 
+            plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
+
             // Change level icons
-            //DisableLevelIcon();
-            //UpdateLevelIcon();
+            DisableLevelIcon();
+            UpdateLevelIcon();
         }
         else
         {
@@ -118,21 +122,62 @@ public class PlanDeckController : MonoBehaviour
         UpdateButtonText();
     }
 
-    /* public void DisableLevelIcon(){
-        left_card_level_icon_1.SetActive(false);
-        left_card_level_icon_2.SetActive(false);
-        left_card_level_icon_3.SetActive(false);
+    public void DisableLevelIcon()
+    {
+        left_card_level_icon_1.gameObject.SetActive(false);
+        left_card_level_icon_2.gameObject.SetActive(false);
+        left_card_level_icon_3.gameObject.SetActive(false);
 
-        center_card_level_icon_1.SetActive(false);
-        center_card_level_icon_2.SetActive(false);
-        center_card_level_icon_3.SetActive(false);
+        center_card_level_icon_1.gameObject.SetActive(false);
+        center_card_level_icon_2.gameObject.SetActive(false);
+        center_card_level_icon_3.gameObject.SetActive(false);
 
-        right_card_level_icon_1.SetActive(false);
-        right_card_level_icon_2.SetActive(false);
-        right_card_level_icon_3.SetActive(false);
+        right_card_level_icon_1.gameObject.SetActive(false);
+        right_card_level_icon_2.gameObject.SetActive(false);
+        right_card_level_icon_3.gameObject.SetActive(false);
     }
 
-    public void UpdateLevelIcon(){
-        // Hola buenas
-    } */
+    public void UpdateLevelIcon()
+    {
+        List<Card> deck = plan_abilities_script.cards;
+        int left_card_level = deck[plan_abilities_script.left_index].level;
+        int center_card_level = deck[plan_abilities_script.center_index].level;
+        int right_card_level = deck[plan_abilities_script.right_index].level;
+
+        /* foreach(Image level in plan_abilities.transform.Find("LeftCardLevels")){
+            level.gameObject.SetActive(false);
+        } */
+        // Left card
+        if(left_card_level >= 1){
+            left_card_level_icon_1.gameObject.SetActive(true);
+        }
+        if(left_card_level >= 2){
+            left_card_level_icon_2.gameObject.SetActive(true);
+        }
+        if(left_card_level >= 3){
+            left_card_level_icon_3.gameObject.SetActive(true);
+        }
+
+        // Center card
+        if(center_card_level >= 1){
+            center_card_level_icon_1.gameObject.SetActive(true);
+        }
+        if(center_card_level >= 2){
+            center_card_level_icon_2.gameObject.SetActive(true);
+        }
+        if(center_card_level >= 3){
+            center_card_level_icon_3.gameObject.SetActive(true);
+        }
+
+        // Right card
+        if(right_card_level >= 1){
+            right_card_level_icon_1.gameObject.SetActive(true);
+        }
+        if(right_card_level >= 2){
+            right_card_level_icon_2.gameObject.SetActive(true);
+        }
+        if(right_card_level >= 3){
+            right_card_level_icon_3.gameObject.SetActive(true);
+        }
+    }
 }

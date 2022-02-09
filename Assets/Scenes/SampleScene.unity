@@ -180,12 +180,12 @@ MonoBehaviour:
     card_description: {fileID: 21300000, guid: 5a13244f1ff3b9e48a7e3c95524e8be6, type: 3}
     selected: 0
     category: 
-    level: 0
+    level: 2
   - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
     card_description: {fileID: 21300000, guid: 5a13244f1ff3b9e48a7e3c95524e8be6, type: 3}
     selected: 0
     category: 
-    level: 0
+    level: 1
   - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
     card_description: {fileID: 21300000, guid: 5a13244f1ff3b9e48a7e3c95524e8be6, type: 3}
     selected: 0
@@ -195,18 +195,23 @@ MonoBehaviour:
     card_description: {fileID: 21300000, guid: 5a13244f1ff3b9e48a7e3c95524e8be6, type: 3}
     selected: 0
     category: 
-    level: 0
+    level: 3
   - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
     card_description: {fileID: 21300000, guid: 5a13244f1ff3b9e48a7e3c95524e8be6, type: 3}
     selected: 0
     category: 
-    level: 0
+    level: 3
+  left_index: 0
+  center_index: 1
+  right_index: 2
   left_image: {fileID: 2033454174}
   center_image: {fileID: 143269271}
   right_image: {fileID: 389838299}
   left_card_button: {fileID: 1148105688}
   center_card_button: {fileID: 1416311053}
   right_card_button: {fileID: 630560795}
+  plan: {fileID: 98171817}
+  plan_deck_controller: {fileID: 0}
 --- !u!1 &27976035
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +684,17 @@ MonoBehaviour:
   plan_architecture: {fileID: 1943217616}
   plan_abilities: {fileID: 9742740}
   plan_tools: {fileID: 1686695327}
+  levelIcon: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
+  left_card_level_icon_1: {fileID: 1216538246}
+  left_card_level_icon_2: {fileID: 548405127}
+  left_card_level_icon_3: {fileID: 2061300510}
+  center_card_level_icon_1: {fileID: 1392893267}
+  center_card_level_icon_2: {fileID: 346228397}
+  center_card_level_icon_3: {fileID: 243548128}
+  right_card_level_icon_1: {fileID: 633601230}
+  right_card_level_icon_2: {fileID: 246609269}
+  right_card_level_icon_3: {fileID: 1753519632}
+  plan_abilities_script: {fileID: 0}
 --- !u!224 &98171819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1478,7 +1494,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1553,7 +1569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1863,7 +1879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3270,7 +3286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3734,7 +3750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6543,7 +6559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7126,7 +7142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49.8, y: 159.5}
+  m_AnchoredPosition: {x: -49.80003, y: 159.50002}
   m_SizeDelta: {x: 28.2898, y: 25.9241}
   m_Pivot: {x: 0.50000006, y: 0.50000006}
 --- !u!114 &1392893267
@@ -7149,7 +7165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8500,7 +8516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1686695328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8937,7 +8953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1725133527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9035,7 +9051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9891,7 +9907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1943217617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9952,12 +9968,17 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+  left_index: 0
+  center_index: 1
+  right_index: 2
   left_image: {fileID: 1700908656}
   center_image: {fileID: 1850790694}
   right_image: {fileID: 616749160}
   left_card_button: {fileID: 1938332649}
   center_card_button: {fileID: 1591573639}
   right_card_button: {fileID: 1218841608}
+  plan: {fileID: 98171817}
+  plan_deck_controller: {fileID: 0}
 --- !u!1 &1952592783
 GameObject:
   m_ObjectHideFlags: 0
@@ -10556,7 +10577,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
