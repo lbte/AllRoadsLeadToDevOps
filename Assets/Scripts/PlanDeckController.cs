@@ -22,6 +22,22 @@ public class PlanDeckController : MonoBehaviour
     private List<string> plan_parts = new List<string>() { "Project", "Architecture", "Abilities", "Tools" };
     private int word_index;
 
+    // Level icons
+    /* public Sprite levelIcon;
+
+    public Image left_card_level_icon_1;
+    public Image left_card_level_icon_2;
+    public Image left_card_level_icon_3;
+
+    public Image center_card_level_icon_1;
+    public Image center_card_level_icon_2;
+    public Image center_card_level_icon_3;
+    
+    public Image right_card_level_icon_1;
+    public Image right_card_level_icon_2;
+    public Image right_card_level_icon_3; */
+
+
     void Start()
     {
         // the default view is the project view
@@ -71,6 +87,10 @@ public class PlanDeckController : MonoBehaviour
             DeactivateParts();
             plan_abilities.SetActive(true);
             select_button.gameObject.SetActive(true);
+
+            // Change level icons
+            //DisableLevelIcon();
+            //UpdateLevelIcon();
         }
         else
         {
@@ -97,4 +117,22 @@ public class PlanDeckController : MonoBehaviour
 
         UpdateButtonText();
     }
+
+    /* public void DisableLevelIcon(){
+        left_card_level_icon_1.SetActive(false);
+        left_card_level_icon_2.SetActive(false);
+        left_card_level_icon_3.SetActive(false);
+
+        center_card_level_icon_1.SetActive(false);
+        center_card_level_icon_2.SetActive(false);
+        center_card_level_icon_3.SetActive(false);
+
+        right_card_level_icon_1.SetActive(false);
+        right_card_level_icon_2.SetActive(false);
+        right_card_level_icon_3.SetActive(false);
+    }
+
+    public void UpdateLevelIcon(){
+        // Hola buenas
+    } */
 }
