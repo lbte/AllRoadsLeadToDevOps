@@ -7267,6 +7267,10 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+  x: 0
+  y: 0
+  z: 0
+  timer: 0
   card_button: {fileID: 29377132}
 --- !u!1 &1692946055
 GameObject:
@@ -7702,6 +7706,10 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+  x: 0
+  y: 1
+  z: 0
+  timer: 0
   card_button: {fileID: 1883505130}
 --- !u!1 &1753519630
 GameObject:

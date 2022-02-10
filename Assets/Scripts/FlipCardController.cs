@@ -8,6 +8,8 @@ public class FlipCardController : MonoBehaviour
 {  
     public Image card_image;
     public Card card;
+    public float x, y, z;
+    public int timer;
 
     public Button card_button;
 
@@ -16,12 +18,18 @@ public class FlipCardController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        card_button.onClick.AddListener(FlipCard);
+        card_button.onClick.AddListener(StartFlipCard);
         card_image.sprite = card.card_image;
     }
 
     // Shows the reverse of the center card
-    void FlipCard()
+    void StartFlipCard()
+    {
+        StartCoroutine(CalculateFlip());
+
+    }
+
+    void Flip()
     {
         if (isFlip)
         {
@@ -34,4 +42,21 @@ public class FlipCardController : MonoBehaviour
             isFlip = true;
         }
     }
+
+    IEnumerator CalculateFlip()
+    {
+        for (int i = 0; i < 180; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            transform.Rotate(new Vector3(x, y, z));
+            timer++;
+
+            if (timer == 90 || timer == -90)
+            {
+                Flip();
+            }
+        }
+        timer = 0;
+    }
+
 }
