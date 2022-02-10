@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ChecklistWindow
+    uniqueID: 838972395
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
