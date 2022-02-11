@@ -21,7 +21,7 @@ public class PlanCarouselController : MonoBehaviour
     private bool isFlip = false;   // Tells whether the card is flipped or not
 
     public GameObject plan;
-    public PlanDeckController plan_deck_controller;
+    private PlanDeckController plan_deck_controller;
 
     void Start()
     {

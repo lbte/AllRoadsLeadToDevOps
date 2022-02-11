@@ -24,6 +24,8 @@ public class StageController : MonoBehaviour
     public GameObject operate_stage;
     public GameObject monitor_stage;
 
+    private TutorialTextTrigger tutorial_trigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,8 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "CODE";
             DeactivatedStages();
             code_stage.SetActive(true);
+            tutorial_trigger = code_stage.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else if (stage_title_text.text == "CODE")
@@ -73,6 +77,8 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "BUILD";
             DeactivatedStages();
             build_stage.SetActive(true);
+            tutorial_trigger = build_stage.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else if (stage_title_text.text == "BUILD")
@@ -80,6 +86,8 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "TEST";
             DeactivatedStages();
             test_stage.SetActive(true);
+            tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else if (stage_title_text.text == "TEST")
@@ -87,6 +95,8 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "RELEASE";
             DeactivatedStages();
             release_stage.SetActive(true);
+            tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else if (stage_title_text.text == "RELEASE")
@@ -94,6 +104,8 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "DEPLOY";
             DeactivatedStages();
             deploy_stage.SetActive(true);
+            tutorial_trigger = deploy_stage.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else if (stage_title_text.text == "DEPLOY")
@@ -101,6 +113,8 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "OPERATE";
             DeactivatedStages();
             operate_stage.SetActive(true);
+            tutorial_trigger = operate_stage.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else if (stage_title_text.text == "OPERATE")
@@ -108,6 +122,8 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "MONITOR";
             DeactivatedStages();
             monitor_stage.SetActive(true);
+            tutorial_trigger = monitor_stage.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else

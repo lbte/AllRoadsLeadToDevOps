@@ -38,7 +38,10 @@ public class PlanDeckController : MonoBehaviour
     public Image right_card_level_icon_3;
 
     // Abilities cards
-    public PlanCarouselController plan_abilities_script;
+    private PlanCarouselController plan_abilities_script;
+
+    // to trigger the tutorials for each section
+    private TutorialTextTrigger tutorial_trigger;
 
     void Start()
     {   
@@ -76,18 +79,24 @@ public class PlanDeckController : MonoBehaviour
         {
             DeactivateParts();
             plan_project.SetActive(true);
+            tutorial_trigger = plan_project.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             select_button.gameObject.SetActive(false);
         }
         else if (deck_button_text.text == "Architecture")
         {
             DeactivateParts();
             plan_architecture.SetActive(true);
+            tutorial_trigger = plan_architecture.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             select_button.gameObject.SetActive(true);
         }
         else if (deck_button_text.text == "Abilities")
         {
             DeactivateParts();
             plan_abilities.SetActive(true);
+            tutorial_trigger = plan_abilities.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             select_button.gameObject.SetActive(true);
 
             plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
@@ -96,10 +105,12 @@ public class PlanDeckController : MonoBehaviour
             DisableLevelIcon();
             UpdateLevelIcon();
         }
-        else
+        else if (deck_button_text.text == "Tools")
         {
             DeactivateParts();
             plan_tools.SetActive(true);
+            tutorial_trigger = plan_tools.GetComponent<TutorialTextTrigger>();
+            tutorial_trigger.TriggerTutorial();
             select_button.gameObject.SetActive(false);
         }
     }

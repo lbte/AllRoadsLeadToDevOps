@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9742741}
   - component: {fileID: 9742743}
+  - component: {fileID: 9742742}
   m_Layer: 5
   m_Name: PlanAbilities
   m_TagString: Untagged
@@ -163,6 +164,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.11050415}
   m_SizeDelta: {x: 0, y: 0.22479248}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9742742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9742740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eeb03fb9cc9cf345be5e6c45b326a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial_dialogue:
+    sentences: []
 --- !u!114 &9742743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +226,6 @@ MonoBehaviour:
   center_card_button: {fileID: 1416311053}
   right_card_button: {fileID: 630560795}
   plan: {fileID: 98171817}
-  plan_deck_controller: {fileID: 0}
 --- !u!1 &27976035
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +629,6 @@ MonoBehaviour:
   right_card_level_icon_1: {fileID: 633601230}
   right_card_level_icon_2: {fileID: 246609269}
   right_card_level_icon_3: {fileID: 1753519632}
-  plan_abilities_script: {fileID: 0}
 --- !u!224 &98171819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2359,6 +2372,7 @@ RectTransform:
   - {fileID: 2117120325}
   - {fileID: 432855335}
   - {fileID: 1985874290}
+  - {fileID: 477168559}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2500,6 +2514,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439396768}
   m_CullTransparentMesh: 1
+--- !u!1 &477168558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 477168559}
+  - component: {fileID: 477168560}
+  m_Layer: 5
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &477168559
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477168558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1496450585}
+  m_Father: {fileID: 397590585}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.10789996}
+  m_SizeDelta: {x: 800, y: 451.08}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &477168560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477168558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02876a9451687e40966d7ce25c71911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial_text: {fileID: 1869653658}
+  animator: {fileID: 1496450586}
 --- !u!1 &514150231
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,7 +3687,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
-    m_FontSize: 20
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3716,6 +3781,139 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764466336}
+  m_CullTransparentMesh: 1
+--- !u!1 &764645673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764645674}
+  - component: {fileID: 764645677}
+  - component: {fileID: 764645676}
+  - component: {fileID: 764645675}
+  m_Layer: 0
+  m_Name: TutorialContinueButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &764645674
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764645673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 973044149}
+  m_Father: {fileID: 1496450585}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 74.331, y: -33.348}
+  m_SizeDelta: {x: 106.097, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &764645675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764645673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 973044150}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 477168560}
+        m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &764645676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764645673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &764645677
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764645673}
   m_CullTransparentMesh: 1
 --- !u!1 &777574980
 GameObject:
@@ -4289,6 +4487,85 @@ Transform:
   m_Father: {fileID: 1314844776}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &973044148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973044149}
+  - component: {fileID: 973044151}
+  - component: {fileID: 973044150}
+  m_Layer: 0
+  m_Name: TutorialContinueButtonText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &973044149
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973044148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 764645674}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 12, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &973044150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973044148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
+    m_FontSize: 13
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Continue>>
+--- !u!222 &973044151
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973044148}
+  m_CullTransparentMesh: 1
 --- !u!1 &1005559491
 GameObject:
   m_ObjectHideFlags: 0
@@ -6576,6 +6853,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardBack: {fileID: 268917653}
+--- !u!1 &1496450584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496450585}
+  - component: {fileID: 1496450588}
+  - component: {fileID: 1496450587}
+  - component: {fileID: 1496450586}
+  m_Layer: 0
+  m_Name: TutorialWindow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1496450585
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496450584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1869653657}
+  - {fileID: 764645674}
+  m_Father: {fileID: 477168559}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -245, y: 156}
+  m_SizeDelta: {x: 275.341, y: 96.696}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1496450586
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496450584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d2c6b58c2395614695b5459490c1526, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1496450587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496450584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1496450588
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496450584}
+  m_CullTransparentMesh: 1
 --- !u!1 &1517944483
 GameObject:
   m_ObjectHideFlags: 0
@@ -7442,6 +7816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1672468008}
   - component: {fileID: 1672468009}
+  - component: {fileID: 1672468010}
   m_Layer: 5
   m_Name: Build
   m_TagString: Untagged
@@ -7487,6 +7862,20 @@ MonoBehaviour:
   up_arrow_button: {fileID: 1408685496}
   down_arrow_button: {fileID: 1993214490}
   deck_button_text: {fileID: 806168278}
+--- !u!114 &1672468010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672468007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eeb03fb9cc9cf345be5e6c45b326a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial_dialogue:
+    sentences: []
 --- !u!1 &1686695327
 GameObject:
   m_ObjectHideFlags: 0
@@ -7497,6 +7886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1686695328}
   - component: {fileID: 1686695329}
+  - component: {fileID: 1686695330}
   m_Layer: 5
   m_Name: PlanTools
   m_TagString: Untagged
@@ -7544,7 +7934,25 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+  x: 0
+  y: 0
+  z: 0
+  timer: 0
   card_button: {fileID: 29377132}
+--- !u!114 &1686695330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686695327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eeb03fb9cc9cf345be5e6c45b326a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial_dialogue:
+    sentences: []
 --- !u!1 &1692946055
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,6 +8340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1725133527}
+  - component: {fileID: 1725133528}
   m_Layer: 5
   m_Name: PlanProject
   m_TagString: Untagged
@@ -7960,6 +8369,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.11050415}
   m_SizeDelta: {x: 0, y: 0.22479248}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1725133528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725133526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eeb03fb9cc9cf345be5e6c45b326a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial_dialogue:
+    sentences:
+    - Hi, get ready to start this journey on learning DevOps...
+    - 'Here you will find the description of the project that you''re about to make,
+      read it carefully so you can continue with the other sections. '
+    - 'Press any of the arrows on the left to move through the sections of the plan
+      stage. '
 --- !u!1 &1753519630
 GameObject:
   m_ObjectHideFlags: 0
@@ -8305,6 +8733,87 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866844962}
+  m_CullTransparentMesh: 1
+--- !u!1 &1869653656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869653657}
+  - component: {fileID: 1869653659}
+  - component: {fileID: 1869653658}
+  m_Layer: 0
+  m_Name: TutorialWindowText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1869653657
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869653656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1496450585}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000019073, y: 7}
+  m_SizeDelta: {x: 259.918, y: 62.868}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1869653658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869653656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
+    m_FontSize: 13
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Hi, get ready to start this journey on learning DevOps...
+
+'
+--- !u!222 &1869653659
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869653656}
   m_CullTransparentMesh: 1
 --- !u!1 &1873497078
 GameObject:
@@ -8866,6 +9375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1943217617}
   - component: {fileID: 1943217618}
+  - component: {fileID: 1943217619}
   m_Layer: 5
   m_Name: PlanArchitectures
   m_TagString: Untagged
@@ -8943,7 +9453,25 @@ MonoBehaviour:
   center_card_button: {fileID: 1591573639}
   right_card_button: {fileID: 1218841608}
   plan: {fileID: 98171817}
-  plan_deck_controller: {fileID: 0}
+--- !u!114 &1943217619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943217616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eeb03fb9cc9cf345be5e6c45b326a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial_dialogue:
+    sentences:
+    - "Now that you're here, you need to choose which type of architecture you think
+      best fits the project you're going to make\u2026"
+    - 'When you read the project what kind of development came to your mind? '
+    - Choose between these two by placing the one you want in the middle card and
+      clicking the select button.
 --- !u!1 &1952592783
 GameObject:
   m_ObjectHideFlags: 0
@@ -9841,6 +10369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2126573146}
+  - component: {fileID: 2126573147}
   m_Layer: 5
   m_Name: Code
   m_TagString: Untagged
@@ -9870,6 +10399,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.00030517578}
   m_SizeDelta: {x: 0, y: 0.44000244}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2126573147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126573145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eeb03fb9cc9cf345be5e6c45b326a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial_dialogue:
+    sentences:
+    - There are several elements here!
+    - According to the architecture you chose please select the elements you consider
+      can help you build the project.
 --- !u!1 &2128192969
 GameObject:
   m_ObjectHideFlags: 0
