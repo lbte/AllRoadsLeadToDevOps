@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TurnOverCard : MonoBehaviour
+public class TurnOverCard : MonoBehaviour, IPointerDownHandler
 {
     public GameObject cardBack;
 
@@ -10,10 +11,30 @@ public class TurnOverCard : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+        /*if (Input.GetMouseButtonDown(0))
         {
+            // convert the click position to world space in order to properly compare against the position of the GameObjects.
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // to drop the z-coordinate, and use it as the starting point. 
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+            // Vector2.zero as the direction of the Raycast to ensure only objects located directly at the point of the click are detected
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+
+            // to determine if anything was hit by the click
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                hit.collider.attachedRigidbody.AddForce(Vector2.up);
+            }
             StartFlip();
-        }
+        }*/
+    }
+
+    public void OnPointerDown(PointerEventData event_data)
+    {
+        StartFlip();
     }
 
     public void StartFlip()
@@ -39,7 +60,6 @@ public class TurnOverCard : MonoBehaviour
     {
         for (float i = 0f; i < 180f; i += 10f)
         {
-
             transform.rotation = Quaternion.Euler(0f, i, 0f);
 
             if (i == 90f || i == -90f)
