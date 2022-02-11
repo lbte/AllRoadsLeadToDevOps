@@ -18,15 +18,12 @@ public class PlanCarouselController : MonoBehaviour
     public Button center_card_button;
     public Button right_card_button;
 
-    private bool isFlip = false;   // Tells whether the card is flipped or not
-
     public GameObject plan;
     private PlanDeckController plan_deck_controller;
 
     void Start()
     {
         left_card_button.onClick.AddListener(CarouselRotationLeft);
-        center_card_button.onClick.AddListener(FlipCard);
         right_card_button.onClick.AddListener(CarouselRotationRight);
 
         plan_deck_controller = plan.GetComponent<PlanDeckController>();
@@ -77,19 +74,5 @@ public class PlanCarouselController : MonoBehaviour
         isFlip = false;
         plan_deck_controller.DisableLevelIcon();
         plan_deck_controller.UpdateLevelIcon();
-    }
-
-    void FlipCard()
-    {
-        if (isFlip)
-        {
-            center_image.sprite = cards[center_index].card_image;
-            isFlip = false;
-        }
-        else
-        {
-            center_image.sprite = cards[center_index].card_description;
-            isFlip = true;
-        }
     }
 }

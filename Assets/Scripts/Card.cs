@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Card
 {   
     public Sprite card_image;
-    public Sprite card_description;
+    public string card_description;
     public bool selected = false;
     public string category = "";
     public int level = 0;
