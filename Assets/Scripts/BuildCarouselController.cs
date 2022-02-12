@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class BuildCarouselController : MonoBehaviour
 {
     public List<Card> cards = new List<Card>();
-    private int left_index = 0;
-    private int center_index = 1;
-    private int right_index = 2;
+    public int left_index = 0;
+    public int center_index = 1;
+    public int right_index = 2;
 
     public Button select_button;
 

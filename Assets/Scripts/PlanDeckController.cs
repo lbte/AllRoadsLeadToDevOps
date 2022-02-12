@@ -21,6 +21,7 @@ public class PlanDeckController : MonoBehaviour
     // list with the decks names
     private List<string> plan_parts = new List<string>() { "Project", "Architecture", "Abilities", "Tools" };
     private int word_index;
+    private List<Card> deck;
 
     // Level icons
     public Sprite levelIcon;
@@ -54,6 +55,8 @@ public class PlanDeckController : MonoBehaviour
         // to show views when the arrow buttons are clicked
         up_arrow_button.onClick.AddListener(UpButton);
         down_arrow_button.onClick.AddListener(DownButton);
+
+        plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
 
         // default index for the project window
         word_index = plan_parts.IndexOf("Project"); // default screen
@@ -98,8 +101,6 @@ public class PlanDeckController : MonoBehaviour
             tutorial_trigger = plan_abilities.GetComponent<TutorialTextTrigger>();
             tutorial_trigger.TriggerTutorial();
             select_button.gameObject.SetActive(true);
-
-            plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
 
             // Change level icons
             DisableLevelIcon();
@@ -150,14 +151,11 @@ public class PlanDeckController : MonoBehaviour
 
     public void UpdateLevelIcon()
     {
-        List<Card> deck = plan_abilities_script.cards;
+        deck = plan_abilities_script.cards;
         int left_card_level = deck[plan_abilities_script.left_index].level;
         int center_card_level = deck[plan_abilities_script.center_index].level;
         int right_card_level = deck[plan_abilities_script.right_index].level;
 
-        /* foreach(Image level in plan_abilities.transform.Find("LeftCardLevels")){
-            level.gameObject.SetActive(false);
-        } */
         // Left card
         if(left_card_level >= 1){
             left_card_level_icon_1.gameObject.SetActive(true);
