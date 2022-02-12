@@ -25,13 +25,10 @@ public class CodeCarouselController : MonoBehaviour
 
     public Button select_button;
 
-    private bool isFlip = false;   // Tells whether the card is flipped or not
-
     void Start()
     {
         select_button.onClick.AddListener(SelectButtonHandler);
         left_card_button.onClick.AddListener(CarouselRotationLeft);
-        center_card_button.onClick.AddListener(FlipCard);
         right_card_button.onClick.AddListener(CarouselRotationRight);
 
         DisableSelectedIcon();
@@ -44,8 +41,6 @@ public class CodeCarouselController : MonoBehaviour
         left_image.sprite = deck[left_index].card_image;
         center_image.sprite = deck[center_index].card_image;
         right_image.sprite = deck[right_index].card_image;
-
-        isFlip = false;
     }
 
     // Rotates the carousel of cards to the right
@@ -62,8 +57,6 @@ public class CodeCarouselController : MonoBehaviour
         UpdateCardImages();
         DisableSelectedIcon();
         UpdateSelectedIcon();
-
-        isFlip = false;
     }
 
     // Rotates the carousel of cards to the left
@@ -80,22 +73,6 @@ public class CodeCarouselController : MonoBehaviour
         UpdateCardImages();
         DisableSelectedIcon();
         UpdateSelectedIcon();
-
-        isFlip = false;
-    }
-
-    void FlipCard()
-    {
-        if (isFlip)
-        {
-            center_image.sprite = deck[center_index].card_image;
-            isFlip = false;
-        }
-        else
-        {
-            center_image.sprite = deck[center_index].card_description;
-            isFlip = true;
-        }
     }
 
     void SelectButtonHandler(){

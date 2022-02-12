@@ -28,8 +28,6 @@ public class BuildCarouselController : MonoBehaviour
     public Button center_card_button;
     public Button right_card_button;
 
-    private bool isFlip = false;   // Tells whether the card is flipped or not
-
     [SerializeField] private BuildDeckController deck;
 
     void Start()
@@ -38,7 +36,6 @@ public class BuildCarouselController : MonoBehaviour
 
         select_button.onClick.AddListener(SelectButtonHandler);
         left_card_button.onClick.AddListener(CarouselRotationLeft);
-        center_card_button.onClick.AddListener(FlipCard);
         right_card_button.onClick.AddListener(CarouselRotationRight);
 
         DisableSelectedIcon();
@@ -67,8 +64,6 @@ public class BuildCarouselController : MonoBehaviour
         UpdateCardImages();
         DisableSelectedIcon();
         UpdateSelectedIcon();
-
-        isFlip = false;
     }
 
     // Rotates the carousel of cards to the left
@@ -86,21 +81,6 @@ public class BuildCarouselController : MonoBehaviour
         DisableSelectedIcon();
         UpdateSelectedIcon();
 
-        isFlip = false;
-    }
-
-    void FlipCard()
-    {
-        if (isFlip)
-        {
-            center_image.sprite = cards[center_index].card_image;
-            isFlip = false;
-        }
-        else
-        {
-            center_image.sprite = cards[center_index].card_description;
-            isFlip = true;
-        }
     }
 
     void SelectButtonHandler(){

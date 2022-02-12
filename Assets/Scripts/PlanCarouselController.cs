@@ -52,8 +52,6 @@ public class PlanCarouselController : MonoBehaviour
 
         UpdateCardImages();
 
-        isFlip = false;
-
         plan_deck_controller.DisableLevelIcon();
         plan_deck_controller.UpdateLevelIcon();
     }
@@ -71,7 +69,6 @@ public class PlanCarouselController : MonoBehaviour
 
         UpdateCardImages();
 
-        isFlip = false;
         plan_deck_controller.DisableLevelIcon();
         plan_deck_controller.UpdateLevelIcon();
     }
