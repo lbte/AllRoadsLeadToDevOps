@@ -22,6 +22,7 @@ public class PlanDeckController : MonoBehaviour
     private List<string> plan_parts = new List<string>() { "Project", "Architecture", "Abilities", "Tools" };
     private int word_index;
     private List<Card> deck;
+    public Card random_card;
 
     // Level icons
     public Sprite levelIcon;
@@ -40,6 +41,7 @@ public class PlanDeckController : MonoBehaviour
 
     // Abilities cards
     private PlanCarouselController plan_abilities_script;
+    private CardDescriptionController card_description_script;
 
     // to trigger the tutorials for each section
     private TutorialTextTrigger tutorial_trigger;
@@ -111,8 +113,11 @@ public class PlanDeckController : MonoBehaviour
             DeactivateParts();
             plan_tools.SetActive(true);
             tutorial_trigger = plan_tools.GetComponent<TutorialTextTrigger>();
+            card_description_script = GameObject.Find("PlanToolsCardDescription").GetComponent<CardDescriptionController>();
             tutorial_trigger.TriggerTutorial();
             select_button.gameObject.SetActive(false);
+            random_card = card_description_script.single_card_script.cards[(int)Random.Range(0, card_description_script.single_card_script.cards.Count - 1)];
+            card_description_script.plan_tools_card_image.sprite = random_card.card_image;
         }
     }
 
