@@ -38,7 +38,6 @@ public class CardDescriptionController : MonoBehaviour
         description_button = GameObject.Find("CardDescriptionButton").GetComponent<Button>();
         close_description_button = GameObject.Find("CardDescriptionCloseButton").GetComponent<Button>();
         stage_controller_script = GameObject.Find("Views").GetComponent<StageController>();
-        plan_deck_script = plan_stage.GetComponent<PlanDeckController>();
         description_button.onClick.AddListener(DescriptionWindow);
         close_description_button.onClick.AddListener(CloseDescriptionWindow);
     }
@@ -49,6 +48,7 @@ public class CardDescriptionController : MonoBehaviour
         {
             plan_stage = GameObject.Find("Plan");
             // Depending on which deck we are in, assign the description of the center card accordingly
+            plan_deck_script = plan_stage.GetComponent<PlanDeckController>();
 
             if (plan_deck_script.deck_button_text.text == "Project")
             {

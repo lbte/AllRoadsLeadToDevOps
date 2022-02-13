@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // selected architecture 
-
-    // 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public string selected_architecture;
+    public List<Card> selected_code_cards = new List<Card>();
 }

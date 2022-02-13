@@ -26,6 +26,10 @@ public class StageController : MonoBehaviour
 
     private TutorialTextTrigger tutorial_trigger;
 
+    private CodeCarouselController code_carousel_script;
+    private PlayerController player_controller_script;
+    private BuildCarouselController build_carousel_script;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,9 +78,28 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "CODE")
         {
+            // Save selected cards in PlayerController
+            code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
+            player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
+        
+            foreach(Card card in code_carousel_script.deck){
+                if(card.selected == true){
+                    card.selected = false;
+                    player_controller_script.selected_code_cards.Add(card);
+                }
+            }
+            
+
             stage_title_text.text = "BUILD";
             DeactivatedStages();
             build_stage.SetActive(true);
+
+            // Update selected cards in BuildCarouselController (from PllayerController)
+            build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();  
+            build_carousel_script.AssignSelectedCodeCards();
+            build_carousel_script.UpdateCardImages();
+            
+
             tutorial_trigger = build_stage.GetComponent<TutorialTextTrigger>();
             tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);

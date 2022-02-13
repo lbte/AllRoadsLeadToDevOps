@@ -11,4 +11,5 @@ public class Card
     public bool selected = false;
     public string category = "";
     public int level = 0;
+    public string id = "";
 }

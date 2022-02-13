@@ -197,26 +197,31 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 2
+    id: 
   - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 1
+    id: 
   - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 3
+    id: 
   - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 3
+    id: 
   left_index: 0
   center_index: 1
   right_index: 2
@@ -445,6 +450,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
     card_description: 'Docker: It''s an open source project that automates the deployment
       of applications inside software containers, providing an additional layer of
@@ -453,6 +459,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
     card_description: 'Puppet: It''s a Configuration Management tool that is used
       for deploying, configuring and managing servers, also it ensures that all systems
@@ -460,6 +467,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+    id: 
 --- !u!1 &37230508
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +666,13 @@ MonoBehaviour:
   plan_architecture: {fileID: 1943217616}
   plan_abilities: {fileID: 9742740}
   plan_tools: {fileID: 1686695327}
+  random_card:
+    card_image: {fileID: 0}
+    card_description: 
+    selected: 0
+    category: 
+    level: 0
+    id: 
   levelIcon: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   left_card_level_icon_1: {fileID: 1216538246}
   left_card_level_icon_2: {fileID: 548405127}
@@ -1332,12 +1347,7 @@ MonoBehaviour:
   text_description_window: {fileID: 825930644}
   animator_description_window: {fileID: 1568648821}
   plan_tools_card_image: {fileID: 0}
-  random_card:
-    card_image: {fileID: 0}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
+  single_card_script: {fileID: 0}
 --- !u!1 &179194572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,26 +1522,31 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
     card_description: item2
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
     card_description: item3
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
     card_description: item4
     selected: 0
     category: 
     level: 0
+    id: 
   left_index: 0
   center_index: 1
   right_index: 2
@@ -1850,12 +1865,7 @@ MonoBehaviour:
   text_description_window: {fileID: 673668308}
   animator_description_window: {fileID: 1608200954}
   plan_tools_card_image: {fileID: 0}
-  random_card:
-    card_image: {fileID: 0}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
+  single_card_script: {fileID: 0}
 --- !u!1 &243548126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,32 +2730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da7a3dcea784eb4d88b4dbe9a880dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards:
-  - card_image: {fileID: 21300000, guid: 9ee6a0fee23e1cb45b77b6cfbe51755f, type: 3}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
-  - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
-  - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
-  - card_image: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4, type: 3}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
-  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
+  cards: []
   left_index: 0
   center_index: 1
   right_index: 2
@@ -2777,6 +2762,7 @@ GameObject:
   - component: {fileID: 397590583}
   - component: {fileID: 397590582}
   - component: {fileID: 397590586}
+  - component: {fileID: 397590587}
   m_Layer: 5
   m_Name: Views
   m_TagString: Untagged
@@ -2898,6 +2884,20 @@ MonoBehaviour:
   deploy_stage: {fileID: 1534434795}
   operate_stage: {fileID: 2117120324}
   monitor_stage: {fileID: 432855334}
+--- !u!114 &397590587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397590581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cb8518dee37d54c968fbad5e4d2d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selected_architecture: 
+  selected_code_cards: []
 --- !u!1 &432855334
 GameObject:
   m_ObjectHideFlags: 0
@@ -5393,12 +5393,7 @@ MonoBehaviour:
   text_description_window: {fileID: 387414247}
   animator_description_window: {fileID: 1787033207}
   plan_tools_card_image: {fileID: 0}
-  random_card:
-    card_image: {fileID: 0}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
+  single_card_script: {fileID: 0}
 --- !u!1 &777574980
 GameObject:
   m_ObjectHideFlags: 0
@@ -5775,6 +5770,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+    id: 
 --- !u!1 &866513035
 GameObject:
   m_ObjectHideFlags: 0
@@ -8427,12 +8423,7 @@ MonoBehaviour:
   text_description_window: {fileID: 651674933}
   animator_description_window: {fileID: 1006375487}
   plan_tools_card_image: {fileID: 0}
-  random_card:
-    card_image: {fileID: 0}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
+  single_card_script: {fileID: 0}
 --- !u!1 &1314844775
 GameObject:
   m_ObjectHideFlags: 0
@@ -10358,12 +10349,7 @@ MonoBehaviour:
   text_description_window: {fileID: 1920300023}
   animator_description_window: {fileID: 866513037}
   plan_tools_card_image: {fileID: 0}
-  random_card:
-    card_image: {fileID: 0}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
+  single_card_script: {fileID: 0}
 --- !u!1 &1638572073
 GameObject:
   m_ObjectHideFlags: 0
@@ -12073,12 +12059,7 @@ MonoBehaviour:
   text_description_window: {fileID: 1736800722}
   animator_description_window: {fileID: 518501262}
   plan_tools_card_image: {fileID: 0}
-  random_card:
-    card_image: {fileID: 0}
-    card_description: 
-    selected: 0
-    category: 
-    level: 0
+  single_card_script: {fileID: 0}
 --- !u!1 &1866844962
 GameObject:
   m_ObjectHideFlags: 0
@@ -12927,6 +12908,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
     card_description: The system has a ground agent that must be in a high place,
       holding a weight that falls onto the prey, looking forward to catch it when
@@ -12934,11 +12916,13 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
+    id: 
   - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
     card_description: The system....
     selected: 0
     category: 
     level: 0
+    id: 
   left_index: 0
   center_index: 1
   right_index: 2

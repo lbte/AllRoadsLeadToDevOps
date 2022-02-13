@@ -30,6 +30,8 @@ public class BuildCarouselController : MonoBehaviour
 
     [SerializeField] private BuildDeckController deck;
 
+    private PlayerController player_controller_script;
+
     void Start()
     {
         deck = GameObject.Find("Build").GetComponent<BuildDeckController>();
@@ -38,12 +40,13 @@ public class BuildCarouselController : MonoBehaviour
         left_card_button.onClick.AddListener(CarouselRotationLeft);
         right_card_button.onClick.AddListener(CarouselRotationRight);
 
+        //AssignSelectedCodeCards();
         DisableSelectedIcon();
-        UpdateCardImages();
+        //UpdateCardImages();
     }
 
     // Updates cards images
-    void UpdateCardImages()
+    public void UpdateCardImages()
     {
         left_image.sprite = cards[left_index].card_image;
         center_image.sprite = cards[center_index].card_image;
@@ -127,6 +130,13 @@ public class BuildCarouselController : MonoBehaviour
             else if(cards[right_index].category == "Holding") right_card_selected_icon.sprite = card_selected_icon_holding;
             else if(cards[right_index].category == "Mechanism") right_card_selected_icon.sprite = card_selected_icon_mechanism;
             else if(cards[right_index].category == "Bait") right_card_selected_icon.sprite = card_selected_icon_bait;
+        }
+    }
+
+    public void AssignSelectedCodeCards(){
+        player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
+        foreach(Card card in player_controller_script.selected_code_cards){
+            cards.Add(card);
         }
     }
 }
