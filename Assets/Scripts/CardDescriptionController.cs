@@ -43,17 +43,17 @@ public class CardDescriptionController : MonoBehaviour
         {
             // Depending on which deck we are in, assign the description of the center card accordingly
             
-            if (plan_deck_script.deck_button_text.text == "Project")
-            {
-                Debug.Log("PROJECT");
-                
-                text_description_window.text = plan_deck_script.single_card_script_project.cards[0].card_description; 
-            }
-            else if (plan_deck_script.deck_button_text.text == "Architecture")
+            if (plan_deck_script.deck_button_text.text == "Architecture")
             {
                 plan_architecture = GameObject.Find("PlanArchitectures");
                 plan_carousel_script = plan_architecture.GetComponent<PlanCarouselController>();
                 text_description_window.text = plan_carousel_script.cards[plan_carousel_script.center_index].card_description;
+            }
+            else if (plan_deck_script.deck_button_text.text == "Project")
+            {
+                Debug.Log("PROJECT");
+
+                text_description_window.text = plan_deck_script.single_card_script_project.cards[0].card_description;
             }
             else if (plan_deck_script.deck_button_text.text == "Abilities")
             {
@@ -84,9 +84,8 @@ public class CardDescriptionController : MonoBehaviour
     {
         description_window.gameObject.SetActive(true);
         close_description_button.gameObject.SetActive(true);
-        animator_description_window.SetBool("IsDescriptionOpen", true);
         StageDescriptionAssignment();
-
+        animator_description_window.SetBool("IsDescriptionOpen", true);
     }
 
     void CloseDescriptionWindow()

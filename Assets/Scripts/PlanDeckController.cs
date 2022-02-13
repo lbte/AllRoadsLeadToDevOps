@@ -61,7 +61,6 @@ public class PlanDeckController : MonoBehaviour
         down_arrow_button.onClick.AddListener(DownButton);
 
         plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
-        
 
         // default index for the project window
         word_index = plan_parts.IndexOf("Project"); // default screen

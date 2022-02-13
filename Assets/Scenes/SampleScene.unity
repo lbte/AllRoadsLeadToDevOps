@@ -1306,7 +1306,7 @@ GameObject:
   - component: {fileID: 166161165}
   - component: {fileID: 166161166}
   m_Layer: 5
-  m_Name: CardDescription
+  m_Name: PlanProjectCardDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5242,7 +5242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64, y: -33.348}
+  m_AnchoredPosition: {x: 52, y: -33.348}
   m_SizeDelta: {x: 106.097, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764645675
@@ -5807,7 +5807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.4509706, y: 20.292992}
+  m_AnchoredPosition: {x: -7, y: 20.292992}
   m_SizeDelta: {x: 203.03, y: 173.813}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &866513037
@@ -9468,8 +9468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -265.94623, y: 156}
-  m_SizeDelta: {x: 247.449, y: 96.696}
+  m_AnchoredPosition: {x: -260.826, y: 156}
+  m_SizeDelta: {x: 200.291, y: 96.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1496450586
 Animator:
@@ -12215,8 +12215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 7}
-  m_SizeDelta: {x: 235.373, y: 62.868}
+  m_AnchoredPosition: {x: 4.4498, y: 7}
+  m_SizeDelta: {x: 195.11, y: 62.868}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869653658
 MonoBehaviour:
