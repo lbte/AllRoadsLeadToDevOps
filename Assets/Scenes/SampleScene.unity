@@ -1345,6 +1345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55848c0c6c1777a4597e179446bc8a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description_button: {fileID: 110897335}
+  close_description_button: {fileID: 1498643145}
   description_window: {fileID: 1568648822}
   text_description_window: {fileID: 825930644}
   animator_description_window: {fileID: 1568648821}
@@ -1862,6 +1864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55848c0c6c1777a4597e179446bc8a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description_button: {fileID: 1163967812}
+  close_description_button: {fileID: 970852696}
   description_window: {fileID: 1608200957}
   text_description_window: {fileID: 673668308}
   animator_description_window: {fileID: 1608200954}
@@ -5389,6 +5393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55848c0c6c1777a4597e179446bc8a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description_button: {fileID: 1704309659}
+  close_description_button: {fileID: 1284446058}
   description_window: {fileID: 1787033208}
   text_description_window: {fileID: 387414247}
   animator_description_window: {fileID: 1787033207}
@@ -8418,6 +8424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55848c0c6c1777a4597e179446bc8a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description_button: {fileID: 1638572075}
+  close_description_button: {fileID: 1710828538}
   description_window: {fileID: 1006375488}
   text_description_window: {fileID: 651674933}
   animator_description_window: {fileID: 1006375487}
@@ -10343,6 +10351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55848c0c6c1777a4597e179446bc8a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description_button: {fileID: 542413670}
+  close_description_button: {fileID: 332883437}
   description_window: {fileID: 866513038}
   text_description_window: {fileID: 1920300023}
   animator_description_window: {fileID: 866513037}
@@ -12056,6 +12066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55848c0c6c1777a4597e179446bc8a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description_button: {fileID: 509975320}
+  close_description_button: {fileID: 702350317}
   description_window: {fileID: 518501263}
   text_description_window: {fileID: 1736800722}
   animator_description_window: {fileID: 518501262}

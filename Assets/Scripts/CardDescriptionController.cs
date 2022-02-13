@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CardDescriptionController : MonoBehaviour
 {
-    private Button description_button;
-    private Button close_description_button;
+    public Button description_button;
+    public Button close_description_button;
     public Image description_window;
     public Text text_description_window;
     public Animator animator_description_window;
@@ -29,12 +29,9 @@ public class CardDescriptionController : MonoBehaviour
     void Start()
     {
         // Assignment of each game object
-        description_button = GameObject.Find("CardDescriptionButton").GetComponent<Button>();
-        close_description_button = GameObject.Find("CardDescriptionCloseButton").GetComponent<Button>();
         stage_controller_script = GameObject.Find("Views").GetComponent<StageController>();
         description_button.onClick.AddListener(DescriptionWindow);
         close_description_button.onClick.AddListener(CloseDescriptionWindow);
-        
     }
 
     void StageDescriptionAssignment()
@@ -51,8 +48,6 @@ public class CardDescriptionController : MonoBehaviour
             }
             else if (plan_deck_script.deck_button_text.text == "Project")
             {
-                Debug.Log("PROJECT");
-
                 text_description_window.text = plan_deck_script.single_card_script_project.cards[0].card_description;
             }
             else if (plan_deck_script.deck_button_text.text == "Abilities")
