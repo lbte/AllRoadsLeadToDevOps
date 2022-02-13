@@ -345,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: 0}
+  m_AnchoredPosition: {x: -55, y: 0}
   m_SizeDelta: {x: 167.2324, y: 279.6884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29377132
@@ -683,6 +683,8 @@ MonoBehaviour:
   right_card_level_icon_1: {fileID: 633601230}
   right_card_level_icon_2: {fileID: 246609269}
   right_card_level_icon_3: {fileID: 1753519632}
+  single_card_script_project: {fileID: 860583299}
+  single_card_script_tools: {fileID: 29377135}
 --- !u!224 &98171819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1346,8 +1348,7 @@ MonoBehaviour:
   description_window: {fileID: 1568648822}
   text_description_window: {fileID: 825930644}
   animator_description_window: {fileID: 1568648821}
-  plan_tools_card_image: {fileID: 0}
-  single_card_script: {fileID: 0}
+  plan_deck_script: {fileID: 98171818}
 --- !u!1 &179194572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,8 +1865,7 @@ MonoBehaviour:
   description_window: {fileID: 1608200957}
   text_description_window: {fileID: 673668308}
   animator_description_window: {fileID: 1608200954}
-  plan_tools_card_image: {fileID: 0}
-  single_card_script: {fileID: 0}
+  plan_deck_script: {fileID: 98171818}
 --- !u!1 &243548126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5242,7 +5242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.331, y: -33.348}
+  m_AnchoredPosition: {x: 64, y: -33.348}
   m_SizeDelta: {x: 106.097, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764645675
@@ -5392,8 +5392,7 @@ MonoBehaviour:
   description_window: {fileID: 1787033208}
   text_description_window: {fileID: 387414247}
   animator_description_window: {fileID: 1787033207}
-  plan_tools_card_image: {fileID: 0}
-  single_card_script: {fileID: 0}
+  plan_deck_script: {fileID: 0}
 --- !u!1 &777574980
 GameObject:
   m_ObjectHideFlags: 0
@@ -8422,8 +8421,7 @@ MonoBehaviour:
   description_window: {fileID: 1006375488}
   text_description_window: {fileID: 651674933}
   animator_description_window: {fileID: 1006375487}
-  plan_tools_card_image: {fileID: 0}
-  single_card_script: {fileID: 0}
+  plan_deck_script: {fileID: 0}
 --- !u!1 &1314844775
 GameObject:
   m_ObjectHideFlags: 0
@@ -9470,8 +9468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -245, y: 156}
-  m_SizeDelta: {x: 275.341, y: 96.696}
+  m_AnchoredPosition: {x: -265.94623, y: 156}
+  m_SizeDelta: {x: 247.449, y: 96.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1496450586
 Animator:
@@ -10348,8 +10346,7 @@ MonoBehaviour:
   description_window: {fileID: 866513038}
   text_description_window: {fileID: 1920300023}
   animator_description_window: {fileID: 866513037}
-  plan_tools_card_image: {fileID: 0}
-  single_card_script: {fileID: 0}
+  plan_deck_script: {fileID: 98171818}
 --- !u!1 &1638572073
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,7 +10999,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial_dialogue:
-    sentences: []
+    sentences:
+    - Hey look! A tool that is used in one of the Devops cycle stages!
+    - You must select in which stage of this beautiful cycle you think it goes...
+    - Do this according to the description you're able to read there and your own
+      gut.
 --- !u!1 &1692946055
 GameObject:
   m_ObjectHideFlags: 0
@@ -12058,8 +12059,7 @@ MonoBehaviour:
   description_window: {fileID: 518501263}
   text_description_window: {fileID: 1736800722}
   animator_description_window: {fileID: 518501262}
-  plan_tools_card_image: {fileID: 0}
-  single_card_script: {fileID: 0}
+  plan_deck_script: {fileID: 98171818}
 --- !u!1 &1866844962
 GameObject:
   m_ObjectHideFlags: 0
@@ -12215,8 +12215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000019073, y: 7}
-  m_SizeDelta: {x: 259.918, y: 62.868}
+  m_AnchoredPosition: {x: 1, y: 7}
+  m_SizeDelta: {x: 235.373, y: 62.868}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869653658
 MonoBehaviour:

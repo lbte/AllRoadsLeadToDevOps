@@ -11,6 +11,7 @@ public class PlanDeckController : MonoBehaviour
     public Button down_arrow_button;
     public Text deck_button_text;
     public Button select_button;
+    private Image plan_tools_card_image;
 
     // each section objects
     public GameObject plan_project;
@@ -41,7 +42,8 @@ public class PlanDeckController : MonoBehaviour
 
     // Abilities cards
     private PlanCarouselController plan_abilities_script;
-    private CardDescriptionController card_description_script;
+    public SingleCardController single_card_script_project;
+    public SingleCardController single_card_script_tools;
 
     // to trigger the tutorials for each section
     private TutorialTextTrigger tutorial_trigger;
@@ -59,6 +61,7 @@ public class PlanDeckController : MonoBehaviour
         down_arrow_button.onClick.AddListener(DownButton);
 
         plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
+        
 
         // default index for the project window
         word_index = plan_parts.IndexOf("Project"); // default screen
@@ -112,12 +115,14 @@ public class PlanDeckController : MonoBehaviour
         {
             DeactivateParts();
             plan_tools.SetActive(true);
+            plan_tools_card_image = GameObject.Find("ToolCardImage").GetComponent<Image>();
             tutorial_trigger = plan_tools.GetComponent<TutorialTextTrigger>();
-            card_description_script = GameObject.Find("PlanToolsCardDescription").GetComponent<CardDescriptionController>();
             tutorial_trigger.TriggerTutorial();
             select_button.gameObject.SetActive(false);
-            random_card = card_description_script.single_card_script.cards[(int)Random.Range(0, card_description_script.single_card_script.cards.Count - 1)];
-            card_description_script.plan_tools_card_image.sprite = random_card.card_image;
+
+            random_card = single_card_script_tools.cards[(int)Random.Range(0, single_card_script_tools.cards.Count - 1)];
+
+            plan_tools_card_image.sprite = random_card.card_image;
         }
     }
 

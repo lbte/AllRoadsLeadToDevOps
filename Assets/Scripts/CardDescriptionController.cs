@@ -10,18 +10,14 @@ public class CardDescriptionController : MonoBehaviour
     public Image description_window;
     public Text text_description_window;
     public Animator animator_description_window;
-    public Image plan_tools_card_image;
 
     private GameObject plan_stage;
-    private GameObject plan_project;
 
     private GameObject plan_architecture;
     private PlanCarouselController plan_carousel_script;
-    private PlanDeckController plan_deck_script;
+    public PlanDeckController plan_deck_script;
 
     private GameObject plan_abilities;
-
-    private GameObject plan_tools;
 
     private StageController stage_controller_script;
     private GameObject code_stage;
@@ -29,8 +25,6 @@ public class CardDescriptionController : MonoBehaviour
     private CodeCarouselController code_carousel_script;
     private GameObject build_stage;
     private BuildCarouselController build_carousel_script;
-
-    public SingleCardController single_card_script;
 
     void Start()
     {
@@ -40,22 +34,20 @@ public class CardDescriptionController : MonoBehaviour
         stage_controller_script = GameObject.Find("Views").GetComponent<StageController>();
         description_button.onClick.AddListener(DescriptionWindow);
         close_description_button.onClick.AddListener(CloseDescriptionWindow);
+        
     }
 
     void StageDescriptionAssignment()
     {
         if (stage_controller_script.stage_title_text.text == "PLAN") 
         {
-            plan_stage = GameObject.Find("Plan");
             // Depending on which deck we are in, assign the description of the center card accordingly
-            plan_deck_script = plan_stage.GetComponent<PlanDeckController>();
-
+            
             if (plan_deck_script.deck_button_text.text == "Project")
             {
                 Debug.Log("PROJECT");
-                plan_project = GameObject.Find("ProjectCardButton");
-                single_card_script = plan_project.GetComponent<SingleCardController>();
-                text_description_window.text = single_card_script.cards[0].card_description; 
+                
+                text_description_window.text = plan_deck_script.single_card_script_project.cards[0].card_description; 
             }
             else if (plan_deck_script.deck_button_text.text == "Architecture")
             {
@@ -71,9 +63,6 @@ public class CardDescriptionController : MonoBehaviour
             }
             else if (plan_deck_script.deck_button_text.text == "Tools")
             {
-                plan_tools = GameObject.Find("ToolCardButton");
-                plan_tools_card_image = GameObject.Find("ToolCardImage").GetComponent<Image>();
-                single_card_script = plan_tools.GetComponent<SingleCardController>();
                 text_description_window.text = plan_deck_script.random_card.card_description; 
             }
         }
