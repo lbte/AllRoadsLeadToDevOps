@@ -11,6 +11,7 @@ public class PlanDeckController : MonoBehaviour
     public Button down_arrow_button;
     public Text deck_button_text;
     public Button select_button;
+    public Button level_up_button;
     private Image plan_tools_card_image;
 
     // each section objects
@@ -48,6 +49,18 @@ public class PlanDeckController : MonoBehaviour
     // to trigger the tutorials for each section
     private TutorialTextTrigger tutorial_trigger;
 
+    private PlayerController player_controller_script;
+    private PlanCarouselController architecture_cards;
+
+    public bool selected_architecture_card = false;
+    private List<Card> cards;
+
+    // Selected cards icons
+    public Image left_card_selected_icon;
+    public Image center_card_selected_icon;
+    public Image right_card_selected_icon;
+    public Sprite card_selected_icon;
+
     void Start()
     {   
         // the default view is the project view
@@ -60,7 +73,14 @@ public class PlanDeckController : MonoBehaviour
         up_arrow_button.onClick.AddListener(UpButton);
         down_arrow_button.onClick.AddListener(DownButton);
 
+        select_button.onClick.AddListener(SelectButtonHandler);
+        level_up_button.onClick.AddListener(LevelUpButtonHandler);
+
         plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
+
+        player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
+        architecture_cards = plan_architecture.GetComponent<PlanCarouselController>();
+        cards = architecture_cards.cards;
 
         // default index for the project window
         word_index = plan_parts.IndexOf("Project"); // default screen
@@ -197,5 +217,46 @@ public class PlanDeckController : MonoBehaviour
         if(right_card_level >= 3){
             right_card_level_icon_3.gameObject.SetActive(true);
         }
+    }
+
+    void SelectButtonHandler(){
+        int center_index = architecture_cards.center_index;
+
+        if(deck_button_text.text == "Architecture"){
+            if(cards[center_index].selected == true) {
+                Debug.Log("Carta esta seleccionada");
+                cards[center_index].selected = false;
+                player_controller_script.selected_architecture = null;
+                selected_architecture_card = false;
+            }
+            else if(cards[center_index].selected == false && selected_architecture_card == false) {
+                cards[center_index].selected = true;
+                player_controller_script.selected_architecture = cards[center_index];
+                selected_architecture_card = true;
+            }
+        }
+
+        DisableSelectedIcon();
+        UpdateSelectedIcon();
+    }
+
+    void LevelUpButtonHandler(){
+        
+    }
+
+    public void DisableSelectedIcon(){
+        left_card_selected_icon.gameObject.SetActive(false);
+        center_card_selected_icon.gameObject.SetActive(false);
+        right_card_selected_icon.gameObject.SetActive(false);
+    }
+
+    public void UpdateSelectedIcon(){
+        int left_index = architecture_cards.left_index;
+        int center_index = architecture_cards.center_index;
+        int right_index = architecture_cards.right_index;
+
+        if(cards[left_index].selected == true) left_card_selected_icon.gameObject.SetActive(true);
+        if(cards[center_index].selected == true) center_card_selected_icon.gameObject.SetActive(true);
+        if(cards[right_index].selected == true) right_card_selected_icon.gameObject.SetActive(true);
     }
 }

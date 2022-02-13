@@ -54,6 +54,9 @@ public class PlanCarouselController : MonoBehaviour
 
         plan_deck_controller.DisableLevelIcon();
         plan_deck_controller.UpdateLevelIcon();
+
+        plan_deck_controller.DisableSelectedIcon();
+        plan_deck_controller.UpdateSelectedIcon();
     }
 
     // Rotates the carousel of cards to the left
@@ -71,5 +74,8 @@ public class PlanCarouselController : MonoBehaviour
 
         plan_deck_controller.DisableLevelIcon();
         plan_deck_controller.UpdateLevelIcon();
+
+        plan_deck_controller.DisableSelectedIcon();
+        plan_deck_controller.UpdateSelectedIcon();
     }
 }
