@@ -50,10 +50,14 @@ public class PlanDeckController : MonoBehaviour
     private TutorialTextTrigger tutorial_trigger;
 
     private PlayerController player_controller_script;
-    private PlanCarouselController architecture_cards;
+    private PlanCarouselController plan_architecture_carousel_script;
+    private PlanCarouselController plan_abilities_carousel_script;
 
-    public bool selected_architecture_card = false;
-    private List<Card> cards;
+    private bool selected_architecture_card = false;
+    private bool leveled_up_card = false;
+
+    private List<Card> cards;             // CAMBIAR NOMBRE
+    private List<Card> cards_abilities;
 
     // Selected cards icons
     public Image left_card_selected_icon;
@@ -79,8 +83,11 @@ public class PlanDeckController : MonoBehaviour
         plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
 
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
-        architecture_cards = plan_architecture.GetComponent<PlanCarouselController>();
-        cards = architecture_cards.cards;
+        plan_architecture_carousel_script = plan_architecture.GetComponent<PlanCarouselController>();
+        plan_abilities_carousel_script = plan_abilities.GetComponent<PlanCarouselController>();
+
+        cards = plan_architecture_carousel_script.cards;
+        cards_abilities = plan_abilities_carousel_script.cards;
 
         // default index for the project window
         word_index = plan_parts.IndexOf("Project"); // default screen
@@ -220,11 +227,10 @@ public class PlanDeckController : MonoBehaviour
     }
 
     void SelectButtonHandler(){
-        int center_index = architecture_cards.center_index;
+        int center_index = plan_architecture_carousel_script.center_index;
 
         if(deck_button_text.text == "Architecture"){
             if(cards[center_index].selected == true) {
-                Debug.Log("Carta esta seleccionada");
                 cards[center_index].selected = false;
                 player_controller_script.selected_architecture = null;
                 selected_architecture_card = false;
@@ -241,7 +247,16 @@ public class PlanDeckController : MonoBehaviour
     }
 
     void LevelUpButtonHandler(){
-        
+        int center_index = plan_abilities_carousel_script.center_index;
+        if(deck_button_text.text == "Abilities"){
+            if(leveled_up_card == false || leveled_up_card == true){
+                leveled_up_card = true;
+                cards_abilities[center_index].level += 1;
+                player_controller_script.abilities_levels[cards_abilities[center_index].id] += 1;
+            }
+        }
+        DisableLevelIcon();
+        UpdateLevelIcon();
     }
 
     public void DisableSelectedIcon(){
@@ -251,9 +266,9 @@ public class PlanDeckController : MonoBehaviour
     }
 
     public void UpdateSelectedIcon(){
-        int left_index = architecture_cards.left_index;
-        int center_index = architecture_cards.center_index;
-        int right_index = architecture_cards.right_index;
+        int left_index = plan_architecture_carousel_script.left_index;
+        int center_index = plan_architecture_carousel_script.center_index;
+        int right_index = plan_architecture_carousel_script.right_index;
 
         if(cards[left_index].selected == true) left_card_selected_icon.gameObject.SetActive(true);
         if(cards[center_index].selected == true) center_card_selected_icon.gameObject.SetActive(true);

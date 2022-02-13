@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CodeCarouselController : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class CodeCarouselController : MonoBehaviour
     public Button right_card_button;
 
     public Button select_button;
+
+    private int selected_cards_count = 0;
 
     void Start()
     {
@@ -78,9 +81,11 @@ public class CodeCarouselController : MonoBehaviour
     void SelectButtonHandler(){
         if(deck[center_index].selected == true){
             deck[center_index].selected = false;
+            selected_cards_count = Math.Max(0, selected_cards_count-1);
         }
-        else{
+        else if (deck[center_index].selected == false && selected_cards_count < 4) {
             deck[center_index].selected = true;
+            selected_cards_count += 1;
         }
         DisableSelectedIcon();
         UpdateSelectedIcon();

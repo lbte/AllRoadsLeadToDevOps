@@ -197,32 +197,50 @@ MonoBehaviour:
       architecture is the correct one).'
     selected: 0
     category: 
-    level: 2
-    id: 
+    level: 0
+    id: plan_level
   - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
     card_description: 
     selected: 0
     category: 
-    level: 1
-    id: 
+    level: 0
+    id: code_level
   - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
-    id: 
+    id: build_level
   - card_image: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4, type: 3}
     card_description: 
     selected: 0
     category: 
-    level: 3
-    id: 
+    level: 0
+    id: test_level
   - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
     card_description: 
     selected: 0
     category: 
-    level: 3
-    id: 
+    level: 0
+    id: release_level
+  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
+    card_description: 
+    selected: 0
+    category: 
+    level: 0
+    id: deploy_level
+  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
+    card_description: 
+    selected: 0
+    category: 
+    level: 0
+    id: operate_level
+  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
+    card_description: 
+    selected: 0
+    category: 
+    level: 0
+    id: monitor_level
   left_index: 0
   center_index: 1
   right_index: 2
@@ -687,7 +705,6 @@ MonoBehaviour:
   right_card_level_icon_3: {fileID: 1753519632}
   single_card_script_project: {fileID: 860583299}
   single_card_script_tools: {fileID: 29377135}
-  selected_architecture_card: 0
   left_card_selected_icon: {fileID: 396180674}
   center_card_selected_icon: {fileID: 971942800}
   right_card_selected_icon: {fileID: 274859905}
