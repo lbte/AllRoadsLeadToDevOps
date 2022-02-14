@@ -59,7 +59,7 @@ public class CardDescriptionController : MonoBehaviour
             }
             else if (plan_deck_script.deck_button_text.text == "Tools")
             {
-                text_description_window.text = plan_deck_script.random_card.card_description; 
+                text_description_window.text = plan_deck_script.random_tool_card.card_description; 
             }
         }
         else if (stage_controller_script.stage_title_text.text == "CODE")
