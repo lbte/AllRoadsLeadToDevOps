@@ -192,50 +192,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards:
-  - card_image: {fileID: 21300000, guid: 9ee6a0fee23e1cb45b77b6cfbe51755f, type: 3}
+  - card_image: {fileID: 21300000, guid: f8d16ae52de6c9145a802877dbff109f, type: 3}
     card_description: 'Plan: Be able to ask for architecture correctness (if certain
       architecture is the correct one).'
     selected: 0
     category: 
     level: 0
     id: plan_level
-  - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
+  - card_image: {fileID: 21300000, guid: 9205a4731a6f3c14fb837005daab20c6, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
     id: code_level
-  - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
+  - card_image: {fileID: 21300000, guid: 01ef2915947ddf54586e731866ca29ca, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
     id: build_level
-  - card_image: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4, type: 3}
+  - card_image: {fileID: 21300000, guid: 469fa3405b37f3b408ecb9840f71611b, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
     id: test_level
-  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
+  - card_image: {fileID: 21300000, guid: c287349f8369cde46a93b20177ffede9, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
     id: release_level
-  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
+  - card_image: {fileID: 21300000, guid: 4589aee46e39e6f459619011acef8665, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
     id: deploy_level
-  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
+  - card_image: {fileID: 21300000, guid: f41269202d7ce554b8ca09157dda3622, type: 3}
     card_description: 
     selected: 0
     category: 
     level: 0
     id: operate_level
-  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
+  - card_image: {fileID: 21300000, guid: ea24c41b63728034daddc28d012ff44e, type: 3}
     card_description: 
     selected: 0
     category: 
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards:
-  - card_image: {fileID: 21300000, guid: 9ee6a0fee23e1cb45b77b6cfbe51755f, type: 3}
+  - card_image: {fileID: 21300000, guid: 170885e3fffd3f54c9d1a3312785fc13, type: 3}
     card_description: 'Bitbucket: It''s a Git-based source code repository hosting
       service. It''s a cloud-based service that helps developers store and manage
       their code, as well as track and control the changes to their code'
@@ -470,7 +470,7 @@ MonoBehaviour:
     category: 
     level: 0
     id: 
-  - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
+  - card_image: {fileID: 21300000, guid: 3fec9e3e31e33514cb9ace773129ba5a, type: 3}
     card_description: 'Docker: It''s an open source project that automates the deployment
       of applications inside software containers, providing an additional layer of
       abstraction and automation of application virtualization across multiple operating
@@ -479,10 +479,139 @@ MonoBehaviour:
     category: 
     level: 0
     id: 
-  - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
+  - card_image: {fileID: 21300000, guid: f94a496d155cc9f4785b80065ce499b5, type: 3}
     card_description: 'Puppet: It''s a Configuration Management tool that is used
       for deploying, configuring and managing servers, also it ensures that all systems
       are configured to a desired and predictable state.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: ef150dc57133ca846b973e4a7bd9ca1e, type: 3}
+    card_description: 'Github: It''s a code hosting platform for version control
+      and collaboration. It lets developers work together on projects from anywhere.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: ec932eb0a0c64384f8ba06e2dcc97bef, type: 3}
+    card_description: 'JUnit: It''s an open source framework designed for the purpose
+      of writing and running tests. JUnit allows the developer to incrementally build
+      test suites to measure progress and detect unintended side effects. Tests can
+      be run continuously. Results are provided immediately.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: d900be82c431f0e418c5e723baa68a99, type: 3}
+    card_description: 'Gradle: It''s a build automation tool for multi-language software
+      development. It controls the development process in the tasks of compilation
+      and packaging to testing, deployment, and publishing.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: d0e1dad34a898fb4880f7dd375c0abba, type: 3}
+    card_description: 'Chef: Chef is an automation tool that provides a way to define
+      infrastructure as code. Infrastructure as code (IAC) simply means that managing
+      infrastructure by writing code (Automating infrastructure) rather than using
+      manual processes.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 18724426563c07d498a3de24058148c9, type: 3}
+    card_description: 'New Relic: It''s a Software as a Service offering that focuses
+      on performance and availability monitoring. It uses a standardized Apdex (application
+      performance index) score to set and rate application performance across the
+      environment in a unified manner.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 174f88ef3d3d3c04ba02c9fdb22dd1df, type: 3}
+    card_description: 'Vagrant: It''s an open-source tool that helps to automate
+      the creation and management of Virtual Machines.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 3664507a286b2ad42a93541af83f2ae8, type: 3}
+    card_description: 'Jira: Online tool used for issue tracking and project management.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 7355890328365bd44af19909cd294193, type: 3}
+    card_description: 'PowerShell: PowerShell is a cross-platform task automation
+      solution made up of a command-line shell, a scripting language, and a configuration
+      management framework. '
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 2559d8808ed6f4146a324470aea3449d, type: 3}
+    card_description: 'Selenium: It''s a free (open-source) automated testing framework
+      used to validate web applications across different browsers and platforms.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 879c4b6e09371274bb84d16a9170d5eb, type: 3}
+    card_description: 'Datadog: It''s a monitoring service for cloud applications,
+      providing monitoring of servers, databases, tools and services through a data
+      analytics platform.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: e19c67b0065bd0a4d896ce7e380e6047, type: 3}
+    card_description: 'AWS: AWS is made up of many different cloud computing products
+      and services. It provides servers, storage, networking, remote computing, email,
+      mobile development, and security.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 6eb89622430074b49bfc03b839ab12c1, type: 3}
+    card_description: 'Jenkins: It''s an open-source automation tool written in Java
+      with plugins built for Continuous Integration purposes. Jenkins is used to
+      build and test software projects continuously making it easier for developers
+      to integrate changes to the project, and making it easier for users to obtain
+      a fresh build. '
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: c40b999445627ef4e8a473aa7505900b, type: 3}
+    card_description: 'Git: It''s a version control system. Tracks the changes made
+      to files, in order to have a record of what has been done, so the project can
+      be reverted to specific versions whenever it''s needed.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 081ce13f37de4f248a200ea96fbf2f97, type: 3}
+    card_description: 'Grafana: It''s an open source solution for running data analytics,
+      pulling up metrics that make sense of the massive amount of data & to monitor
+      apps.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: e0e3e437e07eb704bb828376c88d5ac1, type: 3}
+    card_description: 'Ansible: It''s an open source tool that automates IT processes
+      to prepare infrastructure, manage configuration, deploy applications and organize
+      systems, among other manual IT procedures.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 3fec9e3e31e33514cb9ace773129ba5a, type: 3}
+    card_description: 'Docker: It''s an open source project that automates the deployment
+      of applications inside software containers, providing an additional layer of
+      abstraction and automation of application virtualization across multiple operating
+      systems.'
     selected: 0
     category: 
     level: 0
