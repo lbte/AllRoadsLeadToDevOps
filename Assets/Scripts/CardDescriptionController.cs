@@ -36,7 +36,6 @@ public class CardDescriptionController : MonoBehaviour
 
     void StageDescriptionAssignment()
     {
-        Debug.Log("a");
         if (stage_controller_script.stage_title_text.text == "PLAN") 
         {
             // Depending on which deck we are in, assign the description of the center card accordingly

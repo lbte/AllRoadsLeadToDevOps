@@ -178,7 +178,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial_dialogue:
-    sentences: []
+    sentences:
+    - "These are abilities that can help you have advantages in any of the upcoming
+      stages\u2026"
+    - 'You can see what each one can give you and choose to level up them. '
+    - "When you do so, you can't use that ability on the first cycle, you have to
+      wait until you come back to the plan stage in order to use it\u2026 "
+    - It's like while you go through the DevOps cycle you're spending some time learning
+      it, so after you finish you are able to use it.
 --- !u!114 &9742743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6009,7 +6016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: -33.348}
+  m_AnchoredPosition: {x: 71, y: -33.348}
   m_SizeDelta: {x: 106.097, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764645675
@@ -10391,8 +10398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260.826, y: 156}
-  m_SizeDelta: {x: 200.291, y: 96.696}
+  m_AnchoredPosition: {x: -264.99997, y: 156}
+  m_SizeDelta: {x: 164.082, y: 96.696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1496450586
 Animator:
@@ -12024,7 +12031,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial_dialogue:
-    sentences: []
+    sentences:
+    - 'Welcome, do you see all the elements you selected on the last stage? '
+    - 'The idea here is that you place a category for each of them, as you can see
+      on the left, you are able to move between category names with the arrows. '
+    - 'So when you move to one of them, place in the center the card you think belongs
+      to that category and then hit the select button... '
+    - Just like that you placed that element in a category, you can change your mind,
+      so feel free to take your time.
 --- !u!1 &1686695327
 GameObject:
   m_ObjectHideFlags: 0
@@ -12078,7 +12092,8 @@ MonoBehaviour:
   tutorial_dialogue:
     sentences:
     - Hey look! A tool that is used in one of the Devops cycle stages!
-    - You must select in which stage of this beautiful cycle you think it goes...
+    - "You must select in which stage of this beautiful cycle you think it goes (by
+      clicking on the specific stage)\u2026"
     - Do this according to the description you're able to read there and your own
       gut.
 --- !u!1 &1691875595
@@ -13369,8 +13384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.4498, y: 7}
-  m_SizeDelta: {x: 195.11, y: 62.868}
+  m_AnchoredPosition: {x: 4, y: 7}
+  m_SizeDelta: {x: 178.651, y: 62.868}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869653658
 MonoBehaviour:
