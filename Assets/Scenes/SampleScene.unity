@@ -1692,32 +1692,162 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - card_image: {fileID: 21300000, guid: 9ee6a0fee23e1cb45b77b6cfbe51755f, type: 3}
-    card_description: item1
+  - card_image: {fileID: 21300000, guid: 29c47c8604528264b8d21c83b4e0190f, type: 3}
+    card_description: 'Anvil: An anvil is the main working surface of a blacksmith,
+      you have to run fast if you don''t want to get hit by a hammer or burned by
+      hot metal when stealing it from him.  '
     selected: 0
     category: 
     level: 0
     id: 
-  - card_image: {fileID: 21300000, guid: 25eefd0e6e7dc124383dae1c7488b509, type: 3}
-    card_description: item2
+  - card_image: {fileID: 21300000, guid: 1b78350b76e0639469f62a30f0cf2bfd, type: 3}
+    card_description: "Rope: The cowboy needed the rope for his rodeo, now he won't
+      be able to participate\u2026 he's looking for you\u2026 Be careful!"
     selected: 0
     category: 
     level: 0
     id: 
-  - card_image: {fileID: 21300000, guid: cbf9715bd8186704491a61ee1482f14d, type: 3}
-    card_description: item3
+  - card_image: {fileID: 21300000, guid: f8ecc18cf7cbb964ead04aee2ed75870, type: 3}
+    card_description: 'Carrots: Carrots are a great deal to buy at the supermarket
+      these days.'
     selected: 0
     category: 
     level: 0
     id: 
-  - card_image: {fileID: 21300000, guid: fbfc81cb248b5014e903a5583218a7d4, type: 3}
-    card_description: 
+  - card_image: {fileID: 21300000, guid: ac6b7bb2894393641b383d4381cacddc, type: 3}
+    card_description: 'Blackberry: Everyone loves blackberry jam, maybe the rabbits
+      too.'
     selected: 0
     category: 
     level: 0
     id: 
-  - card_image: {fileID: 21300000, guid: c367d83ab050e1f45a1777ab6c476cc9, type: 3}
-    card_description: item4
+  - card_image: {fileID: 21300000, guid: c4330677508a008499a67bc8f99845f5, type: 3}
+    card_description: 'Pulley: There is no more water in that well, maybe you could
+      find a better use for that pulley.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: fa015f1c3d4a62942b7f28e059db5743, type: 3}
+    card_description: 'Elastic: Almost all pants have an eslatic, if you don''t mind
+      ruining your clothes it is an easy way to get one.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: e90891dca859bfe49b7fe1f95aa30bc6, type: 3}
+    card_description: 'Piano: You found an old piano in a garage sale, it looks very
+      damaged but still functional. '
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 5a077538d33fd834288f688eed8d8f2a, type: 3}
+    card_description: 'Feather: Sometimes our best ally is mother nature, the eagle
+      friend when passing by left many feathers to use, too bad they were mistreated
+      in the fall.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: d03fc1bb381e69d43bd53e81c37af685, type: 3}
+    card_description: 'Cable: A blackout has occurred, apparently you stole the main
+      electricity cable, the police are chasing you!'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 1d485abd8a6e34b4ab964c846bd59046, type: 3}
+    card_description: 'Handwork: NO PAIN NO GAIN! or at least that''s what I hear
+      from the trainer when I''m about to throw up in the gym, that work won''t be
+      done by itself!'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 7683de9d52b05f14db25d7b4086209a0, type: 3}
+    card_description: 'Burguer: Food delivery? I would like to be able to exchange
+      the coupons that the association "hungry wolves have a heart" gives me.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: f3543b04ee72b1c4ba2cffa700fcacc5, type: 3}
+    card_description: 'Piano: We all know that the only way to get a piano is fighting 
+      a pianist.  ROUND 1: FIGHT!'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 6f3de0213131e5840bef8adc07806d19, type: 3}
+    card_description: 'Anvil: There''s an auction at the town hall, there''s an avil
+      there, maybe you should go ahead and bet on it. '
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 03b73a3c6d5b03544bf36f432852d3a8, type: 3}
+    card_description: 'Feather: Apparently this pillow that always went unnoticed
+      will have a better use, you also have more than a thousand feathers, what else
+      do you want?'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: d5fad3ccd111ed246b005ee2e5fcb594, type: 3}
+    card_description: 'Rope: Near Carl the baker''s house there''s a park for kids
+      and there are swings made with rope, kids will be sad but at least you''ve
+      got your rope. '
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 273df016a097cee46bdc35b6236cf1f2, type: 3}
+    card_description: 'Elastic: BUY A PACKET OF ELASTIC ROPES JUST FOR $0.99 !!!'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 5d34ee4de01a53e4590eca42c91edda8, type: 3}
+    card_description: 'Cable: The old chargers can be useful again, more if people
+      change more technology than clothes. lastina that many not very secure knots
+      are needed to reach a good size.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 50f393daf08f3eb418a8b470a7319b67, type: 3}
+    card_description: 'Carrot: Composting helps the environment, but people are throwing
+      good food there as waste. Near Emily''s house there is a compost bin, you can
+      find a good carrot there.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: e8c977d7d043b894098b9b657b869b04, type: 3}
+    card_description: 'Blackberry: There is a blackberry field near your house, you
+      can go there and gather fresh and delicious blackberries.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: 68bb7d81f7209c048bffa14efc22d9cd, type: 3}
+    card_description: 'Burger: Why not captivate the victim with a taste of home,
+      although it would be appropriate to put rabbit in the hamburger?'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: df5338b10f8b37b4bbf39030f5ae2f11, type: 3}
+    card_description: 'Handwork: Doing manual work gives me anxiety, that''s why
+      I prefer to hire someone to do it for me.  Too bad the charge is so expensive.'
+    selected: 0
+    category: 
+    level: 0
+    id: 
+  - card_image: {fileID: 21300000, guid: d9991d70d17f57d4a94e51932e0a4ed1, type: 3}
+    card_description: 'Pulley: You found a pulley in your grandpa''s old alpinism
+      equipment, so covenient.'
     selected: 0
     category: 
     level: 0
