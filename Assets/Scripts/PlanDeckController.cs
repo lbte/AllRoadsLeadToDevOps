@@ -162,6 +162,7 @@ public class PlanDeckController : MonoBehaviour
             select_button.gameObject.SetActive(true);
 
             DisableSelectedIcon();
+            UpdateSelectedIcon();
         }
         else if (deck_button_text.text == "Abilities")
         {
@@ -289,10 +290,16 @@ public class PlanDeckController : MonoBehaviour
     void LevelUpButtonHandler(){
         int center_index = plan_abilities_carousel_script.center_index;
         if(deck_button_text.text == "Abilities"){
-            if(leveled_up_card == false || leveled_up_card == true){
+            if(leveled_up_card == false){
                 leveled_up_card = true;
-                cards_abilities[center_index].level += 1;
-                player_controller_script.abilities_levels[cards_abilities[center_index].id] += 1;
+                int current_level = cards_abilities[center_index].level;
+                if(current_level < 3){
+                    cards_abilities[center_index].level += 1;
+                    player_controller_script.abilities_levels[cards_abilities[center_index].id] += 1;
+                }
+                else{
+                    // Pop-up, mensaje: "Max level already reached" o algo asi :p
+                }
             }
         }
         DisableLevelIcon();
