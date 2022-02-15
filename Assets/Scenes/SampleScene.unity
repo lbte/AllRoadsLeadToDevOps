@@ -837,7 +837,7 @@ MonoBehaviour:
   left_card_selected_icon: {fileID: 396180674}
   center_card_selected_icon: {fileID: 971942800}
   right_card_selected_icon: {fileID: 274859905}
-  card_selected_icon: {fileID: 21300000, guid: 51b3cf5dcadd2f24ebb59dd493d2d6a4, type: 3}
+  card_selected_icon: {fileID: 21300000, guid: ada4e4ed47ee6614eb864ca4225b8bdd, type: 3}
   random_index_tool_card: 0
   random_tool_card:
     card_image: {fileID: 0}

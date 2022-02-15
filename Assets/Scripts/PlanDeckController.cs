@@ -296,6 +296,8 @@ public class PlanDeckController : MonoBehaviour
                 if(current_level < 3){
                     cards_abilities[center_index].level += 1;
                     player_controller_script.abilities_levels[cards_abilities[center_index].id] += 1;
+                    
+                    // Pop-up imagen level-up con sonidito
                 }
                 else{
                     // Pop-up, mensaje: "Max level already reached" o algo asi :p

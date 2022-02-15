@@ -29,6 +29,7 @@ public class StageController : MonoBehaviour
     private CodeCarouselController code_carousel_script;
     private PlayerController player_controller_script;
     private BuildCarouselController build_carousel_script;
+    private PlanDeckController plan_deck_controller_script;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,8 @@ public class StageController : MonoBehaviour
         checklist_close_button = GameObject.Find("ChecklistCloseButton").GetComponent<Button>();
         checklist_items_window = GameObject.Find("ChecklistItemsWindow").GetComponent<Image>();
         checklist_items_text = GameObject.Find("ChecklistItemsText").GetComponent<Text>();
+        plan_deck_controller_script = GameObject.Find("Plan").GetComponent<PlanDeckController>();
+        player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
         checklist_close_button.onClick.AddListener(ChecklistCloseButton);
         checklist_button.onClick.AddListener(ChecklistButton);
@@ -68,13 +71,23 @@ public class StageController : MonoBehaviour
     void NextStageButton()
     {
         if (stage_title_text.text == "PLAN")
-        {
-            stage_title_text.text = "CODE";
-            DeactivatedStages();
-            code_stage.SetActive(true);
-            tutorial_trigger = code_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+        {   
+            // Check conditions required to complete the plan phase
+            // - Select architecture (PlayerController)
+            // - Assign tool (PlanDeckController)
+            bool tool = plan_deck_controller_script.is_selected_random_card;
+            Card architecture = player_controller_script.selected_architecture;
+            if(architecture != null && tool == true){
+                stage_title_text.text = "CODE";
+                DeactivatedStages();
+                code_stage.SetActive(true);
+                tutorial_trigger = code_stage.GetComponent<TutorialTextTrigger>();
+                tutorial_trigger.TriggerTutorial();
+                if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+            }
+            else{
+                // Pop-up: mensaje "Looks like something is missing, check your checklist"
+            }
         }
         else if (stage_title_text.text == "CODE")
         {
