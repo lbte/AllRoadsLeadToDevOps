@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Selected architecture
-    public Card selected_architecture;  
+    public Card selected_architecture = null;  
 
     // Cards selected during the code phase
     public List<Card> selected_code_cards = new List<Card>();

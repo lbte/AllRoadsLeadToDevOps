@@ -13,6 +13,11 @@ public class PlanDeckController : MonoBehaviour
     public Button select_button;
     public Button level_up_button;
     private Image plan_tools_card_image;
+    public Animator warning_levelup_window_animator;
+    public Image warning_levelup_window;
+    public Animator levelup_image_animator;
+    public Image levelup_image;
+    private AudioSource levelup_sound;
 
     // each section objects
     public GameObject plan_project;
@@ -117,9 +122,14 @@ public class PlanDeckController : MonoBehaviour
 
         plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
 
+        levelup_sound = GameObject.Find("AudioLevelUp").GetComponent<AudioSource>();
+
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
         plan_architecture_carousel_script = plan_architecture.GetComponent<PlanCarouselController>();
         plan_abilities_carousel_script = plan_abilities.GetComponent<PlanCarouselController>();
+
+        warning_levelup_window.gameObject.SetActive(false);
+        levelup_image.gameObject.SetActive(false);
 
         cards_architectures = plan_architecture_carousel_script.cards;
         cards_abilities = plan_abilities_carousel_script.cards;
@@ -291,16 +301,18 @@ public class PlanDeckController : MonoBehaviour
         int center_index = plan_abilities_carousel_script.center_index;
         if(deck_button_text.text == "Abilities"){
             if(leveled_up_card == false){
-                leveled_up_card = true;
                 int current_level = cards_abilities[center_index].level;
                 if(current_level < 3){
+                    leveled_up_card = true;
                     cards_abilities[center_index].level += 1;
                     player_controller_script.abilities_levels[cards_abilities[center_index].id] += 1;
-                    
+
                     // Pop-up imagen level-up con sonidito
+                    StartCoroutine(LevelUpImageDisplay(1));
                 }
                 else{
                     // Pop-up, mensaje: "Max level already reached" o algo asi :p
+                    StartCoroutine(WarningLevelUpDisplay(2));
                 }
             }
         }
@@ -471,5 +483,22 @@ public class PlanDeckController : MonoBehaviour
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
+    }
+
+    IEnumerator WarningLevelUpDisplay(float delay)
+    {
+        warning_levelup_window.gameObject.SetActive(true);
+        warning_levelup_window_animator.SetBool("WarningMaxLevelIsOpen", true);
+        yield return new WaitForSeconds(delay);
+        warning_levelup_window_animator.SetBool("WarningMaxLevelIsOpen", false);
+    }
+
+    IEnumerator LevelUpImageDisplay(float delay)
+    {
+        levelup_image.gameObject.SetActive(true);
+        levelup_image_animator.SetBool("LevelUpIsOpen", true);
+        levelup_sound.Play();
+        yield return new WaitForSeconds(delay);
+        levelup_image_animator.SetBool("LevelUpIsOpen", false);
     }
 }

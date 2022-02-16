@@ -14,6 +14,8 @@ public class StageController : MonoBehaviour
     private Image checklist_items_window;
     private Text checklist_items_text;
     public Animator checklist_window_animator;
+    public Animator warning_checklist_window_animator;
+    private Image warning_checklist_window;
 
     public GameObject plan_stage;
     public GameObject code_stage;
@@ -38,9 +40,12 @@ public class StageController : MonoBehaviour
         checklist_close_button = GameObject.Find("ChecklistCloseButton").GetComponent<Button>();
         checklist_items_window = GameObject.Find("ChecklistItemsWindow").GetComponent<Image>();
         checklist_items_text = GameObject.Find("ChecklistItemsText").GetComponent<Text>();
+        warning_checklist_window = GameObject.Find("WarningChecklistWindow").GetComponent<Image>();
         plan_deck_controller_script = GameObject.Find("Plan").GetComponent<PlanDeckController>();
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
+        warning_checklist_window.gameObject.SetActive(false);
+        checklist_close_button.gameObject.SetActive(false);
         checklist_close_button.onClick.AddListener(ChecklistCloseButton);
         checklist_button.onClick.AddListener(ChecklistButton);
         next_stage_button.onClick.AddListener(NextStageButton);
@@ -77,7 +82,7 @@ public class StageController : MonoBehaviour
             // - Assign tool (PlanDeckController)
             bool tool = plan_deck_controller_script.is_selected_random_card;
             Card architecture = player_controller_script.selected_architecture;
-            if(architecture != null && tool == true){
+            if((architecture.id == "architecture_1" || architecture.id == "architecture_2") && tool == true){
                 stage_title_text.text = "CODE";
                 DeactivatedStages();
                 code_stage.SetActive(true);
@@ -87,6 +92,7 @@ public class StageController : MonoBehaviour
             }
             else{
                 // Pop-up: mensaje "Looks like something is missing, check your checklist"
+                StartCoroutine(WarningWindowDisplay(2));
             }
         }
         else if (stage_title_text.text == "CODE")
@@ -221,4 +227,11 @@ public class StageController : MonoBehaviour
         checklist_close_button.gameObject.SetActive(false);
     }
 
+    IEnumerator WarningWindowDisplay(float delay)
+    {
+        warning_checklist_window.gameObject.SetActive(true);
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
+        yield return new WaitForSeconds(delay);
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
+    }
 }
