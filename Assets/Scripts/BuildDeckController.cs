@@ -11,8 +11,10 @@ public class BuildDeckController : MonoBehaviour
     public Button down_arrow_button;
     public Text deck_button_text;
 
+    public GameObject Carousel;
+
     // list with the decks names
-    private List<string> plan_parts = new List<string>() { "Impact", "Holding", "Mechanism", "Bait" };
+    private List<string> plan_parts = new List<string>() { "Categorize", "Building" };
     private int word_index;
 
     void Start()
@@ -23,7 +25,7 @@ public class BuildDeckController : MonoBehaviour
         down_arrow_button.onClick.AddListener(DownButton);
 
         // default index for the project window
-        word_index = plan_parts.IndexOf("Impact"); // default screen
+        word_index = plan_parts.IndexOf("Categorize"); // default screen
         UpdateButtonText();
 
     }
@@ -33,6 +35,15 @@ public class BuildDeckController : MonoBehaviour
     {
         // change the button text
         deck_button_text.text = plan_parts[word_index];
+
+        if (deck_button_text.text == "Categorize")
+        {
+            Carousel.SetActive(true);
+        }
+        else
+        {
+            Carousel.SetActive(false);
+        }
     }
 
     // move up on the arrows and show different views according to that
