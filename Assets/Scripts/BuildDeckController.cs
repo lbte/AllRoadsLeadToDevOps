@@ -11,7 +11,11 @@ public class BuildDeckController : MonoBehaviour
     public Button down_arrow_button;
     public Text deck_button_text;
 
-    public GameObject Carousel;
+    public GameObject carousel;
+    public GameObject landscape;
+    public GameObject air_trap;
+    public GameObject ground_trap;
+    public PlayerController player_controller;
 
     // list with the decks names
     private List<string> plan_parts = new List<string>() { "Categorize", "Building" };
@@ -38,11 +42,23 @@ public class BuildDeckController : MonoBehaviour
 
         if (deck_button_text.text == "Categorize")
         {
-            Carousel.SetActive(true);
+            carousel.SetActive(true);
+            landscape.SetActive(false);
         }
         else
         {
-            Carousel.SetActive(false);
+            carousel.SetActive(false);
+            landscape.SetActive(true);
+
+            if (player_controller.selected_architecture.id == "architecture_2")
+            {
+                air_trap.SetActive(false);
+            }
+            else if(player_controller.selected_architecture.id == "architecture_1")
+            {
+                ground_trap.SetActive(false);
+            }
+
         }
     }
 
