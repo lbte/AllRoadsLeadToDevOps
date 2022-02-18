@@ -22,7 +22,6 @@ public class DropSlot : MonoBehaviour, IDropHandler
         item.transform.SetParent(transform);
         item.transform.position = transform.position;
         item.transform.GetChild(0).GetComponent<Image>().sprite = build_carousel.center_image.sprite;
-
         item.transform.name = build_carousel.cards[build_carousel.center_index].category;
         Debug.Log(item.transform.name);
 
@@ -30,6 +29,8 @@ public class DropSlot : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null && DragHandler.itemDragging.CompareTag("CardClone"))
         {
             item.transform.GetChild(0).GetComponent<Image>().sprite = DragHandler.itemDragging.transform.GetChild(0).GetComponent<Image>().sprite;
+            item.transform.name = DragHandler.itemDragging.transform.name;
+            Debug.Log(item.transform.name);
             Destroy(DragHandler.itemDragging);
 
         }
