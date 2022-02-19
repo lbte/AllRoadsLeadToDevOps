@@ -917,6 +917,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &97409424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3299,6 +3300,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!1 &293652833
 GameObject:
   m_ObjectHideFlags: 0
@@ -4148,6 +4150,11 @@ MonoBehaviour:
     level: 0
     id: 
   selected_code_cards: []
+  build_correctness: 0
+  impact_categorize_correctness: 0
+  hold_categorize_correctness: 0
+  bait_categorize_correctness: 0
+  mechanism_categorize_correctness: 0
 --- !u!1 &415857989
 GameObject:
   m_ObjectHideFlags: 0
@@ -5385,6 +5392,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &549299062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6772,6 +6780,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &735984138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7398,6 +7407,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!1 &806168275
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,6 +7850,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &859964565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8701,7 +8712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &957375049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10477,6 +10488,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &1171474704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11262,6 +11274,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &1360789304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13443,6 +13456,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!1 &1608200953
 GameObject:
   m_ObjectHideFlags: 0
@@ -14378,7 +14392,8 @@ MonoBehaviour:
   landscape: {fileID: 832098772}
   air_trap: {fileID: 1520065729}
   ground_trap: {fileID: 1969540094}
-  player_controller: {fileID: 397590587}
+  player_controller_script: {fileID: 397590587}
+  stage_controller_script: {fileID: 397590586}
 --- !u!114 &1672468010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15512,6 +15527,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!1 &1842598525
 GameObject:
   m_ObjectHideFlags: 0
@@ -16598,6 +16614,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &1942250481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17847,6 +17864,7 @@ MonoBehaviour:
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  player_controller_script: {fileID: 0}
 --- !u!114 &2067002099
 MonoBehaviour:
   m_ObjectHideFlags: 0

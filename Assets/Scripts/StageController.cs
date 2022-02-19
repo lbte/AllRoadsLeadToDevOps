@@ -73,7 +73,7 @@ public class StageController : MonoBehaviour
         monitor_stage.SetActive(false);
     }
 
-    void NextStageButton()
+    public void NextStageButton()
     {
         if (stage_title_text.text == "PLAN")
         {   

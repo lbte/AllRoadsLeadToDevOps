@@ -21,4 +21,12 @@ public class PlayerController : MonoBehaviour
         {"plan", null}, {"code", null}, {"build", null}, {"test", null},
         {"release", null}, {"deploy", null}, {"operate", null}, {"monitor", null}
     };
+
+    public int build_correctness = 0;   // 4 -> Correct Build
+
+
+    public int impact_categorize_correctness = 0;  // 0 -> Bad,  1 -> Good
+    public int hold_categorize_correctness = 0;
+    public int bait_categorize_correctness = 0;
+    public int mechanism_categorize_correctness= 0;
 }
