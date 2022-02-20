@@ -56,24 +56,30 @@ public class DropSlot : MonoBehaviour, IDropHandler
     void CheckCategorizeCorrectness(GameObject item){
         if(item.transform.name == "impact"){
             if(item.transform.parent.name == "impact") player_controller_script.impact_categorize_correctness = 1;
-            else if(item.transform.parent.name == "hold" )player_controller_script.hold_categorize_correctness = 0;
-            else if(item.transform.parent.name == "hold" )player_controller_script.hold_categorize_correctness = 0;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_categorize_correctness = 0;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_categorize_correctness  = 0;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_categorize_correctness = 0;
         }
 
         if(item.transform.name == "hold"){
-            if(item.transform.parent.name == "hold") player_controller_script.hold_categorize_correctness = 1;
-            else player_controller_script.hold_categorize_correctness = 0;
+            if(item.transform.parent.name == "impact") player_controller_script.impact_categorize_correctness = 0;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_categorize_correctness = 1;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_categorize_correctness  = 0;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_categorize_correctness = 0;
         }
 
         if(item.transform.name == "bait"){
-            Debug.Log("Parent: " + item.transform.parent.name);
-            if(item.transform.parent.name == "bait") player_controller_script.bait_categorize_correctness = 1;
-            else player_controller_script.bait_categorize_correctness = 0;
+            if(item.transform.parent.name == "impact") player_controller_script.impact_categorize_correctness = 0;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_categorize_correctness = 0;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_categorize_correctness  = 1;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_categorize_correctness = 0;
         }
 
         if(item.transform.name == "mechanism"){
-            if(item.transform.parent.name == "mechanism") player_controller_script.mechanism_categorize_correctness = 1;
-            else player_controller_script.mechanism_categorize_correctness = 0;
+            if(item.transform.parent.name == "impact") player_controller_script.impact_categorize_correctness = 0;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_categorize_correctness = 0;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_categorize_correctness  = 0;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_categorize_correctness = 1;
         }
     }
 }
