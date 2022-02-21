@@ -92,7 +92,7 @@ public class BuildCarouselController : MonoBehaviour
             else if(card.id == "elastic_rope" || card.id == "pants_elastic") cards.Add(cards_materials[4]);
             else if(card.id == "electricity_cable" || card.id == "charger_cable") cards.Add(cards_materials[5]);
 
-            else if(card.id == "pepe" || card.id == "pepe") cards.Add(cards_materials[6]);
+            else if(card.id == "balloon_fair" || card.id == "turkey_balloon") cards.Add(cards_materials[6]);
             else if(card.id == "alpinism_pulley" || card.id == "well_pulley") cards.Add(cards_materials[7]);
             else if(card.id == "gym_handwork" || card.id == "hire_handwork") cards.Add(cards_materials[8]);
 
