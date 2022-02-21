@@ -83,7 +83,7 @@ public class StageController : MonoBehaviour
             // - Assign tool (PlanDeckController)
             bool tool = plan_deck_controller_script.is_selected_random_card;
             Card architecture = player_controller_script.selected_architecture;
-            if((architecture.id == "architecture_1" || architecture.id == "architecture_2") && tool == true){
+            if((architecture.id == "architecture_1" || architecture.id == "architecture_2" || architecture.id == "architecture_3") && tool == true){
                 stage_title_text.text = "CODE";
                 DeactivatedStages();
                 code_stage.SetActive(true);
@@ -135,6 +135,9 @@ public class StageController : MonoBehaviour
             int bait = player_controller_script.bait_build_correctness;
             int mechanism = player_controller_script.mechanism_build_correctness;
             if((impact + hold + bait + mechanism) != 4){ // Build fails -> Returns to Plan
+
+                /////// POP-UP
+
                 DeactivatedStages();
                 plan_stage.SetActive(true);
                 stage_title_text.text = "PLAN";
@@ -148,6 +151,9 @@ public class StageController : MonoBehaviour
 
             }
             else{   // Build is correct
+
+                /////// POP-UP
+
                 stage_title_text.text = "TEST";
                 DeactivatedStages();
                 test_stage.SetActive(true);

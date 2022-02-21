@@ -68,6 +68,12 @@ public class BuildDeckController : MonoBehaviour
                 air_trap.SetActive(true);
                 ground_trap.SetActive(false);
             }
+            else if(player_controller_script.selected_architecture.id == "architecture_3")
+            {
+                air_trap.SetActive(false);
+                ground_trap.SetActive(false);
+                ///////////////// POP-UP bonito ("It looks like the desert is not an appropiate place for that architecture")
+            }
         }
     }
 
