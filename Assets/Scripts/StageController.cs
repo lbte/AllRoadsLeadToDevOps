@@ -101,13 +101,7 @@ public class StageController : MonoBehaviour
             code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
             player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
         
-            foreach(Card card in code_carousel_script.deck){
-                if(card.selected == true){
-                    card.selected = false;
-                    player_controller_script.selected_code_cards.Add(card);
-                }
-            }
-            
+            // LIMPIAR CATEGORIZE Y LIMPIAR BUILD PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABÍAN SELECCIONADO
 
             stage_title_text.text = "BUILD";
             DeactivatedStages();

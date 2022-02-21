@@ -26,13 +26,17 @@ public class CodeCarouselController : MonoBehaviour
 
     public Button select_button;
 
-    private int selected_cards_count = 0;
+    public int selected_cards_count = 0;
+
+    private PlayerController player_controller_script;
 
     void Start()
     {
         select_button.onClick.AddListener(SelectButtonHandler);
         left_card_button.onClick.AddListener(CarouselRotationLeft);
         right_card_button.onClick.AddListener(CarouselRotationRight);
+
+        player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
         DisableSelectedIcon();
         UpdateCardImages();
@@ -81,10 +85,12 @@ public class CodeCarouselController : MonoBehaviour
     void SelectButtonHandler(){
         if(deck[center_index].selected == true){
             deck[center_index].selected = false;
+            player_controller_script.selected_code_cards.Remove(deck[center_index]);
             selected_cards_count = Math.Max(0, selected_cards_count-1);
         }
         else if (deck[center_index].selected == false && selected_cards_count < 4) {
             deck[center_index].selected = true;
+            player_controller_script.selected_code_cards.Add(deck[center_index]);
             selected_cards_count += 1;
         }
         DisableSelectedIcon();
@@ -97,7 +103,7 @@ public class CodeCarouselController : MonoBehaviour
         right_card_selected_icon.gameObject.SetActive(false);
     }
 
-    void UpdateSelectedIcon(){
+    public void UpdateSelectedIcon(){
         if(deck[left_index].selected == true){
             left_card_selected_icon.gameObject.SetActive(true);
             left_card_selected_icon.sprite = card_selected_icon;
