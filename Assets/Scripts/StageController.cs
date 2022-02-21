@@ -31,6 +31,7 @@ public class StageController : MonoBehaviour
     private CodeCarouselController code_carousel_script;
     private PlayerController player_controller_script;
     private BuildCarouselController build_carousel_script;
+    private BuildDeckController build_deck_controller_script;
     private PlanDeckController plan_deck_controller_script;
 
     // Start is called before the first frame update
@@ -100,12 +101,18 @@ public class StageController : MonoBehaviour
             // Save selected cards in PlayerController
             code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
             player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
-        
-            // LIMPIAR CATEGORIZE Y LIMPIAR BUILD PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABÍAN SELECCIONADO
+
+            // LIMPIAR CATEGORIZE Y LIMPIAR BUILD PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
 
             stage_title_text.text = "BUILD";
             DeactivatedStages();
+            
+            // Starts on carousel (Categorize)
             build_stage.SetActive(true);
+            build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
+            build_deck_controller_script.deck_button_text.text = "Categorize";
+            build_deck_controller_script.carousel.SetActive(true);
+            build_deck_controller_script.landscape.SetActive(false);
 
             // Update selected cards in BuildCarouselController (from PllayerController)
             build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();  
@@ -119,12 +126,26 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "BUILD")
         {
-            stage_title_text.text = "TEST";
-            DeactivatedStages();
-            test_stage.SetActive(true);
-            tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+            // Verify build correctness
+            int impact = player_controller_script.impact_build_correctness;
+            int hold = player_controller_script.hold_build_correctness;
+            int bait = player_controller_script.bait_build_correctness;
+            int mechanism = player_controller_script.mechanism_build_correctness;
+            if((impact + hold + bait + mechanism) != 4){ // Build fails -> Returns to Plan
+                DeactivatedStages();
+                plan_stage.SetActive(true);
+                stage_title_text.text = "PLAN";
+                // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
+                // INICIAR EN PROJECT
+            }
+            else{   // Build is correct
+                stage_title_text.text = "TEST";
+                DeactivatedStages();
+                test_stage.SetActive(true);
+                tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
+                tutorial_trigger.TriggerTutorial();
+                if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+            }
         }
         else if (stage_title_text.text == "TEST")
         {

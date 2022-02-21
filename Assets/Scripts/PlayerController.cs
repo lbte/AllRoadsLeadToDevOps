@@ -29,4 +29,9 @@ public class PlayerController : MonoBehaviour
     public int hold_categorize_correctness = 0;
     public int bait_categorize_correctness = 0;
     public int mechanism_categorize_correctness= 0;
+
+    public int impact_build_correctness = 0;  // 0 -> Bad,  1 -> Good
+    public int hold_build_correctness = 0;
+    public int bait_build_correctness = 0;
+    public int mechanism_build_correctness= 0;
 }

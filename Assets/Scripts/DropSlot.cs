@@ -43,16 +43,41 @@ public class DropSlot : MonoBehaviour, IDropHandler
             //Debug.Log(item.transform.name);
             Destroy(DragHandler.itemDragging);
 
-            // Check building correctness 
-            // Fail building -> Returns to Plan
-            // item.transform.name -> Categoria de la carta
-            /* if(item.transform.name == ){
-
-            } */
+            // Check building correctness
+            CheckBuildCorrectness(item);
         }
     }
 
-    // ON CONSTRUCTION!!!!!!
+    void CheckBuildCorrectness(GameObject item){
+        if(item.transform.name == "impact"){
+            if(item.transform.parent.name == "impact") player_controller_script.impact_build_correctness = 1;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_build_correctness = 0;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_build_correctness  = 0;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_build_correctness = 0;
+        }
+
+        if(item.transform.name == "hold"){
+            if(item.transform.parent.name == "impact") player_controller_script.impact_build_correctness = 0;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_build_correctness = 1;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_build_correctness  = 0;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_build_correctness = 0;
+        }
+
+        if(item.transform.name == "bait"){
+            if(item.transform.parent.name == "impact") player_controller_script.impact_build_correctness = 0;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_build_correctness = 0;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_build_correctness  = 1;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_build_correctness = 0;
+        }
+
+        if(item.transform.name == "mechanism"){
+            if(item.transform.parent.name == "impact") player_controller_script.impact_build_correctness = 0;
+            else if(item.transform.parent.name == "hold" ) player_controller_script.hold_build_correctness = 0;
+            else if(item.transform.parent.name == "bait" ) player_controller_script.bait_build_correctness  = 0;
+            else if(item.transform.parent.name == "mechanism" ) player_controller_script.mechanism_build_correctness = 1;
+        }
+    }
+
     void CheckCategorizeCorrectness(GameObject item){
         if(item.transform.name == "impact"){
             if(item.transform.parent.name == "impact") player_controller_script.impact_categorize_correctness = 1;

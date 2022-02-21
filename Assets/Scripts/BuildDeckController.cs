@@ -61,7 +61,6 @@ public class BuildDeckController : MonoBehaviour
             {
                 ground_trap.SetActive(false);
             }
-
         }
     }
 
@@ -79,6 +78,7 @@ public class BuildDeckController : MonoBehaviour
             stage_controller_script.NextStageButton();
             code_carousel_script.UpdateSelectedIcon();
         }
+        // NOT WORKING PROPERLY (REVISAR CONDICION)
         else{
             // Pop-up bonito (Mensaje="It looks you did right by categorizing your materials ...")
             word_index++;
