@@ -14,6 +14,9 @@ public class CodeCarouselController : MonoBehaviour
     public Image left_image;
     public Image center_image;
     public Image right_image;
+    public Text left_card_title_text;
+    public Text center_card_title_text;
+    public Text right_card_title_text;
 
     public Image left_card_selected_icon;
     public Image center_card_selected_icon;
@@ -46,8 +49,11 @@ public class CodeCarouselController : MonoBehaviour
     public void UpdateCardImages()
     {
         left_image.sprite = deck[left_index].card_image;
+        left_card_title_text.text = deck[left_index].card_title;
         center_image.sprite = deck[center_index].card_image;
+        center_card_title_text.text = deck[center_index].card_title;
         right_image.sprite = deck[right_index].card_image;
+        right_card_title_text.text = deck[right_index].card_title;
     }
 
     // Rotates the carousel of cards to the right

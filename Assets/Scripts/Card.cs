@@ -12,4 +12,5 @@ public class Card
     public string category = "";
     public int level = 0;
     public string id = "";
+    public string card_title = "";
 }

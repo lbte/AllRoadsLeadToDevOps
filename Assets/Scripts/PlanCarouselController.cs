@@ -13,6 +13,9 @@ public class PlanCarouselController : MonoBehaviour
     public Image left_image;
     public Image center_image;
     public Image right_image;
+    public Text left_card_title_text;
+    public Text center_card_title_text;
+    public Text right_card_title_text;
 
     public Button left_card_button;
     public Button center_card_button;
@@ -35,8 +38,11 @@ public class PlanCarouselController : MonoBehaviour
     void UpdateCardImages()
     {
         left_image.sprite = cards[left_index].card_image;
+        left_card_title_text.text = cards[left_index].card_title;
         center_image.sprite = cards[center_index].card_image;
+        center_card_title_text.text = cards[center_index].card_title;
         right_image.sprite = cards[right_index].card_image;
+        right_card_title_text.text = cards[right_index].card_title;
     }
 
     // Rotates the carousel of cards to the right

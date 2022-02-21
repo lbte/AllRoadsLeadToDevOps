@@ -72,6 +72,7 @@ public class PlanDeckController : MonoBehaviour
     // Select random card (Tool)
     public int random_index_tool_card;
     public Card random_tool_card;
+    public Text random_tool_card_title;
     public bool is_selected_random_card = false;
     public bool is_generated_random_card = false;
 
@@ -356,6 +357,7 @@ public class PlanDeckController : MonoBehaviour
             else random_index_tool_card = (int)Random.Range(0, single_card_script_tools.cards.Count - 1);
         }
         plan_tools_card_image.sprite = random_tool_card.card_image;
+        random_tool_card_title.text = random_tool_card.card_title;
     }
 
     void DisableLifecycleIcons(){
