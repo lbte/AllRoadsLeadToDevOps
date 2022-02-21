@@ -1118,6 +1118,7 @@ MonoBehaviour:
   right_card_level_icon_3: {fileID: 1753519632}
   single_card_script_project: {fileID: 860583299}
   single_card_script_tools: {fileID: 29377135}
+  leveled_up_card: 0
   left_card_selected_icon: {fileID: 396180674}
   center_card_selected_icon: {fileID: 971942800}
   right_card_selected_icon: {fileID: 274859905}
@@ -4115,6 +4116,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: []
+  cards_materials:
+  - card_image: {fileID: 21300000, guid: 7dfecc1eaa46969498635452c50f4591, type: 3}
+    card_description: 
+    selected: 0
+    category: impact
+    level: 0
+    id: anvil
+    card_title: Anvil
+  - card_image: {fileID: 21300000, guid: 5e585bd4164c6e34682dd402feda17cd, type: 3}
+    card_description: 
+    selected: 0
+    category: impact
+    level: 0
+    id: piano
+    card_title: Piano
+  - card_image: {fileID: 21300000, guid: c53f01f4be2ea504e9da62e82bf0e923, type: 3}
+    card_description: 
+    selected: 0
+    category: impact
+    level: 0
+    id: feather
+    card_title: Feather
+  - card_image: {fileID: 21300000, guid: b31350fe57902044aa6ad540d0e7f1cb, type: 3}
+    card_description: 
+    selected: 0
+    category: hold
+    level: 0
+    id: rope
+    card_title: Rope
+  - card_image: {fileID: 21300000, guid: a75b9e6ddacfefa44bfa91b4a9095ae6, type: 3}
+    card_description: 
+    selected: 0
+    category: hold
+    level: 0
+    id: elastic
+    card_title: Elastic
+  - card_image: {fileID: 21300000, guid: 8d15e4534592b194385aad16f81c6d37, type: 3}
+    card_description: 
+    selected: 0
+    category: hold
+    level: 0
+    id: cable
+    card_title: Braided cable
+  - card_image: {fileID: 21300000, guid: c0fadcd47e7728440ab7219c02ee4281, type: 3}
+    card_description: 
+    selected: 0
+    category: mechanism
+    level: 0
+    id: balloon
+    card_title: Balloon
+  - card_image: {fileID: 21300000, guid: 6fcc4f5ed8aa22e4eba7b9cc41af499f, type: 3}
+    card_description: 
+    selected: 0
+    category: mechanism
+    level: 0
+    id: pulley
+    card_title: Pulley
+  - card_image: {fileID: 21300000, guid: a7585daaa65cab348b707e2038106110, type: 3}
+    card_description: 
+    selected: 0
+    category: mechanism
+    level: 0
+    id: handwork
+    card_title: Handwork
+  - card_image: {fileID: 21300000, guid: 47382dc1e24d7184ea80ae204ff4393a, type: 3}
+    card_description: 
+    selected: 0
+    category: bait
+    level: 0
+    id: carrot
+    card_title: Carrot
+  - card_image: {fileID: 21300000, guid: 4b7e16a23a95237448c64b7fb434c938, type: 3}
+    card_description: 
+    selected: 0
+    category: bait
+    level: 0
+    id: blackberry
+    card_title: Blackberry
+  - card_image: {fileID: 21300000, guid: a6784b85f88594c43b4831f7b25e08ce, type: 3}
+    card_description: 
+    selected: 0
+    category: bait
+    level: 0
+    id: burger
+    card_title: Burger
   left_index: 0
   center_index: 1
   right_index: 2
