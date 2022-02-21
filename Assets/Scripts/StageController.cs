@@ -138,8 +138,13 @@ public class StageController : MonoBehaviour
                 DeactivatedStages();
                 plan_stage.SetActive(true);
                 stage_title_text.text = "PLAN";
+
                 // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
                 // INICIAR EN PROJECT
+                plan_deck_controller_script.leveled_up_card = false;
+                plan_deck_controller_script.is_selected_random_card = false;
+                plan_deck_controller_script.is_generated_random_card = false;
+
             }
             else{   // Build is correct
                 stage_title_text.text = "TEST";

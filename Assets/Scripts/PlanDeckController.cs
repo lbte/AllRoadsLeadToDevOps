@@ -58,7 +58,7 @@ public class PlanDeckController : MonoBehaviour
     private PlanCarouselController plan_abilities_carousel_script;
 
     private bool selected_architecture_card = false;
-    private bool leveled_up_card = false;
+    public bool leveled_up_card = false;
 
     private List<Card> cards_architectures;             
     private List<Card> cards_abilities;
