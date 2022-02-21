@@ -102,7 +102,7 @@ public class StageController : MonoBehaviour
             code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
             player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
-            // LIMPIAR CATEGORIZE Y LIMPIAR BUILD PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
+            // LIMPIAR CATEGORIZE Y LIMPIAR BUILDING PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
 
             stage_title_text.text = "BUILD";
             DeactivatedStages();
@@ -140,10 +140,11 @@ public class StageController : MonoBehaviour
                 stage_title_text.text = "PLAN";
 
                 // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
-                // INICIAR EN PROJECT
                 plan_deck_controller_script.leveled_up_card = false;
                 plan_deck_controller_script.is_selected_random_card = false;
                 plan_deck_controller_script.is_generated_random_card = false;
+
+
 
             }
             else{   // Build is correct

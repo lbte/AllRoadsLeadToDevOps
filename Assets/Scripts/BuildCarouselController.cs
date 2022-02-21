@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class BuildCarouselController : MonoBehaviour
 {
-    public List<Card> cards = new List<Card>();
+    public List<Card> cards = new List<Card>();             
+    public List<Card> cards_materials = new List<Card>();
+    // 0: Anvil, 1: piano, 2: feather, 
+    // 3: rope, 4: elastic, 5: braided cable, 
+    // 6: ballon, 7: pulley, 8: handwork
+    // 9: carrot, 10: blackberry, 11: burger
+
     public int left_index = 0;
     public int center_index = 1;
     public int right_index = 2;
@@ -78,7 +84,21 @@ public class BuildCarouselController : MonoBehaviour
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
         cards.Clear();
         foreach(Card card in player_controller_script.selected_code_cards){
-            cards.Add(card);
+            if(card.id == "blacksmith_anvil" || card.id == "anvil_auction") cards.Add(cards_materials[0]);
+            else if(card.id == "fight_piano" || card.id == "old_piano") cards.Add(cards_materials[1]);
+            else if(card.id == "eagle_feather" || card.id == "pillow_feather") cards.Add(cards_materials[2]);
+
+            else if(card.id == "swings_rope" || card.id == "cowboy_rope") cards.Add(cards_materials[3]);
+            else if(card.id == "elastic_rope" || card.id == "pants_elastic") cards.Add(cards_materials[4]);
+            else if(card.id == "electricity_cable" || card.id == "charger_cable") cards.Add(cards_materials[5]);
+
+            else if(card.id == "pepe" || card.id == "pepe") cards.Add(cards_materials[6]);
+            else if(card.id == "alpinism_pulley" || card.id == "well_pulley") cards.Add(cards_materials[7]);
+            else if(card.id == "gym_handwork" || card.id == "hire_handwork") cards.Add(cards_materials[8]);
+
+            else if(card.id == "compost_carrots" || card.id == "buy_carrots") cards.Add(cards_materials[9]);
+            else if(card.id == "jam_blackberry" || card.id == "gather_blackberry") cards.Add(cards_materials[10]);
+            else if(card.id == "own_cooked_food" || card.id == "food_delivery") cards.Add(cards_materials[11]);
         }
     }
 }
