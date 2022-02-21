@@ -54,6 +54,7 @@ public class BuildDeckController : MonoBehaviour
         {
             carousel.SetActive(false);
             landscape.SetActive(true);
+            stage_controller_script.next_stage_button.gameObject.SetActive(true);
             // deactivate the buttons so the player can't go back to the categorize
             up_arrow_button.gameObject.SetActive(false);
             down_arrow_button.gameObject.SetActive(false);
