@@ -110,8 +110,11 @@ public class StageController : MonoBehaviour
             // Starts on carousel (Categorize)
             build_stage.SetActive(true);
             build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
+            build_deck_controller_script.word_index = 0; // reset to go back to the categorize view and be able to go to the building
             build_deck_controller_script.deck_button_text.text = "Categorize";
             build_deck_controller_script.carousel.SetActive(true);
+            build_deck_controller_script.up_arrow_button.gameObject.SetActive(true);
+            build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
             build_deck_controller_script.landscape.SetActive(false);
 
             // Update selected cards in BuildCarouselController (from PllayerController)
