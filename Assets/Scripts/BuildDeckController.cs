@@ -59,12 +59,12 @@ public class BuildDeckController : MonoBehaviour
             up_arrow_button.gameObject.SetActive(false);
             down_arrow_button.gameObject.SetActive(false);
 
-            if (player_controller_script.selected_architecture.id == "architecture_2")
+            if (player_controller_script.selected_architecture.id == "architecture_1")
             {
                 air_trap.SetActive(false);
                 ground_trap.SetActive(true);
             }
-            else if(player_controller_script.selected_architecture.id == "architecture_1")
+            else if(player_controller_script.selected_architecture.id == "architecture_2")
             {
                 air_trap.SetActive(true);
                 ground_trap.SetActive(false);
@@ -127,6 +127,7 @@ public class BuildDeckController : MonoBehaviour
         warning_categorize_window_animator.SetBool("IsWarningCategorizeOpen", false);
 
         // move to the code stage
+        stage_controller_script.next_stage_button.gameObject.SetActive(true);
         stage_controller_script.stage_title_text.text = "PLAN";
         stage_controller_script.NextStageButton();
         code_carousel_script.UpdateSelectedIcon();

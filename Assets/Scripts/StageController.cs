@@ -136,12 +136,14 @@ public class StageController : MonoBehaviour
             int bait = player_controller_script.bait_build_correctness;
             int mechanism = player_controller_script.mechanism_build_correctness;
             if((impact + hold + bait + mechanism) != 4){ // Build fails -> Returns to Plan
-
+                
                 /////// POP-UP
 
                 DeactivatedStages();
                 plan_stage.SetActive(true);
                 stage_title_text.text = "PLAN";
+                plan_deck_controller_script.DeactivateParts();
+                plan_deck_controller_script.plan_project.SetActive(true);
 
                 // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
                 plan_deck_controller_script.leveled_up_card = false;
@@ -153,14 +155,39 @@ public class StageController : MonoBehaviour
             }
             else{   // Build is correct
 
-                /////// POP-UP
+                // Determinar carta de mecanismo elegida
+                Card mechanism_card = null;
+                foreach(Card card in player_controller_script.selected_code_cards){
+                    if(card.category == "mechanism"){
+                        mechanism_card = card;
+                        break;
+                    }
+                }
 
-                stage_title_text.text = "TEST";
-                DeactivatedStages();
-                test_stage.SetActive(true);
-                tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
-                tutorial_trigger.TriggerTutorial();
-                if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+                if(((mechanism_card.id == "balloon_fair" || mechanism_card.id == "turkey_balloon") && (player_controller_script.selected_architecture.id == "architecture_2"))
+                || ((mechanism_card.id == "alpinism_pulley" || mechanism_card.id == "well_pulley") && player_controller_script.selected_architecture.id == "architecture_1"))
+                {
+                    /////// POP-UP
+
+                    stage_title_text.text = "TEST";
+                    DeactivatedStages();
+                    test_stage.SetActive(true);
+                    tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
+                    tutorial_trigger.TriggerTutorial();
+                    if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+                }
+                else{
+                    /////// POP-UP
+
+                    DeactivatedStages();
+                    plan_stage.SetActive(true);
+                    stage_title_text.text = "PLAN";
+
+                    // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
+                    plan_deck_controller_script.leveled_up_card = false;
+                    plan_deck_controller_script.is_selected_random_card = false;
+                    plan_deck_controller_script.is_generated_random_card = false;
+                }
             }
         }
         else if (stage_title_text.text == "TEST")

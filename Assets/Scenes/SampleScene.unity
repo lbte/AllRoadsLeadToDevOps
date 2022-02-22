@@ -9427,7 +9427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &957375049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13421,7 +13421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1520065730}
   m_Layer: 5
-  m_Name: AirTrap
+  m_Name: GroundTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15263,7 +15263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1672468008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15308,8 +15308,8 @@ MonoBehaviour:
   warning_categorize_window_text: {fileID: 22257813}
   carousel: {fileID: 394113450}
   landscape: {fileID: 832098772}
-  air_trap: {fileID: 1520065729}
-  ground_trap: {fileID: 1969540094}
+  air_trap: {fileID: 1969540094}
+  ground_trap: {fileID: 1520065729}
   player_controller_script: {fileID: 397590587}
   stage_controller_script: {fileID: 397590586}
   code_carousel_script: {fileID: 195998671}
@@ -17971,7 +17971,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
-    id: architecture_1
+    id: architecture_2
     card_title: Air oriented architecture
   - card_image: {fileID: 21300000, guid: 0022ebb275c7b94499bdb19cebbb14b9, type: 3}
     card_description: The system has a ground agent that must be in a high place,
@@ -17980,7 +17980,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
-    id: architecture_2
+    id: architecture_1
     card_title: Ground controller architecture
   - card_image: {fileID: 21300000, guid: f560a2a2693df9b44aeab22e9b58b90e, type: 3}
     card_description: GUATA!
@@ -18264,7 +18264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1969540095}
   m_Layer: 5
-  m_Name: GroundTrap
+  m_Name: AirTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

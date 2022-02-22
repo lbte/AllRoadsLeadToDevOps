@@ -142,7 +142,7 @@ public class PlanDeckController : MonoBehaviour
         DisableLifecycleIcons();
     }
 
-    void DeactivateParts()
+    public void DeactivateParts()
     {
         plan_project.SetActive(false);
         plan_architecture.SetActive(false);
