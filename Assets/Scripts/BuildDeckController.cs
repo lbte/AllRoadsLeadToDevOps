@@ -147,6 +147,7 @@ public class BuildDeckController : MonoBehaviour
         if (word_index >= plan_parts.Count) word_index = 0;
 
         UpdateButtonText();
+        warning_categorize_window.gameObject.SetActive(false);
     }
 
     // pop up window when clicking the down button and having a right answer
@@ -163,5 +164,6 @@ public class BuildDeckController : MonoBehaviour
         if (word_index < 0) word_index = plan_parts.Count - 1;
 
         UpdateButtonText();
+        warning_categorize_window.gameObject.SetActive(false);
     }
 }

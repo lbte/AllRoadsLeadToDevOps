@@ -27,7 +27,7 @@ public class PlanDeckController : MonoBehaviour
 
     // list with the decks names
     private List<string> plan_parts = new List<string>() { "Project", "Architecture", "Abilities", "Tools" };
-    private int word_index;
+    public int word_index;
     private List<Card> deck;
 
     // Level icons

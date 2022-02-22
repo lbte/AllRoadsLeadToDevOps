@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 22257812}
   - component: {fileID: 22257813}
   m_Layer: 0
-  m_Name: WarningBuildCategorizeText
+  m_Name: WarningBuildText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1105,6 +1105,7 @@ MonoBehaviour:
   plan_architecture: {fileID: 1943217616}
   plan_abilities: {fileID: 9742740}
   plan_tools: {fileID: 1686695327}
+  word_index: 0
   levelIcon: {fileID: 21300000, guid: ab5d9d86bc6008f47949388bc5be46f4, type: 3}
   left_card_level_icon_1: {fileID: 1216538246}
   left_card_level_icon_2: {fileID: 548405127}
@@ -4518,6 +4519,9 @@ MonoBehaviour:
   deploy_stage: {fileID: 1534434795}
   operate_stage: {fileID: 2117120324}
   monitor_stage: {fileID: 432855334}
+  warning_build_window_animator: {fileID: 1933416001}
+  warning_build_window: {fileID: 1933416000}
+  warning_build_window_text: {fileID: 22257813}
 --- !u!114 &397590587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7054,7 +7058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691062760}
   m_Layer: 5
-  m_Name: WarningBuildCategorizePopUp
+  m_Name: WarningBuildPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17491,7 +17495,7 @@ GameObject:
   - component: {fileID: 1933416000}
   - component: {fileID: 1933416001}
   m_Layer: 0
-  m_Name: WarningBuildCategorizeWindow
+  m_Name: WarningBuildWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
