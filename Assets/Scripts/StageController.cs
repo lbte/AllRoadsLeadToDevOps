@@ -39,6 +39,10 @@ public class StageController : MonoBehaviour
     private BuildDeckController build_deck_controller_script;
     public PlanDeckController plan_deck_controller_script;
 
+
+    public bool is_build_tool_used = false;
+    public int is_build_ability_used = 0;  // min = 0, max = 2
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,6 +129,9 @@ public class StageController : MonoBehaviour
             build_deck_controller_script.up_arrow_button.gameObject.SetActive(true);
             build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
             build_deck_controller_script.landscape.SetActive(false);
+            
+            is_build_tool_used = false;
+            is_build_ability_used = 0;
 
             // Update selected cards in BuildCarouselController (from PlayerController)
             build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();
@@ -171,7 +178,7 @@ public class StageController : MonoBehaviour
                 }
                 else
                 {
-                    /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR MÁS O MENOS COSAS RESPECTO AL FALLO)
+                    /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR Mï¿½S O MENOS COSAS RESPECTO AL FALLO)
                     StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 3f));
                 }
             }
@@ -355,6 +362,70 @@ public class StageController : MonoBehaviour
                 // POP-UP (You can't do anything with this ability level, level it up)
             }
         }
+        else if(stage_title_text.text == "CODE"){
+            int level = player_controller_script.abilities_levels["code_level"];
+            if(level == 1){
+                // POP-UP (Feather is not an appropiate component)
+            }
+            else if(level == 2){
+                // POP-UP (Feather and burger are not appropiate compoments)
+            }
+            else if(level == 3){
+                // POP-UP (Feather, burger and elastic are not appropiate components)
+            }
+            else{
+                // POP-UP (You can't do anything with this ability level, level it up)
+            }
+        }
+        else if(stage_title_text.text == "BUILD"){
+            int level = player_controller_script.abilities_levels["build_level"];
+            if(level <= 1){
+                // POP-UP (You can't do anything with this ability level, level it up)
+            }
+            else if(level == 2){
+                // Position of the element in the center (once)
+                if(is_build_ability_used < 1){
+                    is_build_ability_used += 1;
+                    Card card = build_carousel_script.cards[build_carousel_script.center_index];
+                    if(card.category == "hold") {
+                        // POP-UP ()
+                    }
+                    else if(card.category == "mechanism"){
+                        // POP-UP ()
+                    }
+                    else if(card.category == "impact"){
+                        // POP-UP ()
+                    }
+                    else if(card.category == "bait"){
+                        // POP-UP ()
+                    }
+                }
+                else{
+                    // POP-UP (You have already used this ability)
+                }
+            }
+            else if(level == 3){
+                if(is_build_ability_used < 2){
+                    is_build_ability_used += 1;
+                    Card card_1 = build_carousel_script.cards[build_carousel_script.center_index];
+                    if(card_1.category == "hold") {
+                        // POP-UP ()
+                    }
+                    else if(card_1.category == "mechanism"){
+                        // POP-UP ()
+                    }
+                    else if(card_1.category == "impact"){
+                        // POP-UP ()
+                    }
+                    else if(card_1.category == "bait"){
+                        // POP-UP ()
+                    }
+                }
+                else{
+                    // POP-UP (You have already used this ability)
+                }
+            }
+        }
     }
 
     void UseToolButtonHanlder(){
@@ -364,6 +435,30 @@ public class StageController : MonoBehaviour
             }
             else{
                 // POP-UP (You can't use this ability)
+            }
+        }
+        else if(stage_title_text.text == "CODE"){
+            if(player_controller_script.can_use_code_tool == true){
+                if(player_controller_script.selected_architecture.id == "architecture_1"){
+                    // POP-UP (Arquitectura terrestre -> Pulley)
+                }
+                else{
+                    // POP-UP (Arquitectura area -> Ballon)
+                }
+            }
+        }
+        else if(stage_title_text.text == "BUILD"){
+            // Category of the element in the center (once)
+            if(player_controller_script.can_use_build_tool == true){
+                if(is_build_tool_used == false){
+                    is_build_tool_used = true;
+                    Card card = build_carousel_script.cards[build_carousel_script.center_index];
+
+                    // POP-UP (card.category)
+                }
+                else{
+                    // POP-UP (You have already used this tool)
+                }
             }
         }
     }

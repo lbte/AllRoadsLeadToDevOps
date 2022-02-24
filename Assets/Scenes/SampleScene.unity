@@ -4720,6 +4720,7 @@ MonoBehaviour:
   warning_build_window_animator: {fileID: 1933416001}
   warning_build_window: {fileID: 1933416000}
   warning_build_window_text: {fileID: 22257813}
+  plan_deck_controller_script: {fileID: 0}
 --- !u!114 &397590587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11667,7 +11668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 067ec8586db97e4449f16abe8714ab73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d746346f32bf76243b5c82d16358e366, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
