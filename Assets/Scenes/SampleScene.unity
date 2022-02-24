@@ -633,7 +633,7 @@ MonoBehaviour:
     selected: 0
     category: 
     level: 0
-    id: new relic
+    id: new_relic
     card_title: New Relic
   - card_image: {fileID: 21300000, guid: 174f88ef3d3d3c04ba02c9fdb22dd1df, type: 3}
     card_description: It's an open-source tool that helps to automate the creation
@@ -660,8 +660,8 @@ MonoBehaviour:
     id: powershell
     card_title: PowerShell
   - card_image: {fileID: 21300000, guid: 2559d8808ed6f4146a324470aea3449d, type: 3}
-    card_description: It's a free (open-source) automated testing framework used
-      to validate web applications across different browsers and platforms.
+    card_description: It's a free (open-source) automated testing framework used to
+      validate web applications across different browsers and platforms.
     selected: 0
     category: 
     level: 0
@@ -686,11 +686,10 @@ MonoBehaviour:
     id: aws
     card_title: AWS
   - card_image: {fileID: 21300000, guid: 6eb89622430074b49bfc03b839ab12c1, type: 3}
-    card_description: 'It''s an open-source automation tool written in Java with
-      plugins built for Continuous Integration purposes. Jenkins is used to build
-      and test software projects continuously making it easier for developers to
-      integrate changes to the project, and making it easier for users to obtain
-      a fresh build. '
+    card_description: 'It''s an open-source automation tool written in Java with plugins
+      built for Continuous Integration purposes. Jenkins is used to build and test
+      software projects continuously making it easier for developers to integrate
+      changes to the project, and making it easier for users to obtain a fresh build. '
     selected: 0
     category: 
     level: 0
@@ -1022,7 +1021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &97409424
 MonoBehaviour:
@@ -2241,17 +2241,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck:
   - card_image: {fileID: 21300000, guid: 29c47c8604528264b8d21c83b4e0190f, type: 3}
-    card_description: 'An anvil is the main working surface of a blacksmith, you
-      have to run fast if you don''t want to get hit by a hammer or burned by hot
-      metal when stealing it from him.  '
+    card_description: 'An anvil is the main working surface of a blacksmith, you have
+      to run fast if you don''t want to get hit by a hammer or burned by hot metal
+      when stealing it from him.  '
     selected: 0
     category: impact
     level: 0
     id: blacksmith_anvil
     card_title: Anvil
   - card_image: {fileID: 21300000, guid: 1b78350b76e0639469f62a30f0cf2bfd, type: 3}
-    card_description: "The cowboy needed the rope for his rodeo, now he won't be
-      able to participate\u2026 he's looking for you\u2026 Be careful!"
+    card_description: "The cowboy needed the rope for his rodeo, now he won't be able
+      to participate\u2026 he's looking for you\u2026 Be careful!"
     selected: 0
     category: hold
     level: 0
@@ -2296,9 +2296,8 @@ MonoBehaviour:
     id: old_piano
     card_title: Piano
   - card_image: {fileID: 21300000, guid: 5a077538d33fd834288f688eed8d8f2a, type: 3}
-    card_description: Sometimes our best ally is mother nature, the eagle friend
-      when passing by left many feathers to use, too bad they were mistreated in
-      the fall.
+    card_description: Sometimes our best ally is mother nature, the eagle friend when
+      passing by left many feathers to use, too bad they were mistreated in the fall.
     selected: 0
     category: impact
     level: 0
@@ -2354,9 +2353,8 @@ MonoBehaviour:
     id: pillow_feather
     card_title: Feather
   - card_image: {fileID: 21300000, guid: d5fad3ccd111ed246b005ee2e5fcb594, type: 3}
-    card_description: 'Near Carl the baker''s house there''s a park for kids and
-      there are swings made with rope, kids will be sad but at least you''ve got
-      your rope. '
+    card_description: 'Near Carl the baker''s house there''s a park for kids and there
+      are swings made with rope, kids will be sad but at least you''ve got your rope. '
     selected: 0
     category: hold
     level: 0
@@ -2413,8 +2411,8 @@ MonoBehaviour:
     id: own_cooked_food
     card_title: Burger
   - card_image: {fileID: 21300000, guid: df5338b10f8b37b4bbf39030f5ae2f11, type: 3}
-    card_description: Doing manual work gives me anxiety, that's why I prefer to
-      hire someone to do it for me.  Too bad the charge is so expensive.
+    card_description: Doing manual work gives me anxiety, that's why I prefer to hire
+      someone to do it for me.  Too bad the charge is so expensive.
     selected: 0
     category: mechanism
     level: 0
@@ -2430,8 +2428,8 @@ MonoBehaviour:
     card_title: Pulley
   - card_image: {fileID: 21300000, guid: f546cb08a16083845adf1737c7ad1c68, type: 3}
     card_description: Usually in Turkey there are a lot of hot air balloons, it's
-      one the country's biggest attractions, maybe a trip like those in order to
-      get a balloon wouldn't be so bad.
+      one the country's biggest attractions, maybe a trip like those in order to get
+      a balloon wouldn't be so bad.
     selected: 0
     category: mechanism
     level: 0
@@ -3608,7 +3606,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &293652833
 GameObject:
@@ -4543,7 +4542,14 @@ MonoBehaviour:
     id: 
     card_title: 
   selected_code_cards: []
-  build_correctness: 0
+  can_use_plan_tool: 0
+  can_use_code_tool: 0
+  can_use_build_tool: 0
+  can_use_test_tool: 0
+  can_use_release_tool: 0
+  can_use_deploy_tool: 0
+  can_use_operate_tool: 0
+  can_use_monitor_tool: 0
   impact_categorize_correctness: 0
   hold_categorize_correctness: 0
   bait_categorize_correctness: 0
@@ -5789,7 +5795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &549299062
 MonoBehaviour:
@@ -7452,7 +7459,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &735984138
 MonoBehaviour:
@@ -8041,7 +8049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &806168275
 GameObject:
@@ -8641,7 +8650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &859964565
 MonoBehaviour:
@@ -11165,7 +11175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1171474704
 MonoBehaviour:
@@ -11954,7 +11965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1360789304
 MonoBehaviour:
@@ -14295,7 +14307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1608200953
 GameObject:
@@ -16688,7 +16701,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1842598525
 GameObject:
@@ -17873,7 +17887,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1942250481
 MonoBehaviour:
@@ -19128,7 +19143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
+    type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &2067002099
 MonoBehaviour:

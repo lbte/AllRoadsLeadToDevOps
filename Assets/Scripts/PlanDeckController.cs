@@ -27,7 +27,7 @@ public class PlanDeckController : MonoBehaviour
 
     // list with the decks names
     private List<string> plan_parts = new List<string>() { "Project", "Architecture", "Abilities", "Tools" };
-    public int word_index;
+    private int word_index;
     private List<Card> deck;
 
     // Level icons
@@ -407,27 +407,26 @@ public class PlanDeckController : MonoBehaviour
     }
 
     void PlanLifecycleButtonHandler(){  
-        /* string t = GameObject.GetComponent<Button>().GetComponent<Text>().text;
-        Debug.Log(t); */
-
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["plan"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "jira" || random_tool_card.id == "git"){
+                player_controller_script.can_use_plan_tool = true;
+            }
+            else player_controller_script.can_use_plan_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
-
-        // Debug
-        /* foreach(KeyValuePair<string, Card> entry in player_controller_script.tool_cards)
-        {   
-            if(entry.Value != null) Debug.Log(entry.Key + " " + entry.Value.card_description);
-        } */
     }
 
     void CodeLifecycleButtonHandler(){
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["code"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "bitbucket" || random_tool_card.id == "github"){
+                player_controller_script.can_use_code_tool = true;
+            }
+            else player_controller_script.can_use_code_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
@@ -437,6 +436,11 @@ public class PlanDeckController : MonoBehaviour
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["build"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "puppet" || random_tool_card.id == "gradle" || random_tool_card.id == "chef"
+            || random_tool_card.id == "ansible" || random_tool_card.id == "docker"){
+                player_controller_script.can_use_build_tool = true;
+            }
+            else player_controller_script.can_use_build_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
@@ -446,6 +450,10 @@ public class PlanDeckController : MonoBehaviour
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["test"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "junit" || random_tool_card.id == "vagrant" || random_tool_card.id == "selenium"){
+                player_controller_script.can_use_test_tool = true;
+            }
+            else player_controller_script.can_use_test_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
@@ -455,6 +463,11 @@ public class PlanDeckController : MonoBehaviour
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["release"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "docker" || random_tool_card.id == "chef" || random_tool_card.id == "jira"
+            || random_tool_card.id == "jenkins" || random_tool_card.id == "ansible" || random_tool_card.id == "docker"){
+                player_controller_script.can_use_release_tool = true;
+            }
+            else player_controller_script.can_use_release_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
@@ -464,6 +477,10 @@ public class PlanDeckController : MonoBehaviour
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["deploy"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "docker" || random_tool_card.id == "aws"){
+                player_controller_script.can_use_deploy_tool = true;
+            }
+            else player_controller_script.can_use_deploy_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
@@ -473,6 +490,11 @@ public class PlanDeckController : MonoBehaviour
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["operate"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "puppet" || random_tool_card.id == "chef" || random_tool_card.id == "powershell"
+            || random_tool_card.id == "ansible"){
+                player_controller_script.can_use_operate_tool = true;
+            }
+            else player_controller_script.can_use_operate_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();
@@ -482,6 +504,10 @@ public class PlanDeckController : MonoBehaviour
         if(is_selected_random_card == false){
             player_controller_script.tool_cards["monitor"] = random_tool_card;
             is_selected_random_card = true;
+            if(random_tool_card.id == "new_relic" || random_tool_card.id == "datadog" || random_tool_card.id == "powershell"){
+                player_controller_script.can_use_operate_tool = true;
+            }
+            else player_controller_script.can_use_operate_tool = false;
         }
         DisableLifecycleIcons();
         UpdateLifecycleIcons();

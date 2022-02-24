@@ -22,7 +22,15 @@ public class PlayerController : MonoBehaviour
         {"release", null}, {"deploy", null}, {"operate", null}, {"monitor", null}
     };
 
-    public int build_correctness = 0;   // 4 -> Correct Build
+    // Verify if the player can use a tool
+    public bool can_use_plan_tool = false;
+    public bool can_use_code_tool = false;
+    public bool can_use_build_tool = false;
+    public bool can_use_test_tool = false;
+    public bool can_use_release_tool = false;
+    public bool can_use_deploy_tool = false;
+    public bool can_use_operate_tool = false;
+    public bool can_use_monitor_tool = false;
 
 
     public int impact_categorize_correctness = 0;  // 0 -> Bad,  1 -> Good

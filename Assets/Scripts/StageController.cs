@@ -26,11 +26,6 @@ public class StageController : MonoBehaviour
     public GameObject operate_stage;
     public GameObject monitor_stage;
 
-    // build change of phase popups
-    public Animator warning_build_window_animator;
-    public Image warning_build_window;
-    public Text warning_build_window_text;
-
     private TutorialTextTrigger tutorial_trigger;
 
     private CodeCarouselController code_carousel_script;
@@ -82,7 +77,7 @@ public class StageController : MonoBehaviour
     public void NextStageButton()
     {
         if (stage_title_text.text == "PLAN")
-        {
+        {   
             // Check conditions required to complete the plan phase
             // - Select architecture (PlayerController)
             // - Assign tool (PlanDeckController)
@@ -116,7 +111,6 @@ public class StageController : MonoBehaviour
             build_stage.SetActive(true);
             build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
             next_stage_button.gameObject.SetActive(false);
-            warning_build_window.gameObject.SetActive(false);
             build_deck_controller_script.word_index = 0; // reset to go back to the categorize view and be able to go to the building
             build_deck_controller_script.deck_button_text.text = "Categorize";
             build_deck_controller_script.carousel.SetActive(true);
@@ -124,7 +118,7 @@ public class StageController : MonoBehaviour
             build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
             build_deck_controller_script.landscape.SetActive(false);
 
-            // Update selected cards in BuildCarouselController (from PlayerController)
+            // Update selected cards in BuildCarouselController (from PllayerController)
             build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();  
             build_carousel_script.AssignSelectedCodeCards();
             build_carousel_script.UpdateCardImages();
@@ -142,9 +136,22 @@ public class StageController : MonoBehaviour
             int bait = player_controller_script.bait_build_correctness;
             int mechanism = player_controller_script.mechanism_build_correctness;
             if((impact + hold + bait + mechanism) != 4){ // Build fails -> Returns to Plan
-
+                
                 /////// POP-UP
-                StartCoroutine(WarningBuildingToPlanDisplay("It looks like the building you made is not the right one. \nYou must plan again.", 3f));
+
+                DeactivatedStages();
+                plan_stage.SetActive(true);
+                stage_title_text.text = "PLAN";
+                plan_deck_controller_script.DeactivateParts();
+                plan_deck_controller_script.plan_project.SetActive(true);
+
+                // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
+                plan_deck_controller_script.leveled_up_card = false;
+                plan_deck_controller_script.is_selected_random_card = false;
+                plan_deck_controller_script.is_generated_random_card = false;
+
+
+
             }
             else{   // Build is correct
 
@@ -161,11 +168,25 @@ public class StageController : MonoBehaviour
                 || ((mechanism_card.id == "alpinism_pulley" || mechanism_card.id == "well_pulley") && player_controller_script.selected_architecture.id == "architecture_1"))
                 {
                     /////// POP-UP
-                    StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 2f));
+
+                    stage_title_text.text = "TEST";
+                    DeactivatedStages();
+                    test_stage.SetActive(true);
+                    tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
+                    tutorial_trigger.TriggerTutorial();
+                    if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
                 }
                 else{
-                    /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR MÁS O MENOS COSAS RESPECTO AL FALLO)
-                    StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again." ,3f));
+                    /////// POP-UP
+
+                    DeactivatedStages();
+                    plan_stage.SetActive(true);
+                    stage_title_text.text = "PLAN";
+
+                    // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
+                    plan_deck_controller_script.leveled_up_card = false;
+                    plan_deck_controller_script.is_selected_random_card = false;
+                    plan_deck_controller_script.is_generated_random_card = false;
                 }
             }
         }
@@ -272,45 +293,51 @@ public class StageController : MonoBehaviour
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
     }
 
-    IEnumerator WarningRightBuildingToTestDisplay(string text, float delay)
-    {
-        warning_build_window.gameObject.SetActive(true);
-        warning_build_window_text.text = text;
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
-        yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+    void UseAbilityButtonHandler(){
+        if (stage_title_text.text == "PLAN") {
+            int level = player_controller_script.abilities_levels["plan_level"];
+            if(level == 3){
+                string message = "";
+                string name = plan_deck_controller_script.random_tool_card.id; 
+                
+                if(name == "bitbucket") message = " "; // code
+                else if(name == "docker") message = " "; // release, deploy, build
+                else if(name == "puppet") message = " "; // operate, build
+                else if(name == "github") message = " "; // code
+                else if(name == "junit") message = " "; // test
+                else if(name == "gradle") message = " "; // build
+                else if(name == "chef") message = " "; // operate, release, build
+                else if(name == "new_relic") message = " "; // monitor
+                else if(name == "vagrant") message = " "; // test
+                else if(name == "jira") message = " "; // plan, release
+                else if(name == "powershell") message = " "; // operate
+                else if(name == "selenium") message = " "; // test
+                else if(name == "datadog") message = " "; // monitor
+                else if(name == "aws") message = " "; // deploy
+                else if(name == "jenkins") message = " ";  // release
+                else if(name == "git") message = " "; // plan
+                else if(name == "grafana") message = " "; // monitor
+                else if(name == "ansible") message = " "; // operate, release, build
 
-        // go to test stage
-        stage_title_text.text = "TEST";
-        DeactivatedStages();
-        test_stage.SetActive(true);
-        tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
-        tutorial_trigger.TriggerTutorial();
-        if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+                // POP-UP (message)
+            }
+            if(level == 2){
+                // POP-UP (GUATA is not the most appropiate architecture)
+            }
+            else{
+                // POP-UP (You can't do anything with this ability level, level it up)
+            }
+        }
     }
 
-    IEnumerator WarningBuildingToPlanDisplay(string text, float delay)
-    {
-        warning_build_window.gameObject.SetActive(true);
-        warning_build_window_text.text = text;
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
-        yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
-
-        // go to the plan stage
-        DeactivatedStages();
-        plan_stage.SetActive(true);
-        stage_title_text.text = "PLAN";
-        plan_deck_controller_script.DeactivateParts();
-        plan_deck_controller_script.plan_project.SetActive(true);
-        plan_deck_controller_script.word_index = 0;
-        plan_deck_controller_script.deck_button_text.text = "Project";
-        plan_deck_controller_script.UpdateButtonText();
-
-        // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
-        plan_deck_controller_script.leveled_up_card = false;
-        plan_deck_controller_script.is_selected_random_card = false;
-        plan_deck_controller_script.is_generated_random_card = false;
+    void UseToolButtonHanlder(){
+        if (stage_title_text.text == "PLAN") {
+            if(player_controller_script.can_use_plan_tool == true){
+                // POP-UP (Blueprint)
+            }
+            else{
+                // POP-UP (You can't use this ability)
+            }
+        }
     }
-
 }
