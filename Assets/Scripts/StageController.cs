@@ -20,6 +20,12 @@ public class StageController : MonoBehaviour
     private Image warning_checklist_window;
     public Text warning_checklist_window_text;
 
+    // abilities levels window
+    public Image abilities_levels_window;
+    public Animator abilities_levels_window_animator;
+    public Button abilities_levels_window_close_button;
+    public Button abilities_levels_button;
+
     public GameObject plan_stage;
     public GameObject code_stage;
     public GameObject build_stage;
@@ -59,8 +65,11 @@ public class StageController : MonoBehaviour
 
         warning_checklist_window.gameObject.SetActive(false);
         checklist_close_button.gameObject.SetActive(false);
+        abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", false);
         checklist_close_button.onClick.AddListener(ChecklistCloseButton);
         checklist_button.onClick.AddListener(ChecklistButton);
+        abilities_levels_button.onClick.AddListener(AbilitiesLevelsWindowButton);
+        abilities_levels_window_close_button.onClick.AddListener(AbilitiesLevelsWindowCloseButton);
         next_stage_button.onClick.AddListener(NextStageButton);
         use_ability_button.onClick.AddListener(UseAbilityButtonHandler);
         use_tool_button.onClick.AddListener(UseToolButtonHanlder);
@@ -281,6 +290,16 @@ public class StageController : MonoBehaviour
     {
         checklist_window_animator.SetBool("IsOpen", false);
         checklist_close_button.gameObject.SetActive(false);
+    }
+
+    void AbilitiesLevelsWindowButton()
+    {
+        abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", true);
+    }
+
+    void AbilitiesLevelsWindowCloseButton()
+    {
+        abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", false);
     }
 
     IEnumerator WarningWindowDisplay(string text, float delay)
