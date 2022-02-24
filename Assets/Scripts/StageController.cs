@@ -37,7 +37,7 @@ public class StageController : MonoBehaviour
     private PlayerController player_controller_script;
     private BuildCarouselController build_carousel_script;
     private BuildDeckController build_deck_controller_script;
-    private PlanDeckController plan_deck_controller_script;
+    public PlanDeckController plan_deck_controller_script;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +67,7 @@ public class StageController : MonoBehaviour
         monitor_stage.SetActive(false);
     }
 
-    void DeactivatedStages()
+    public void DeactivatedStages()
     {
         plan_stage.SetActive(false);
         code_stage.SetActive(false);
@@ -296,7 +296,7 @@ public class StageController : MonoBehaviour
         if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
     }
 
-    IEnumerator WarningBuildingToPlanDisplay(string text, float delay)
+    public IEnumerator WarningBuildingToPlanDisplay(string text, float delay)
     {
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;

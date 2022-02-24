@@ -28,7 +28,7 @@ public class BuildDeckController : MonoBehaviour
     public int word_index;
 
     void Start()
-    {   
+    {
 
         // to show views when the arrow buttons are clicked
         up_arrow_button.onClick.AddListener(UpButton);
@@ -64,33 +64,34 @@ public class BuildDeckController : MonoBehaviour
                 air_trap.SetActive(false);
                 ground_trap.SetActive(true);
             }
-            else if(player_controller_script.selected_architecture.id == "architecture_2")
+            else if (player_controller_script.selected_architecture.id == "architecture_2")
             {
                 air_trap.SetActive(true);
                 ground_trap.SetActive(false);
             }
-            else if(player_controller_script.selected_architecture.id == "architecture_3")
+            else if (player_controller_script.selected_architecture.id == "architecture_3")
             {
                 air_trap.SetActive(false);
                 ground_trap.SetActive(false);
                 ///////////////// POP-UP bonito ("It looks like the desert is not an appropiate place for that architecture")
+                StartCoroutine(stage_controller_script.WarningBuildingToPlanDisplay("It looks like the desert is not an appropiate place for that architecture.", 2f));
             }
         }
     }
 
     // move up on the arrows and show different views according to that
     public void UpButton()
-    {   
+    {
         int impact = player_controller_script.impact_categorize_correctness;
         int hold = player_controller_script.hold_categorize_correctness;
         int bait = player_controller_script.bait_categorize_correctness;
         int mechanism = player_controller_script.mechanism_categorize_correctness;
-        if((impact + hold + bait + mechanism) != 4){ // Categorize fails
+        if ((impact + hold + bait + mechanism) != 4) { // Categorize fails
             // Returns to code (Alguna habilidad/herramienta podria evitar esto)
             // Pop-up bonito (Mensaje="It looks like something went wrong with your materials ...")
             StartCoroutine(WarningWrongCategorizeDisplay("It looks like something went wrong with your materials...\nYou must code again.", 2f));
         }
-        else{
+        else {
             // Pop-up bonito (Mensaje="It looks you did right by categorizing your materials ...")
             StartCoroutine(WarningUpRightCategorizeDisplay("It looks you did right by categorizing your materials...", 2f));
 
@@ -166,4 +167,6 @@ public class BuildDeckController : MonoBehaviour
         UpdateButtonText();
         warning_categorize_window.gameObject.SetActive(false);
     }
+
+    
 }
