@@ -202,22 +202,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - card_image: {fileID: 21300000, guid: f8d16ae52de6c9145a802877dbff109f, type: 3}
-    card_description: Be able to ask for architecture correctness (if certain architecture
-      is the correct one).
+    card_description: On level 2, you'll be able to get a hint about discarding the
+      most inappropiate architecture, and on level 3 you're able to ask for the correct
+      tool placement on the devops cycle.
     selected: 0
     category: 
     level: 0
     id: plan_level
     card_title: Plan ability
   - card_image: {fileID: 21300000, guid: 9205a4731a6f3c14fb837005daab20c6, type: 3}
-    card_description: 
+    card_description: On each level, you'll be able to get a hint about discarding
+      one inappropriate component situation.
     selected: 0
     category: 
     level: 2
     id: code_level
     card_title: Code ability
   - card_image: {fileID: 21300000, guid: 01ef2915947ddf54586e731866ca29ca, type: 3}
-    card_description: 
+    card_description: On level 2 and 3, you'll receive a hint about the composition
+      of one trap element in the building part.
     selected: 0
     category: 
     level: 3
@@ -4707,8 +4710,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next_stage_button: {fileID: 609494971}
   stage_title_text: {fileID: 1524549300}
+  use_ability_button: {fileID: 771616918}
+  use_tool_button: {fileID: 257107233}
   checklist_window_animator: {fileID: 1441069148}
   warning_checklist_window_animator: {fileID: 127391125}
+  warning_checklist_window_text: {fileID: 1701693839}
   plan_stage: {fileID: 98171817}
   code_stage: {fileID: 2126573145}
   build_stage: {fileID: 1672468007}
@@ -4720,7 +4726,9 @@ MonoBehaviour:
   warning_build_window_animator: {fileID: 1933416001}
   warning_build_window: {fileID: 1933416000}
   warning_build_window_text: {fileID: 22257813}
-  plan_deck_controller_script: {fileID: 0}
+  plan_deck_controller_script: {fileID: 98171818}
+  is_build_tool_used: 0
+  is_build_ability_used: 0
 --- !u!114 &397590587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7032,12 +7040,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
-    m_FontSize: 20
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -15713,9 +15721,9 @@ MonoBehaviour:
   up_arrow_button: {fileID: 1408685496}
   down_arrow_button: {fileID: 1993214490}
   deck_button_text: {fileID: 806168278}
-  warning_categorize_window_animator: {fileID: 1933416001}
-  warning_categorize_window: {fileID: 1933416000}
-  warning_categorize_window_text: {fileID: 22257813}
+  warning_build_window_animator: {fileID: 1933416001}
+  warning_build_window: {fileID: 1933416000}
+  warning_build_window_text: {fileID: 22257813}
   carousel: {fileID: 394113450}
   landscape: {fileID: 832098772}
   air_trap: {fileID: 1969540094}
@@ -15724,6 +15732,7 @@ MonoBehaviour:
   stage_controller_script: {fileID: 397590586}
   code_carousel_script: {fileID: 195998671}
   build_carousel_script: {fileID: 394113452}
+  plan_deck_controller_script: {fileID: 98171818}
   word_index: 0
 --- !u!114 &1672468010
 MonoBehaviour:
@@ -16053,8 +16062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: 1.734}
-  m_SizeDelta: {x: 291.34, y: 154.419}
+  m_AnchoredPosition: {x: -1.534, y: 1.734}
+  m_SizeDelta: {x: 258.5303, y: 154.419}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701693839
 MonoBehaviour:

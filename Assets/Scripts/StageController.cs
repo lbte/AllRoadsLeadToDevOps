@@ -10,12 +10,15 @@ public class StageController : MonoBehaviour
 
     private Button checklist_button;
     private Button checklist_close_button;
+    public Button use_ability_button;
+    public Button use_tool_button;
     private string checklist_text;
     private Image checklist_items_window;
     private Text checklist_items_text;
     public Animator checklist_window_animator;
     public Animator warning_checklist_window_animator;
     private Image warning_checklist_window;
+    public Text warning_checklist_window_text;
 
     public GameObject plan_stage;
     public GameObject code_stage;
@@ -59,6 +62,8 @@ public class StageController : MonoBehaviour
         checklist_close_button.onClick.AddListener(ChecklistCloseButton);
         checklist_button.onClick.AddListener(ChecklistButton);
         next_stage_button.onClick.AddListener(NextStageButton);
+        use_ability_button.onClick.AddListener(UseAbilityButtonHandler);
+        use_tool_button.onClick.AddListener(UseToolButtonHanlder);
 
         stage_title_text.text = "PLAN";
         plan_stage.SetActive(true);
@@ -104,7 +109,7 @@ public class StageController : MonoBehaviour
             else
             {
                 // Pop-up: mensaje "Looks like something is missing, check your checklist"
-                StartCoroutine(WarningWindowDisplay(2));
+                StartCoroutine(WarningWindowDisplay("Looks like there's something missing.\n\nCheck your checklist!", 2));
             }
         }
         else if (stage_title_text.text == "CODE")
@@ -130,8 +135,8 @@ public class StageController : MonoBehaviour
             build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
             build_deck_controller_script.landscape.SetActive(false);
             
-            is_build_tool_used = false;
-            is_build_ability_used = 0;
+            //is_build_tool_used = false;
+            //is_build_ability_used = 0;
 
             // Update selected cards in BuildCarouselController (from PlayerController)
             build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();
@@ -278,9 +283,10 @@ public class StageController : MonoBehaviour
         checklist_close_button.gameObject.SetActive(false);
     }
 
-    IEnumerator WarningWindowDisplay(float delay)
+    IEnumerator WarningWindowDisplay(string text, float delay)
     {
         warning_checklist_window.gameObject.SetActive(true);
+        warning_checklist_window_text.text = text;
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
@@ -354,33 +360,42 @@ public class StageController : MonoBehaviour
                 else if(name == "ansible") message = " "; // operate, release, build
 
                 // POP-UP (message)
+                StartCoroutine(WarningWindowDisplay(message, 2));
             }
             if(level == 2){
                 // POP-UP (GUATA is not the most appropiate architecture)
+                StartCoroutine(WarningWindowDisplay("Hint: The Water oriented architecture is not the most appropriate architecture.", 2));
             }
             else{
                 // POP-UP (You can't do anything with this ability level, level it up)
+                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 2));
             }
         }
         else if(stage_title_text.text == "CODE"){
             int level = player_controller_script.abilities_levels["code_level"];
+            Debug.Log(level);
             if(level == 1){
                 // POP-UP (Feather is not an appropiate component)
+                StartCoroutine(WarningWindowDisplay("Hint: Feather is not an appropiate component for this project.", 2));
             }
             else if(level == 2){
                 // POP-UP (Feather and burger are not appropiate compoments)
+                StartCoroutine(WarningWindowDisplay("Hint: Feather and burger are not appropiate components for this project.", 3));
             }
             else if(level == 3){
                 // POP-UP (Feather, burger and elastic are not appropiate components)
+                StartCoroutine(WarningWindowDisplay("Hint: Feather, burger and elastic are not appropiate components for this project.", 3));
             }
             else{
                 // POP-UP (You can't do anything with this ability level, level it up)
+                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 2));
             }
         }
         else if(stage_title_text.text == "BUILD"){
             int level = player_controller_script.abilities_levels["build_level"];
             if(level <= 1){
                 // POP-UP (You can't do anything with this ability level, level it up)
+                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 2));
             }
             else if(level == 2){
                 // Position of the element in the center (once)
@@ -389,19 +404,24 @@ public class StageController : MonoBehaviour
                     Card card = build_carousel_script.cards[build_carousel_script.center_index];
                     if(card.category == "hold") {
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the "+card.card_title+" card in the second black box from top to bottom.", 3));
                     }
                     else if(card.category == "mechanism"){
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the first black box from top to bottom.", 3));
                     }
                     else if(card.category == "impact"){
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the third black box from top to bottom.", 3));
                     }
                     else if(card.category == "bait"){
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the fourth black box from top to bottom.", 3));
                     }
                 }
                 else{
                     // POP-UP (You have already used this ability)
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 2));
                 }
             }
             else if(level == 3){
@@ -410,19 +430,24 @@ public class StageController : MonoBehaviour
                     Card card_1 = build_carousel_script.cards[build_carousel_script.center_index];
                     if(card_1.category == "hold") {
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the second black box from top to bottom.", 3));
                     }
                     else if(card_1.category == "mechanism"){
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the first black box from top to bottom.", 3));
                     }
                     else if(card_1.category == "impact"){
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the third black box from top to bottom.", 3));
                     }
                     else if(card_1.category == "bait"){
                         // POP-UP ()
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the fourth black box from top to bottom.", 3));
                     }
                 }
                 else{
                     // POP-UP (You have already used this ability)
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 2));
                 }
             }
         }
@@ -435,15 +460,18 @@ public class StageController : MonoBehaviour
             }
             else{
                 // POP-UP (You can't use this ability)
+                StartCoroutine(WarningWindowDisplay("You can't use this ability.", 2));
             }
         }
         else if(stage_title_text.text == "CODE"){
             if(player_controller_script.can_use_code_tool == true){
                 if(player_controller_script.selected_architecture.id == "architecture_1"){
                     // POP-UP (Arquitectura terrestre -> Pulley)
+                    StartCoroutine(WarningWindowDisplay("Hint: The mechanism you should use is the Pulley.", 2));
                 }
                 else{
                     // POP-UP (Arquitectura area -> Ballon)
+                    StartCoroutine(WarningWindowDisplay("Hint: The mechanism you should use is the Balloon.", 2));
                 }
             }
         }
@@ -455,9 +483,11 @@ public class StageController : MonoBehaviour
                     Card card = build_carousel_script.cards[build_carousel_script.center_index];
 
                     // POP-UP (card.category)
+                    StartCoroutine(WarningWindowDisplay("Hint: You should place the "+ card.card_title + ", in the " + card.category + " category.", 3));
                 }
                 else{
                     // POP-UP (You have already used this tool)
+                    StartCoroutine(WarningWindowDisplay("You have already used this tool.", 2));
                 }
             }
         }
