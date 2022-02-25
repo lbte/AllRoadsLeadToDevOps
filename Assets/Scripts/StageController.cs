@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class StageController : MonoBehaviour
 {
@@ -80,6 +81,9 @@ public class StageController : MonoBehaviour
 
     public Text left_test_card_description;
     public Text right_test_card_description;
+
+    // video player for release
+    public VideoPlayer videoRelease1;
 
     // Start is called before the first frame update
     void Start()
@@ -240,6 +244,10 @@ public class StageController : MonoBehaviour
             stage_title_text.text = "RELEASE";
             DeactivatedStages();
             release_stage.SetActive(true);
+
+            // play the video on the release stage
+
+            videoRelease1.Play();
             tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
             tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
