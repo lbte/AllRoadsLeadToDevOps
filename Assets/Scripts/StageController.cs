@@ -191,7 +191,7 @@ public class StageController : MonoBehaviour
             { // Build fails -> Returns to Plan
 
                 /////// POP-UP
-                StartCoroutine(WarningBuildingToPlanDisplay("It looks like the building you made is not the right one. \nYou must plan again.", 3f));
+                StartCoroutine(WarningBuildingToPlanDisplay("It looks like the building you made is not the right one. \nYou must plan again.", 4f));
             }
             else
             {   // Build is correct
@@ -211,12 +211,12 @@ public class StageController : MonoBehaviour
                 || ((mechanism_card.id == "alpinism_pulley" || mechanism_card.id == "well_pulley") && player_controller_script.selected_architecture.id == "architecture_1"))
                 {
                     /////// POP-UP
-                    StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 2f));
+                    StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 3f));
                 }
                 else
                 {
                     /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR M�S O MENOS COSAS RESPECTO AL FALLO)
-                    StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 3f));
+                    StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 4f));
                 }
             }
         }
@@ -469,11 +469,11 @@ public class StageController : MonoBehaviour
             }
             if(level == 2){
                 // POP-UP (GUATA is not the most appropiate architecture)
-                StartCoroutine(WarningWindowDisplay("Hint: The Water oriented architecture is not the most appropriate architecture.", 2));
+                StartCoroutine(WarningWindowDisplay("Hint: The Water oriented architecture is not the most appropriate architecture.", 4));
             }
             else{
                 // POP-UP (You can't do anything with this ability level, level it up)
-                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 2));
+                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 4));
             }
         }
         else if(stage_title_text.text == "CODE"){
@@ -481,26 +481,26 @@ public class StageController : MonoBehaviour
             Debug.Log(level);
             if(level == 1){
                 // POP-UP (Feather is not an appropiate component)
-                StartCoroutine(WarningWindowDisplay("Hint: Feather is not an appropiate component for this project.", 2));
+                StartCoroutine(WarningWindowDisplay("Hint: Feather is not an appropiate component for this project.", 4));
             }
             else if(level == 2){
                 // POP-UP (Feather and burger are not appropiate compoments)
-                StartCoroutine(WarningWindowDisplay("Hint: Feather and burger are not appropiate components for this project.", 3));
+                StartCoroutine(WarningWindowDisplay("Hint: Feather and burger are not appropiate components for this project.", 4));
             }
             else if(level == 3){
                 // POP-UP (Feather, burger and elastic are not appropiate components)
-                StartCoroutine(WarningWindowDisplay("Hint: Feather, burger and elastic are not appropiate components for this project.", 3));
+                StartCoroutine(WarningWindowDisplay("Hint: Feather, burger and elastic are not appropiate components for this project.", 4));
             }
             else{
                 // POP-UP (You can't do anything with this ability level, level it up)
-                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 2));
+                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 4));
             }
         }
         else if(stage_title_text.text == "BUILD"){
             int level = player_controller_script.abilities_levels["build_level"];
             if(level <= 1){
                 // POP-UP (You can't do anything with this ability level, level it up)
-                StartCoroutine(WarningWindowDisplay("Hint: You can't do anything with this ability level, level it up.", 2));
+                StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
             }
             else if(level == 2){
                 // Position of the element in the center (once)
@@ -509,24 +509,24 @@ public class StageController : MonoBehaviour
                     Card card = build_carousel_script.cards[build_carousel_script.center_index];
                     if(card.category == "hold") {
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the "+card.card_title+" card in the second black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the "+card.card_title+" card in the second black box from top to bottom.", 5));
                     }
                     else if(card.category == "mechanism"){
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the first black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the first black box from top to bottom.", 5));
                     }
                     else if(card.category == "impact"){
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the third black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the third black box from top to bottom.", 5));
                     }
                     else if(card.category == "bait"){
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the fourth black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card.card_title + " card in the fourth black box from top to bottom.", 5));
                     }
                 }
                 else{
                     // POP-UP (You have already used this ability)
-                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 2));
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
                 }
             }
             else if(level == 3){
@@ -535,24 +535,24 @@ public class StageController : MonoBehaviour
                     Card card_1 = build_carousel_script.cards[build_carousel_script.center_index];
                     if(card_1.category == "hold") {
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the second black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the second black box from top to bottom.", 5));
                     }
                     else if(card_1.category == "mechanism"){
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the first black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the first black box from top to bottom.", 5));
                     }
                     else if(card_1.category == "impact"){
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the third black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the third black box from top to bottom.", 5));
                     }
                     else if(card_1.category == "bait"){
                         // POP-UP ()
-                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the fourth black box from top to bottom.", 3));
+                        StartCoroutine(WarningWindowDisplay("Hint: Place the " + card_1.card_title + " card in the fourth black box from top to bottom.", 5));
                     }
                 }
                 else{
                     // POP-UP (You have already used this ability)
-                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 2));
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
                 }
             }
         }
@@ -565,7 +565,7 @@ public class StageController : MonoBehaviour
             }
             else{
                 // POP-UP (You can't use this tool)
-                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 2));
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
             }
         }
         else if(stage_title_text.text == "CODE"){
@@ -580,7 +580,7 @@ public class StageController : MonoBehaviour
                 }
             }
             else{
-                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 2));
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
             }
         }
         else if(stage_title_text.text == "BUILD"){
@@ -591,15 +591,15 @@ public class StageController : MonoBehaviour
                     Card card = build_carousel_script.cards[build_carousel_script.center_index];
 
                     // POP-UP (card.category)
-                    StartCoroutine(WarningWindowDisplay("Hint: You should place the "+ card.card_title + ", in the " + card.category + " category.", 4));
+                    StartCoroutine(WarningWindowDisplay("Hint: You should place the "+ card.card_title + ", in the " + card.category + " category.", 5));
                 }
                 else{
                     // POP-UP (You have already used this tool)
-                    StartCoroutine(WarningWindowDisplay("You have already used this tool.", 2));
+                    StartCoroutine(WarningWindowDisplay("You have already used this tool.", 3));
                 }
             }
             else{
-                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 2));
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
             }
         }
     }
