@@ -5168,8 +5168,11 @@ MonoBehaviour:
   is_build_tool_used: 0
   is_build_ability_used: 0
   is_release_ability_used: 0
+  is_operate_ability_used: 0
   is_test_ability_used: 0
   is_test_failed: 0
+  fail_operate_probability: 0.4
+  is_operate_tool_used: 0
   star_icon_level_1: {fileID: 21300000, guid: ce166ebc7e2b08440866a3d8e1f96ea3, type: 3}
   star_icon_level_2: {fileID: 21300000, guid: b1844a00c3d06b44ba8c8ee357bc6d0c, type: 3}
   star_icon_level_3: {fileID: 21300000, guid: a10efa3e9171bd949a5391a61e8ec890, type: 3}
@@ -9310,7 +9313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &806253668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11348,7 +11351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &995373237
 RectTransform:
   m_ObjectHideFlags: 0
