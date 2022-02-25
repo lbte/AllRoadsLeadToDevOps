@@ -54,6 +54,7 @@ public class StageController : MonoBehaviour
     public int is_build_ability_used = 0;  // min = 0, max = 2
     public int is_release_ability_used = 0;  // min = 0, max = 2
     public bool is_test_ability_used = false;
+    public bool is_test_failed = false;
 
     // Abilities summary
     private Image plan_ability_summary_image;
@@ -84,6 +85,12 @@ public class StageController : MonoBehaviour
 
     // video player for release
     public VideoPlayer videoRelease1;
+
+
+    // Blueprints for architectures tool
+    //public Image blueprint_ground_architecture;
+    //public Image blueprint_ground_architecture;
+
 
     // Start is called before the first frame update
     void Start()
@@ -230,6 +237,7 @@ public class StageController : MonoBehaviour
                 || ((mechanism_card.id == "alpinism_pulley" || mechanism_card.id == "well_pulley") && player_controller_script.selected_architecture.id == "architecture_1"))
                 {
                     /////// POP-UP
+                    is_test_failed = false;
                     StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 3f));
                 }
                 else
@@ -240,17 +248,22 @@ public class StageController : MonoBehaviour
             }
         }
         else if (stage_title_text.text == "TEST")
-        {
-            stage_title_text.text = "RELEASE";
-            DeactivatedStages();
-            release_stage.SetActive(true);
+        {   
+            Debug.Log(is_test_failed);
+            if(is_test_failed == false){
+                stage_title_text.text = "RELEASE";
+                DeactivatedStages();
+                release_stage.SetActive(true);
 
-            // play the video on the release stage
+                // play the video on the release stage
 
-            videoRelease1.Play();
-            tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+                videoRelease1.Play();
+                tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
+                tutorial_trigger.TriggerTutorial();
+            }
+            else{
+                StartCoroutine(WarningBuildingToPlanDisplay("As you failed the testing phase, you have to plan again.", 4));
+            }
         }
         else if (stage_title_text.text == "RELEASE")
         {
@@ -440,6 +453,59 @@ public class StageController : MonoBehaviour
         tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
         tutorial_trigger.TriggerTutorial();
         if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+
+        Card feather = build_carousel_script.cards_materials[2];
+        Card anvil = build_carousel_script.cards_materials[0];
+        Card elastic = build_carousel_script.cards_materials[4];
+        Card burger = build_carousel_script.cards_materials[11];
+        Card cable = build_carousel_script.cards_materials[5];
+        Card ballon = build_carousel_script.cards_materials[6];
+        Card handwork = build_carousel_script.cards_materials[8];
+        List<Card> check_cards = build_carousel_script.cards;
+
+        while(true){
+            if(check_cards.Contains(feather)){
+                // Fails
+                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                is_test_failed = true;
+                break;
+            }
+            if(check_cards.Contains(anvil) && check_cards.Contains(elastic)){
+                // Fails
+                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                is_test_failed = true;
+                break;
+            }
+            if(check_cards.Contains(burger)){
+                // Fails
+                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                is_test_failed = true;
+                break;
+            }
+            if(check_cards.Contains(cable) && check_cards.Contains(ballon)){
+                // Fails
+                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                is_test_failed = true;
+                break;
+            }
+            if(check_cards.Contains(handwork)){
+                // Fails
+                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                is_test_failed = true;
+                break;
+            }
+            if(check_cards.Contains(elastic)){
+                // Fails
+                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                is_test_failed = true;
+                break;
+            }
+            else{
+                // Test is good
+                StartCoroutine(WarningWindowDisplay("You finished the build stage successfully! Great Job!!", 4));
+                break;
+            }
+        }
     }
 
     public IEnumerator WarningBuildingToPlanDisplay(string text, float delay)
@@ -602,11 +668,11 @@ public class StageController : MonoBehaviour
             else if(level == 3){
                 if(is_test_ability_used == false){
                     if(check_cards.Contains(feather)){
-                        // POP-UP (The feather does not generate the desired impact, it only "ticles")
+                        // POP-UP (The feather does not generate the desired impact, it only "tickles")
                         left_test_card.gameObject.SetActive(true);
                         left_test_card_image.sprite = feather.card_image;
                         left_test_card_title.text = feather.card_title;
-                        left_test_card_description.text = "The feather does not generate the desired impact, it only 'ticles'";
+                        left_test_card_description.text = "The feather does not generate the desired impact, it only 'tickles'";
 
                         is_test_ability_used = true;
                     }
@@ -653,7 +719,7 @@ public class StageController : MonoBehaviour
                         left_test_card.gameObject.SetActive(true);
                         left_test_card_image.sprite = handwork.card_image;
                         left_test_card_title.text = handwork.card_title;
-                        left_test_card_description.text = "The feather does not generate the desired impact, it only 'ticles'";
+                        left_test_card_description.text = "The feather does not generate the desired impact, it only 'tickles'";
 
                         is_test_ability_used = true;
                     }
@@ -857,7 +923,12 @@ public class StageController : MonoBehaviour
     void UseToolButtonHanlder(){
         if (stage_title_text.text == "PLAN") {
             if(player_controller_script.can_use_plan_tool == true){
-                // POP-UP (Blueprint)
+                if(player_controller_script.selected_architecture.id == "architecture_1"){
+
+                }
+                else if(player_controller_script.selected_architecture.id == "architecture_2"){
+
+                }
             }
             else{
                 // POP-UP (You can't use this tool)
