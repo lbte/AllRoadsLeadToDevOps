@@ -208,6 +208,7 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "BUILD")
         {
+            
             // Verify build correctness
             int impact = player_controller_script.impact_build_correctness;
             int hold = player_controller_script.hold_build_correctness;
@@ -249,8 +250,7 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "TEST")
         {   
-            Debug.Log(is_test_failed);
-            if(is_test_failed == false){
+            if (is_test_failed == false){
                 stage_title_text.text = "RELEASE";
                 DeactivatedStages();
                 release_stage.SetActive(true);
@@ -262,7 +262,7 @@ public class StageController : MonoBehaviour
                 tutorial_trigger.TriggerTutorial();
             }
             else{
-                StartCoroutine(WarningBuildingToPlanDisplay("As you failed the testing phase, you have to plan again.", 4));
+                StartCoroutine(WarningBuildingToPlanDisplay("As you failed the testing phase, you have to plan again.", 0));
             }
         }
         else if (stage_title_text.text == "RELEASE")
@@ -441,6 +441,7 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
 
+        
         // go to test stage
         stage_title_text.text = "TEST";
         DeactivatedStages();
@@ -466,37 +467,37 @@ public class StageController : MonoBehaviour
         while(true){
             if(check_cards.Contains(feather)){
                 // Fails
-                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(anvil) && check_cards.Contains(elastic)){
                 // Fails
-                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(burger)){
                 // Fails
-                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(cable) && check_cards.Contains(ballon)){
                 // Fails
-                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(handwork)){
                 // Fails
-                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(elastic)){
                 // Fails
-                StartCoroutine(WarningWindowDisplay("Your trap have failed the test.", 4));
+                StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
@@ -510,11 +511,15 @@ public class StageController : MonoBehaviour
 
     public IEnumerator WarningBuildingToPlanDisplay(string text, float delay)
     {
-        warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;
+        warning_build_window.gameObject.SetActive(true);
+        Debug.Log("Opening in test");
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+        Debug.Log("Closing in test");
+
+        warning_build_window.gameObject.SetActive(false);
 
         // go to the plan stage
         DeactivatedStages();
