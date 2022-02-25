@@ -51,6 +51,8 @@ public class StageController : MonoBehaviour
 
     public bool is_build_tool_used = false;
     public int is_build_ability_used = 0;  // min = 0, max = 2
+    public int is_release_ability_used = 0;  // min = 0, max = 2
+    public bool is_test_ability_used = false;
 
     // Abilities summary
     private Image plan_ability_summary_image;
@@ -65,6 +67,19 @@ public class StageController : MonoBehaviour
     public Sprite star_icon_level_1;
     public Sprite star_icon_level_2;
     public Sprite star_icon_level_3;
+
+    // TEST
+    public Button left_test_card;
+    public Button right_test_card;
+
+    public Image left_test_card_image;
+    public Image right_test_card_image;
+
+    public Text left_test_card_title;
+    public Text right_test_card_title;
+
+    public Text left_test_card_description;
+    public Text right_test_card_description;
 
     // Start is called before the first frame update
     void Start()
@@ -409,6 +424,11 @@ public class StageController : MonoBehaviour
         stage_title_text.text = "TEST";
         DeactivatedStages();
         test_stage.SetActive(true);
+
+        is_test_ability_used = false;
+        left_test_card.gameObject.SetActive(false);
+        right_test_card.gameObject.SetActive(false);
+
         tutorial_trigger = test_stage.GetComponent<TutorialTextTrigger>();
         tutorial_trigger.TriggerTutorial();
         if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
@@ -552,6 +572,274 @@ public class StageController : MonoBehaviour
                 }
                 else{
                     // POP-UP (You have already used this ability)
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
+                }
+            }
+        }
+        else if(stage_title_text.text == "TEST"){
+            Card feather = build_carousel_script.cards_materials[2];
+            Card anvil = build_carousel_script.cards_materials[0];
+            Card elastic = build_carousel_script.cards_materials[4];
+            Card burger = build_carousel_script.cards_materials[11];
+            Card cable = build_carousel_script.cards_materials[5];
+            Card ballon = build_carousel_script.cards_materials[6];
+            Card handwork = build_carousel_script.cards_materials[8];
+            int level = player_controller_script.abilities_levels["test_level"];
+            List<Card> check_cards = build_carousel_script.cards;
+
+            if(level <= 2){
+                // POP-UP (You can't do anything with this ability level, level it up)
+                StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
+            }
+            else if(level == 3){
+                if(is_test_ability_used == false){
+                    if(check_cards.Contains(feather)){
+                        // POP-UP (The feather does not generate the desired impact, it only "ticles")
+                        left_test_card.gameObject.SetActive(true);
+                        left_test_card_image.sprite = feather.card_image;
+                        left_test_card_title.text = feather.card_title;
+                        left_test_card_description.text = "The feather does not generate the desired impact, it only 'ticles'";
+
+                        is_test_ability_used = true;
+                    }
+                    else if(check_cards.Contains(anvil) && check_cards.Contains(elastic)){
+                        // POP-UP (Do you remember Newton's third law? No? It was that the anvil fell too fast and the elastic 
+                        //force of the spring returned it to you, let us know when the bruise is removed.)
+                        left_test_card.gameObject.SetActive(true);
+                        left_test_card_image.sprite = anvil.card_image;
+                        left_test_card_title.text = anvil.card_title;
+                        left_test_card_description.text = "Do you remember Newton's third law? No? It was that the anvil fell too fast and the elastic force of the spring returned it to you, let us know when the bruise is removed.";
+
+                        right_test_card.gameObject.SetActive(true);
+                        right_test_card_image.sprite = elastic.card_image;
+                        right_test_card_title.text = elastic.card_title;
+                        right_test_card_description.text = "Do you remember Newton's third law? No? It was that the anvil fell too fast and the elastic force of the spring returned it to you, let us know when the bruise is removed.";
+
+                        is_test_ability_used = true;
+                    }
+                    else if(check_cards.Contains(burger)){
+                        // POP-UP (It seems that our victim has a traumatic memory of his grandfather rabbitburger.)
+                        left_test_card.gameObject.SetActive(true);
+                        left_test_card_image.sprite = burger.card_image;
+                        left_test_card_title.text = burger.card_title;
+                        left_test_card_description.text = "It seems that our victim has a traumatic memory of his grandfather rabbitburger";
+
+                        is_test_ability_used = true;
+                    }
+                    else if(check_cards.Contains(cable) && check_cards.Contains(ballon)){
+                        // POP-UP (Our balloon could not hold the weight of the braided cable, do you think it is a fiction movie?)
+                        left_test_card.gameObject.SetActive(true);
+                        left_test_card_image.sprite = cable.card_image;
+                        left_test_card_title.text = cable.card_title;
+                        left_test_card_description.text = "Our balloon could not hold the weight of the braided cable, do you think it is a fiction movie?";
+
+                        right_test_card.gameObject.SetActive(true);
+                        right_test_card_image.sprite = ballon.card_image;
+                        right_test_card_title.text = ballon.card_title;
+                        right_test_card_description.text = "Our balloon could not hold the weight of the braided cable, do you think it is a fiction movie?";
+
+                        is_test_ability_used = true;
+                    }
+                    else if(check_cards.Contains(handwork)){
+                        // POP-UP (Have you ever wondered which is your favorite finger? I hope you did not lose it in the machucon.)
+                        left_test_card.gameObject.SetActive(true);
+                        left_test_card_image.sprite = handwork.card_image;
+                        left_test_card_title.text = handwork.card_title;
+                        left_test_card_description.text = "The feather does not generate the desired impact, it only 'ticles'";
+
+                        is_test_ability_used = true;
+                    }
+                    else if(check_cards.Contains(elastic)){
+                        // POP-UP (Have you seen how elastics stretch and then you can't really use them? That's exactly what 
+                        // happened and it's not really helpful when holding a heavy weight.)
+                        left_test_card.gameObject.SetActive(true);
+                        left_test_card_image.sprite = elastic.card_image;
+                        left_test_card_title.text = elastic.card_title;
+                        left_test_card_description.text = "Have you seen how elastics stretch and then you can't really use them? That's exactly what happened and it's not really helpful when holding a heavy weight.'";
+
+                        is_test_ability_used = true;
+                    }
+                }
+                else{
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
+                }
+            }
+        }
+        else if(stage_title_text.text == "RELEASE"){
+            int level = player_controller_script.abilities_levels["release_level"];
+                
+            if(level <= 1){
+                StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
+            }
+            else if(level == 2){
+                if(is_release_ability_used < 1){
+                    is_release_ability_used += 1;
+                    int random_index = (int)Random.Range(0, 7);
+                    string random_ability = "";
+                    string name_ability = "";
+                    if(random_index == 0){
+                        random_ability = "plan_level";
+                        name_ability = "plan";
+                    }
+                    else if(random_index == 1){
+                        random_ability = "code_level";
+                        name_ability = "code";
+                    }
+                    else if(random_index == 2){
+                        random_ability = "build_level";
+                        name_ability = "build";
+                    }
+                    else if(random_index == 3){
+                        random_ability = "test_level";
+                        name_ability = "test";
+                    }
+                    else if(random_index == 4){
+                        random_ability = "release_level";
+                        name_ability = "release";
+                    }
+                    else if(random_index == 5){
+                        random_ability = "deploy_level";
+                        name_ability = "deploy";
+                    }
+                    else if(random_index == 6){
+                        random_ability = "operate_level";
+                        name_ability = "operate";
+                    }
+                    else if(random_index == 7){
+                        random_ability = "monitor_level";
+                        name_ability = "monitor";
+                    }
+                    while(true){
+                        if(player_controller_script.abilities_levels[random_ability] == 3){
+                            random_index = (int)Random.Range(0, 7);
+                            if(random_index == 0){
+                                random_ability = "plan_level";
+                                name_ability = "plan";
+                            }
+                            else if(random_index == 1){
+                                random_ability = "code_level";
+                                name_ability = "code";
+                            }
+                            else if(random_index == 2){
+                                random_ability = "build_level";
+                                name_ability = "build";
+                            }
+                            else if(random_index == 3){
+                                random_ability = "test_level";
+                                name_ability = "test";
+                            }
+                            else if(random_index == 4){
+                                random_ability = "release_level";
+                                name_ability = "release";
+                            }
+                            else if(random_index == 5){
+                                random_ability = "deploy_level";
+                                name_ability = "deploy";
+                            }
+                            else if(random_index == 6){
+                                random_ability = "operate_level";
+                                name_ability = "operate";
+                            }
+                            else if(random_index == 7){
+                                random_ability = "monitor_level";
+                                name_ability = "monitor";
+                            }
+                        }
+                        else{
+                            player_controller_script.abilities_levels[random_ability] += 1;
+                            StartCoroutine(WarningWindowDisplay("You have gained one level in the " + name_ability + " ability.", 4));
+
+                            break;
+                        }
+                    }
+                }
+                else{
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
+                }
+            }
+            else if(level == 3){
+                if(is_release_ability_used < 2){
+                    is_release_ability_used += 1;
+                    int random_index = (int)Random.Range(0, 7);
+                    string random_ability = "";
+                    string name_ability = "";
+                    if(random_index == 0){
+                        random_ability = "plan_level";
+                        name_ability = "plan";
+                    }
+                    else if(random_index == 1){
+                        random_ability = "code_level";
+                        name_ability = "code";
+                    }
+                    else if(random_index == 2){
+                        random_ability = "build_level";
+                        name_ability = "build";
+                    }
+                    else if(random_index == 3){
+                        random_ability = "test_level";
+                        name_ability = "test";
+                    }
+                    else if(random_index == 4){
+                        random_ability = "release_level";
+                        name_ability = "release";
+                    }
+                    else if(random_index == 5){
+                        random_ability = "deploy_level";
+                        name_ability = "deploy";
+                    }
+                    else if(random_index == 6){
+                        random_ability = "operate_level";
+                        name_ability = "operate";
+                    }
+                    else if(random_index == 7){
+                        random_ability = "monitor_level";
+                        name_ability = "monitor";
+                    }
+                    while(true){
+                        if(player_controller_script.abilities_levels[random_ability] == 3){
+                            random_index = (int)Random.Range(0, 7);
+                            if(random_index == 0){
+                                random_ability = "plan_level";
+                                name_ability = "plan";
+                            }
+                            else if(random_index == 1){
+                                random_ability = "code_level";
+                                name_ability = "code";
+                            }
+                            else if(random_index == 2){
+                                random_ability = "build_level";
+                                name_ability = "build";
+                            }
+                            else if(random_index == 3){
+                                random_ability = "test_level";
+                                name_ability = "test";
+                            }
+                            else if(random_index == 4){
+                                random_ability = "release_level";
+                                name_ability = "release";
+                            }
+                            else if(random_index == 5){
+                                random_ability = "deploy_level";
+                                name_ability = "deploy";
+                            }
+                            else if(random_index == 6){
+                                random_ability = "operate_level";
+                                name_ability = "operate";
+                            }
+                            else if(random_index == 7){
+                                random_ability = "monitor_level";
+                                name_ability = "monitor";
+                            }
+                        }
+                        else{
+                            player_controller_script.abilities_levels[random_ability] += 1;
+                            StartCoroutine(WarningWindowDisplay("You have gained one level in the " + name_ability + " ability.", 4));
+
+                            break;
+                        }
+                    }
+                }
+                else{
                     StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
                 }
             }

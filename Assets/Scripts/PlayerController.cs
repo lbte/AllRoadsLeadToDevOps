@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
 
     // Levels of the abilities
     public Dictionary<string, int> abilities_levels = new Dictionary<string, int>(){
-        {"plan_level", 0}, {"code_level", 2}, {"build_level", 3}, {"test_level", 0},
-        {"release_level", 0}, {"deploy_level", 0}, {"operate_level", 0}, {"monitor_level", 0}
+        {"plan_level", 0}, {"code_level", 2}, {"build_level", 3}, {"test_level", 3},
+        {"release_level", 3}, {"deploy_level", 0}, {"operate_level", 0}, {"monitor_level", 0}
     };
 
     // Tool cards selected
