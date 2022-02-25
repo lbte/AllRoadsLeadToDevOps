@@ -52,9 +52,32 @@ public class StageController : MonoBehaviour
     public bool is_build_tool_used = false;
     public int is_build_ability_used = 0;  // min = 0, max = 2
 
+    // Abilities summary
+    private Image plan_ability_summary_image;
+    private Image code_ability_summary_image;
+    private Image build_ability_summary_image;
+    private Image test_ability_summary_image;
+    private Image release_ability_summary_image;
+    private Image deploy_ability_summary_image;
+    private Image operate_ability_summary_image;
+    private Image monitor_ability_summary_image;
+
+    public Sprite star_icon_level_1;
+    public Sprite star_icon_level_2;
+    public Sprite star_icon_level_3;
+
     // Start is called before the first frame update
     void Start()
     {
+        plan_ability_summary_image = GameObject.Find("PlanLevelsImage").GetComponent<Image>();
+        code_ability_summary_image = GameObject.Find("CodeLevelsImage").GetComponent<Image>();
+        build_ability_summary_image = GameObject.Find("BuildLevelsImage").GetComponent<Image>();
+        test_ability_summary_image = GameObject.Find("TestLevelsImage").GetComponent<Image>();
+        release_ability_summary_image = GameObject.Find("ReleaseLevelsImage").GetComponent<Image>();
+        deploy_ability_summary_image = GameObject.Find("DeployLevelsImage").GetComponent<Image>();
+        operate_ability_summary_image = GameObject.Find("OperateLevelsImage").GetComponent<Image>();
+        monitor_ability_summary_image = GameObject.Find("MonitorLevelsImage").GetComponent<Image>();
+
         checklist_button = GameObject.Find("ChecklistButton").GetComponent<Button>();
         checklist_close_button = GameObject.Find("ChecklistCloseButton").GetComponent<Button>();
         checklist_items_window = GameObject.Find("ChecklistItemsWindow").GetComponent<Image>();
@@ -295,6 +318,69 @@ public class StageController : MonoBehaviour
     void AbilitiesLevelsWindowButton()
     {
         abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", true);
+        DeactivateAbilitiesLevelsWindow();
+        UpdateAbilitiesLevelWindow();
+    }
+
+    void DeactivateAbilitiesLevelsWindow(){
+        plan_ability_summary_image.gameObject.SetActive(false);
+        code_ability_summary_image.gameObject.SetActive(false);
+        build_ability_summary_image.gameObject.SetActive(false);
+        test_ability_summary_image.gameObject.SetActive(false);
+        release_ability_summary_image.gameObject.SetActive(false);
+        deploy_ability_summary_image.gameObject.SetActive(false);
+        operate_ability_summary_image.gameObject.SetActive(false);
+        monitor_ability_summary_image.gameObject.SetActive(false);
+    }
+
+    void UpdateAbilitiesLevelWindow(){
+        int plan_level = player_controller_script.abilities_levels["plan_level"];
+        if(plan_level >= 1) plan_ability_summary_image.gameObject.SetActive(true);
+        if(plan_level == 1) plan_ability_summary_image.sprite = star_icon_level_1;
+        else if(plan_level == 2) plan_ability_summary_image.sprite = star_icon_level_2;
+        else if(plan_level == 3) plan_ability_summary_image.sprite = star_icon_level_3;
+
+        int code_level = player_controller_script.abilities_levels["code_level"];
+        if(code_level >= 1) code_ability_summary_image.gameObject.SetActive(true);
+        if(code_level == 1) code_ability_summary_image.sprite = star_icon_level_1;
+        else if(code_level == 2) code_ability_summary_image.sprite = star_icon_level_2;
+        else if(code_level == 3) code_ability_summary_image.sprite = star_icon_level_3;
+
+        int build_level = player_controller_script.abilities_levels["build_level"];
+        if(build_level >= 1) build_ability_summary_image.gameObject.SetActive(true);
+        if(build_level == 1) build_ability_summary_image.sprite = star_icon_level_1;
+        else if(build_level == 2) build_ability_summary_image.sprite = star_icon_level_2;
+        else if(build_level == 3) build_ability_summary_image.sprite = star_icon_level_3;
+
+        int test_level = player_controller_script.abilities_levels["test_level"];
+        if(test_level >= 1) test_ability_summary_image.gameObject.SetActive(true);
+        if(test_level == 1) test_ability_summary_image.sprite = star_icon_level_1;
+        else if(test_level == 2) test_ability_summary_image.sprite = star_icon_level_2;
+        else if(test_level == 3) test_ability_summary_image.sprite = star_icon_level_3;
+
+        int release_level = player_controller_script.abilities_levels["release_level"];
+        if(release_level >= 1) release_ability_summary_image.gameObject.SetActive(true);
+        if(release_level == 1) release_ability_summary_image.sprite = star_icon_level_1;
+        else if(release_level == 2) release_ability_summary_image.sprite = star_icon_level_2;
+        else if(release_level == 3) release_ability_summary_image.sprite = star_icon_level_3;
+
+        int deploy_level = player_controller_script.abilities_levels["deploy_level"];
+        if(release_level >= 1) release_ability_summary_image.gameObject.SetActive(true);
+        if(deploy_level == 1) deploy_ability_summary_image.sprite = star_icon_level_1;
+        else if(deploy_level == 2) deploy_ability_summary_image.sprite = star_icon_level_2;
+        else if(deploy_level == 3) deploy_ability_summary_image.sprite = star_icon_level_3;
+
+        int operate_level = player_controller_script.abilities_levels["operate_level"];
+        if(operate_level >= 1) operate_ability_summary_image.gameObject.SetActive(true);
+        if(operate_level == 1) operate_ability_summary_image.sprite = star_icon_level_1;
+        else if(operate_level == 2) operate_ability_summary_image.sprite = star_icon_level_2;
+        else if(operate_level == 3) operate_ability_summary_image.sprite = star_icon_level_3;
+
+        int monitor_level = player_controller_script.abilities_levels["monitor_level"];
+        if(monitor_level >= 1) monitor_ability_summary_image.gameObject.SetActive(true);
+        if(monitor_level == 1) monitor_ability_summary_image.sprite = star_icon_level_1;
+        else if(monitor_level == 2) monitor_ability_summary_image.sprite = star_icon_level_2;
+        else if(monitor_level == 3) monitor_ability_summary_image.sprite = star_icon_level_3;
     }
 
     void AbilitiesLevelsWindowCloseButton()
@@ -478,20 +564,23 @@ public class StageController : MonoBehaviour
                 // POP-UP (Blueprint)
             }
             else{
-                // POP-UP (You can't use this ability)
-                StartCoroutine(WarningWindowDisplay("You can't use this ability.", 2));
+                // POP-UP (You can't use this tool)
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 2));
             }
         }
         else if(stage_title_text.text == "CODE"){
             if(player_controller_script.can_use_code_tool == true){
                 if(player_controller_script.selected_architecture.id == "architecture_1"){
                     // POP-UP (Arquitectura terrestre -> Pulley)
-                    StartCoroutine(WarningWindowDisplay("Hint: The mechanism you should use is the Pulley.", 2));
+                    StartCoroutine(WarningWindowDisplay("Hint: The mechanism you should use is the Pulley.", 4));
                 }
                 else{
                     // POP-UP (Arquitectura area -> Ballon)
-                    StartCoroutine(WarningWindowDisplay("Hint: The mechanism you should use is the Balloon.", 2));
+                    StartCoroutine(WarningWindowDisplay("Hint: The mechanism you should use is the Balloon.", 4));
                 }
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 2));
             }
         }
         else if(stage_title_text.text == "BUILD"){
@@ -502,12 +591,15 @@ public class StageController : MonoBehaviour
                     Card card = build_carousel_script.cards[build_carousel_script.center_index];
 
                     // POP-UP (card.category)
-                    StartCoroutine(WarningWindowDisplay("Hint: You should place the "+ card.card_title + ", in the " + card.category + " category.", 3));
+                    StartCoroutine(WarningWindowDisplay("Hint: You should place the "+ card.card_title + ", in the " + card.category + " category.", 4));
                 }
                 else{
                     // POP-UP (You have already used this tool)
                     StartCoroutine(WarningWindowDisplay("You have already used this tool.", 2));
                 }
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 2));
             }
         }
     }

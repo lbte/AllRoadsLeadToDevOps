@@ -4884,6 +4884,9 @@ MonoBehaviour:
   plan_deck_controller_script: {fileID: 98171818}
   is_build_tool_used: 0
   is_build_ability_used: 0
+  star_icon_level_1: {fileID: 21300000, guid: ce166ebc7e2b08440866a3d8e1f96ea3, type: 3}
+  star_icon_level_2: {fileID: 21300000, guid: b1844a00c3d06b44ba8c8ee357bc6d0c, type: 3}
+  star_icon_level_3: {fileID: 21300000, guid: a10efa3e9171bd949a5391a61e8ec890, type: 3}
 --- !u!114 &397590587
 MonoBehaviour:
   m_ObjectHideFlags: 0
