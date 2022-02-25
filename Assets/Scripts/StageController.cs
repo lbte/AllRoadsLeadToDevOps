@@ -53,8 +53,11 @@ public class StageController : MonoBehaviour
     public bool is_build_tool_used = false;
     public int is_build_ability_used = 0;  // min = 0, max = 2
     public int is_release_ability_used = 0;  // min = 0, max = 2
+    public int is_operate_ability_used = 0;  // min = 0, max = 2
     public bool is_test_ability_used = false;
     public bool is_test_failed = false;
+    public float fail_operate_probability = 0.4f;
+    public bool is_operate_tool_used = false;
 
     // Abilities summary
     private Image plan_ability_summary_image;
@@ -282,6 +285,63 @@ public class StageController : MonoBehaviour
             tutorial_trigger = operate_stage.GetComponent<TutorialTextTrigger>();
             tutorial_trigger.TriggerTutorial();
             if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+
+            // Check if fails operate
+            Card blacksmith = code_carousel_script.deck[0];
+            Card cowboy = code_carousel_script.deck[1];
+            Card pants = code_carousel_script.deck[5];
+            Card charger = code_carousel_script.deck[17];
+            Card well = code_carousel_script.deck[4];
+            Card jam = code_carousel_script.deck[3];
+
+            if(blacksmith.selected == true) fail_operate_probability += 0.1f;
+            if(cowboy.selected == true) fail_operate_probability += 0.1f;
+            if(pants.selected == true) fail_operate_probability += 0.1f;
+            if(charger.selected == true) fail_operate_probability += 0.1f;
+            if(well.selected == true) fail_operate_probability += 0.1f;
+            if(jam.selected == true) fail_operate_probability += 0.1f;
+
+            // Tool
+            if(player_controller_script.can_use_operate_tool == true && is_operate_tool_used == false){
+                is_operate_tool_used = true;
+                fail_operate_probability -= 0.1f;
+            }
+
+            // Ability
+            int level = player_controller_script.abilities_levels["operate_level"];
+            if(level == 2){
+                if(is_operate_ability_used < 1){
+                    is_operate_ability_used += 1;
+                    fail_operate_probability -= 0.05f;
+                }
+            }
+            else if(level == 3){
+                if(is_operate_ability_used < 2){
+                    is_operate_ability_used += 1;
+                    fail_operate_probability -= 0.1f;
+                }
+            }
+
+            // Show result -> Rabbit in a cage or not ...
+            float random_probability = (float)Random.Range(0.0f, 1.0f);
+            Debug.Log(random_probability);  // 0.7
+            Debug.Log(fail_operate_probability); // 0.3
+            if(random_probability <= fail_operate_probability){
+                // Operate fails -> Returns to plan
+                // IMAGEN CONEJITO NO ATRAPADO
+
+                // SE REQUIERE UNA CORRUTINA NUEVA -> RETURNS TO PLAN
+                StartCoroutine(WarningWindowDisplay("Your trap failed the operate phase.", 4));     
+                StartCoroutine(WarningBuildingToPlanDisplay("", 0));           
+            }
+            else{
+                // Operate ok -> next
+                // IMAGEN CONEJITO ATRAPADO
+
+                // SE REQUIERE UNA CORRUTINA NUEVA
+                StartCoroutine(WarningWindowDisplay("You finished the operate stage successfully! Great Job!!", 4));    
+                NextStageButton();
+            }
         }
         else if (stage_title_text.text == "OPERATE")
         {
@@ -923,13 +983,31 @@ public class StageController : MonoBehaviour
                 }
             }
         }
+        else if(stage_title_text.text == "RELEASE"){
+
+        }
+        else if(stage_title_text.text == "DEPLOY"){
+
+        }
+        else if(stage_title_text.text == "OPERATE"){
+            int level = player_controller_script.abilities_levels["operate_level"];
+            if(level <= 1){
+                StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
+            }
+            else{
+                
+            }
+        }
+        else if(stage_title_text.text == "MONITOR"){
+
+        }
     }
 
     void UseToolButtonHanlder(){
         if (stage_title_text.text == "PLAN") {
             if(player_controller_script.can_use_plan_tool == true){
                 if(player_controller_script.selected_architecture.id == "architecture_1"){
-
+                    
                 }
                 else if(player_controller_script.selected_architecture.id == "architecture_2"){
 
@@ -973,6 +1051,23 @@ public class StageController : MonoBehaviour
             else{
                 StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
             }
+        }
+        else if(stage_title_text.text == "RELEASE"){
+
+        }
+        else if(stage_title_text.text == "DEPLOY"){
+
+        }
+        else if(stage_title_text.text == "OPERATE"){
+            if(player_controller_script.can_use_operate_tool == true){
+                StartCoroutine(WarningWindowDisplay("This is a passive tool, the effect is already active", 4));
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
+            }
+        }
+        else if(stage_title_text.text == "MONITOR"){
+
         }
     }
 }
