@@ -27,6 +27,10 @@ public class StageController : MonoBehaviour
     public Button abilities_levels_window_close_button;
     public Button abilities_levels_button;
 
+    // stage fade transition
+    public Animator stage_transition;
+    public Image stage_transition_image;
+
     public GameObject plan_stage;
     public GameObject code_stage;
     public GameObject build_stage;
@@ -169,9 +173,11 @@ public class StageController : MonoBehaviour
             Card architecture = player_controller_script.selected_architecture;
             if ((architecture.id == "architecture_1" || architecture.id == "architecture_2" || architecture.id == "architecture_3") && tool == true)
             {
-                stage_title_text.text = "CODE";
-                DeactivatedStages();
-                code_stage.SetActive(true);
+                //stage_title_text.text = "CODE";
+                //DeactivatedStages();
+                //code_stage.SetActive(true);
+                LoadStage(1, "CODE", code_stage);
+
                 tutorial_trigger = code_stage.GetComponent<TutorialTextTrigger>();
                 tutorial_trigger.TriggerTutorial();
                 if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
@@ -190,11 +196,14 @@ public class StageController : MonoBehaviour
 
             // LIMPIAR CATEGORIZE Y LIMPIAR BUILDING PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
 
-            stage_title_text.text = "BUILD";
-            DeactivatedStages();
+            //stage_title_text.text = "BUILD";
+            //DeactivatedStages();
 
             // Starts on carousel (Categorize)
-            build_stage.SetActive(true);
+            //build_stage.SetActive(true);
+
+            LoadStage(1, "BUILD", build_stage);
+
             build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
             next_stage_button.gameObject.SetActive(false);
             warning_build_window.gameObject.SetActive(false);
@@ -492,6 +501,27 @@ public class StageController : MonoBehaviour
     void AbilitiesLevelsWindowCloseButton()
     {
         abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", false);
+    }
+
+    void LoadStage(float delay, string stage_title, GameObject stage_object)
+    {
+        StartCoroutine(StageTransition(delay, stage_title, stage_object));
+    }
+
+    // transition fade between stages REVISAR EL FADE
+    IEnumerator StageTransition(float delay, string stage_title, GameObject stage_object)
+    {
+        stage_transition.SetTrigger("StartStageFade");
+        stage_transition_image.gameObject.SetActive(true);
+        yield return new WaitForSeconds(delay);
+
+        stage_title_text.text = stage_title;
+        DeactivatedStages();
+        stage_object.SetActive(true);
+
+        stage_transition_image.gameObject.SetActive(false);
+        stage_transition.SetTrigger("StartStageFade");
+
     }
 
     // general window display message
