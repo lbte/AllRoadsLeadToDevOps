@@ -4215,6 +4215,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial_dialogue:
     sentences: []
+--- !u!1 &332096326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 332096329}
+  - component: {fileID: 332096328}
+  - component: {fileID: 332096327}
+  m_Layer: 5
+  m_Name: AirArchitectureBlueprintTitle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &332096327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332096326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Hint: The structure of the trap is something like this:'
+--- !u!222 &332096328
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332096326}
+  m_CullTransparentMesh: 1
+--- !u!224 &332096329
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332096326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 995373237}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4, y: 170}
+  m_SizeDelta: {x: 359.653, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &346228395
 GameObject:
   m_ObjectHideFlags: 0
@@ -5173,6 +5252,7 @@ MonoBehaviour:
   is_test_failed: 0
   fail_operate_probability: 0.4
   is_operate_tool_used: 0
+  is_plan_tool_used: 0
   star_icon_level_1: {fileID: 21300000, guid: ce166ebc7e2b08440866a3d8e1f96ea3, type: 3}
   star_icon_level_2: {fileID: 21300000, guid: b1844a00c3d06b44ba8c8ee357bc6d0c, type: 3}
   star_icon_level_3: {fileID: 21300000, guid: a10efa3e9171bd949a5391a61e8ec890, type: 3}
@@ -5185,6 +5265,12 @@ MonoBehaviour:
   left_test_card_description: {fileID: 2132460962}
   right_test_card_description: {fileID: 635929266}
   videoRelease1: {fileID: 256012186}
+  blueprint_ground_architecture: {fileID: 806253669}
+  blueprint_air_architecture: {fileID: 995373238}
+  close_button_blueprint_ground_architecture: {fileID: 1611234179}
+  close_button_blueprint_air_architecture: {fileID: 1280307831}
+  text_blueprint_ground_architecture: {fileID: 570220641}
+  text_blueprint_air_architecture: {fileID: 332096327}
 --- !u!114 &397590587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5206,7 +5292,7 @@ MonoBehaviour:
     id: 
     card_title: 
   selected_code_cards: []
-  can_use_plan_tool: 0
+  can_use_plan_tool: 1
   can_use_code_tool: 0
   can_use_build_tool: 0
   can_use_test_tool: 0
@@ -6574,6 +6660,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549299059}
   m_CullTransparentMesh: 1
+--- !u!1 &570220638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 570220639}
+  - component: {fileID: 570220640}
+  - component: {fileID: 570220641}
+  m_Layer: 5
+  m_Name: GroundArchitectureBlueprintTitle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &570220639
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570220638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 806253668}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7, y: 163}
+  m_SizeDelta: {x: 359.653, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &570220640
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570220638}
+  m_CullTransparentMesh: 1
+--- !u!114 &570220641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570220638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Hint: The structure of the trap is something like this:'
 --- !u!1 &578562928
 GameObject:
   m_ObjectHideFlags: 0
@@ -9326,6 +9491,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1611234178}
+  - {fileID: 570220639}
   m_Father: {fileID: 98171819}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11364,6 +11530,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1280307830}
+  - {fileID: 332096329}
   m_Father: {fileID: 98171819}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14338,7 +14505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135.00003, y: 152.7463}
+  m_AnchoredPosition: {x: 174, y: 178}
   m_SizeDelta: {x: 55.995, y: 47.356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280307831
@@ -17739,7 +17906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 136.00002, y: 152.4366}
+  m_AnchoredPosition: {x: 206, y: 174}
   m_SizeDelta: {x: 55.995, y: 47.356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611234179

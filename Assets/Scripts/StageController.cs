@@ -58,6 +58,7 @@ public class StageController : MonoBehaviour
     public bool is_test_failed = false;
     public float fail_operate_probability = 0.4f;
     public bool is_operate_tool_used = false;
+    public bool is_plan_tool_used = false;
 
     // Abilities summary
     private Image plan_ability_summary_image;
@@ -91,8 +92,12 @@ public class StageController : MonoBehaviour
 
 
     // Blueprints for architectures tool
-    //public Image blueprint_ground_architecture;
-    //public Image blueprint_ground_architecture;
+    public Image blueprint_ground_architecture;
+    public Image blueprint_air_architecture;
+    public Button close_button_blueprint_ground_architecture;
+    public Button close_button_blueprint_air_architecture;
+    public Text text_blueprint_ground_architecture;
+    public Text text_blueprint_air_architecture;
 
 
     // Start is called before the first frame update
@@ -125,6 +130,8 @@ public class StageController : MonoBehaviour
         next_stage_button.onClick.AddListener(NextStageButton);
         use_ability_button.onClick.AddListener(UseAbilityButtonHandler);
         use_tool_button.onClick.AddListener(UseToolButtonHanlder);
+        close_button_blueprint_ground_architecture.onClick.AddListener(BlueprintGroundCloseButton);
+        close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton);
 
         stage_title_text.text = "PLAN";
         plan_stage.SetActive(true);
@@ -265,7 +272,7 @@ public class StageController : MonoBehaviour
                 tutorial_trigger.TriggerTutorial();
             }
             else{
-                StartCoroutine(WarningBuildingToPlanDisplay("As you failed the testing phase, you have to plan again.", 0));
+                StartCoroutine(WarningToPlanDisplay("As you failed the testing phase, you have to plan again.", 4f));
             }
         }
         else if (stage_title_text.text == "RELEASE")
@@ -329,18 +336,13 @@ public class StageController : MonoBehaviour
             if(random_probability <= fail_operate_probability){
                 // Operate fails -> Returns to plan
                 // IMAGEN CONEJITO NO ATRAPADO
-
-                // SE REQUIERE UNA CORRUTINA NUEVA -> RETURNS TO PLAN
-                StartCoroutine(WarningWindowDisplay("Your trap failed the operate phase.", 4));     
-                StartCoroutine(WarningBuildingToPlanDisplay("", 0));           
+                StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
             }
             else{
                 // Operate ok -> next
                 // IMAGEN CONEJITO ATRAPADO
 
-                // SE REQUIERE UNA CORRUTINA NUEVA
-                StartCoroutine(WarningWindowDisplay("You finished the operate stage successfully! Great Job!!", 4));    
-                NextStageButton();
+                StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));    
             }
         }
         else if (stage_title_text.text == "OPERATE")
@@ -484,6 +486,7 @@ public class StageController : MonoBehaviour
         abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", false);
     }
 
+    // general window display message
     IEnumerator WarningWindowDisplay(string text, float delay)
     {
         warning_checklist_window.gameObject.SetActive(true);
@@ -491,6 +494,43 @@ public class StageController : MonoBehaviour
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
+    }
+
+    // window to display message en move to the immediate next stage
+    IEnumerator WarningToNextStageWindowDisplay(string text, float delay)
+    {
+        warning_checklist_window.gameObject.SetActive(true);
+        warning_checklist_window_text.text = text;
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
+        yield return new WaitForSeconds(delay);
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
+
+        NextStageButton();
+    }
+
+    // window to display a message and move to the plan stage
+    IEnumerator WarningToPlanDisplay(string text, float delay)
+    {
+        warning_checklist_window.gameObject.SetActive(true);
+        warning_checklist_window_text.text = text;
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
+        yield return new WaitForSeconds(delay);
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
+
+        // go to the plan stage
+        DeactivatedStages();
+        plan_stage.SetActive(true);
+        stage_title_text.text = "PLAN";
+        plan_deck_controller_script.DeactivateParts();
+        plan_deck_controller_script.plan_project.SetActive(true);
+        plan_deck_controller_script.word_index = 0;
+        plan_deck_controller_script.deck_button_text.text = "Project";
+        plan_deck_controller_script.UpdateButtonText();
+
+        // SETEAR VARIABLES Y DEMAS (Tool y Abilities)
+        plan_deck_controller_script.leveled_up_card = false;
+        plan_deck_controller_script.is_selected_random_card = false;
+        plan_deck_controller_script.is_generated_random_card = false;
     }
 
     IEnumerator WarningRightBuildingToTestDisplay(string text, float delay)
@@ -573,11 +613,9 @@ public class StageController : MonoBehaviour
     {
         warning_build_window_text.text = text;
         warning_build_window.gameObject.SetActive(true);
-        Debug.Log("Opening in test");
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
-        Debug.Log("Closing in test");
 
         warning_build_window.gameObject.SetActive(false);
 
@@ -637,7 +675,6 @@ public class StageController : MonoBehaviour
         }
         else if(stage_title_text.text == "CODE"){
             int level = player_controller_script.abilities_levels["code_level"];
-            Debug.Log(level);
             if(level == 1){
                 // POP-UP (Feather is not an appropiate component)
                 StartCoroutine(WarningWindowDisplay("Hint: Feather is not an appropiate component for this project.", 4));
@@ -1003,14 +1040,44 @@ public class StageController : MonoBehaviour
         }
     }
 
+    void BlueprintGroundCloseButton()
+    {
+        blueprint_ground_architecture.gameObject.SetActive(false);
+        close_button_blueprint_ground_architecture.gameObject.SetActive(false);
+        text_blueprint_ground_architecture.gameObject.SetActive(false);
+    }
+
+    void BlueprintAirCloseButton()
+    {
+        blueprint_air_architecture.gameObject.SetActive(false);
+        close_button_blueprint_air_architecture.gameObject.SetActive(false);
+        text_blueprint_air_architecture.gameObject.SetActive(false);
+    }
+
     void UseToolButtonHanlder(){
         if (stage_title_text.text == "PLAN") {
-            if(player_controller_script.can_use_plan_tool == true){
-                if(player_controller_script.selected_architecture.id == "architecture_1"){
-                    
+            if(player_controller_script.can_use_plan_tool == true && is_plan_tool_used == false)
+            {
+                if(player_controller_script.selected_architecture != null)
+                {
+                    is_plan_tool_used = true;
+                    if (player_controller_script.selected_architecture.id == "architecture_1")
+                    {
+                        blueprint_ground_architecture.gameObject.SetActive(true);
+                        text_blueprint_ground_architecture.gameObject.SetActive(true);
+                        close_button_blueprint_ground_architecture.gameObject.SetActive(true);
+                    }
+                    else if (player_controller_script.selected_architecture.id == "architecture_2")
+                    {
+                        blueprint_air_architecture.gameObject.SetActive(true);
+                        close_button_blueprint_air_architecture.gameObject.SetActive(true);
+                        text_blueprint_air_architecture.gameObject.SetActive(true);
+                    }
                 }
-                else if(player_controller_script.selected_architecture.id == "architecture_2"){
-
+                else
+                {
+                    Debug.Log("Architecture not selected");
+                    StartCoroutine(WarningWindowDisplay("You must select an architecture to be able to use this tool.", 3));
                 }
             }
             else{

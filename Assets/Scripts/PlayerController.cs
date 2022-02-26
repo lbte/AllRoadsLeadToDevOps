@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Selected architecture
-    public Card selected_architecture = null;  
+    public Card selected_architecture = null;
 
     // Cards selected during the code phase
     public List<Card> selected_code_cards = new List<Card>();
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     };
 
     // Verify if the player can use a tool
-    public bool can_use_plan_tool = false;
+    public bool can_use_plan_tool = true;
     public bool can_use_code_tool = false;
     public bool can_use_build_tool = false;
     public bool can_use_test_tool = false;
@@ -42,4 +42,5 @@ public class PlayerController : MonoBehaviour
     public int hold_build_correctness = 0;
     public int bait_build_correctness = 0;
     public int mechanism_build_correctness= 0;
+
 }
