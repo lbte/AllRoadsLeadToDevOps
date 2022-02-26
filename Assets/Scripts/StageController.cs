@@ -603,7 +603,7 @@ public class StageController : MonoBehaviour
             }
             else{
                 // Test is good
-                StartCoroutine(WarningWindowDisplay("You finished the build stage successfully! Great Job!!", 4));
+                StartCoroutine(WarningWindowDisplay("Your trap has passed the tests made! Great Job!!", 4));
                 break;
             }
         }
@@ -642,27 +642,27 @@ public class StageController : MonoBehaviour
                 string message = "";
                 string name = plan_deck_controller_script.random_tool_card.id; 
                 
-                if(name == "bitbucket") message = " "; // code
-                else if(name == "docker") message = " "; // release, deploy, build
-                else if(name == "puppet") message = " "; // operate, build
-                else if(name == "github") message = " "; // code
-                else if(name == "junit") message = " "; // test
-                else if(name == "gradle") message = " "; // build
-                else if(name == "chef") message = " "; // operate, release, build
-                else if(name == "new_relic") message = " "; // monitor
-                else if(name == "vagrant") message = " "; // test
-                else if(name == "jira") message = " "; // plan, release
-                else if(name == "powershell") message = " "; // operate
-                else if(name == "selenium") message = " "; // test
-                else if(name == "datadog") message = " "; // monitor
-                else if(name == "aws") message = " "; // deploy
-                else if(name == "jenkins") message = " ";  // release
-                else if(name == "git") message = " "; // plan
-                else if(name == "grafana") message = " "; // monitor
-                else if(name == "ansible") message = " "; // operate, release, build
+                if(name == "bitbucket") message = "Hint: You should place this tool in the code stage."; // code
+                else if(name == "docker") message = "Hint: You should place this tool in the deploy, release or build stage"; // release, deploy, build
+                else if(name == "puppet") message = "Hint: You should place this tool in the operate or build stage."; // operate, build
+                else if(name == "github") message = "Hint: You should place this tool in the code stage."; // code
+                else if(name == "junit") message = "Hint: You should place this tool in the test stage."; // test
+                else if(name == "gradle") message = "Hint: You should place this tool in the build stage."; // build
+                else if(name == "chef") message = "Hint: You should place this tool in the operate, release or build stage."; // operate, release, build
+                else if(name == "new_relic") message = "Hint: You should place this tool in the monitor stage."; // monitor
+                else if(name == "vagrant") message = "Hint: You should place this tool in the test stage."; // test
+                else if(name == "jira") message = "Hint: You should place this tool in the plan or release stage."; // plan, release
+                else if(name == "powershell") message = "Hint: You should place this tool in the operate stage."; // operate
+                else if(name == "selenium") message = "Hint: You should place this tool in the test stage."; // test
+                else if(name == "datadog") message = "Hint: You should place this tool in the monitor stage."; // monitor
+                else if(name == "aws") message = "Hint: You should place this tool in the deploy stage."; // deploy
+                else if(name == "jenkins") message = "Hint: You should place this tool in the release stage.";  // release
+                else if(name == "git") message = "Hint: You should place this tool in the plan stage."; // plan
+                else if(name == "grafana") message = "Hint: You should place this tool in the monitor stage."; // monitor
+                else if(name == "ansible") message = "Hint: You should place this tool in the operate, release or build stage."; // operate, release, build
 
                 // POP-UP (message)
-                StartCoroutine(WarningWindowDisplay(message, 2));
+                StartCoroutine(WarningWindowDisplay(message, 4));
             }
             if(level == 2){
                 // POP-UP (GUATA is not the most appropiate architecture)
@@ -1058,7 +1058,11 @@ public class StageController : MonoBehaviour
         if (stage_title_text.text == "PLAN") {
             if(player_controller_script.can_use_plan_tool == true && is_plan_tool_used == false)
             {
-                if(player_controller_script.selected_architecture != null)
+                if(player_controller_script.selected_architecture.id == "")
+                {
+                    StartCoroutine(WarningWindowDisplay("You must select an architecture to be able to use this tool.", 3));
+                }
+                else
                 {
                     is_plan_tool_used = true;
                     if (player_controller_script.selected_architecture.id == "architecture_1")
@@ -1073,11 +1077,6 @@ public class StageController : MonoBehaviour
                         close_button_blueprint_air_architecture.gameObject.SetActive(true);
                         text_blueprint_air_architecture.gameObject.SetActive(true);
                     }
-                }
-                else
-                {
-                    Debug.Log("Architecture not selected");
-                    StartCoroutine(WarningWindowDisplay("You must select an architecture to be able to use this tool.", 3));
                 }
             }
             else{

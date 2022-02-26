@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     };
 
     // Verify if the player can use a tool
-    public bool can_use_plan_tool = true;
+    public bool can_use_plan_tool = false;
     public bool can_use_code_tool = false;
     public bool can_use_build_tool = false;
     public bool can_use_test_tool = false;

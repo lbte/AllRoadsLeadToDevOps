@@ -230,14 +230,14 @@ MonoBehaviour:
     card_description: 
     selected: 0
     category: 
-    level: 0
+    level: 3
     id: test_level
     card_title: Test ability
   - card_image: {fileID: 21300000, guid: c287349f8369cde46a93b20177ffede9, type: 3}
     card_description: 
     selected: 0
     category: 
-    level: 0
+    level: 3
     id: release_level
     card_title: Release ability
   - card_image: {fileID: 21300000, guid: 4589aee46e39e6f459619011acef8665, type: 3}
@@ -251,7 +251,7 @@ MonoBehaviour:
     card_description: 
     selected: 0
     category: 
-    level: 0
+    level: 3
     id: operate_level
     card_title: Operate ability
   - card_image: {fileID: 21300000, guid: ea24c41b63728034daddc28d012ff44e, type: 3}
@@ -1858,7 +1858,7 @@ RectTransform:
   m_Children:
   - {fileID: 138664416}
   m_Father: {fileID: 1926108527}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2191,8 +2191,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.7, y: 198}
-  m_SizeDelta: {x: 102.2345, y: 74.2564}
+  m_AnchoredPosition: {x: 0.3, y: 195.4}
+  m_SizeDelta: {x: 115.9827, y: 84.2422}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &166636409
 MonoBehaviour:
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 23460cb3db76dec41b0ea38bf477c0c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df0ff9e15e445940a6270ac0f1f70d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3673,7 +3673,7 @@ RectTransform:
   m_Children:
   - {fileID: 347376376}
   m_Father: {fileID: 1926108527}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5292,7 +5292,7 @@ MonoBehaviour:
     id: 
     card_title: 
   selected_code_cards: []
-  can_use_plan_tool: 1
+  can_use_plan_tool: 0
   can_use_code_tool: 0
   can_use_build_tool: 0
   can_use_test_tool: 0
@@ -6971,7 +6971,7 @@ RectTransform:
   m_Children:
   - {fileID: 1952592784}
   m_Father: {fileID: 1926108527}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9200,7 +9200,7 @@ RectTransform:
   m_Children:
   - {fileID: 898971502}
   m_Father: {fileID: 1926108527}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16660,11 +16660,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1926108527}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 199.21559}
+  m_AnchoredPosition: {x: 0, y: 198.1}
   m_SizeDelta: {x: 176.13, y: 38.2424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1524549300
@@ -19546,7 +19546,7 @@ RectTransform:
   m_Children:
   - {fileID: 592701153}
   m_Father: {fileID: 1926108527}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21491,7 +21491,6 @@ RectTransform:
   m_Children:
   - {fileID: 1175630741}
   - {fileID: 166636408}
-  - {fileID: 1958302413}
   - {fileID: 1524549299}
   - {fileID: 609494970}
   - {fileID: 771616917}
@@ -22246,81 +22245,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952592783}
   m_CullTransparentMesh: 1
---- !u!1 &1958302412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1958302413}
-  - component: {fileID: 1958302415}
-  - component: {fileID: 1958302414}
-  m_Layer: 5
-  m_Name: DevopsCycle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1958302413
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958302412}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1926108527}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9, y: 198.04108}
-  m_SizeDelta: {x: 101.6631, y: 73.8417}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1958302414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958302412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66daad1110c26f046812dcffaf22e82a, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1958302415
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958302412}
-  m_CullTransparentMesh: 1
 --- !u!1 &1963392112
 GameObject:
   m_ObjectHideFlags: 0
@@ -23001,7 +22925,7 @@ RectTransform:
   m_Children:
   - {fileID: 2060320858}
   m_Father: {fileID: 1926108527}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
