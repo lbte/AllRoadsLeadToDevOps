@@ -52,8 +52,10 @@ public class StageController : MonoBehaviour
 
     public bool is_build_tool_used = false;
     public int is_build_ability_used = 0;  // min = 0, max = 2
-    public int is_release_ability_used = 0;  // min = 0, max = 2
+    public int is_release_ability_used = 0;  // min = 0, max = 1
+    public int is_deploy_ability_used = 0; // min = 0, max = 1
     public int is_operate_ability_used = 0;  // min = 0, max = 2
+    public int is_monitor_ability_used = 0; // min = 0, max = 2
     public bool is_test_ability_used = false;
     public bool is_test_failed = false;
     public float fail_operate_probability = 0.4f;
@@ -298,14 +300,18 @@ public class StageController : MonoBehaviour
             Card cowboy = code_carousel_script.deck[1];
             Card pants = code_carousel_script.deck[5];
             Card charger = code_carousel_script.deck[17];
+            Card turkey = code_carousel_script.deck[23];
             Card well = code_carousel_script.deck[4];
+            Card compost = code_carousel_script.deck[18];
             Card jam = code_carousel_script.deck[3];
 
             if(blacksmith.selected == true) fail_operate_probability += 0.1f;
             if(cowboy.selected == true) fail_operate_probability += 0.1f;
             if(pants.selected == true) fail_operate_probability += 0.1f;
             if(charger.selected == true) fail_operate_probability += 0.1f;
+            if(turkey.selected == true) fail_operate_probability += 0.1f;
             if(well.selected == true) fail_operate_probability += 0.1f;
+            if(compost.selected == true) fail_operate_probability += 0.1f;
             if(jam.selected == true) fail_operate_probability += 0.1f;
 
             // Tool
@@ -346,7 +352,9 @@ public class StageController : MonoBehaviour
             }
         }
         else if (stage_title_text.text == "OPERATE")
-        {
+        {   
+            is_monitor_ability_used = 0;
+
             stage_title_text.text = "MONITOR";
             DeactivatedStages();
             monitor_stage.SetActive(true);
@@ -844,10 +852,10 @@ public class StageController : MonoBehaviour
         else if(stage_title_text.text == "RELEASE"){
             int level = player_controller_script.abilities_levels["release_level"];
                 
-            if(level <= 1){
+            if(level <= 2){
                 StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
             }
-            else if(level == 2){
+            else if(level == 3){
                 if(is_release_ability_used < 1){
                     is_release_ability_used += 1;
                     int random_index = (int)Random.Range(0, 7);
@@ -886,6 +894,21 @@ public class StageController : MonoBehaviour
                         name_ability = "monitor";
                     }
                     while(true){
+                        // Check if all abilities are at max level
+                        int plan_level = player_controller_script.abilities_levels["plan_level"];
+                        int code_level = player_controller_script.abilities_levels["code_level"];
+                        int build_level = player_controller_script.abilities_levels["build_level"];
+                        int test_level = player_controller_script.abilities_levels["test_level"];
+                        int release_level = player_controller_script.abilities_levels["release_level"];
+                        int deploy_level = player_controller_script.abilities_levels["deploy_level"];
+                        int operate_level = player_controller_script.abilities_levels["operate_level"];
+                        int monitor_level = player_controller_script.abilities_levels["monitor_level"];
+
+                        if(plan_level == 3 && code_level == 3 && build_level == 3 && test_level == 3 && 
+                        release_level == 3 && deploy_level == 3 && operate_level == 3 && monitor_level == 3){
+                            break;
+                        }
+
                         if(player_controller_script.abilities_levels[random_ability] == 3){
                             random_index = (int)Random.Range(0, 7);
                             if(random_index == 0){
@@ -933,9 +956,16 @@ public class StageController : MonoBehaviour
                     StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
                 }
             }
+        }
+        else if(stage_title_text.text == "DEPLOY"){
+            int level = player_controller_script.abilities_levels["deploy_level"];
+                
+            if(level <= 2){
+                StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
+            }
             else if(level == 3){
-                if(is_release_ability_used < 2){
-                    is_release_ability_used += 1;
+                if(is_deploy_ability_used < 1){
+                    is_deploy_ability_used += 1;
                     int random_index = (int)Random.Range(0, 7);
                     string random_ability = "";
                     string name_ability = "";
@@ -972,6 +1002,21 @@ public class StageController : MonoBehaviour
                         name_ability = "monitor";
                     }
                     while(true){
+                        // Check if all abilities are at max level
+                        int plan_level = player_controller_script.abilities_levels["plan_level"];
+                        int code_level = player_controller_script.abilities_levels["code_level"];
+                        int build_level = player_controller_script.abilities_levels["build_level"];
+                        int test_level = player_controller_script.abilities_levels["test_level"];
+                        int release_level = player_controller_script.abilities_levels["release_level"];
+                        int deploy_level = player_controller_script.abilities_levels["deploy_level"];
+                        int operate_level = player_controller_script.abilities_levels["operate_level"];
+                        int monitor_level = player_controller_script.abilities_levels["monitor_level"];
+
+                        if(plan_level == 3 && code_level == 3 && build_level == 3 && test_level == 3 && 
+                        release_level == 3 && deploy_level == 3 && operate_level == 3 && monitor_level == 3){
+                            break;
+                        }
+
                         if(player_controller_script.abilities_levels[random_ability] == 3){
                             random_index = (int)Random.Range(0, 7);
                             if(random_index == 0){
@@ -1020,23 +1065,128 @@ public class StageController : MonoBehaviour
                 }
             }
         }
-        else if(stage_title_text.text == "RELEASE"){
-
-        }
-        else if(stage_title_text.text == "DEPLOY"){
-
-        }
         else if(stage_title_text.text == "OPERATE"){
             int level = player_controller_script.abilities_levels["operate_level"];
             if(level <= 1){
                 StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
             }
             else{
-                
+                StartCoroutine(WarningWindowDisplay("This is a passive ability, the effect is already active", 4));
             }
         }
         else if(stage_title_text.text == "MONITOR"){
+            int level = player_controller_script.abilities_levels["monitor_level"];
+            Card blacksmith = code_carousel_script.deck[0];
+            Card cowboy = code_carousel_script.deck[1];
+            Card pants = code_carousel_script.deck[5];
+            Card charger = code_carousel_script.deck[17];
+            Card turkey = code_carousel_script.deck[23];
+            Card well = code_carousel_script.deck[4];
+            Card compost = code_carousel_script.deck[18];
+            Card jam = code_carousel_script.deck[3];
 
+            if(level <= 1){
+                StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
+            }
+            else if(level == 2){
+                if(is_monitor_ability_used < 1){
+                    string message = "";
+                    if(blacksmith.selected == true){
+                        message = "Getting the anvil from the blacksmith is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else if(cowboy.selected == true){
+                        message = "Getting the rope from the cowboy is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else if(pants.selected == true){
+                        message = "Getting the elastic from the pants is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else if(charger.selected == true){
+                        message = "Getting the cable from the charger is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else if(turkey.selected == true){
+                        message = "Getting the balloon from the balloons from Turkey is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else if(well.selected == true){
+                        message = "Getting the pulley from the well is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else if(compost.selected == true){
+                        message = "Getting the carrot from the compost is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else if(jam.selected == true){
+                        message = "Using the jam as blueberries is not the best choice.";
+                        is_monitor_ability_used += 1;
+                    }
+                    else{
+                        message = "Everything went smoothly.";
+                    }
+                    StartCoroutine(WarningWindowDisplay(message, 4));
+                }
+                else{
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
+                }
+            }
+            else if(level == 3){
+                if(is_monitor_ability_used < 2){
+                    string message = "";
+                    while(true){
+                        if(blacksmith.selected == true){
+                            message += "Getting the anvil from the blacksmith is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else if(cowboy.selected == true){
+                            message += "Getting the rope from the cowboy is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else if(pants.selected == true){
+                            message += "Getting the elastic from the pants is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else if(charger.selected == true){
+                            message += "Getting the cable from the charger is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else if(turkey.selected == true){
+                            message += "Getting the balloon from the balloons from Turkey is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else if(well.selected == true){
+                            message += "Getting the pulley from the well is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else if(compost.selected == true){
+                            message += "Getting the carrot from the compost is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else if(jam.selected == true){
+                            message += "Using the jam as blueberries is not the best choice. \n";
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        else{
+                            if(is_monitor_ability_used == 0) message = "Everything went smoothly.";
+                            break;
+                        }
+                    }
+                    StartCoroutine(WarningWindowDisplay(message, 6));
+                }
+                else{
+                    StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
+                }
+            }
         }
     }
 
@@ -1133,7 +1283,27 @@ public class StageController : MonoBehaviour
             }
         }
         else if(stage_title_text.text == "MONITOR"){
+            int count = 0;
 
+            Card blacksmith = code_carousel_script.deck[0];
+            Card cowboy = code_carousel_script.deck[1];
+            Card pants = code_carousel_script.deck[5];
+            Card charger = code_carousel_script.deck[17];
+            Card turkey = code_carousel_script.deck[23];
+            Card well = code_carousel_script.deck[4];
+            Card compost = code_carousel_script.deck[18];
+            Card jam = code_carousel_script.deck[3];
+
+            if(blacksmith.selected == true) count += 1;
+            if(cowboy.selected == true) count += 1;
+            if(pants.selected == true) count += 1;
+            if(charger.selected == true) count += 1;
+            if(turkey.selected == true) count += 1;
+            if(well.selected == true) count += 1;
+            if(compost.selected == true) count += 1;
+            if(jam.selected == true) count += 1;
+
+            // POP-UP (count)
         }
     }
 }

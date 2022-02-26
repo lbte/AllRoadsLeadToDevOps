@@ -2516,7 +2516,7 @@ MonoBehaviour:
     id: well_pulley
     card_title: Pulley
   - card_image: {fileID: 21300000, guid: fa015f1c3d4a62942b7f28e059db5743, type: 3}
-    card_description: Almost all pants have an eslatic, if you don't mind ruining
+    card_description: Almost all pants have an elastic, if you don't mind ruining
       your clothes it is an easy way to get one.
     selected: 0
     category: hold
@@ -5247,7 +5247,9 @@ MonoBehaviour:
   is_build_tool_used: 0
   is_build_ability_used: 0
   is_release_ability_used: 0
+  is_deploy_ability_used: 0
   is_operate_ability_used: 0
+  is_monitor_ability_used: 0
   is_test_ability_used: 0
   is_test_failed: 0
   fail_operate_probability: 0.4
