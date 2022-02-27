@@ -1431,7 +1431,7 @@ public class StageController : MonoBehaviour
             if(compost.selected == true) count += 1;
             if(jam.selected == true) count += 1;
 
-            // POP-UP (count)
+            StartCoroutine(WarningWindowDisplay("There are " + count.ToString() + " elements that were not collected in the best way.", 4));
         }
     }
 }

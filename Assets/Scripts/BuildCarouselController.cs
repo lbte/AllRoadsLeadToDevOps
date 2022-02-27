@@ -84,7 +84,17 @@ public class BuildCarouselController : MonoBehaviour
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
         cards.Clear();
         foreach(Card card in player_controller_script.selected_code_cards){
-            if(card.id == "blacksmith_anvil" || card.id == "anvil_auction") cards.Add(cards_materials[0]);
+            if(card.id == "blacksmith_anvil"){
+                Card anvil_card = cards_materials[0];
+                anvil_card.card_description = "";
+                cards.Add(anvil_card);
+            }
+            else if(card.id == "anvil_auction") {
+                Card anvil_card = cards_materials[0];
+                anvil_card.card_description = "";
+                cards.Add(anvil_card);
+            }
+
             else if(card.id == "fight_piano" || card.id == "old_piano") cards.Add(cards_materials[1]);
             else if(card.id == "eagle_feather" || card.id == "pillow_feather") cards.Add(cards_materials[2]);
 
