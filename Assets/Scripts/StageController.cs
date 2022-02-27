@@ -625,7 +625,9 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
+        next_stage_button.gameObject.SetActive(false);
         yield return new WaitForSeconds(5f);
+        next_stage_button.gameObject.SetActive(true);
 
         // transition to the plan stage
         stage_transition.SetTrigger("StartStageFade");
