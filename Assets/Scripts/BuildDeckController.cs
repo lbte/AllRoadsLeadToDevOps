@@ -131,6 +131,8 @@ public class BuildDeckController : MonoBehaviour
         stage_controller_script.stage_title_text.text = "PLAN";
         stage_controller_script.NextStageButton();
         code_carousel_script.UpdateSelectedIcon();
+
+        warning_build_window.gameObject.SetActive(false);
     }
 
     // pop up window when clicking the up button and having a right answer
