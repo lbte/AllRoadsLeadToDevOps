@@ -8,6 +8,7 @@ public class StageController : MonoBehaviour
 {
     public Button next_stage_button;
     public Text stage_title_text;
+    public Image devops_cycle_image;
 
     private Button checklist_button;
     private Button checklist_close_button;
@@ -80,6 +81,16 @@ public class StageController : MonoBehaviour
     public Sprite star_icon_level_2;
     public Sprite star_icon_level_3;
 
+    // sprites for the devops cycle phase displayed on the top of the screen.
+    public Sprite plan_devops_cycle;
+    public Sprite code_devops_cycle;
+    public Sprite build_devops_cycle;
+    public Sprite test_devops_cycle;
+    public Sprite release_devops_cycle;
+    public Sprite deploy_devops_cycle;
+    public Sprite operate_devops_cycle;
+    public Sprite monitor_devops_cycle;
+
     // TEST
     public Button left_test_card;
     public Button right_test_card;
@@ -140,6 +151,7 @@ public class StageController : MonoBehaviour
         close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton);
 
         stage_title_text.text = "PLAN";
+        devops_cycle_image.sprite = plan_devops_cycle;
         plan_stage.SetActive(true);
         code_stage.SetActive(false);
         build_stage.SetActive(false);
@@ -173,14 +185,16 @@ public class StageController : MonoBehaviour
             Card architecture = player_controller_script.selected_architecture;
             if ((architecture.id == "architecture_1" || architecture.id == "architecture_2" || architecture.id == "architecture_3") && tool == true)
             {
+                StartCoroutine(LoadCodeStage(1));
                 //stage_title_text.text = "CODE";
                 //DeactivatedStages();
                 //code_stage.SetActive(true);
-                LoadStage(1, "CODE", code_stage);
+                //devops_cycle_image.sprite = code_devops_cycle;
+                
 
-                tutorial_trigger = code_stage.GetComponent<TutorialTextTrigger>();
-                tutorial_trigger.TriggerTutorial();
-                if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+                //tutorial_trigger = code_stage.GetComponent<TutorialTextTrigger>();
+                //tutorial_trigger.TriggerTutorial();
+                //if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
             }
             else
             {
@@ -195,37 +209,9 @@ public class StageController : MonoBehaviour
             player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
             // LIMPIAR CATEGORIZE Y LIMPIAR BUILDING PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
+            StartCoroutine(LoadBuildStage(1));
 
-            //stage_title_text.text = "BUILD";
-            //DeactivatedStages();
-
-            // Starts on carousel (Categorize)
-            //build_stage.SetActive(true);
-
-            LoadStage(1, "BUILD", build_stage);
-
-            build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
-            next_stage_button.gameObject.SetActive(false);
-            warning_build_window.gameObject.SetActive(false);
-            build_deck_controller_script.word_index = 0; // reset to go back to the categorize view and be able to go to the building
-            build_deck_controller_script.deck_button_text.text = "Categorize";
-            build_deck_controller_script.carousel.SetActive(true);
-            build_deck_controller_script.up_arrow_button.gameObject.SetActive(true);
-            build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
-            build_deck_controller_script.landscape.SetActive(false);
             
-            //is_build_tool_used = false;
-            //is_build_ability_used = 0;
-
-            // Update selected cards in BuildCarouselController (from PlayerController)
-            build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();
-            build_carousel_script.AssignSelectedCodeCards();
-            build_carousel_script.UpdateCardImages();
-
-
-            tutorial_trigger = build_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
         }
         else if (stage_title_text.text == "BUILD")
         {
@@ -264,7 +250,7 @@ public class StageController : MonoBehaviour
                 }
                 else
                 {
-                    /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR M�S O MENOS COSAS RESPECTO AL FALLO)
+                    /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR MAS O MENOS COSAS RESPECTO AL FALLO)
                     StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 4f));
                 }
             }
@@ -272,12 +258,11 @@ public class StageController : MonoBehaviour
         else if (stage_title_text.text == "TEST")
         {   
             if (is_test_failed == false){
-                stage_title_text.text = "RELEASE";
-                DeactivatedStages();
-                release_stage.SetActive(true);
+
+                ////////////////// NOT SURE SI CON LO DE ABAJO SI FUNCIONA
+                StartCoroutine(LoadReleaseStage(1));
 
                 // play the video on the release stage
-
                 videoRelease1.Play();
                 tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
                 tutorial_trigger.TriggerTutorial();
@@ -288,21 +273,12 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "RELEASE")
         {
-            stage_title_text.text = "DEPLOY";
-            DeactivatedStages();
-            deploy_stage.SetActive(true);
-            tutorial_trigger = deploy_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+            StartCoroutine(LoadDeployStage(1));
         }
         else if (stage_title_text.text == "DEPLOY")
         {
-            stage_title_text.text = "OPERATE";
-            DeactivatedStages();
-            operate_stage.SetActive(true);
-            tutorial_trigger = operate_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+            ////////////////// NOT SURE SI CON LO DE ABAJO SI FUNCIONA
+            StartCoroutine(LoadOperateStage(1));
 
             // Check if fails operate
             Card blacksmith = code_carousel_script.deck[0];
@@ -364,12 +340,7 @@ public class StageController : MonoBehaviour
         {   
             is_monitor_ability_used = 0;
 
-            stage_title_text.text = "MONITOR";
-            DeactivatedStages();
-            monitor_stage.SetActive(true);
-            tutorial_trigger = monitor_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+            StartCoroutine(LoadMonitorStage(1));
         }
         else
         {
@@ -503,25 +474,122 @@ public class StageController : MonoBehaviour
         abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", false);
     }
 
-    void LoadStage(float delay, string stage_title, GameObject stage_object)
+    // loads the code stage
+    IEnumerator LoadCodeStage(float delay)
     {
-        StartCoroutine(StageTransition(delay, stage_title, stage_object));
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(delay);
+        stage_transition.SetTrigger("EndStageFade");
+
+        stage_title_text.text = "CODE";
+        DeactivatedStages();
+        code_stage.SetActive(true);
+
+        devops_cycle_image.sprite = code_devops_cycle;
+
+        tutorial_trigger = code_stage.GetComponent<TutorialTextTrigger>();
+        tutorial_trigger.TriggerTutorial();
+        if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
     }
 
-    // transition fade between stages REVISAR EL FADE
-    IEnumerator StageTransition(float delay, string stage_title, GameObject stage_object)
+    // loads the build stage
+    IEnumerator LoadBuildStage(float delay)
     {
         stage_transition.SetTrigger("StartStageFade");
-        stage_transition_image.gameObject.SetActive(true);
         yield return new WaitForSeconds(delay);
+        stage_transition.SetTrigger("EndStageFade");
 
-        stage_title_text.text = stage_title;
+        stage_title_text.text = "BUILD";
         DeactivatedStages();
-        stage_object.SetActive(true);
 
-        stage_transition_image.gameObject.SetActive(false);
+        //Starts on carousel (Categorize)
+        build_stage.SetActive(true);
+        devops_cycle_image.sprite = build_devops_cycle;
+
+
+        build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
+        next_stage_button.gameObject.SetActive(false);
+        warning_build_window.gameObject.SetActive(false);
+        build_deck_controller_script.word_index = 0; // reset to go back to the categorize view and be able to go to the building
+        build_deck_controller_script.deck_button_text.text = "Categorize";
+        build_deck_controller_script.carousel.SetActive(true);
+        build_deck_controller_script.up_arrow_button.gameObject.SetActive(true);
+        build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
+        build_deck_controller_script.landscape.SetActive(false);
+
+        //is_build_tool_used = false;
+        //is_build_ability_used = 0;
+
+        // Update selected cards in BuildCarouselController (from PlayerController)
+        build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();
+        build_carousel_script.AssignSelectedCodeCards();
+        build_carousel_script.UpdateCardImages();
+
+
+        tutorial_trigger = build_stage.GetComponent<TutorialTextTrigger>();
+        tutorial_trigger.TriggerTutorial();
+        if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+    }
+
+    IEnumerator LoadReleaseStage(float delay)
+    {
+        // transition to the release stage
         stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(delay);
+        stage_transition.SetTrigger("EndStageFade");
 
+        stage_title_text.text = "RELEASE";
+        DeactivatedStages();
+        release_stage.SetActive(true);
+        devops_cycle_image.sprite = release_devops_cycle;
+    }
+
+    IEnumerator LoadDeployStage(float delay)
+    {
+        // transition to the deploy stage
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(delay);
+        stage_transition.SetTrigger("EndStageFade");
+
+        stage_title_text.text = "DEPLOY";
+        DeactivatedStages();
+        deploy_stage.SetActive(true);
+        devops_cycle_image.sprite = deploy_devops_cycle;
+        tutorial_trigger = deploy_stage.GetComponent<TutorialTextTrigger>();
+        tutorial_trigger.TriggerTutorial();
+        if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+    }
+
+    IEnumerator LoadOperateStage(float delay)
+    {
+        // transition to the operate stage
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(delay);
+        stage_transition.SetTrigger("EndStageFade");
+
+        stage_title_text.text = "OPERATE";
+        DeactivatedStages();
+        operate_stage.SetActive(true);
+        devops_cycle_image.sprite = operate_devops_cycle;
+        tutorial_trigger = operate_stage.GetComponent<TutorialTextTrigger>();
+        tutorial_trigger.TriggerTutorial();
+        if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+    }
+
+    IEnumerator LoadMonitorStage(float delay)
+    {
+        // transition to the monitor stage
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(delay);
+        stage_transition.SetTrigger("EndStageFade");
+
+        stage_title_text.text = "MONITOR";
+        DeactivatedStages();
+        monitor_stage.SetActive(true);
+        devops_cycle_image.sprite = monitor_devops_cycle;
+        tutorial_trigger = monitor_stage.GetComponent<TutorialTextTrigger>();
+        tutorial_trigger.TriggerTutorial();
+        if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
     }
 
     // general window display message
@@ -555,10 +623,16 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
+        // transition to the plan stage
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(1f);
+        stage_transition.SetTrigger("EndStageFade");
+
         // go to the plan stage
         DeactivatedStages();
         plan_stage.SetActive(true);
         stage_title_text.text = "PLAN";
+        devops_cycle_image.sprite = plan_devops_cycle;
         plan_deck_controller_script.DeactivateParts();
         plan_deck_controller_script.plan_project.SetActive(true);
         plan_deck_controller_script.word_index = 0;
@@ -579,11 +653,16 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
 
-        
+        // transition to the test stage
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(1f);
+        stage_transition.SetTrigger("EndStageFade");
+
         // go to test stage
         stage_title_text.text = "TEST";
         DeactivatedStages();
         test_stage.SetActive(true);
+        devops_cycle_image.sprite = test_devops_cycle;
 
         is_test_ability_used = false;
         left_test_card.gameObject.SetActive(false);
@@ -657,10 +736,16 @@ public class StageController : MonoBehaviour
 
         warning_build_window.gameObject.SetActive(false);
 
+        // transition to the plan stage
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(1f);
+        stage_transition.SetTrigger("EndStageFade");
+
         // go to the plan stage
         DeactivatedStages();
         plan_stage.SetActive(true);
         stage_title_text.text = "PLAN";
+        devops_cycle_image.sprite = plan_devops_cycle;
         plan_deck_controller_script.DeactivateParts();
         plan_deck_controller_script.plan_project.SetActive(true);
         plan_deck_controller_script.word_index = 0;
