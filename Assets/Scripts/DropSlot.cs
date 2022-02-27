@@ -16,9 +16,19 @@ public class DropSlot : MonoBehaviour, IDropHandler
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
     }
 
+    void Update()
+    {
+        if (player_controller_script.build_categorize)
+        {
+            Destroy(item);
+        }
+        
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
-        if(item)
+        player_controller_script.build_categorize = false;
+        if (item)
         {
             Destroy(item);
         }

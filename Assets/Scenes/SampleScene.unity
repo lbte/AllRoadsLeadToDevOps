@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 97409423}
   m_Layer: 5
   m_Name: mechanism
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &97409424
 MonoBehaviour:
@@ -4268,7 +4268,7 @@ GameObject:
   - component: {fileID: 288418213}
   m_Layer: 5
   m_Name: hold
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5513,6 +5513,7 @@ MonoBehaviour:
   hold_build_correctness: 0
   bait_build_correctness: 0
   mechanism_build_correctness: 0
+  build_categorize: 0
 --- !u!1 &415857989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,7 +6788,7 @@ GameObject:
   - component: {fileID: 549299061}
   m_Layer: 5
   m_Name: impact
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6825,7 +6826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &549299062
 MonoBehaviour:
@@ -9068,7 +9069,7 @@ GameObject:
   - component: {fileID: 735984137}
   m_Layer: 5
   m_Name: bait
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9106,7 +9107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &735984138
 MonoBehaviour:
@@ -9754,7 +9755,7 @@ GameObject:
   - component: {fileID: 779832296}
   m_Layer: 5
   m_Name: mechanism
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10722,7 +10723,7 @@ GameObject:
   - component: {fileID: 859964564}
   m_Layer: 5
   m_Name: hold
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10760,7 +10761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &859964565
 MonoBehaviour:
@@ -14586,7 +14587,7 @@ GameObject:
   - component: {fileID: 1171474703}
   m_Layer: 5
   m_Name: hold
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14624,7 +14625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1171474704
 MonoBehaviour:
@@ -15653,7 +15654,7 @@ GameObject:
   - component: {fileID: 1360789303}
   m_Layer: 5
   m_Name: mechanism
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15691,7 +15692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1360789304
 MonoBehaviour:
@@ -18451,7 +18452,7 @@ GameObject:
   - component: {fileID: 1598656151}
   m_Layer: 5
   m_Name: impact
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21244,7 +21245,7 @@ GameObject:
   - component: {fileID: 1805303397}
   m_Layer: 5
   m_Name: bait
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22748,7 +22749,7 @@ GameObject:
   - component: {fileID: 1942250480}
   m_Layer: 5
   m_Name: bait
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22786,7 +22787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1942250481
 MonoBehaviour:
@@ -24615,7 +24616,7 @@ GameObject:
   - component: {fileID: 2067002098}
   m_Layer: 5
   m_Name: impact
-  m_TagString: Untagged
+  m_TagString: CategorizeHole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24653,7 +24654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &2067002099
 MonoBehaviour:

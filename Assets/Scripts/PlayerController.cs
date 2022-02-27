@@ -43,4 +43,7 @@ public class PlayerController : MonoBehaviour
     public int bait_build_correctness = 0;
     public int mechanism_build_correctness= 0;
 
+    //reset bulid choices
+    public bool build_categorize = false;
+
 }

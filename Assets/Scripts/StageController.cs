@@ -125,6 +125,8 @@ public class StageController : MonoBehaviour
     public Text text_blueprint_ground_architecture;
     public Text text_blueprint_air_architecture;
 
+    //Build reset categorize
+
 
     // Start is called before the first frame update
     void Start()
@@ -223,8 +225,13 @@ public class StageController : MonoBehaviour
             if ((impact + hold + bait + mechanism) != 4)
             { // Build fails -> Returns to Plan
 
+                /////// reset build categorize and landscape
+                player_controller_script.build_categorize = true;
+
+
                 /////// POP-UP
                 StartCoroutine(WarningBuildingToPlanDisplay("It looks like the building you made is not the right one. \nYou must plan again.", 4f));
+
             }
             else
             {   // Build is correct
@@ -249,6 +256,9 @@ public class StageController : MonoBehaviour
                 }
                 else
                 {
+                    /////// reset build categorize and landscape
+                    player_controller_script.build_categorize = true;
+
                     /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR MAS O MENOS COSAS RESPECTO AL FALLO)
                     StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 4f));
                 }
