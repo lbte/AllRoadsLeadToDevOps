@@ -200,31 +200,7 @@ public class StageController : MonoBehaviour
             player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
             // LIMPIAR CATEGORIZE Y LIMPIAR BUILDING PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
-            StartCoroutine(LoadBuildStage(1));
-
-            build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
-            next_stage_button.gameObject.SetActive(false);
-            warning_build_window.gameObject.SetActive(false);
-            build_deck_controller_script.word_index = 0; // reset to go back to the categorize view and be able to go to the building
-            build_deck_controller_script.deck_button_text.text = "Categorize";
-            build_deck_controller_script.carousel.SetActive(true);
-            build_deck_controller_script.up_arrow_button.gameObject.SetActive(true);
-            build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
-            build_deck_controller_script.landscape.SetActive(false);
-
-            //is_build_tool_used = false;
-            //is_build_ability_used = 0;
-
-            // Update selected cards in BuildCarouselController (from PlayerController)
-            build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();
-            build_carousel_script.AssignSelectedCodeCards();
-            build_carousel_script.UpdateCardImages();
-
-
-            tutorial_trigger = build_stage.GetComponent<TutorialTextTrigger>();
-            tutorial_trigger.TriggerTutorial();
-            if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
-
+            StartCoroutine(LoadBuildStage(1)); 
 
         }
         else if (stage_title_text.text == "BUILD")
@@ -517,6 +493,29 @@ public class StageController : MonoBehaviour
         //Starts on carousel (Categorize)
         build_stage.SetActive(true);
         devops_cycle_image.sprite = build_devops_cycle;
+
+        build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
+        next_stage_button.gameObject.SetActive(false);
+        warning_build_window.gameObject.SetActive(false);
+        build_deck_controller_script.word_index = 0; // reset to go back to the categorize view and be able to go to the building
+        build_deck_controller_script.deck_button_text.text = "Categorize";
+        build_deck_controller_script.carousel.SetActive(true);
+        build_deck_controller_script.up_arrow_button.gameObject.SetActive(true);
+        build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
+        build_deck_controller_script.landscape.SetActive(false);
+
+        //is_build_tool_used = false;
+        //is_build_ability_used = 0;
+
+        // Update selected cards in BuildCarouselController (from PlayerController)
+        build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();
+        build_carousel_script.AssignSelectedCodeCards();
+        build_carousel_script.UpdateCardImages();
+
+
+        tutorial_trigger = build_stage.GetComponent<TutorialTextTrigger>();
+        tutorial_trigger.TriggerTutorial();
+        if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
     }
 
     IEnumerator LoadReleaseStage(float delay)
