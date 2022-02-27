@@ -183,11 +183,8 @@ MonoBehaviour:
     sentences:
     - "These are abilities that can help you have advantages in any of the upcoming
       stages\u2026"
-    - 'You can see what each one can give you and choose to level up them. '
-    - "When you do so, you can't use that ability on the first cycle, you have to
-      wait until you come back to the plan stage in order to use it\u2026 "
-    - It's like while you go through the DevOps cycle you're spending some time learning
-      it, so after you finish you are able to use it.
+    - You can see what each one can give you and choose to level up them.
+    - "You can only level up one ability each time you\u2019re in the plan stage. "
 --- !u!114 &9742743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,8 +384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: 1.734}
-  m_SizeDelta: {x: 291.34, y: 154.42}
+  m_AnchoredPosition: {x: 2.252, y: 1.734}
+  m_SizeDelta: {x: 277.8768, y: 154.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &22257812
 CanvasRenderer:
@@ -1826,8 +1823,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6244,8 +6241,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8296,7 +8293,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678741136}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8305,8 +8302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.658, y: 11.176}
-  m_SizeDelta: {x: 326.968, y: 173.304}
+  m_AnchoredPosition: {x: -0.9781785, y: 1.0671954}
+  m_SizeDelta: {x: 297.7648, y: 193.5216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &678741138
 MonoBehaviour:
@@ -9406,7 +9403,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764645673}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9416,8 +9413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71, y: -33.348}
-  m_SizeDelta: {x: 106.097, y: 30}
+  m_AnchoredPosition: {x: 57.135162, y: -37.76001}
+  m_SizeDelta: {x: 77.7024, y: 23.7887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764645675
 MonoBehaviour:
@@ -10194,7 +10191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10298,7 +10295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.566818, y: 1.5346}
+  m_AnchoredPosition: {x: 0, y: -7}
   m_SizeDelta: {x: 436.1643, y: 343.7286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832098774
@@ -11026,8 +11023,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11820,8 +11817,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11980,8 +11977,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0027160645, y: -0.00034713745}
+  m_SizeDelta: {x: -0.0023956299, y: -0.00010681152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973044150
 MonoBehaviour:
@@ -11996,7 +11993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12005,7 +12002,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
-    m_FontSize: 13
+    m_FontSize: 11
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -12564,8 +12561,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12857,8 +12854,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16689,13 +16686,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 678741137}
+  - {fileID: 1664647100}
   m_Father: {fileID: 1985874290}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -1}
-  m_SizeDelta: {x: 370, y: 240}
+  m_AnchoredPosition: {x: 8.0594, y: -1}
+  m_SizeDelta: {x: 342.4, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441069146
 MonoBehaviour:
@@ -16717,8 +16715,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17032,8 +17030,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -264.99997, y: 156}
-  m_SizeDelta: {x: 164.082, y: 96.696}
+  m_AnchoredPosition: {x: -275.6479, y: 156.46}
+  m_SizeDelta: {x: 220.8711, y: 106.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1496450586
 Animator:
@@ -17074,8 +17072,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a8ce15af7edbb9c4ca2ade3c18c5734d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17998,8 +17996,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -18618,8 +18616,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -19400,8 +19398,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -19449,12 +19447,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 750047298}
-  m_Father: {fileID: 1985874290}
+  m_Father: {fileID: 1441069145}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 176.99998, y: 109.999985}
+  m_AnchoredPosition: {x: 155.94058, y: 106.99999}
   m_SizeDelta: {x: 55.995, y: 47.356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664647101
@@ -19775,12 +19773,14 @@ MonoBehaviour:
   tutorial_dialogue:
     sentences:
     - 'Welcome, do you see all the elements you selected on the last stage? '
-    - 'The idea here is that you place a category for each of them, as you can see
-      on the left, you are able to move between category names with the arrows. '
-    - 'So when you move to one of them, place in the center the card you think belongs
-      to that category and then hit the select button... '
-    - Just like that you placed that element in a category, you can change your mind,
-      so feel free to take your time.
+    - The idea here is that you place a category for each of them, as you can see
+      on the right, you have a spot for each of the elements.
+    - 'After doing that, on the left you can see arrows up and down, press any of
+      them and move to the building part. '
+    - 'In the building part, you construct the trap according to the architecture
+      you selected using the elements you chose. '
+    - 'Note: If you want to use the ability or tool for this stage, take into account
+      that it is applied to the card on the center of your cards.'
 --- !u!1 &1686695327
 GameObject:
   m_ObjectHideFlags: 0
@@ -19835,9 +19835,11 @@ MonoBehaviour:
     sentences:
     - Hey look! A tool that is used in one of the Devops cycle stages!
     - "You must select in which stage of this beautiful cycle you think it goes (by
-      clicking on the specific stage)\u2026"
-    - Do this according to the description you're able to read there and your own
-      gut.
+      clicking on the specific stage)\u2026 "
+    - 'Do this according to the description you''re able to read there and according
+      to your own gut. '
+    - "You have to be careful about where you place the tool, if you misplace it,
+      you won\u2019t be able to change its position."
 --- !u!1 &1691875595
 GameObject:
   m_ObjectHideFlags: 0
@@ -20145,8 +20147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.534, y: 1.734}
-  m_SizeDelta: {x: 258.5303, y: 154.419}
+  m_AnchoredPosition: {x: 0.7334, y: 1.734}
+  m_SizeDelta: {x: 247.9489, y: 154.419}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701693839
 MonoBehaviour:
@@ -21213,8 +21215,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21707,7 +21709,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869653656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -21716,8 +21718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: 7}
-  m_SizeDelta: {x: 178.651, y: 62.868}
+  m_AnchoredPosition: {x: 2.2252808, y: 2.1400452}
+  m_SizeDelta: {x: 187.5244, y: 80.6145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869653658
 MonoBehaviour:
@@ -21732,7 +21734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -21741,10 +21743,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
-    m_FontSize: 13
+    m_FontSize: 11
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -22463,8 +22465,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -23506,7 +23508,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1441069145}
-  - {fileID: 1664647100}
   m_Father: {fileID: 397590585}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24996,9 +24997,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial_dialogue:
     sentences:
-    - There are several elements here!
-    - According to the architecture you chose please select the elements you consider
-      can help you build the project.
+    - 'There are several elements here! According to the architecture you chose please
+      select the elements you consider can help you build the project. '
+    - You must select only 4 elements.
 --- !u!1 &2128192969
 GameObject:
   m_ObjectHideFlags: 0
