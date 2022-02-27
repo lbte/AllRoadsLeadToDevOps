@@ -104,6 +104,15 @@ public class StageController : MonoBehaviour
     public Text left_test_card_description;
     public Text right_test_card_description;
 
+    public Image test_result_image_wolf;
+    public Sprite test_result_wolf_success;
+    public Sprite test_result_wolf_failure;
+
+    public Image operate_result_image_bunny;
+    public Sprite operate_result_bunny_success;
+    public Sprite operate_result_bunny_failure;
+
+
     // video player for release
     public VideoPlayer videoRelease1;
 
@@ -315,13 +324,15 @@ public class StageController : MonoBehaviour
             if(random_probability <= fail_operate_probability){
                 // Operate fails -> Returns to plan
                 // IMAGEN CONEJITO NO ATRAPADO
+                operate_result_image_bunny.sprite = operate_result_bunny_failure;
                 StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
+
             }
             else{
                 // Operate ok -> next
                 // IMAGEN CONEJITO ATRAPADO
-
-                StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));    
+                operate_result_image_bunny.sprite = operate_result_bunny_success;
+                StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));     
             }
         }
         else if (stage_title_text.text == "OPERATE")
@@ -598,6 +609,8 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
+        yield return new WaitForSeconds(5f);
+
         NextStageButton();
     }
 
@@ -609,6 +622,8 @@ public class StageController : MonoBehaviour
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
+
+        yield return new WaitForSeconds(5f);
 
         // transition to the plan stage
         stage_transition.SetTrigger("StartStageFade");
@@ -671,42 +686,49 @@ public class StageController : MonoBehaviour
         while(true){
             if(check_cards.Contains(feather)){
                 // Fails
+                test_result_image_wolf.sprite = test_result_wolf_failure;
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(anvil) && check_cards.Contains(elastic)){
                 // Fails
+                test_result_image_wolf.sprite = test_result_wolf_failure;
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(burger)){
                 // Fails
+                test_result_image_wolf.sprite = test_result_wolf_failure;
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(cable) && check_cards.Contains(ballon)){
                 // Fails
+                test_result_image_wolf.sprite = test_result_wolf_failure;
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(handwork)){
                 // Fails
+                test_result_image_wolf.sprite = test_result_wolf_failure;
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             if(check_cards.Contains(elastic)){
                 // Fails
+                test_result_image_wolf.sprite = test_result_wolf_failure;
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
             }
             else{
                 // Test is good
+                test_result_image_wolf.sprite = test_result_wolf_success;
                 StartCoroutine(WarningWindowDisplay("Your trap has passed the tests made! Great Job!!", 4));
                 break;
             }
