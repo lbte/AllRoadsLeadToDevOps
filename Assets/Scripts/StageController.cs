@@ -129,8 +129,19 @@ public class StageController : MonoBehaviour
     public Image monitor_result_image_failure;
 
     // for deploy animation
-    public Button deploy_animation_button;
-    public Animator deploy_animation_animator;
+    public Button airtrap_deploy_animation_button;
+    public Animator airtrap_deploy_animation_animator;
+    public Button groundtrap_deploy_animation_button;
+    public Animator groundtrap_deploy_animation_animator;
+
+    public Image balloon_image;
+    public Sprite sprite_balloon_nudo;
+    public Sprite sprite_balloon_suelto;
+    public Image pulley_image;
+    public Sprite sprite_pulley_nudo;
+    public Sprite sprite_pulley_suelta;
+    public GameObject deploy_air_trap;
+    public GameObject deploy_ground_trap;
 
     // KPI Score variables
     public bool is_plan_visited = false;
@@ -177,7 +188,8 @@ public class StageController : MonoBehaviour
         close_button_blueprint_ground_architecture.onClick.AddListener(BlueprintGroundCloseButton);
         close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton);
 
-        deploy_animation_button.onClick.AddListener(DeployAnimation);
+        airtrap_deploy_animation_button.onClick.AddListener(AirTrapDeployAnimation);
+        groundtrap_deploy_animation_button.onClick.AddListener(GroundTrapDeployAnimation);
 
         videoRelease = GameObject.Find("VideoRelease").GetComponent<VideoPlayer>();
         videoRelease.playOnAwake = false;
@@ -323,6 +335,17 @@ public class StageController : MonoBehaviour
             is_release_visited = true;
 
             StartCoroutine(LoadDeployStage(1));
+
+            if(player_controller_script.selected_architecture.id == "architecture_2")
+            {
+                deploy_air_trap.SetActive(true);
+                deploy_ground_trap.SetActive(false);
+            }
+            else if(player_controller_script.selected_architecture.id == "architecture_1")
+            {
+                deploy_ground_trap.SetActive(true);
+                deploy_air_trap.SetActive(false);
+            }
         }
         else if (stage_title_text.text == "DEPLOY")
         {
@@ -1687,9 +1710,17 @@ public class StageController : MonoBehaviour
         }
     }
 
-    void DeployAnimation()
+    void AirTrapDeployAnimation()
     {
-        deploy_animation_animator.SetBool("IsOnStartPosition", true);
+        airtrap_deploy_animation_animator.SetBool("IsOnStartPositionAir", true);
+        balloon_image.sprite = sprite_balloon_suelto;
+
+    }
+
+    void GroundTrapDeployAnimation()
+    {
+        groundtrap_deploy_animation_animator.SetBool("IsOnStartPosition", true);
+        pulley_image.sprite = sprite_pulley_suelta;
 
     }
 }
