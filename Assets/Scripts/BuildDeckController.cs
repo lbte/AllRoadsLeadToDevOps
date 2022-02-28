@@ -72,6 +72,8 @@ public class BuildDeckController : MonoBehaviour
             }
             else if (player_controller_script.selected_architecture.id == "architecture_3")
             {
+                player_controller_script.player_final_score -= 5;
+
                 ///////////////// POP-UP bonito ("It looks like the desert is not an appropiate place for that architecture")
                 StartCoroutine(WarningBuildingToPlanDisplay("It looks like the desert is not an appropiate place for that architecture.", 3f));
             }
@@ -86,6 +88,9 @@ public class BuildDeckController : MonoBehaviour
         int bait = player_controller_script.bait_categorize_correctness;
         int mechanism = player_controller_script.mechanism_categorize_correctness;
         if ((impact + hold + bait + mechanism) != 4) { // Categorize fails
+        
+            player_controller_script.player_final_score -= 5;
+
             // Returns to code (Alguna habilidad/herramienta podria evitar esto)
             // Pop-up bonito (Mensaje="It looks like something went wrong with your materials ...")
             StartCoroutine(WarningWrongCategorizeDisplay("It looks like something went wrong with your materials...\nYou must code again.", 2f));

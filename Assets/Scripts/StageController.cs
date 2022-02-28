@@ -132,6 +132,15 @@ public class StageController : MonoBehaviour
     public Button deploy_animation_button;
     public Animator deploy_animation_animator;
 
+    // KPI Score variables
+    public bool is_plan_visited = false;
+    public bool is_code_visited = false;
+    public bool is_build_visited = false;
+    public bool is_test_visited = false;
+    public bool is_release_visited = false;
+    public bool is_deploy_visited = false;
+    public bool is_operate_visited = false;
+    public bool is_monitor_visited = false;
 
     // Start is called before the first frame update
     void Start()
@@ -201,6 +210,7 @@ public class StageController : MonoBehaviour
     {
         if (stage_title_text.text == "PLAN")
         {
+
             // Check conditions required to complete the plan phase
             // - Select architecture (PlayerController)
             // - Assign tool (PlanDeckController)
@@ -208,6 +218,8 @@ public class StageController : MonoBehaviour
             Card architecture = player_controller_script.selected_architecture;
             if ((architecture.id == "architecture_1" || architecture.id == "architecture_2" || architecture.id == "architecture_3") && tool == true)
             {
+                if(is_plan_visited == false) player_controller_script.player_final_score += 20;
+                is_plan_visited = true;
                 StartCoroutine(LoadCodeStage(1));
             }
             else
@@ -223,7 +235,9 @@ public class StageController : MonoBehaviour
                 code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
                 player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
-                // LIMPIAR CATEGORIZE Y LIMPIAR BUILDING PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
+                if(is_code_visited == false) player_controller_script.player_final_score += 20;
+                is_code_visited = true;
+
                 StartCoroutine(LoadBuildStage(1)); 
             }
             else{
@@ -241,6 +255,8 @@ public class StageController : MonoBehaviour
             int mechanism = player_controller_script.mechanism_build_correctness;
             if ((impact + hold + bait + mechanism) != 4)
             { // Build fails -> Returns to Plan
+
+                player_controller_script.player_final_score -= 5;
 
                 /////// POP-UP
                 StartCoroutine(WarningBuildingToPlanDisplay("It looks like the building you made is not the right one. \nYou must plan again.", 4f));
@@ -263,13 +279,18 @@ public class StageController : MonoBehaviour
                 // Mechanism is correct
                 if (((mechanism_card.id == "balloon_fair" || mechanism_card.id == "turkey_balloon") && (player_controller_script.selected_architecture.id == "architecture_2"))
                 || ((mechanism_card.id == "alpinism_pulley" || mechanism_card.id == "well_pulley") && player_controller_script.selected_architecture.id == "architecture_1"))
-                {
+                {   
+                    if(is_build_visited == false) player_controller_script.player_final_score += 20;
+                    is_build_visited = true;
+
                     /////// POP-UP
                     is_test_failed = false;
                     StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 3f));
                 }
                 else  // Mechanism is not correct
                 {
+                    player_controller_script.player_final_score -= 5;
+
                     StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 4f));
                 }
             }
@@ -277,6 +298,9 @@ public class StageController : MonoBehaviour
         else if (stage_title_text.text == "TEST")
         {   
             if (is_test_failed == false){
+
+                if(is_test_visited == false) player_controller_script.player_final_score += 20;
+                is_test_visited = true;
 
                 //warning_checklist_window_text.gameObject.SetActive(false);
                 warning_checklist_window.gameObject.SetActive(false);
@@ -288,15 +312,23 @@ public class StageController : MonoBehaviour
                 tutorial_trigger.TriggerTutorial();
             }
             else{
+                player_controller_script.player_final_score -= 5;
+
                 StartCoroutine(WarningToPlanDisplay("As you failed the testing phase, you have to plan again.", 4f));
             }
         }
         else if (stage_title_text.text == "RELEASE")
         {
+            if(is_release_visited == false) player_controller_script.player_final_score += 20;
+            is_release_visited = true;
+
             StartCoroutine(LoadDeployStage(1));
         }
         else if (stage_title_text.text == "DEPLOY")
         {
+            if(is_deploy_visited == false) player_controller_script.player_final_score += 20;
+            is_deploy_visited = true;
+
             StartCoroutine(LoadOperateStage(1));
 
             fail_operate_probability = 0.4f;
@@ -348,6 +380,8 @@ public class StageController : MonoBehaviour
             Debug.Log(random_probability);  
             Debug.Log(fail_operate_probability); 
             if(random_probability <= fail_operate_probability){
+                player_controller_script.player_final_score -= 5;
+
                 // Operate fails -> Returns to plan
                 // IMAGEN CONEJITO NO ATRAPADO
                 operate_result_image_bunny.sprite = operate_result_bunny_failure;
@@ -355,6 +389,9 @@ public class StageController : MonoBehaviour
 
             }
             else{
+                if(is_operate_visited == false) player_controller_script.player_final_score += 20;
+                is_operate_visited = true;
+
                 // Operate ok -> next
                 // IMAGEN CONEJITO ATRAPADO
                 operate_result_image_bunny.sprite = operate_result_bunny_success;
@@ -403,10 +440,15 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "MONITOR"){
             if(is_monitor_failed == true){
+                player_controller_script.player_final_score -= 5;
+
                 // Lobo triste -> Returns to plan
                 StartCoroutine(WarningToPlanDisplay("Your materials didn't last long enough in order to be used again, check the way you gathered your elements and try to make it more durable this time.", 3f));
             }
             else{
+                if(is_monitor_visited == false) player_controller_script.player_final_score += 20;
+                is_monitor_visited = true;
+
                 time_controller_script.is_timer_active = false;
                 player_controller_script.player_final_time = time_controller_script.timer_text.text;
                 // Lobo feliz -> Wins the game
@@ -1306,7 +1348,7 @@ public class StageController : MonoBehaviour
                         message = "Getting the anvil from the blacksmith is not the best choice.";
                         is_monitor_ability_used += 1;
                     }
-                    else if(piano_fight.selected == true || piano_old.selected == true)}{
+                    else if(piano_fight.selected == true || piano_old.selected == true){
                         message = "A piano is no the best choice in terms of durability.";
                     }
                     else if(cowboy.selected == true){
@@ -1357,9 +1399,9 @@ public class StageController : MonoBehaviour
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        if(piano_fight.selected == true || piano_old.selected == true)}{
-                            if(message != "A piano is no the best choice in terms of durability."){
-                                message += "A piano is no the best choice in terms of durability.";
+                        if(piano_fight.selected == true || piano_old.selected == true){
+                            if(message != "A piano is no the best choice in terms of durability. \n"){
+                                message += "A piano is no the best choice in terms of durability. \n";
                             }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;

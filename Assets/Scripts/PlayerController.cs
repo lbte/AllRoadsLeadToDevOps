@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public List<Card> selected_code_cards = new List<Card>();
 
     // KPIS 
-    public string player_final_time;
+    public string player_final_time = "";
+    public int player_final_score = 0;
 
     // Levels of the abilities
     public Dictionary<string, int> abilities_levels = new Dictionary<string, int>(){
