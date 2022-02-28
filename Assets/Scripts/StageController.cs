@@ -124,7 +124,8 @@ public class StageController : MonoBehaviour
 
 
     // Monitor Images
-    public Image monitor_result_image;
+    public Image monitor_result_image_success;
+    public Image monitor_result_image_failure;
 
     // Start is called before the first frame update
     void Start()
@@ -376,10 +377,12 @@ public class StageController : MonoBehaviour
 
             if(is_monitor_failed == true){
                 // Lobo triste -> Returns to plan
-                monitor_result_image.sprite = test_result_wolf_failure;
+                monitor_result_image_failure.gameObject.SetActive(true);
+                monitor_result_image_success.gameObject.SetActive(false);
             }
             else{
-                monitor_result_image.sprite = test_result_wolf_success;
+                monitor_result_image_failure.gameObject.SetActive(false);
+                monitor_result_image_success.gameObject.SetActive(true);
                 // Lobo feliz -> Wins the game
             }
         }
@@ -498,7 +501,7 @@ public class StageController : MonoBehaviour
         else if(release_level == 3) release_ability_summary_image.sprite = star_icon_level_3;
 
         int deploy_level = player_controller_script.abilities_levels["deploy_level"];
-        if(release_level >= 1) release_ability_summary_image.gameObject.SetActive(true);
+        if(deploy_level >= 1) deploy_ability_summary_image.gameObject.SetActive(true);
         if(deploy_level == 1) deploy_ability_summary_image.sprite = star_icon_level_1;
         else if(deploy_level == 2) deploy_ability_summary_image.sprite = star_icon_level_2;
         else if(deploy_level == 3) deploy_ability_summary_image.sprite = star_icon_level_3;
@@ -1030,6 +1033,9 @@ public class StageController : MonoBehaviour
 
                         is_test_ability_used = true;
                     }
+                    else{
+                        StartCoroutine(WarningWindowDisplay("The ability is not going to give you any advantage because everything is ok.", 3));
+                    }
                 }
                 else{
                     StartCoroutine(WarningWindowDisplay("You have already used this ability.", 3));
@@ -1324,47 +1330,63 @@ public class StageController : MonoBehaviour
                     string message = "";
                     while(true){
                         if(blacksmith.selected == true){
-                            message += "Getting the anvil from the blacksmith is not the best choice. \n";
+                            if(message != "Getting the anvil from the blacksmith is not the best choice. \n"){
+                                message += "Getting the anvil from the blacksmith is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else if(cowboy.selected == true){
-                            message += "Getting the rope from the cowboy is not the best choice. \n";
+                        if(cowboy.selected == true){
+                            if(message != "Getting the rope from the cowboy is not the best choice. \n"){
+                                message += "Getting the rope from the cowboy is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else if(pants.selected == true){
-                            message += "Getting the elastic from the pants is not the best choice. \n";
+                        if(pants.selected == true){
+                            if(message != "Getting the elastic from the pants is not the best choice. \n"){
+                                message += "Getting the elastic from the pants is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else if(charger.selected == true){
-                            message += "Getting the cable from the charger is not the best choice. \n";
+                        if(charger.selected == true){
+                            if(message != "Getting the cable from the charger is not the best choice. \n"){
+                                message += "Getting the cable from the charger is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else if(turkey.selected == true){
-                            message += "Getting the balloon from the balloons from Turkey is not the best choice. \n";
+                        if(turkey.selected == true){
+                            if(message != "Getting the balloon from the balloons from Turkey is not the best choice. \n"){
+                                message += "Getting the balloon from the balloons from Turkey is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else if(well.selected == true){
-                            message += "Getting the pulley from the well is not the best choice. \n";
+                        if(well.selected == true){
+                            if(message != "Getting the pulley from the well is not the best choice. \n"){
+                                message += "Getting the pulley from the well is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else if(compost.selected == true){
-                            message += "Getting the carrot from the compost is not the best choice. \n";
+                        if(compost.selected == true){
+                            if(message != "Getting the carrot from the compost is not the best choice. \n"){
+                                message += "Getting the carrot from the compost is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else if(jam.selected == true){
-                            message += "Using the jam as blueberries is not the best choice. \n";
+                        if(jam.selected == true){
+                            if(message != "Using the jam as blueberries is not the best choice. \n"){
+                                message += "Using the jam as blueberries is not the best choice. \n";
+                            }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
                         }
-                        else{
-                            if(is_monitor_ability_used == 0) message = "Everything went smoothly.";
+                        if(is_monitor_ability_used == 0){
+                            message = "Everything went smoothly.";
                             break;
                         }
                     }
