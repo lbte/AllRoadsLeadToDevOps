@@ -30,7 +30,7 @@ public class StartController : MonoBehaviour
     }
 
     void StartButtonController(){
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     void HowToPlayButtonController(){
