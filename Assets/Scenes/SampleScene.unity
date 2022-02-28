@@ -212,7 +212,7 @@ MonoBehaviour:
       one inappropriate component situation.
     selected: 0
     category: 
-    level: 2
+    level: 0
     id: code_level
     card_title: Code ability
   - card_image: {fileID: 21300000, guid: 01ef2915947ddf54586e731866ca29ca, type: 3}
@@ -220,21 +220,21 @@ MonoBehaviour:
       of one trap element in the building part.
     selected: 0
     category: 
-    level: 3
+    level: 0
     id: build_level
     card_title: Build ability
   - card_image: {fileID: 21300000, guid: 469fa3405b37f3b408ecb9840f71611b, type: 3}
     card_description: 
     selected: 0
     category: 
-    level: 3
+    level: 0
     id: test_level
     card_title: Test ability
   - card_image: {fileID: 21300000, guid: c287349f8369cde46a93b20177ffede9, type: 3}
     card_description: 
     selected: 0
     category: 
-    level: 3
+    level: 0
     id: release_level
     card_title: Release ability
   - card_image: {fileID: 21300000, guid: 4589aee46e39e6f459619011acef8665, type: 3}
@@ -248,7 +248,7 @@ MonoBehaviour:
     card_description: 
     selected: 0
     category: 
-    level: 3
+    level: 0
     id: operate_level
     card_title: Operate ability
   - card_image: {fileID: 21300000, guid: ea24c41b63728034daddc28d012ff44e, type: 3}
@@ -5598,14 +5598,14 @@ MonoBehaviour:
   selected_code_cards: []
   player_final_time: 
   player_final_score: 0
-  can_use_plan_tool: 1
-  can_use_code_tool: 1
-  can_use_build_tool: 1
-  can_use_test_tool: 1
-  can_use_release_tool: 1
-  can_use_deploy_tool: 1
-  can_use_operate_tool: 1
-  can_use_monitor_tool: 1
+  can_use_plan_tool: 0
+  can_use_code_tool: 0
+  can_use_build_tool: 0
+  can_use_test_tool: 0
+  can_use_release_tool: 0
+  can_use_deploy_tool: 0
+  can_use_operate_tool: 0
+  can_use_monitor_tool: 0
   impact_categorize_correctness: 0
   hold_categorize_correctness: 0
   bait_categorize_correctness: 0
