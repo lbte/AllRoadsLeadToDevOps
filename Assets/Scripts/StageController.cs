@@ -127,6 +127,11 @@ public class StageController : MonoBehaviour
     public Image monitor_result_image_success;
     public Image monitor_result_image_failure;
 
+    // for deploy animation
+    public Button deploy_animation_button;
+    public Animator deploy_animation_animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -158,7 +163,9 @@ public class StageController : MonoBehaviour
         use_ability_button.onClick.AddListener(UseAbilityButtonHandler);
         use_tool_button.onClick.AddListener(UseToolButtonHanlder);
         close_button_blueprint_ground_architecture.onClick.AddListener(BlueprintGroundCloseButton);
-        close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton); 
+        close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton);
+
+        deploy_animation_button.onClick.AddListener(DeployAnimation);
 
         videoRelease = GameObject.Find("VideoRelease").GetComponent<VideoPlayer>();
         videoRelease.playOnAwake = false;
@@ -1612,5 +1619,11 @@ public class StageController : MonoBehaviour
 
             StartCoroutine(WarningWindowDisplay("There are " + count.ToString() + " elements that were not collected in the best way.", 4));
         }
+    }
+
+    void DeployAnimation()
+    {
+        deploy_animation_animator.SetBool("IsOnStartPosition", true);
+
     }
 }
