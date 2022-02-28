@@ -48,6 +48,7 @@ public class StageController : MonoBehaviour
     private BuildCarouselController build_carousel_script;
     private BuildDeckController build_deck_controller_script;
     public PlanDeckController plan_deck_controller_script;
+    private TimeController time_controller_script;
 
 
     public bool is_build_tool_used = false;
@@ -151,6 +152,8 @@ public class StageController : MonoBehaviour
         warning_checklist_window = GameObject.Find("WarningChecklistWindow").GetComponent<Image>();
         plan_deck_controller_script = GameObject.Find("Plan").GetComponent<PlanDeckController>();
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
+        code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
+        time_controller_script = GameObject.Find("Views").GetComponent<TimeController>();
 
         warning_checklist_window.gameObject.SetActive(false);
         checklist_close_button.gameObject.SetActive(false);
@@ -214,13 +217,18 @@ public class StageController : MonoBehaviour
             }
         }
         else if (stage_title_text.text == "CODE")
-        {
-            // Save selected cards in PlayerController
-            code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
-            player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
+        {   
+            if(code_carousel_script.selected_cards_count == 4){
+                // Save selected cards in PlayerController
+                code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
+                player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
 
-            // LIMPIAR CATEGORIZE Y LIMPIAR BUILDING PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
-            StartCoroutine(LoadBuildStage(1)); 
+                // LIMPIAR CATEGORIZE Y LIMPIAR BUILDING PARA QUE NO APAREZCAN LAS CARTAS QUE ANTES SE HABIAN SELECCIONADO
+                StartCoroutine(LoadBuildStage(1)); 
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You have to select 4 cards.", 2));
+            }
 
         }
         else if (stage_title_text.text == "BUILD")
@@ -399,7 +407,8 @@ public class StageController : MonoBehaviour
                 StartCoroutine(WarningToPlanDisplay("Your materials didn't last long enough in order to be used again, check the way you gathered your elements and try to make it more durable this time.", 3f));
             }
             else{
-                
+                time_controller_script.is_timer_active = false;
+                player_controller_script.player_final_time = time_controller_script.timer_text.text;
                 // Lobo feliz -> Wins the game
             }
         }
@@ -1277,6 +1286,8 @@ public class StageController : MonoBehaviour
         else if(stage_title_text.text == "MONITOR"){
             int level = player_controller_script.abilities_levels["monitor_level"];
             Card blacksmith = code_carousel_script.deck[0];
+            Card piano_fight = code_carousel_script.deck[11];
+            Card piano_old = code_carousel_script.deck[6];
             Card cowboy = code_carousel_script.deck[1];
             Card pants = code_carousel_script.deck[5];
             Card charger = code_carousel_script.deck[17];
@@ -1294,6 +1305,9 @@ public class StageController : MonoBehaviour
                     if(blacksmith.selected == true){
                         message = "Getting the anvil from the blacksmith is not the best choice.";
                         is_monitor_ability_used += 1;
+                    }
+                    else if(piano_fight.selected == true || piano_old.selected == true)}{
+                        message = "A piano is no the best choice in terms of durability.";
                     }
                     else if(cowboy.selected == true){
                         message = "Getting the rope from the cowboy is not the best choice.";
@@ -1339,6 +1353,13 @@ public class StageController : MonoBehaviour
                         if(blacksmith.selected == true){
                             if(message != "Getting the anvil from the blacksmith is not the best choice. \n"){
                                 message += "Getting the anvil from the blacksmith is not the best choice. \n";
+                            }
+                            is_monitor_ability_used += 1;
+                            if(is_monitor_ability_used == 2) break;
+                        }
+                        if(piano_fight.selected == true || piano_old.selected == true)}{
+                            if(message != "A piano is no the best choice in terms of durability."){
+                                message += "A piano is no the best choice in terms of durability.";
                             }
                             is_monitor_ability_used += 1;
                             if(is_monitor_ability_used == 2) break;
@@ -1600,6 +1621,8 @@ public class StageController : MonoBehaviour
             int count = 0;
 
             Card blacksmith = code_carousel_script.deck[0];
+            Card piano_fight = code_carousel_script.deck[11];
+            Card piano_old = code_carousel_script.deck[6];
             Card cowboy = code_carousel_script.deck[1];
             Card pants = code_carousel_script.deck[5];
             Card charger = code_carousel_script.deck[17];
@@ -1609,6 +1632,7 @@ public class StageController : MonoBehaviour
             Card jam = code_carousel_script.deck[3];
 
             if(blacksmith.selected == true) count += 1;
+            if(piano_fight.selected == true || piano_old.selected == true) count += 1;
             if(cowboy.selected == true) count += 1;
             if(pants.selected == true) count += 1;
             if(charger.selected == true) count += 1;

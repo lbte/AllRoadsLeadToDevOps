@@ -660,8 +660,8 @@ MonoBehaviour:
     id: powershell
     card_title: PowerShell
   - card_image: {fileID: 21300000, guid: 2559d8808ed6f4146a324470aea3449d, type: 3}
-    card_description: It's a free (open-source) automated testing framework used to
-      validate web applications across different browsers and platforms.
+    card_description: It's a free (open-source) automated testing framework used
+      to validate web applications across different browsers and platforms.
     selected: 0
     category: 
     level: 0
@@ -686,10 +686,11 @@ MonoBehaviour:
     id: aws
     card_title: AWS
   - card_image: {fileID: 21300000, guid: 6eb89622430074b49bfc03b839ab12c1, type: 3}
-    card_description: 'It''s an open-source automation tool written in Java with plugins
-      built for Continuous Integration purposes. Jenkins is used to build and test
-      software projects continuously making it easier for developers to integrate
-      changes to the project, and making it easier for users to obtain a fresh build. '
+    card_description: 'It''s an open-source automation tool written in Java with
+      plugins built for Continuous Integration purposes. Jenkins is used to build
+      and test software projects continuously making it easier for developers to
+      integrate changes to the project, and making it easier for users to obtain
+      a fresh build. '
     selected: 0
     category: 
     level: 0
@@ -1175,8 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &97409424
 MonoBehaviour:
@@ -2564,17 +2564,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck:
   - card_image: {fileID: 21300000, guid: 29c47c8604528264b8d21c83b4e0190f, type: 3}
-    card_description: 'An anvil is the main working surface of a blacksmith, you have
-      to run fast if you don''t want to get hit by a hammer or burned by hot metal
-      when stealing it from him.  '
+    card_description: 'An anvil is the main working surface of a blacksmith, you
+      have to run fast if you don''t want to get hit by a hammer or burned by hot
+      metal when stealing it from him.  '
     selected: 0
     category: impact
     level: 0
     id: blacksmith_anvil
     card_title: Anvil
   - card_image: {fileID: 21300000, guid: 1b78350b76e0639469f62a30f0cf2bfd, type: 3}
-    card_description: "The cowboy needed the rope for his rodeo, now he won't be able
-      to participate\u2026 he's looking for you\u2026 Be careful!"
+    card_description: "The cowboy needed the rope for his rodeo, now he won't be
+      able to participate\u2026 he's looking for you\u2026 Be careful!"
     selected: 0
     category: hold
     level: 0
@@ -2619,8 +2619,9 @@ MonoBehaviour:
     id: old_piano
     card_title: Piano
   - card_image: {fileID: 21300000, guid: 5a077538d33fd834288f688eed8d8f2a, type: 3}
-    card_description: Sometimes our best ally is mother nature, the eagle friend when
-      passing by left many feathers to use, too bad they were mistreated in the fall.
+    card_description: Sometimes our best ally is mother nature, the eagle friend
+      when passing by left many feathers to use, too bad they were mistreated in
+      the fall.
     selected: 0
     category: impact
     level: 0
@@ -2676,8 +2677,9 @@ MonoBehaviour:
     id: pillow_feather
     card_title: Feather
   - card_image: {fileID: 21300000, guid: d5fad3ccd111ed246b005ee2e5fcb594, type: 3}
-    card_description: 'Near Carl the baker''s house there''s a park for kids and there
-      are swings made with rope, kids will be sad but at least you''ve got your rope. '
+    card_description: 'Near Carl the baker''s house there''s a park for kids and
+      there are swings made with rope, kids will be sad but at least you''ve got
+      your rope. '
     selected: 0
     category: hold
     level: 0
@@ -2734,8 +2736,8 @@ MonoBehaviour:
     id: own_cooked_food
     card_title: Burger
   - card_image: {fileID: 21300000, guid: df5338b10f8b37b4bbf39030f5ae2f11, type: 3}
-    card_description: Doing manual work gives me anxiety, that's why I prefer to hire
-      someone to do it for me.  Too bad the charge is so expensive.
+    card_description: Doing manual work gives me anxiety, that's why I prefer to
+      hire someone to do it for me.  Too bad the charge is so expensive.
     selected: 0
     category: mechanism
     level: 0
@@ -2751,8 +2753,8 @@ MonoBehaviour:
     card_title: Pulley
   - card_image: {fileID: 21300000, guid: f546cb08a16083845adf1737c7ad1c68, type: 3}
     card_description: Usually in Turkey there are a lot of hot air balloons, it's
-      one the country's biggest attractions, maybe a trip like those in order to get
-      a balloon wouldn't be so bad.
+      one the country's biggest attractions, maybe a trip like those in order to
+      get a balloon wouldn't be so bad.
     selected: 0
     category: mechanism
     level: 0
@@ -4263,8 +4265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &293652833
 GameObject:
@@ -5213,6 +5214,7 @@ GameObject:
   - component: {fileID: 397590582}
   - component: {fileID: 397590586}
   - component: {fileID: 397590587}
+  - component: {fileID: 397590588}
   m_Layer: 5
   m_Name: Views
   m_TagString: Untagged
@@ -5369,14 +5371,10 @@ MonoBehaviour:
   code_devops_cycle: {fileID: 21300000, guid: 9a960e4a115ba9c4da34fc006e7f21b7, type: 3}
   build_devops_cycle: {fileID: 21300000, guid: 862554c6c2834a743b81387dbcc38df3, type: 3}
   test_devops_cycle: {fileID: 21300000, guid: 0b16c266b5d058a45aec9a608e250072, type: 3}
-  release_devops_cycle: {fileID: 21300000, guid: fc6b5dd103695b04d8bbcc28e07d1882,
-    type: 3}
-  deploy_devops_cycle: {fileID: 21300000, guid: 28ad6f769d923ea4db162f234e708b12,
-    type: 3}
-  operate_devops_cycle: {fileID: 21300000, guid: 4ed2c6eb9f51e0e46bbd2188b040d911,
-    type: 3}
-  monitor_devops_cycle: {fileID: 21300000, guid: 6a81c62cf63bed34c98a435ed76eac41,
-    type: 3}
+  release_devops_cycle: {fileID: 21300000, guid: fc6b5dd103695b04d8bbcc28e07d1882, type: 3}
+  deploy_devops_cycle: {fileID: 21300000, guid: 28ad6f769d923ea4db162f234e708b12, type: 3}
+  operate_devops_cycle: {fileID: 21300000, guid: 4ed2c6eb9f51e0e46bbd2188b040d911, type: 3}
+  monitor_devops_cycle: {fileID: 21300000, guid: 6a81c62cf63bed34c98a435ed76eac41, type: 3}
   left_test_card: {fileID: 1004221431}
   right_test_card: {fileID: 1576776593}
   left_test_card_image: {fileID: 815974009}
@@ -5386,15 +5384,11 @@ MonoBehaviour:
   left_test_card_description: {fileID: 2132460962}
   right_test_card_description: {fileID: 635929266}
   test_result_image_wolf: {fileID: 1369495107}
-  test_result_wolf_success: {fileID: 21300000, guid: e33cc6bcb19361e408abe19bed50e604,
-    type: 3}
-  test_result_wolf_failure: {fileID: 21300000, guid: a57b28c88a0749e48834d22d0b7e3784,
-    type: 3}
+  test_result_wolf_success: {fileID: 21300000, guid: e33cc6bcb19361e408abe19bed50e604, type: 3}
+  test_result_wolf_failure: {fileID: 21300000, guid: a57b28c88a0749e48834d22d0b7e3784, type: 3}
   operate_result_image_bunny: {fileID: 41673667}
-  operate_result_bunny_success: {fileID: 21300000, guid: 5ce6243f62390e94493c812ad0fb71ee,
-    type: 3}
-  operate_result_bunny_failure: {fileID: 21300000, guid: 37b5116800ae04f4ba7f231c4f7bd6cb,
-    type: 3}
+  operate_result_bunny_success: {fileID: 21300000, guid: 5ce6243f62390e94493c812ad0fb71ee, type: 3}
+  operate_result_bunny_failure: {fileID: 21300000, guid: 37b5116800ae04f4ba7f231c4f7bd6cb, type: 3}
   videoRelease: {fileID: 256012186}
   blueprint_ground_architecture: {fileID: 806253669}
   blueprint_air_architecture: {fileID: 995373238}
@@ -5427,6 +5421,7 @@ MonoBehaviour:
     id: 
     card_title: 
   selected_code_cards: []
+  player_final_time: 
   can_use_plan_tool: 1
   can_use_code_tool: 1
   can_use_build_tool: 1
@@ -5444,6 +5439,21 @@ MonoBehaviour:
   bait_build_correctness: 0
   mechanism_build_correctness: 0
   build_categorize: 0
+--- !u!114 &397590588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397590581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1990d6c7e0fcd1e4b8cbe6d1670df044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current_time: 0
+  timer_text: {fileID: 1478823743}
+  is_timer_active: 1
 --- !u!1 &415857989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6758,8 +6768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &549299062
 MonoBehaviour:
@@ -9158,8 +9167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &735984138
 MonoBehaviour:
@@ -9884,8 +9892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &806168275
 GameObject:
@@ -10509,7 +10516,8 @@ MonoBehaviour:
     Test ability:
 
 
-    Release ability:
+    Release
+    ability:
 
 
     Deploy ability:
@@ -10813,8 +10821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &859964565
 MonoBehaviour:
@@ -14753,8 +14760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1171474704
 MonoBehaviour:
@@ -15821,8 +15827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1360789304
 MonoBehaviour:
@@ -17201,6 +17206,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471734524}
   m_CullTransparentMesh: 1
+--- !u!1 &1478823742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1478823745}
+  - component: {fileID: 1478823744}
+  - component: {fileID: 1478823743}
+  m_Layer: 5
+  m_Name: TimerText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1478823743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478823742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 00:00
+--- !u!222 &1478823744
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478823742}
+  m_CullTransparentMesh: 1
+--- !u!224 &1478823745
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478823742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1861588464}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 91.7403, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1496450584
 GameObject:
   m_ObjectHideFlags: 0
@@ -17700,7 +17784,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 998678164}, {fileID: 1936420094}, {fileID: 2049943769}]
+  m_Children:
+  - {fileID: 998678164}
+  - {fileID: 1936420094}
+  - {fileID: 2049943769}
   m_Father: {fileID: 397590585}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18735,8 +18822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1608200953
 GameObject:
@@ -21532,8 +21618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1842598525
 GameObject:
@@ -21640,6 +21725,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850790692}
+  m_CullTransparentMesh: 1
+--- !u!1 &1861588463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861588464}
+  - component: {fileID: 1861588466}
+  - component: {fileID: 1861588465}
+  m_Layer: 5
+  m_Name: TimerImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1861588464
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861588463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1478823745}
+  m_Father: {fileID: 1926108527}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -347.7, y: -206.6}
+  m_SizeDelta: {x: 100, y: 29.5444}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1861588465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861588463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1861588466
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861588463}
   m_CullTransparentMesh: 1
 --- !u!1 &1863147063
 GameObject:
@@ -22561,6 +22722,7 @@ RectTransform:
   - {fileID: 2028526152}
   - {fileID: 1704128243}
   - {fileID: 140396122}
+  - {fileID: 1861588464}
   m_Father: {fileID: 397590585}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22997,8 +23159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1942250481
 MonoBehaviour:
@@ -24985,8 +25146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &2067002099
 MonoBehaviour:

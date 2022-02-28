@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     // Cards selected during the code phase
     public List<Card> selected_code_cards = new List<Card>();
 
+    // KPIS 
+    public string player_final_time;
+
     // Levels of the abilities
     public Dictionary<string, int> abilities_levels = new Dictionary<string, int>(){
         {"plan_level", 0}, {"code_level", 2}, {"build_level", 3}, {"test_level", 3},
