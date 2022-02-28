@@ -5418,13 +5418,13 @@ MonoBehaviour:
     id: 
     card_title: 
   selected_code_cards: []
-  can_use_plan_tool: 0
-  can_use_code_tool: 0
-  can_use_build_tool: 0
-  can_use_test_tool: 0
-  can_use_release_tool: 0
+  can_use_plan_tool: 1
+  can_use_code_tool: 1
+  can_use_build_tool: 1
+  can_use_test_tool: 1
+  can_use_release_tool: 1
   can_use_deploy_tool: 1
-  can_use_operate_tool: 0
+  can_use_operate_tool: 1
   can_use_monitor_tool: 1
   impact_categorize_correctness: 0
   hold_categorize_correctness: 0
@@ -23893,7 +23893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: -0.0000038147}
+  m_AnchoredPosition: {x: 0.000030518, y: -0.0000038147}
   m_SizeDelta: {x: 801.227, y: 450.614}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016478287
