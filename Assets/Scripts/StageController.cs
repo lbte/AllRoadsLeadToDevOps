@@ -330,8 +330,8 @@ public class StageController : MonoBehaviour
 
             // Show result -> Rabbit in a cage or not ...
             float random_probability = (float)Random.Range(0.0f, 1.0f);
-            Debug.Log(random_probability);  // 0.7
-            Debug.Log(fail_operate_probability); // 0.3
+            Debug.Log(random_probability);  
+            Debug.Log(fail_operate_probability); 
             if(random_probability <= fail_operate_probability){
                 // Operate fails -> Returns to plan
                 // IMAGEN CONEJITO NO ATRAPADO
