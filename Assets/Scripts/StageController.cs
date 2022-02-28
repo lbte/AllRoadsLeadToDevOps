@@ -59,6 +59,7 @@ public class StageController : MonoBehaviour
     public int is_build_ability_used = 0;  // min = 0, max = 2
     public int is_release_ability_used = 0;  // min = 0, max = 1
     public int is_deploy_ability_used = 0; // min = 0, max = 1
+    public int is_deploy_tool_used = 0; // min = 0, max = 1
     public int is_operate_ability_used = 0;  // min = 0, max = 2
     public int is_monitor_ability_used = 0; // min = 0, max = 2
     public bool is_test_ability_used = false;
@@ -66,6 +67,7 @@ public class StageController : MonoBehaviour
     public float fail_operate_probability = 0.4f;
     public bool is_operate_tool_used = false;
     public bool is_plan_tool_used = false;
+    public bool is_monitor_failed = false;
 
     // Abilities summary
     private Image plan_ability_summary_image;
@@ -125,8 +127,9 @@ public class StageController : MonoBehaviour
     public Text text_blueprint_ground_architecture;
     public Text text_blueprint_air_architecture;
 
-    //Build reset categorize
 
+    // Monitor Images
+    public Image monitor_result_image;
 
     // Start is called before the first frame update
     void Start()
@@ -225,10 +228,6 @@ public class StageController : MonoBehaviour
             if ((impact + hold + bait + mechanism) != 4)
             { // Build fails -> Returns to Plan
 
-                /////// reset build categorize and landscape
-                player_controller_script.build_categorize = true;
-
-
                 /////// POP-UP
                 StartCoroutine(WarningBuildingToPlanDisplay("It looks like the building you made is not the right one. \nYou must plan again.", 4f));
 
@@ -247,6 +246,7 @@ public class StageController : MonoBehaviour
                     }
                 }
 
+                // Mechanism is correct
                 if (((mechanism_card.id == "balloon_fair" || mechanism_card.id == "turkey_balloon") && (player_controller_script.selected_architecture.id == "architecture_2"))
                 || ((mechanism_card.id == "alpinism_pulley" || mechanism_card.id == "well_pulley") && player_controller_script.selected_architecture.id == "architecture_1"))
                 {
@@ -254,12 +254,8 @@ public class StageController : MonoBehaviour
                     is_test_failed = false;
                     StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 3f));
                 }
-                else
+                else  // Mechanism is not correct
                 {
-                    /////// reset build categorize and landscape
-                    player_controller_script.build_categorize = true;
-
-                    /////// POP-UP (DEPENDIENDO DE ALGUNA HERRAMIENTA O HABILIDAD DECIR MAS O MENOS COSAS RESPECTO AL FALLO)
                     StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 4f));
                 }
             }
@@ -287,8 +283,11 @@ public class StageController : MonoBehaviour
         {
             StartCoroutine(LoadOperateStage(1));
 
+            fail_operate_probability = 0.4f;
+
             // Check if fails operate
             Card blacksmith = code_carousel_script.deck[0];
+            Card piano = code_carousel_script.deck[11];
             Card cowboy = code_carousel_script.deck[1];
             Card pants = code_carousel_script.deck[5];
             Card charger = code_carousel_script.deck[17];
@@ -298,6 +297,7 @@ public class StageController : MonoBehaviour
             Card jam = code_carousel_script.deck[3];
 
             if(blacksmith.selected == true) fail_operate_probability += 0.1f;
+            if(piano.selected == true) fail_operate_probability += 0.1f;
             if(cowboy.selected == true) fail_operate_probability += 0.1f;
             if(pants.selected == true) fail_operate_probability += 0.1f;
             if(charger.selected == true) fail_operate_probability += 0.1f;
@@ -347,13 +347,51 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "OPERATE")
         {   
+            is_monitor_failed = false;
             is_monitor_ability_used = 0;
 
             StartCoroutine(LoadMonitorStage(1));
+
+            // Checks if monitor fails
+            Card blacksmith = code_carousel_script.deck[0];
+            Card piano_fight = code_carousel_script.deck[11];
+            Card piano_old = code_carousel_script.deck[6];
+            Card cowboy = code_carousel_script.deck[1];
+            Card pants = code_carousel_script.deck[5];
+            Card charger = code_carousel_script.deck[17];
+            Card turkey = code_carousel_script.deck[23];
+            Card well = code_carousel_script.deck[4];
+            Card compost = code_carousel_script.deck[18];
+            Card jam = code_carousel_script.deck[3];
+
+            if(piano_fight.selected == true || piano_old.selected == true) is_monitor_failed = true;
+            else if(blacksmith.selected == true) is_monitor_failed = true;
+            else if(cowboy.selected == true) is_monitor_failed = true;
+            else if(pants.selected == true) is_monitor_failed = true;
+            else if(charger.selected == true) is_monitor_failed = true;
+            else if(turkey.selected == true) is_monitor_failed = true;
+            else if(well.selected == true) is_monitor_failed = true;
+            else if(compost.selected == true) is_monitor_failed = true;
+            else if(jam.selected == true) is_monitor_failed = true;
+
+            if(is_monitor_failed == true){
+                // Lobo triste -> Returns to plan
+                monitor_result_image.sprite = test_result_wolf_failure;
+            }
+            else{
+                monitor_result_image.sprite = test_result_wolf_success;
+                // Lobo feliz -> Wins the game
+            }
         }
-        else
-        {
-            Debug.Log("End of the stages.");
+        else if (stage_title_text.text == "MONITOR"){
+            if(is_monitor_failed == true){
+                // Lobo triste -> Returns to plan
+                StartCoroutine(WarningToPlanDisplay("Your materials didn't last long enough in order to be used again, check the way you gathered your elements and try to make it more durable this time.", 3f));
+            }
+            else{
+                
+                // Lobo feliz -> Wins the game
+            }
         }
     }
 
@@ -503,7 +541,7 @@ public class StageController : MonoBehaviour
 
     // loads the build stage
     IEnumerator LoadBuildStage(float delay)
-    {
+    {   
         stage_transition.SetTrigger("StartStageFade");
         yield return new WaitForSeconds(delay);
         stage_transition.SetTrigger("EndStageFade");
@@ -514,6 +552,9 @@ public class StageController : MonoBehaviour
         //Starts on carousel (Categorize)
         build_stage.SetActive(true);
         devops_cycle_image.sprite = build_devops_cycle;
+
+        /////// reset build categorize and landscape
+        player_controller_script.build_categorize = true;
 
         build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
         next_stage_button.gameObject.SetActive(false);
@@ -637,12 +678,12 @@ public class StageController : MonoBehaviour
 
         next_stage_button.gameObject.SetActive(false);
         yield return new WaitForSeconds(5f);
-        next_stage_button.gameObject.SetActive(true);
-
+        
         // transition to the plan stage
         stage_transition.SetTrigger("StartStageFade");
         yield return new WaitForSeconds(1f);
         stage_transition.SetTrigger("EndStageFade");
+        next_stage_button.gameObject.SetActive(true);
 
         // go to the plan stage
         DeactivatedStages();
@@ -668,6 +709,9 @@ public class StageController : MonoBehaviour
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+
+        // reset build categorize and landscape
+        player_controller_script.build_categorize = true;
 
         // transition to the test stage
         stage_transition.SetTrigger("StartStageFade");
@@ -758,6 +802,9 @@ public class StageController : MonoBehaviour
         warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
 
         warning_build_window.gameObject.SetActive(false);
+
+        // reset build categorize and landscape
+        player_controller_script.build_categorize = true;
 
         // transition to the plan stage
         stage_transition.SetTrigger("StartStageFade");
@@ -1410,7 +1457,105 @@ public class StageController : MonoBehaviour
 
         }
         else if(stage_title_text.text == "DEPLOY"){
+            if(is_deploy_tool_used < 1){
+                is_deploy_tool_used += 1;
+                int random_index = (int)Random.Range(0, 7);
+                string random_ability = "";
+                string name_ability = "";
+                if(random_index == 0){
+                    random_ability = "plan_level";
+                    name_ability = "plan";
+                }
+                else if(random_index == 1){
+                    random_ability = "code_level";
+                    name_ability = "code";
+                }
+                else if(random_index == 2){
+                    random_ability = "build_level";
+                    name_ability = "build";
+                }
+                else if(random_index == 3){
+                    random_ability = "test_level";
+                    name_ability = "test";
+                }
+                else if(random_index == 4){
+                    random_ability = "release_level";
+                    name_ability = "release";
+                }
+                else if(random_index == 5){
+                    random_ability = "deploy_level";
+                    name_ability = "deploy";
+                }
+                else if(random_index == 6){
+                    random_ability = "operate_level";
+                    name_ability = "operate";
+                }
+                else if(random_index == 7){
+                    random_ability = "monitor_level";
+                    name_ability = "monitor";
+                }
+                while(true){
+                    // Check if all abilities are at max level
+                    int plan_level = player_controller_script.abilities_levels["plan_level"];
+                    int code_level = player_controller_script.abilities_levels["code_level"];
+                    int build_level = player_controller_script.abilities_levels["build_level"];
+                    int test_level = player_controller_script.abilities_levels["test_level"];
+                    int release_level = player_controller_script.abilities_levels["release_level"];
+                    int deploy_level = player_controller_script.abilities_levels["deploy_level"];
+                    int operate_level = player_controller_script.abilities_levels["operate_level"];
+                    int monitor_level = player_controller_script.abilities_levels["monitor_level"];
 
+                    if(plan_level == 3 && code_level == 3 && build_level == 3 && test_level == 3 && 
+                    release_level == 3 && deploy_level == 3 && operate_level == 3 && monitor_level == 3){
+                        break;
+                    }
+
+                    if(player_controller_script.abilities_levels[random_ability] == 3){
+                        random_index = (int)Random.Range(0, 7);
+                        if(random_index == 0){
+                            random_ability = "plan_level";
+                            name_ability = "plan";
+                        }
+                        else if(random_index == 1){
+                            random_ability = "code_level";
+                            name_ability = "code";
+                        }
+                        else if(random_index == 2){
+                            random_ability = "build_level";
+                            name_ability = "build";
+                        }
+                        else if(random_index == 3){
+                            random_ability = "test_level";
+                            name_ability = "test";
+                        }
+                        else if(random_index == 4){
+                            random_ability = "release_level";
+                            name_ability = "release";
+                        }
+                        else if(random_index == 5){
+                            random_ability = "deploy_level";
+                            name_ability = "deploy";
+                        }
+                        else if(random_index == 6){
+                            random_ability = "operate_level";
+                            name_ability = "operate";
+                        }
+                        else if(random_index == 7){
+                            random_ability = "monitor_level";
+                            name_ability = "monitor";
+                        }
+                    }
+                    else{
+                        player_controller_script.abilities_levels[random_ability] += 1;
+                        StartCoroutine(WarningWindowDisplay("You have gained one level in the " + name_ability + " ability.", 4));
+
+                        break;
+                    }
+                }
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You have already used this tool.", 3));
+            }
         }
         else if(stage_title_text.text == "OPERATE"){
             if(player_controller_script.can_use_operate_tool == true){

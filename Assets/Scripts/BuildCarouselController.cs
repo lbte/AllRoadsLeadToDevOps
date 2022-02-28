@@ -86,29 +86,135 @@ public class BuildCarouselController : MonoBehaviour
         foreach(Card card in player_controller_script.selected_code_cards){
             if(card.id == "blacksmith_anvil"){
                 Card anvil_card = cards_materials[0];
-                anvil_card.card_description = "";
+                anvil_card.card_description = "Falling speed: High\nNumber of uses: Some\nPrecision: High\nImpact: Deadly\nDurability: High\nEase of getting: Difficult";
                 cards.Add(anvil_card);
             }
             else if(card.id == "anvil_auction") {
                 Card anvil_card = cards_materials[0];
-                anvil_card.card_description = "";
+                anvil_card.card_description = "Falling speed: High\nNumber of uses: Several\nPrecision: High\nImpact: Deadly\nDurability: High\nEase of getting: Easy";
                 cards.Add(anvil_card);
             }
 
-            else if(card.id == "fight_piano" || card.id == "old_piano") cards.Add(cards_materials[1]);
-            else if(card.id == "eagle_feather" || card.id == "pillow_feather") cards.Add(cards_materials[2]);
+            else if(card.id == "fight_piano"){
+                Card piano_card = cards_materials[1];
+                piano_card.card_description = "Falling speed: Medium\nNumber of uses: Once\nPrecision: High\nImpact: Deadly\nDurability: Low\nEase of getting: Difficult";
+                cards.Add(piano_card);
+            } 
+            else if(card.id == "old_piano"){
+                Card piano_card = cards_materials[1];
+                piano_card.card_description = "Falling speed: Medium\nNumber of uses: Once\nPrecision: High\nImpact: Deadly\nDurability: Medium\nEase of getting: Easy";
+                cards.Add(piano_card);
+            } 
 
-            else if(card.id == "swings_rope" || card.id == "cowboy_rope") cards.Add(cards_materials[3]);
-            else if(card.id == "elastic_rope" || card.id == "pants_elastic") cards.Add(cards_materials[4]);
-            else if(card.id == "electricity_cable" || card.id == "charger_cable") cards.Add(cards_materials[5]);
+            else if(card.id == "eagle_feather"){
+                Card feather_card = cards_materials[2];
+                feather_card.card_description = "Falling speed: Low\nNumber of uses: Many\nPrecision: Low\nImpact: Mild\nDurability: Medium\nEase of getting: Difficult";
+                cards.Add(feather_card);
+            }
+            else if(card.id == "pillow_feather"){
+                Card feather_card = cards_materials[2];
+                feather_card.card_description = "Falling speed: Low\nNumber of uses: Many\nPrecision: Low\nImpact: Mild\nDurability: Medium\nEase of getting: Easy";
+                cards.Add(feather_card);
+            } 
 
-            else if(card.id == "balloon_fair" || card.id == "turkey_balloon") cards.Add(cards_materials[6]);
-            else if(card.id == "alpinism_pulley" || card.id == "well_pulley") cards.Add(cards_materials[7]);
-            else if(card.id == "gym_handwork" || card.id == "hire_handwork") cards.Add(cards_materials[8]);
+            else if(card.id == "swings_rope"){
+                Card rope_card = cards_materials[3];
+                rope_card.card_description = "Weight : Light\nStability: High\nDurability: Medium\nEase of getting: Easy";
+                cards.Add(rope_card);
+            }
+            else if(card.id == "cowboy_rope"){
+                Card rope_card = cards_materials[3];
+                rope_card.card_description = "Weight : Light\nStability: High\nDurability: Medium\nEase of getting: Difficult";
+                cards.Add(rope_card);
+            } 
 
-            else if(card.id == "compost_carrots" || card.id == "buy_carrots") cards.Add(cards_materials[9]);
-            else if(card.id == "jam_blackberry" || card.id == "gather_blackberry") cards.Add(cards_materials[10]);
-            else if(card.id == "own_cooked_food" || card.id == "food_delivery") cards.Add(cards_materials[11]);
+            else if(card.id == "elastic_rope"){
+                Card elastic_card = cards_materials[4];
+                elastic_card.card_description = "Weight : Light\nStability: Low\nDurability: High\nEase of getting: Easy";
+                cards.Add(elastic_card);
+            }
+            else if(card.id == "pants_elastic"){
+                Card elastic_card = cards_materials[4];
+                elastic_card.card_description = "Weight : Light\nStability: Low\nDurability: Low.\nEase of getting: Easy";
+                cards.Add(elastic_card);
+            }
+
+            else if(card.id == "electricity_cable"){
+                Card cable_card = cards_materials[5];
+                cable_card.card_description = "Weight : Heavy\nStability: High\nDurability: High\nEase of getting: Medium";
+                cards.Add(cable_card);
+            }
+            else if(card.id == "charger_cable"){
+                Card cable_card = cards_materials[5];
+                cable_card.card_description = "Weight : Light\nStability: Medium\nDurability: Low\nEase of getting: Easy";
+                cards.Add(cable_card);
+            }
+
+            else if(card.id == "balloon_fair"){
+                Card ballon_card = cards_materials[6];
+                ballon_card.card_description = "Number of uses: Some\nInstallation difficulty: High\nEffort level: Decreased\nStability: High\nDurability: Medium\nEase of getting: Easy";
+                cards.Add(ballon_card);
+            }
+            else if(card.id == "turkey_balloon"){
+                Card ballon_card = cards_materials[6];
+                ballon_card.card_description = "Number of uses: Some\nInstallation difficulty: High\nEffort level: Decreased\nStability: High\nDurability: Medium\nEase of getting: Difficult";
+                cards.Add(ballon_card);
+            } 
+
+            else if(card.id == "alpinism_pulley"){
+                Card pulley_card = cards_materials[7];
+                pulley_card.card_description = "Number of uses: Many\nInstallation difficulty: High\nEffort level: Decreased\nStability: Low\nDurability: High\nEase of getting: Easy";
+                cards.Add(pulley_card);
+            }
+            else if(card.id == "well_pulley"){
+                Card pulley_card = cards_materials[7];
+                pulley_card.card_description = "Number of uses: Some\nInstallation difficulty: High\nEffort level: Decreased\nStability: Low\nDurability: Low\nEase of getting: Easy";
+                cards.Add(pulley_card);
+            }
+
+            else if(card.id == "gym_handwork"){
+                Card handwork_card = cards_materials[8];
+                handwork_card.card_description = "Number of uses: Few\nInstallation difficulty: Low\nTesting difficulty: Low\nEffort level: Increased\nStability: High\nDurability: Medium\nEase of getting: Difficult";
+                cards.Add(handwork_card);
+            }
+            else if(card.id == "hire_handwork"){
+                Card handwork_card = cards_materials[8];
+                handwork_card.card_description = "Number of uses: Several\nInstallation difficulty: Low\nTesting difficulty: Low\nEffort level: Increased\nStability: High\nDurability: High\nEase of getting: Easy";
+                cards.Add(handwork_card);
+            } 
+
+            else if(card.id == "compost_carrots"){
+                Card carrot_card = cards_materials[9];
+                carrot_card.card_description = "Amount of time to eat: High\nEffectiveness: Medium\nDurability: Low\nEase of getting: Low";
+                cards.Add(carrot_card);
+            }
+            else if(card.id == "buy_carrots"){
+                Card carrot_card = cards_materials[9];
+                carrot_card.card_description = "Amount of time to eat: High\nEffectiveness: High\nDurability: High\nEase of getting: Easy";
+                cards.Add(carrot_card);
+            }
+
+            else if(card.id == "jam_blackberry"){
+                Card blackberry_card = cards_materials[10];
+                blackberry_card.card_description = "Amount of time to eat: Low\nEffectiveness: Low\nDurability: High\nEase of getting: Easy";
+                cards.Add(blackberry_card);
+            }
+            else if(card.id == "gather_blackberry"){
+                Card blackberry_card = cards_materials[10];
+                blackberry_card.card_description = "Amount of time to eat: Low\nEffectiveness: High\nDurability: Medium\nEase of getting: Easy.";
+                cards.Add(blackberry_card);
+            }
+
+            else if(card.id == "own_cooked_food"){
+                Card burger_card = cards_materials[11];
+                burger_card.card_description = "Amount of time to eat: High\nEffectiveness: Low\nDurability: Low\nEase of getting: Medium";
+                cards.Add(burger_card);
+            }
+            else if(card.id == "food_delivery"){
+                Card burger_card = cards_materials[11];
+                burger_card.card_description = "Amount of time to eat: High\nEffectiveness: Low\nDurability: Low\nEase of getting: Easy";
+                cards.Add(burger_card);
+            }
         }
     }
 }
