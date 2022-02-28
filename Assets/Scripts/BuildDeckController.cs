@@ -122,9 +122,9 @@ public class BuildDeckController : MonoBehaviour
     {
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
 
         // move to the code stage
         stage_controller_script.next_stage_button.gameObject.SetActive(true);
@@ -132,7 +132,6 @@ public class BuildDeckController : MonoBehaviour
         stage_controller_script.NextStageButton();
         code_carousel_script.UpdateSelectedIcon();
 
-        warning_build_window.gameObject.SetActive(false);
     }
 
     // pop up window when clicking the up button and having a right answer
@@ -140,16 +139,15 @@ public class BuildDeckController : MonoBehaviour
     {
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
 
         // up arrow button
         word_index++;
         if (word_index >= plan_parts.Count) word_index = 0;
 
         UpdateButtonText();
-        warning_build_window.gameObject.SetActive(false);
     }
 
     // pop up window when clicking the down button and having a right answer
@@ -157,16 +155,15 @@ public class BuildDeckController : MonoBehaviour
     {
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
 
         // Down arrow button
         word_index--;
         if (word_index < 0) word_index = plan_parts.Count - 1;
 
         UpdateButtonText();
-        warning_build_window.gameObject.SetActive(false);
     }
 
     IEnumerator WarningBuildingToPlanDisplay(string text, float delay)
@@ -178,11 +175,11 @@ public class BuildDeckController : MonoBehaviour
         
         warning_build_window_text.text = text;
         warning_build_window.gameObject.SetActive(true);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+        warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
 
-        warning_build_window.gameObject.SetActive(false);
+        //warning_build_window.gameObject.SetActive(false);
 
         // go to the plan stage
         stage_controller_script.DeactivatedStages();

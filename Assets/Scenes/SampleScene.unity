@@ -350,85 +350,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11241898}
   m_CullTransparentMesh: 1
---- !u!1 &22257810
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 22257811}
-  - component: {fileID: 22257812}
-  - component: {fileID: 22257813}
-  m_Layer: 0
-  m_Name: WarningBuildText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &22257811
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22257810}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1933415998}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.252, y: 1.734}
-  m_SizeDelta: {x: 277.8768, y: 154.42}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &22257812
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22257810}
-  m_CullTransparentMesh: 1
---- !u!114 &22257813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22257810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
-    m_FontSize: 15
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
 --- !u!1 &27976035
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,8 +660,8 @@ MonoBehaviour:
     id: powershell
     card_title: PowerShell
   - card_image: {fileID: 21300000, guid: 2559d8808ed6f4146a324470aea3449d, type: 3}
-    card_description: It's a free (open-source) automated testing framework used to
-      validate web applications across different browsers and platforms.
+    card_description: It's a free (open-source) automated testing framework used
+      to validate web applications across different browsers and platforms.
     selected: 0
     category: 
     level: 0
@@ -765,10 +686,11 @@ MonoBehaviour:
     id: aws
     card_title: AWS
   - card_image: {fileID: 21300000, guid: 6eb89622430074b49bfc03b839ab12c1, type: 3}
-    card_description: 'It''s an open-source automation tool written in Java with plugins
-      built for Continuous Integration purposes. Jenkins is used to build and test
-      software projects continuously making it easier for developers to integrate
-      changes to the project, and making it easier for users to obtain a fresh build. '
+    card_description: 'It''s an open-source automation tool written in Java with
+      plugins built for Continuous Integration purposes. Jenkins is used to build
+      and test software projects continuously making it easier for developers to
+      integrate changes to the project, and making it easier for users to obtain
+      a fresh build. '
     selected: 0
     category: 
     level: 0
@@ -1254,8 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &97409424
 MonoBehaviour:
@@ -1743,7 +1664,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -2643,17 +2564,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck:
   - card_image: {fileID: 21300000, guid: 29c47c8604528264b8d21c83b4e0190f, type: 3}
-    card_description: 'An anvil is the main working surface of a blacksmith, you have
-      to run fast if you don''t want to get hit by a hammer or burned by hot metal
-      when stealing it from him.  '
+    card_description: 'An anvil is the main working surface of a blacksmith, you
+      have to run fast if you don''t want to get hit by a hammer or burned by hot
+      metal when stealing it from him.  '
     selected: 0
     category: impact
     level: 0
     id: blacksmith_anvil
     card_title: Anvil
   - card_image: {fileID: 21300000, guid: 1b78350b76e0639469f62a30f0cf2bfd, type: 3}
-    card_description: "The cowboy needed the rope for his rodeo, now he won't be able
-      to participate\u2026 he's looking for you\u2026 Be careful!"
+    card_description: "The cowboy needed the rope for his rodeo, now he won't be
+      able to participate\u2026 he's looking for you\u2026 Be careful!"
     selected: 0
     category: hold
     level: 0
@@ -2698,8 +2619,9 @@ MonoBehaviour:
     id: old_piano
     card_title: Piano
   - card_image: {fileID: 21300000, guid: 5a077538d33fd834288f688eed8d8f2a, type: 3}
-    card_description: Sometimes our best ally is mother nature, the eagle friend when
-      passing by left many feathers to use, too bad they were mistreated in the fall.
+    card_description: Sometimes our best ally is mother nature, the eagle friend
+      when passing by left many feathers to use, too bad they were mistreated in
+      the fall.
     selected: 0
     category: impact
     level: 0
@@ -2755,8 +2677,9 @@ MonoBehaviour:
     id: pillow_feather
     card_title: Feather
   - card_image: {fileID: 21300000, guid: d5fad3ccd111ed246b005ee2e5fcb594, type: 3}
-    card_description: 'Near Carl the baker''s house there''s a park for kids and there
-      are swings made with rope, kids will be sad but at least you''ve got your rope. '
+    card_description: 'Near Carl the baker''s house there''s a park for kids and
+      there are swings made with rope, kids will be sad but at least you''ve got
+      your rope. '
     selected: 0
     category: hold
     level: 0
@@ -2813,8 +2736,8 @@ MonoBehaviour:
     id: own_cooked_food
     card_title: Burger
   - card_image: {fileID: 21300000, guid: df5338b10f8b37b4bbf39030f5ae2f11, type: 3}
-    card_description: Doing manual work gives me anxiety, that's why I prefer to hire
-      someone to do it for me.  Too bad the charge is so expensive.
+    card_description: Doing manual work gives me anxiety, that's why I prefer to
+      hire someone to do it for me.  Too bad the charge is so expensive.
     selected: 0
     category: mechanism
     level: 0
@@ -2830,8 +2753,8 @@ MonoBehaviour:
     card_title: Pulley
   - card_image: {fileID: 21300000, guid: f546cb08a16083845adf1737c7ad1c68, type: 3}
     card_description: Usually in Turkey there are a lot of hot air balloons, it's
-      one the country's biggest attractions, maybe a trip like those in order to get
-      a balloon wouldn't be so bad.
+      one the country's biggest attractions, maybe a trip like those in order to
+      get a balloon wouldn't be so bad.
     selected: 0
     category: mechanism
     level: 0
@@ -3752,7 +3675,7 @@ GameObject:
   - component: {fileID: 256012185}
   - component: {fileID: 256012186}
   m_Layer: 0
-  m_Name: VideoRelease1
+  m_Name: VideoRelease
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3780,7 +3703,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256012184}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 4c095bf19ca9bc74194316c67b876ecf, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 0a26c037b9ad754489d7a744bc48f519, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -3793,13 +3716,15 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 0.338
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 1
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -4228,7 +4153,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -4340,8 +4265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &293652833
 GameObject:
@@ -5425,9 +5349,6 @@ MonoBehaviour:
   deploy_stage: {fileID: 1534434795}
   operate_stage: {fileID: 2117120324}
   monitor_stage: {fileID: 432855334}
-  warning_build_window_animator: {fileID: 1933416001}
-  warning_build_window: {fileID: 1933416000}
-  warning_build_window_text: {fileID: 22257813}
   plan_deck_controller_script: {fileID: 98171818}
   is_build_tool_used: 0
   is_build_ability_used: 0
@@ -5449,14 +5370,10 @@ MonoBehaviour:
   code_devops_cycle: {fileID: 21300000, guid: 9a960e4a115ba9c4da34fc006e7f21b7, type: 3}
   build_devops_cycle: {fileID: 21300000, guid: 862554c6c2834a743b81387dbcc38df3, type: 3}
   test_devops_cycle: {fileID: 21300000, guid: 0b16c266b5d058a45aec9a608e250072, type: 3}
-  release_devops_cycle: {fileID: 21300000, guid: fc6b5dd103695b04d8bbcc28e07d1882,
-    type: 3}
-  deploy_devops_cycle: {fileID: 21300000, guid: 28ad6f769d923ea4db162f234e708b12,
-    type: 3}
-  operate_devops_cycle: {fileID: 21300000, guid: 4ed2c6eb9f51e0e46bbd2188b040d911,
-    type: 3}
-  monitor_devops_cycle: {fileID: 21300000, guid: 6a81c62cf63bed34c98a435ed76eac41,
-    type: 3}
+  release_devops_cycle: {fileID: 21300000, guid: fc6b5dd103695b04d8bbcc28e07d1882, type: 3}
+  deploy_devops_cycle: {fileID: 21300000, guid: 28ad6f769d923ea4db162f234e708b12, type: 3}
+  operate_devops_cycle: {fileID: 21300000, guid: 4ed2c6eb9f51e0e46bbd2188b040d911, type: 3}
+  monitor_devops_cycle: {fileID: 21300000, guid: 6a81c62cf63bed34c98a435ed76eac41, type: 3}
   left_test_card: {fileID: 1004221431}
   right_test_card: {fileID: 1576776593}
   left_test_card_image: {fileID: 815974009}
@@ -5466,16 +5383,12 @@ MonoBehaviour:
   left_test_card_description: {fileID: 2132460962}
   right_test_card_description: {fileID: 635929266}
   test_result_image_wolf: {fileID: 1369495107}
-  test_result_wolf_success: {fileID: 21300000, guid: e33cc6bcb19361e408abe19bed50e604,
-    type: 3}
-  test_result_wolf_failure: {fileID: 21300000, guid: a57b28c88a0749e48834d22d0b7e3784,
-    type: 3}
+  test_result_wolf_success: {fileID: 21300000, guid: e33cc6bcb19361e408abe19bed50e604, type: 3}
+  test_result_wolf_failure: {fileID: 21300000, guid: a57b28c88a0749e48834d22d0b7e3784, type: 3}
   operate_result_image_bunny: {fileID: 41673667}
-  operate_result_bunny_success: {fileID: 21300000, guid: 37b5116800ae04f4ba7f231c4f7bd6cb,
-    type: 3}
-  operate_result_bunny_failure: {fileID: 21300000, guid: 5ce6243f62390e94493c812ad0fb71ee,
-    type: 3}
-  videoRelease1: {fileID: 256012186}
+  operate_result_bunny_success: {fileID: 21300000, guid: 37b5116800ae04f4ba7f231c4f7bd6cb, type: 3}
+  operate_result_bunny_failure: {fileID: 21300000, guid: 5ce6243f62390e94493c812ad0fb71ee, type: 3}
+  videoRelease: {fileID: 256012186}
   blueprint_ground_architecture: {fileID: 806253669}
   blueprint_air_architecture: {fileID: 995373238}
   close_button_blueprint_ground_architecture: {fileID: 1611234179}
@@ -5705,7 +5618,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 578966821}]
+  m_Children:
+  - {fileID: 578966821}
   m_Father: {fileID: 397590585}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6833,8 +6747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &549299062
 MonoBehaviour:
@@ -8635,42 +8548,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688137896}
   m_CullTransparentMesh: 1
---- !u!1 &691062759
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 691062760}
-  m_Layer: 5
-  m_Name: WarningBuildPopUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &691062760
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691062759}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1933415998}
-  m_Father: {fileID: 1672468008}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.32748413}
-  m_SizeDelta: {x: 800, y: 450.2}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &695603441
 GameObject:
   m_ObjectHideFlags: 0
@@ -8729,7 +8606,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -9190,8 +9067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &735984138
 MonoBehaviour:
@@ -9916,8 +9792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &806168275
 GameObject:
@@ -10133,7 +10008,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: db28c612b138d1247b98c6446a84e936, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -10541,7 +10416,8 @@ MonoBehaviour:
     Test ability:
 
 
-    Release ability:
+    Release
+    ability:
 
 
     Deploy ability:
@@ -10845,8 +10721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &859964565
 MonoBehaviour:
@@ -14710,8 +14585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1171474704
 MonoBehaviour:
@@ -15778,8 +15652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1360789304
 MonoBehaviour:
@@ -18617,8 +18490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1608200953
 GameObject:
@@ -19811,7 +19683,6 @@ RectTransform:
   - {fileID: 394113451}
   - {fileID: 831579456}
   - {fileID: 832098773}
-  - {fileID: 691062760}
   m_Father: {fileID: 397590585}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19836,9 +19707,9 @@ MonoBehaviour:
   up_arrow_button: {fileID: 1408685496}
   down_arrow_button: {fileID: 1993214490}
   deck_button_text: {fileID: 806168278}
-  warning_build_window_animator: {fileID: 1933416001}
-  warning_build_window: {fileID: 1933416000}
-  warning_build_window_text: {fileID: 22257813}
+  warning_build_window_animator: {fileID: 127391125}
+  warning_build_window: {fileID: 127391123}
+  warning_build_window_text: {fileID: 1701693839}
   carousel: {fileID: 394113450}
   landscape: {fileID: 832098772}
   air_trap: {fileID: 1969540094}
@@ -21415,8 +21286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1842598525
 GameObject:
@@ -22490,102 +22360,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: 0.108679034}
   m_SizeDelta: {x: 800, y: 450.66}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1933415997
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1933415998}
-  - component: {fileID: 1933415999}
-  - component: {fileID: 1933416000}
-  - component: {fileID: 1933416001}
-  m_Layer: 0
-  m_Name: WarningBuildWindow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1933415998
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933415997}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 22257811}
-  m_Father: {fileID: 691062760}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 0}
-  m_SizeDelta: {x: 319.6, y: 207.31}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1933415999
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933415997}
-  m_CullTransparentMesh: 1
---- !u!114 &1933416000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933415997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!95 &1933416001
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933415997}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09d5d0da3ba7e0d4eb3a47ba42937309, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1937736061
 GameObject:
   m_ObjectHideFlags: 0
@@ -22881,8 +22655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1942250481
 MonoBehaviour:
@@ -24748,8 +24521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &2067002099
 MonoBehaviour:

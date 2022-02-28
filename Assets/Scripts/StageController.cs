@@ -41,11 +41,6 @@ public class StageController : MonoBehaviour
     public GameObject operate_stage;
     public GameObject monitor_stage;
 
-    // build change of phase popups
-    public Animator warning_build_window_animator;
-    public Image warning_build_window;
-    public Text warning_build_window_text;
-
     private TutorialTextTrigger tutorial_trigger;
 
     private CodeCarouselController code_carousel_script;
@@ -116,7 +111,7 @@ public class StageController : MonoBehaviour
 
 
     // video player for release
-    public VideoPlayer videoRelease1;
+    public VideoPlayer videoRelease;
 
 
     // Blueprints for architectures tool
@@ -162,7 +157,10 @@ public class StageController : MonoBehaviour
         use_ability_button.onClick.AddListener(UseAbilityButtonHandler);
         use_tool_button.onClick.AddListener(UseToolButtonHanlder);
         close_button_blueprint_ground_architecture.onClick.AddListener(BlueprintGroundCloseButton);
-        close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton);
+        close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton); 
+
+        videoRelease = GameObject.Find("VideoRelease").GetComponent<VideoPlayer>();
+        videoRelease.playOnAwake = false;
 
         stage_title_text.text = "PLAN";
         devops_cycle_image.sprite = plan_devops_cycle;
@@ -264,10 +262,12 @@ public class StageController : MonoBehaviour
         {   
             if (is_test_failed == false){
 
+                //warning_checklist_window_text.gameObject.SetActive(false);
+                warning_checklist_window.gameObject.SetActive(false);
                 StartCoroutine(LoadReleaseStage(1));
 
                 // play the video on the release stage
-                videoRelease1.Play();
+                videoRelease.Play();
                 tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
                 tutorial_trigger.TriggerTutorial();
             }
@@ -558,7 +558,6 @@ public class StageController : MonoBehaviour
 
         build_deck_controller_script = GameObject.Find("Build").GetComponent<BuildDeckController>();
         next_stage_button.gameObject.SetActive(false);
-        warning_build_window.gameObject.SetActive(false);
         build_deck_controller_script.word_index = 0; // reset to go back to the categorize view and be able to go to the building
         build_deck_controller_script.deck_button_text.text = "Categorize";
         build_deck_controller_script.carousel.SetActive(true);
@@ -599,6 +598,11 @@ public class StageController : MonoBehaviour
         stage_transition.SetTrigger("StartStageFade");
         yield return new WaitForSeconds(delay);
         stage_transition.SetTrigger("EndStageFade");
+
+        if (videoRelease.isPlaying)
+        {
+            videoRelease.Stop();
+        }
 
         stage_title_text.text = "DEPLOY";
         DeactivatedStages();
@@ -704,11 +708,11 @@ public class StageController : MonoBehaviour
 
     IEnumerator WarningRightBuildingToTestDisplay(string text, float delay)
     {
-        warning_build_window.gameObject.SetActive(true);
-        warning_build_window_text.text = text;
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
+        warning_checklist_window.gameObject.SetActive(true);
+        warning_checklist_window_text.text = text;
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
         // reset build categorize and landscape
         player_controller_script.build_categorize = true;
@@ -795,13 +799,11 @@ public class StageController : MonoBehaviour
 
     public IEnumerator WarningBuildingToPlanDisplay(string text, float delay)
     {
-        warning_build_window_text.text = text;
-        warning_build_window.gameObject.SetActive(true);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", true);
+        warning_checklist_window.gameObject.SetActive(true);
+        warning_checklist_window_text.text = text;
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
-        warning_build_window_animator.SetBool("IsWarningCategorizeOpen", false);
-
-        warning_build_window.gameObject.SetActive(false);
+        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
         // reset build categorize and landscape
         player_controller_script.build_categorize = true;
