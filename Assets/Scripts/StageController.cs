@@ -14,6 +14,8 @@ public class StageController : MonoBehaviour
     private Button checklist_close_button;
     public Button use_ability_button;
     public Button use_tool_button;
+    public Button how_to_play_button;
+    public Button how_to_play_close_button;
     private string checklist_text;
     private Image checklist_items_window;
     private Text checklist_items_text;
@@ -21,6 +23,8 @@ public class StageController : MonoBehaviour
     public Animator warning_checklist_window_animator;
     private Image warning_checklist_window;
     public Text warning_checklist_window_text;
+    public Image how_to_play_image;
+    public Image how_to_play_background_image;
 
     // abilities levels window
     public Image abilities_levels_window;
@@ -159,6 +163,20 @@ public class StageController : MonoBehaviour
     public Image last_game_records_background_image;
     public Button exit_game_button;
 
+    // sprites for how to play
+    public Sprite plan_project_howto_sprite;
+    public Sprite plan_architecture_howto_sprite;
+    public Sprite plan_abilities_howto_sprite;
+    public Sprite plan_tools_howto_sprite;
+    public Sprite code_howto_sprite;
+    public Sprite build_categorize_howto_sprite;
+    public Sprite build_building_howto_sprite;
+    public Sprite test_howto_sprite;
+    public Sprite release_howto_sprite;
+    public Sprite deploy_howto_sprite;
+    public Sprite operate_howto_sprite;
+    public Sprite monitor_howto_sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -184,7 +202,10 @@ public class StageController : MonoBehaviour
         warning_checklist_window.gameObject.SetActive(false);
         checklist_close_button.gameObject.SetActive(false);
         abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", false);
-        
+        how_to_play_image.gameObject.SetActive(false);
+        how_to_play_close_button.gameObject.SetActive(false);
+        how_to_play_background_image.gameObject.SetActive(false);
+
         checklist_close_button.onClick.AddListener(ChecklistCloseButton);
         checklist_button.onClick.AddListener(ChecklistButton);
         abilities_levels_button.onClick.AddListener(AbilitiesLevelsWindowButton);
@@ -195,6 +216,8 @@ public class StageController : MonoBehaviour
         close_button_blueprint_ground_architecture.onClick.AddListener(BlueprintGroundCloseButton);
         close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton);
         exit_game_button.onClick.AddListener(ExitGame);
+        how_to_play_button.onClick.AddListener(HowToPlayDisplay);
+        how_to_play_close_button.onClick.AddListener(HowToPlayClose);
 
         airtrap_deploy_animation_button.onClick.AddListener(AirTrapDeployAnimation);
         groundtrap_deploy_animation_button.onClick.AddListener(GroundTrapDeployAnimation);
@@ -435,7 +458,7 @@ public class StageController : MonoBehaviour
 
         if (stage_title_text.text == "PLAN")
         {
-            checklist_text = "Select architecture. \n\n(Optional) Select any ability you want to level up. \n\nSelect a stage for the tool shown.";
+            checklist_text = "Select an architecture. \n\n(Optional) Select any ability you want to level up. \n\nSelect a stage for the tool shown.";
             checklist_items_text.text = checklist_text;
         }
         else if (stage_title_text.text == "CODE")
@@ -445,22 +468,22 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "BUILD")
         {
-            checklist_text = "Place each element in a category.";
+            checklist_text = "Place each element in a category in the categorize part. \n\nPlace each element in the scenario of the trap.";
             checklist_items_text.text = checklist_text;
         }
         else if (stage_title_text.text == "TEST")
         {
-            checklist_text = "";
+            checklist_text = "No items to check here.";
             checklist_items_text.text = checklist_text;
         }
         else if (stage_title_text.text == "RELEASE")
         {
-            checklist_text = "";
+            checklist_text = "No items to check here.";
             checklist_items_text.text = checklist_text;
         }
         else if (stage_title_text.text == "DEPLOY")
         {
-            checklist_text = "";
+            checklist_text = "Select the deploy button to deploy the trap.";
             checklist_items_text.text = checklist_text;
         }
         else if (stage_title_text.text == "OPERATE")
@@ -470,7 +493,8 @@ public class StageController : MonoBehaviour
         }
         else
         {
-            Debug.Log("End of the stages.");
+            checklist_text = "";
+            checklist_items_text.text = checklist_text;
         }
     }
 
@@ -732,7 +756,8 @@ public class StageController : MonoBehaviour
             // Operate ok -> next
             // IMAGEN CONEJITO ATRAPADO
             operate_result_image_bunny.sprite = operate_result_bunny_success;
-            StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));
+            //StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));
+            StartCoroutine(WarningWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));
         }
     }
 
@@ -777,7 +802,7 @@ public class StageController : MonoBehaviour
     }
 
     // window to display message en move to the immediate next stage
-    IEnumerator WarningToNextStageWindowDisplay(string text, float delay)
+    /*IEnumerator WarningToNextStageWindowDisplay(string text, float delay)
     {
         warning_checklist_window.gameObject.SetActive(true);
         warning_checklist_window_text.text = text;
@@ -790,7 +815,7 @@ public class StageController : MonoBehaviour
         next_stage_button.gameObject.SetActive(true);
 
         NextStageButton();
-    }
+    }*/
 
     // window to display a message and move to the plan stage
     IEnumerator WarningToPlanDisplay(string text, float delay)
@@ -1928,5 +1953,39 @@ public class StageController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    // to display the how to play image for each stage
+    void HowToPlayDisplay()
+    {
+        how_to_play_image.gameObject.SetActive(true);
+        how_to_play_close_button.gameObject.SetActive(true);
+        how_to_play_background_image.gameObject.SetActive(true);
+        if (stage_title_text.text == "PLAN")
+        {
+            if(plan_deck_controller_script.deck_button_text.text == "Project") how_to_play_image.sprite = plan_project_howto_sprite;
+            else if (plan_deck_controller_script.deck_button_text.text == "Architecture") how_to_play_image.sprite = plan_architecture_howto_sprite;
+            else if (plan_deck_controller_script.deck_button_text.text == "Abilities") how_to_play_image.sprite = plan_abilities_howto_sprite;
+            else if (plan_deck_controller_script.deck_button_text.text == "Tools") how_to_play_image.sprite = plan_tools_howto_sprite;
+            
+        }
+        else if(stage_title_text.text == "CODE") how_to_play_image.sprite = code_howto_sprite;
+        else if (stage_title_text.text == "BUILD")
+        {
+            if(build_deck_controller_script.deck_button_text.text == "Categorize") how_to_play_image.sprite = build_categorize_howto_sprite;
+            else how_to_play_image.sprite = build_building_howto_sprite;
+        }
+        else if (stage_title_text.text == "TEST") how_to_play_image.sprite = test_howto_sprite;
+        else if (stage_title_text.text == "RELEASE") how_to_play_image.sprite = release_howto_sprite;
+        else if (stage_title_text.text == "DEPLOY") how_to_play_image.sprite = deploy_howto_sprite;
+        else if (stage_title_text.text == "OPERATE") how_to_play_image.sprite = operate_howto_sprite;
+        else if (stage_title_text.text == "MONITOR") how_to_play_image.sprite = monitor_howto_sprite;
+    }
+
+    void HowToPlayClose()
+    {
+        how_to_play_image.gameObject.SetActive(false);
+        how_to_play_close_button.gameObject.SetActive(false);
+        how_to_play_background_image.gameObject.SetActive(false);
     }
 }
