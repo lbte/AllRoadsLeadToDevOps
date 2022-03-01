@@ -14,7 +14,7 @@ public class GameData
 
     public GameData(string name1, int player_final_score1,string player_final_time1,string selected_architecture1)
     {
-        date = System.DateTime.Now.ToString("yyyy/MM/dd");
+        date = System.DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss");
         userName = name1;
         player_final_score = player_final_score1;
         player_final_time = player_final_time1;

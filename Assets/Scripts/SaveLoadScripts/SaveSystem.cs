@@ -18,7 +18,6 @@ public class SaveSystem
         try
         {
             auxVersion = SaveGame.Load<string>("./DevopsGamePae/LastVersion.txt", "version");
-            Debug.Log("entro por acá");
         }
         catch (Exception e)
         {
