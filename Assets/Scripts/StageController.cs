@@ -658,6 +658,8 @@ public class StageController : MonoBehaviour
         build_deck_controller_script.up_arrow_button.gameObject.SetActive(true);
         build_deck_controller_script.down_arrow_button.gameObject.SetActive(true);
         build_deck_controller_script.landscape.SetActive(false);
+        build_deck_controller_script.air_trap.SetActive(false);
+        build_deck_controller_script.ground_trap.SetActive(false);
 
         //is_build_tool_used = false;
         //is_build_ability_used = 0;
