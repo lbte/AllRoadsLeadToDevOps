@@ -63,6 +63,7 @@ public class StageController : MonoBehaviour
     public int is_operate_ability_used = 0;  // min = 0, max = 2
     public int is_monitor_ability_used = 0; // min = 0, max = 2
     public int is_release_tool_used = 0; // min = 0, max = 1
+    public bool is_operate_failed = false;
     public bool is_test_tool_used = false;
     public bool is_test_ability_used = false;
     public bool is_test_failed = false;
@@ -383,51 +384,56 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "DEPLOY")
         {
+            is_operate_failed = false;
+
             if(is_deploy_visited == false) player_controller_script.player_final_score += 20;
             is_deploy_visited = true;
 
             StartCoroutine(LoadOperateStage(1));
-
-            
         }
         else if (stage_title_text.text == "OPERATE")
         {   
-            is_monitor_failed = false;
-            is_monitor_ability_used = 0;
+            if(is_operate_failed == false) {
+                is_monitor_failed = false;
+                is_monitor_ability_used = 0;
 
-            StartCoroutine(LoadMonitorStage(1));
+                StartCoroutine(LoadMonitorStage(1));
 
-            // Checks if monitor fails
-            Card blacksmith = code_carousel_script.deck[0];
-            Card piano_fight = code_carousel_script.deck[11];
-            Card piano_old = code_carousel_script.deck[6];
-            Card cowboy = code_carousel_script.deck[1];
-            Card pants = code_carousel_script.deck[5];
-            Card charger = code_carousel_script.deck[17];
-            Card turkey = code_carousel_script.deck[23];
-            Card well = code_carousel_script.deck[4];
-            Card compost = code_carousel_script.deck[18];
-            Card jam = code_carousel_script.deck[3];
+                // Checks if monitor fails
+                Card blacksmith = code_carousel_script.deck[0];
+                Card piano_fight = code_carousel_script.deck[11];
+                Card piano_old = code_carousel_script.deck[6];
+                Card cowboy = code_carousel_script.deck[1];
+                Card pants = code_carousel_script.deck[5];
+                Card charger = code_carousel_script.deck[17];
+                Card turkey = code_carousel_script.deck[23];
+                Card well = code_carousel_script.deck[4];
+                Card compost = code_carousel_script.deck[18];
+                Card jam = code_carousel_script.deck[3];
 
-            if(piano_fight.selected == true || piano_old.selected == true) is_monitor_failed = true;
-            else if(blacksmith.selected == true) is_monitor_failed = true;
-            else if(cowboy.selected == true) is_monitor_failed = true;
-            else if(pants.selected == true) is_monitor_failed = true;
-            else if(charger.selected == true) is_monitor_failed = true;
-            else if(turkey.selected == true) is_monitor_failed = true;
-            else if(well.selected == true) is_monitor_failed = true;
-            else if(compost.selected == true) is_monitor_failed = true;
-            else if(jam.selected == true) is_monitor_failed = true;
+                if(piano_fight.selected == true || piano_old.selected == true) is_monitor_failed = true;
+                else if(blacksmith.selected == true) is_monitor_failed = true;
+                else if(cowboy.selected == true) is_monitor_failed = true;
+                else if(pants.selected == true) is_monitor_failed = true;
+                else if(charger.selected == true) is_monitor_failed = true;
+                else if(turkey.selected == true) is_monitor_failed = true;
+                else if(well.selected == true) is_monitor_failed = true;
+                else if(compost.selected == true) is_monitor_failed = true;
+                else if(jam.selected == true) is_monitor_failed = true;
 
-            if(is_monitor_failed == true){
-                // Lobo triste -> Returns to plan
-                monitor_result_image_failure.gameObject.SetActive(true);
-                monitor_result_image_success.gameObject.SetActive(false);
+                if(is_monitor_failed == true){
+                    // Lobo triste -> Returns to plan
+                    monitor_result_image_failure.gameObject.SetActive(true);
+                    monitor_result_image_success.gameObject.SetActive(false);
+                }
+                else{
+                    monitor_result_image_failure.gameObject.SetActive(false);
+                    monitor_result_image_success.gameObject.SetActive(true);
+                    // Lobo feliz -> Wins the game
+                }
             }
             else{
-                monitor_result_image_failure.gameObject.SetActive(false);
-                monitor_result_image_success.gameObject.SetActive(true);
-                // Lobo feliz -> Wins the game
+                StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
             }
         }
         else if (stage_title_text.text == "MONITOR"){
@@ -742,14 +748,18 @@ public class StageController : MonoBehaviour
         if (random_probability <= fail_operate_probability)
         {
             player_controller_script.player_final_score -= 5;
+            is_operate_failed = true;
 
             // Operate fails -> Returns to plan
             // IMAGEN CONEJITO NO ATRAPADO
             operate_result_image_bunny.sprite = operate_result_bunny_failure;
-            StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
+            //StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
+            //StartCoroutine(WarningWindowDisplay("Your trap failed the operate phase.", 4f));
         }
         else
-        {
+        {   
+            is_operate_failed = false;
+
             if (is_operate_visited == false) player_controller_script.player_final_score += 20;
             is_operate_visited = true;
 
@@ -826,9 +836,6 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
-        next_stage_button.gameObject.SetActive(false);
-        yield return new WaitForSeconds(5f);
-        
         // transition to the plan stage
         stage_transition.SetTrigger("StartStageFade");
         yield return new WaitForSeconds(1f);
@@ -1636,20 +1643,22 @@ public class StageController : MonoBehaviour
             if(player_controller_script.can_use_test_tool == true){
                 if(is_test_tool_used == false){
                     is_test_tool_used = true;
+                    int count_wrong = 0;
                     foreach (KeyValuePair<string, Card> tool in player_controller_script.tool_cards) {
                         if(tool.Value != null){
                             string name = tool.Value.id;
                             string phase = tool.Key;
-                            int count_wrong = 0;
+                            
+                            Debug.Log(name + " " + phase);
 
                             if(name == "bitbucket"){
                                 if(phase != "code") count_wrong += 1; // code
                             }
                             else if(name == "docker") {
-                                if(phase != "release" && phase != "deploy" && phase != "build"); count_wrong += 1; // release, deploy, build
+                                if(phase != "release" && phase != "deploy" && phase != "build") count_wrong += 1; // release, deploy, build
                             }
                             else if(name == "puppet") {
-                                if(phase != "operate" && phase != "build") count_wrong += 1;; // operate, build
+                                if(phase != "operate" && phase != "build") count_wrong += 1; // operate, build
                             }
                             else if(name == "github") {
                                 if(phase != "code") count_wrong += 1; // code
@@ -1657,19 +1666,45 @@ public class StageController : MonoBehaviour
                             else if(name == "junit") {
                                 if(phase != "test") count_wrong += 1; // test
                             }
-                            else if(name == "gradle") if(phase != "build") count_wrong += 1; // build
-                            else if(name == "chef") if(phase != "operate" && phase != "release" && phase != "build") count_wrong += 1; // operate, release, build
-                            else if(name == "new_relic") if(phase != "monitor") count_wrong += 1; // monitor
-                            else if(name == "vagrant") if(phase != "test") count_wrong += 1; // test
-                            else if(name == "jira") if(phase != "plan" && phase != "release") count_wrong += 1; // plan, release
-                            else if(name == "powershell") if(phase != "operate") count_wrong += 1; // operate
-                            else if(name == "selenium") if(phase != "test") count_wrong += 1; // test
-                            else if(name == "datadog") if(phase != "monitor") count_wrong += 1; // monitor
-                            else if(name == "aws") if(phase != "deploy") count_wrong += 1; // deploy
-                            else if(name == "jenkins") if(phase != "release") count_wrong += 1;  // release
-                            else if(name == "git") if(phase != "plan") count_wrong += 1; // plan
-                            else if(name == "grafana") if(phase != "monitor") count_wrong += 1; // monitor
-                            else if(name == "ansible") if(phase != "operate" && phase != "release" && phase != "build") count_wrong += 1; // operate, release, build
+                            else if(name == "gradle") {
+                                if(phase != "build") count_wrong += 1; // build
+                            }
+                            else if(name == "chef") { 
+                                if(phase != "operate" && phase != "release" && phase != "build") count_wrong += 1; // operate, release, build
+                            }
+                            else if(name == "new_relic") {
+                                 if(phase != "monitor") count_wrong += 1; // monitor
+                            }
+                            else if(name == "vagrant") {
+                                if(phase != "test") count_wrong += 1; // test
+                            } 
+                            else if(name == "jira") {
+                                if(phase != "plan" && phase != "release") count_wrong += 1; // plan, release
+                            }
+                            else if(name == "powershell") {
+                                if(phase != "operate") count_wrong += 1; // operat
+                            }
+                            else if(name == "selenium") {
+                                if(phase != "test") count_wrong += 1; // test
+                            }
+                            else if(name == "datadog") {
+                                if(phase != "monitor") count_wrong += 1; // monitor
+                            }
+                            else if(name == "aws") {
+                                if(phase != "deploy") count_wrong += 1; // deploy
+                            }
+                            else if(name == "jenkins") {
+                                if(phase != "release") count_wrong += 1;  // release
+                            }
+                            else if(name == "git") {
+                                if(phase != "plan") count_wrong += 1; // plan
+                            }
+                            else if(name == "grafana") {
+                                if(phase != "monitor") count_wrong += 1; // monitor
+                            }
+                            else if(name == "ansible") {
+                                if(phase != "operate" && phase != "release" && phase != "build") count_wrong += 1; // operate, release, build
+                            }
 
                             StartCoroutine(WarningWindowDisplay("There are " + count_wrong.ToString() + " tool(s) in the DevOps cycle that are not placed correctly.", 5));
                         }
