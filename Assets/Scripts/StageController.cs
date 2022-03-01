@@ -25,6 +25,7 @@ public class StageController : MonoBehaviour
     public Text warning_checklist_window_text;
     public Image how_to_play_image;
     public Image how_to_play_background_image;
+    public Button next_button_tools_howto;
 
     // abilities levels window
     public Image abilities_levels_window;
@@ -169,6 +170,7 @@ public class StageController : MonoBehaviour
     public Sprite plan_architecture_howto_sprite;
     public Sprite plan_abilities_howto_sprite;
     public Sprite plan_tools_howto_sprite;
+    public Sprite plan_tools_howto_sprite2;
     public Sprite code_howto_sprite;
     public Sprite build_categorize_howto_sprite;
     public Sprite build_building_howto_sprite;
@@ -206,6 +208,7 @@ public class StageController : MonoBehaviour
         how_to_play_image.gameObject.SetActive(false);
         how_to_play_close_button.gameObject.SetActive(false);
         how_to_play_background_image.gameObject.SetActive(false);
+        next_button_tools_howto.gameObject.SetActive(false);
 
         checklist_close_button.onClick.AddListener(ChecklistCloseButton);
         checklist_button.onClick.AddListener(ChecklistButton);
@@ -219,6 +222,7 @@ public class StageController : MonoBehaviour
         exit_game_button.onClick.AddListener(ExitGame);
         how_to_play_button.onClick.AddListener(HowToPlayDisplay);
         how_to_play_close_button.onClick.AddListener(HowToPlayClose);
+        next_button_tools_howto.onClick.AddListener(HowToPlayToolsNext);
 
         airtrap_deploy_animation_button.onClick.AddListener(AirTrapDeployAnimation);
         groundtrap_deploy_animation_button.onClick.AddListener(GroundTrapDeployAnimation);
@@ -494,12 +498,12 @@ public class StageController : MonoBehaviour
         }
         else if (stage_title_text.text == "OPERATE")
         {
-            checklist_text = "";
+            checklist_text = "No items to check here.";
             checklist_items_text.text = checklist_text;
         }
         else
         {
-            checklist_text = "";
+            checklist_text = "No items to check here.";
             checklist_items_text.text = checklist_text;
         }
     }
@@ -629,9 +633,6 @@ public class StageController : MonoBehaviour
         build_deck_controller_script.air_trap.SetActive(false);
         build_deck_controller_script.ground_trap.SetActive(false);
 
-        //is_build_tool_used = false;
-        //is_build_ability_used = 0;
-
         // Update selected cards in BuildCarouselController (from PlayerController)
         build_carousel_script = GameObject.Find("BuildItems").GetComponent<BuildCarouselController>();
         build_carousel_script.AssignSelectedCodeCards();
@@ -753,8 +754,6 @@ public class StageController : MonoBehaviour
             // Operate fails -> Returns to plan
             // IMAGEN CONEJITO NO ATRAPADO
             operate_result_image_bunny.sprite = operate_result_bunny_failure;
-            //StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
-            //StartCoroutine(WarningWindowDisplay("Your trap failed the operate phase.", 4f));
         }
         else
         {   
@@ -766,7 +765,6 @@ public class StageController : MonoBehaviour
             // Operate ok -> next
             // IMAGEN CONEJITO ATRAPADO
             operate_result_image_bunny.sprite = operate_result_bunny_success;
-            //StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));
             StartCoroutine(WarningWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));
         }
     }
@@ -810,22 +808,6 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
     }
-
-    // window to display message en move to the immediate next stage
-    /*IEnumerator WarningToNextStageWindowDisplay(string text, float delay)
-    {
-        warning_checklist_window.gameObject.SetActive(true);
-        warning_checklist_window_text.text = text;
-        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
-        yield return new WaitForSeconds(delay);
-        warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
-
-        next_stage_button.gameObject.SetActive(false);
-        yield return new WaitForSeconds(5f);
-        next_stage_button.gameObject.SetActive(true);
-
-        NextStageButton();
-    }*/
 
     // window to display a message and move to the plan stage
     IEnumerator WarningToPlanDisplay(string text, float delay)
@@ -1998,11 +1980,14 @@ public class StageController : MonoBehaviour
         how_to_play_background_image.gameObject.SetActive(true);
         if (stage_title_text.text == "PLAN")
         {
-            if(plan_deck_controller_script.deck_button_text.text == "Project") how_to_play_image.sprite = plan_project_howto_sprite;
+            if (plan_deck_controller_script.deck_button_text.text == "Project") how_to_play_image.sprite = plan_project_howto_sprite;
             else if (plan_deck_controller_script.deck_button_text.text == "Architecture") how_to_play_image.sprite = plan_architecture_howto_sprite;
             else if (plan_deck_controller_script.deck_button_text.text == "Abilities") how_to_play_image.sprite = plan_abilities_howto_sprite;
-            else if (plan_deck_controller_script.deck_button_text.text == "Tools") how_to_play_image.sprite = plan_tools_howto_sprite;
-            
+            else if (plan_deck_controller_script.deck_button_text.text == "Tools")
+            {
+                next_button_tools_howto.gameObject.SetActive(true);
+                how_to_play_image.sprite = plan_tools_howto_sprite;
+            }
         }
         else if(stage_title_text.text == "CODE") how_to_play_image.sprite = code_howto_sprite;
         else if (stage_title_text.text == "BUILD")
@@ -2022,5 +2007,13 @@ public class StageController : MonoBehaviour
         how_to_play_image.gameObject.SetActive(false);
         how_to_play_close_button.gameObject.SetActive(false);
         how_to_play_background_image.gameObject.SetActive(false);
+
+        next_button_tools_howto.gameObject.SetActive(false);
+    }
+
+    void HowToPlayToolsNext()
+    {
+        how_to_play_image.sprite = plan_tools_howto_sprite2;
+        next_button_tools_howto.gameObject.SetActive(false);
     }
 }

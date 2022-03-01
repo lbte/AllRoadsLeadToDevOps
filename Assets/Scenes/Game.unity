@@ -224,35 +224,41 @@ MonoBehaviour:
     id: build_level
     card_title: Build ability
   - card_image: {fileID: 21300000, guid: 469fa3405b37f3b408ecb9840f71611b, type: 3}
-    card_description: 
+    card_description: On level 3 you'll get a hit about one element that made the
+      trap not to pass the test.
     selected: 0
     category: 
     level: 0
     id: test_level
     card_title: Test ability
   - card_image: {fileID: 21300000, guid: c287349f8369cde46a93b20177ffede9, type: 3}
-    card_description: 
+    card_description: On level 3 you'll get a different ability leveled up one level.
     selected: 0
     category: 
     level: 0
     id: release_level
     card_title: Release ability
   - card_image: {fileID: 21300000, guid: 4589aee46e39e6f459619011acef8665, type: 3}
-    card_description: 
+    card_description: On level 3 you'll get a different ability leveled up one level.
     selected: 0
     category: 
     level: 0
     id: deploy_level
     card_title: Deploy ability
   - card_image: {fileID: 21300000, guid: f41269202d7ce554b8ca09157dda3622, type: 3}
-    card_description: 
+    card_description: On level 2, you'll get a 5% more for the probability of not
+      failing the operate stage, and on level 3 this probability adds up to15%, which
+      means you get 10% more for not failing the operate.
     selected: 0
     category: 
     level: 0
     id: operate_level
     card_title: Operate ability
   - card_image: {fileID: 21300000, guid: ea24c41b63728034daddc28d012ff44e, type: 3}
-    card_description: 
+    card_description: On level 2, you'll receive a hint about which one is the element
+      that wasn't collected the best way in the code stage that made the monitor
+      fail, and on level 3 you'll receive a hint about two elements (in case there
+      are any).
     selected: 0
     category: 
     level: 0
@@ -2335,6 +2341,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1518169447}
+  - {fileID: 1557565470}
   m_Father: {fileID: 397590585}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4187,7 +4194,7 @@ VideoPlayer:
   - 0.338
   m_Url: 
   m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
+  m_DirectAudioMutes: 01
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
@@ -5966,6 +5973,7 @@ MonoBehaviour:
   warning_checklist_window_text: {fileID: 1701693839}
   how_to_play_image: {fileID: 160116650}
   how_to_play_background_image: {fileID: 339670054}
+  next_button_tools_howto: {fileID: 1557565467}
   abilities_levels_window: {fileID: 1658763412}
   abilities_levels_window_animator: {fileID: 1692005318}
   abilities_levels_window_close_button: {fileID: 1426051550}
@@ -6057,6 +6065,7 @@ MonoBehaviour:
   plan_architecture_howto_sprite: {fileID: 21300000, guid: 413b19e80841ed64ca4b91db874440a2, type: 3}
   plan_abilities_howto_sprite: {fileID: 21300000, guid: c76b8b6f100937843af6152d040cc0c3, type: 3}
   plan_tools_howto_sprite: {fileID: 21300000, guid: 75576f6ee290c324f9e5f47175417563, type: 3}
+  plan_tools_howto_sprite2: {fileID: 21300000, guid: 36bc273b71232924097dc895ea45ca9f, type: 3}
   code_howto_sprite: {fileID: 21300000, guid: 52151059f32c17d469662d7d4f3a2bb9, type: 3}
   build_categorize_howto_sprite: {fileID: 21300000, guid: 8c8f475b1c8de0e488fe6ee7142367a7, type: 3}
   build_building_howto_sprite: {fileID: 21300000, guid: 117e54a265606f843b94d4d269b67b5c, type: 3}
@@ -20285,6 +20294,127 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556112512}
   m_CullTransparentMesh: 1
+--- !u!1 &1557565466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1557565470}
+  - component: {fileID: 1557565469}
+  - component: {fileID: 1557565468}
+  - component: {fileID: 1557565467}
+  m_Layer: 5
+  m_Name: NextToolsButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1557565467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557565466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1557565468}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1557565468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557565466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b4d1103c57b915d49825e72e585b4be3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1557565469
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557565466}
+  m_CullTransparentMesh: 1
+--- !u!224 &1557565470
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557565466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1599235840}
+  m_Father: {fileID: 160116652}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 217.93701, y: -147}
+  m_SizeDelta: {x: 121.0051, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1568648819
 GameObject:
   m_ObjectHideFlags: 0
@@ -20897,6 +21027,85 @@ MonoBehaviour:
   build_carousel: {fileID: 394113452}
   card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
+--- !u!1 &1599235839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599235840}
+  - component: {fileID: 1599235842}
+  - component: {fileID: 1599235841}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1599235840
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599235839}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1557565470}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1599235841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599235839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 333176e4c4bfbf14789d63fcaaa4c584, type: 3}
+    m_FontSize: 21
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: NEXT>>
+--- !u!222 &1599235842
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599235839}
+  m_CullTransparentMesh: 1
 --- !u!1 &1608200953
 GameObject:
   m_ObjectHideFlags: 0
@@ -25696,7 +25905,8 @@ MonoBehaviour:
     id: architecture_1
     card_title: Ground controller architecture
   - card_image: {fileID: 21300000, guid: f560a2a2693df9b44aeab22e9b58b90e, type: 3}
-    card_description: GUATA!
+    card_description: The system depends on a water source that will be use to move
+      a weight and impact the prey.
     selected: 0
     category: 
     level: 0
@@ -25753,7 +25963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1943666735
 Animator:
   serializedVersion: 3
