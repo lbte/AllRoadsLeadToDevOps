@@ -59,16 +59,18 @@ public class LastGameController : MonoBehaviour
             LastGameController.LastGameController_Instance.FinalScore2ImageText.text = "" + data1.player_final_score;
             LastGameController.LastGameController_Instance.TimeToComplete2ImageText.text = data1.player_final_time;
         }
+        else
+        {
+            LastGameController.LastGameController_Instance.LastGames2Tittle.text = "Default";
+            LastGameController.LastGameController_Instance.UserName2ImageText.text = "Default";
+            LastGameController.LastGameController_Instance.FinalScore2ImageText.text = "Default";
+            LastGameController.LastGameController_Instance.TimeToComplete2ImageText.text = "Default";
+        }
 
         LastGameController.LastGameController_Instance.LastGames1Tittle.text = data.date;
         LastGameController.LastGameController_Instance.UserName1ImageText.text = data.userName;
         LastGameController.LastGameController_Instance.FinalScore1ImageText.text = "" + data.player_final_score;
         LastGameController.LastGameController_Instance.TimeToComplete1ImageText.text = data.player_final_time;
-
-        LastGameController.LastGameController_Instance.LastGames2Tittle.text = "Default";
-        LastGameController.LastGameController_Instance.UserName2ImageText.text = "Default";
-        LastGameController.LastGameController_Instance.FinalScore2ImageText.text = "Default";
-        LastGameController.LastGameController_Instance.TimeToComplete2ImageText.text = "Default";
     }
 
 }
