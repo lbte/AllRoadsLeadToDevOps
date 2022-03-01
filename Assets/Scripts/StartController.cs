@@ -17,6 +17,9 @@ public class StartController : MonoBehaviour
 
     public Image how_to_play_window;
     public Button how_to_play_window_close_button;
+    public Button how_to_play_next_button;
+    public Sprite how_to_play_image_1;
+    public Sprite how_to_play_image_2;
 
     public Image credits_window;
     public Button credits_window_close_button;
@@ -29,6 +32,7 @@ public class StartController : MonoBehaviour
         how_to_play_window_close_button.onClick.AddListener(HowToPlayWindowCloseButtonController);
         credits_window_close_button.onClick.AddListener(CreditsWindowCloseButtonController);
         accept_name_button.onClick.AddListener(AcceptNameButtonController);
+        how_to_play_next_button.onClick.AddListener(NextHowToPlay);
 
         enter_name_input_field = GameObject.Find("NameInputFieldText");
 
@@ -48,6 +52,8 @@ public class StartController : MonoBehaviour
 
     void HowToPlayButtonController(){
         how_to_play_window.gameObject.SetActive(true);
+        how_to_play_window.sprite = how_to_play_image_1;
+        how_to_play_next_button.gameObject.SetActive(true);
     }
 
     void HowToPlayWindowCloseButtonController(){
@@ -60,5 +66,11 @@ public class StartController : MonoBehaviour
 
     void CreditsButtonController(){
         credits_window.gameObject.SetActive(true);
+    }
+
+    void NextHowToPlay()
+    {
+        how_to_play_window.sprite = how_to_play_image_2;
+        how_to_play_next_button.gameObject.SetActive(false);
     }
 }
