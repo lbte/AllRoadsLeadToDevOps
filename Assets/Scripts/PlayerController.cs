@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     // KPIS 
     public string player_final_time = "";
     public int player_final_score = 0;
+    public string name = "default_user";
 
     // Levels of the abilities
     public Dictionary<string, int> abilities_levels = new Dictionary<string, int>(){

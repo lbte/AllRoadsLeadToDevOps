@@ -475,6 +475,8 @@ public class StageController : MonoBehaviour
                 time_controller_script.is_timer_active = false;
                 player_controller_script.player_final_time = time_controller_script.timer_text.text;
                 // Lobo feliz -> Wins the game
+
+                SaveSystem.SaveGameplay(player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
             }
         }
     }
