@@ -17,20 +17,22 @@ public class SaveSystem
     {
         try
         {
-            auxVersion = SaveGame.Load<string>("LastVersion.txt", "version");
+            auxVersion = SaveGame.Load<string>("./DevopsGamePae/LastVersion.txt", "version");
+            Debug.Log("entro por acá");
         }
         catch (Exception e)
         {
-            SaveGame.Save<string>("LastVersion.txt", "" + version); //identificador
+            SaveGame.Save<string>("./DevopsGamePae/LastVersion.txt", "" + version); //identificador
             auxVersion = "0";
         }
 
-        if (auxVersion == "")
+        if (auxVersion == "" || auxVersion == "version")
         {
             version = 0;
             auxVersion = "" + version;
         }
 
+        Debug.Log(auxVersion);
         version = int.Parse(auxVersion);
         version++;
 
@@ -46,7 +48,7 @@ public class SaveSystem
 
         formatter.Serialize(stream, data);
 
-        SaveGame.Save<string>("LastVersion.txt", "" + version); //identificador
+        SaveGame.Save<string>("./DevopsGamePae/LastVersion.txt", "" + version); //identificador
 
         stream.Close();
 
