@@ -28,12 +28,20 @@ public class BuildDeckController : MonoBehaviour
     private List<string> plan_parts = new List<string>() { "Categorize", "Building" };
     public int word_index;
 
+    private AudioSource win_sound;
+    private AudioSource lose_sound;
+    private AudioSource popup_sound;
+
     void Start()
     {
 
         // to show views when the arrow buttons are clicked
         up_arrow_button.onClick.AddListener(UpButton);
         down_arrow_button.onClick.AddListener(DownButton);
+
+        win_sound = GameObject.Find("AudioWin").GetComponent<AudioSource>();
+        lose_sound = GameObject.Find("AudioLose").GetComponent<AudioSource>();
+        popup_sound = GameObject.Find("AudioPopUp").GetComponent<AudioSource>();
 
         // default index for the project window
         word_index = plan_parts.IndexOf("Categorize"); // default screen
@@ -75,6 +83,7 @@ public class BuildDeckController : MonoBehaviour
                 player_controller_script.player_final_score -= 5;
 
                 ///////////////// POP-UP bonito ("It looks like the desert is not an appropiate place for that architecture")
+                lose_sound.Play();
                 StartCoroutine(WarningBuildingToPlanDisplay("It looks like the desert is not an appropiate place for that architecture.", 3f));
             }
         }
@@ -127,6 +136,7 @@ public class BuildDeckController : MonoBehaviour
     {
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;
+        lose_sound.Play();
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
@@ -144,6 +154,7 @@ public class BuildDeckController : MonoBehaviour
     {
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;
+        win_sound.Play();
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
@@ -160,6 +171,7 @@ public class BuildDeckController : MonoBehaviour
     {
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_text.text = text;
+        win_sound.Play();
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
@@ -181,6 +193,7 @@ public class BuildDeckController : MonoBehaviour
         warning_build_window_text.text = text;
         warning_build_window.gameObject.SetActive(true);
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", true);
+        popup_sound.Play();
         yield return new WaitForSeconds(delay);
         warning_build_window_animator.SetBool("WarningChecklistIsOpen", false);
 

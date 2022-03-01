@@ -23,7 +23,9 @@ public class StartController : MonoBehaviour
 
     public Image credits_window;
     public Button credits_window_close_button;
-    
+
+    private AudioSource popup_sound;
+
     void Start()
     {
         start_button.onClick.AddListener(StartButtonController);
@@ -35,6 +37,7 @@ public class StartController : MonoBehaviour
         how_to_play_next_button.onClick.AddListener(NextHowToPlay);
 
         enter_name_input_field = GameObject.Find("NameInputFieldText");
+        popup_sound = GameObject.Find("AudioPopUp").GetComponent<AudioSource>();
 
         how_to_play_window.gameObject.SetActive(false);
         credits_window.gameObject.SetActive(false);
@@ -51,6 +54,7 @@ public class StartController : MonoBehaviour
     }
 
     void HowToPlayButtonController(){
+        popup_sound.Play();
         how_to_play_window.gameObject.SetActive(true);
         how_to_play_window.sprite = how_to_play_image_1;
         how_to_play_next_button.gameObject.SetActive(true);
@@ -65,6 +69,7 @@ public class StartController : MonoBehaviour
     }
 
     void CreditsButtonController(){
+        popup_sound.Play();
         credits_window.gameObject.SetActive(true);
     }
 

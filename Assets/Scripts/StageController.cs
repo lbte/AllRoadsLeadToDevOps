@@ -180,6 +180,13 @@ public class StageController : MonoBehaviour
     public Sprite operate_howto_sprite;
     public Sprite monitor_howto_sprite;
 
+    // audios for win, lose, popup, impact, end game.
+    private AudioSource win_sound;
+    private AudioSource lose_sound;
+    private AudioSource popup_sound;
+    private AudioSource deploy_impact_sound;
+    private AudioSource end_game_sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -201,6 +208,12 @@ public class StageController : MonoBehaviour
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
         code_carousel_script = GameObject.Find("CodeItems").GetComponent<CodeCarouselController>();
         time_controller_script = GameObject.Find("Views").GetComponent<TimeController>();
+
+        win_sound = GameObject.Find("AudioWin").GetComponent<AudioSource>();
+        lose_sound = GameObject.Find("AudioLose").GetComponent<AudioSource>();
+        popup_sound = GameObject.Find("AudioPopUp").GetComponent<AudioSource>();
+        deploy_impact_sound = GameObject.Find("AudioDeployImpact").GetComponent<AudioSource>();
+        end_game_sound = GameObject.Find("AudioGameEnd").GetComponent<AudioSource>();
 
         warning_checklist_window.gameObject.SetActive(false);
         checklist_close_button.gameObject.SetActive(false);
@@ -307,6 +320,7 @@ public class StageController : MonoBehaviour
                 player_controller_script.player_final_score -= 5;
 
                 /////// POP-UP
+                lose_sound.Play();
                 StartCoroutine(WarningBuildingToPlanDisplay("It looks like the building you made is not the right one. \nYou must plan again.", 4f));
 
             }
@@ -334,12 +348,14 @@ public class StageController : MonoBehaviour
                     /////// POP-UP
                     is_test_failed = false;
                     is_test_tool_used = false;
+                    win_sound.Play();
                     StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 3f));
                 }
                 else  // Mechanism is not correct
                 {
                     player_controller_script.player_final_score -= 5;
 
+                    lose_sound.Play();
                     StartCoroutine(WarningBuildingToPlanDisplay("It seems that the mechanism you used is not the best suit for the architecture you selected. \nYou must plan again.", 4f));
                 }
             }
@@ -354,16 +370,12 @@ public class StageController : MonoBehaviour
                 //warning_checklist_window_text.gameObject.SetActive(false);
                 warning_checklist_window.gameObject.SetActive(false);
                 StartCoroutine(LoadReleaseStage(1));
-
-                // play the video on the release stage
-                videoRelease.Play();
-                tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
-                tutorial_trigger.TriggerTutorial();
             }
             else{
                 player_controller_script.player_final_score -= 5;
 
-                StartCoroutine(WarningToPlanDisplay("As you failed the testing phase, you have to plan again.", 4f));
+                lose_sound.Play();
+                StartCoroutine(WarningToPlanDisplay("As you failed the testing stage, you have to plan again.", 4f));
             }
         }
         else if (stage_title_text.text == "RELEASE")
@@ -437,7 +449,8 @@ public class StageController : MonoBehaviour
                 }
             }
             else{
-                StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
+                lose_sound.Play();
+                StartCoroutine(WarningToPlanDisplay("Your trap failed the operate stage.\nYou must plan again.", 3f));
             }
         }
         else if (stage_title_text.text == "MONITOR"){
@@ -445,6 +458,7 @@ public class StageController : MonoBehaviour
                 player_controller_script.player_final_score -= 5;
 
                 // Lobo triste -> Returns to plan
+                lose_sound.Play();
                 StartCoroutine(WarningToPlanDisplay("Your materials didn't last long enough in order to be used again, check the way you gathered your elements and try to make it more durable this time.", 5f));
             }
             else{
@@ -454,7 +468,7 @@ public class StageController : MonoBehaviour
                 time_controller_script.is_timer_active = false;
                 player_controller_script.player_final_time = time_controller_script.timer_text.text;
                 // Lobo feliz -> Wins the game
-
+                win_sound.Play();
                 StartCoroutine(MonitorLoadLastGameData());
             }
         }
@@ -465,6 +479,7 @@ public class StageController : MonoBehaviour
         checklist_items_window.gameObject.SetActive(true);
         checklist_close_button.gameObject.SetActive(true);
         checklist_window_animator.SetBool("IsOpen", true);
+        popup_sound.Play();
 
         if (stage_title_text.text == "PLAN")
         {
@@ -517,6 +532,7 @@ public class StageController : MonoBehaviour
     void AbilitiesLevelsWindowButton()
     {
         abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", true);
+        popup_sound.Play();
         DeactivateAbilitiesLevelsWindow();
         UpdateAbilitiesLevelWindow();
     }
@@ -655,6 +671,11 @@ public class StageController : MonoBehaviour
         DeactivatedStages();
         release_stage.SetActive(true);
         devops_cycle_image.sprite = release_devops_cycle;
+
+        // play the video on the release stage
+        videoRelease.Play();
+        tutorial_trigger = release_stage.GetComponent<TutorialTextTrigger>();
+        tutorial_trigger.TriggerTutorial();
     }
 
     IEnumerator LoadDeployStage(float delay)
@@ -765,6 +786,7 @@ public class StageController : MonoBehaviour
             // Operate ok -> next
             // IMAGEN CONEJITO ATRAPADO
             operate_result_image_bunny.sprite = operate_result_bunny_success;
+            win_sound.Play();
             StartCoroutine(WarningWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));
         }
     }
@@ -795,6 +817,7 @@ public class StageController : MonoBehaviour
         // save game data
         SaveSystem.SaveGameplay(player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
 
+        end_game_sound.Play();
         // load last game data
         LastGameController.LastGameController_Instance.LoadLastGameData(SaveSystem.version, player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
     }
@@ -805,6 +828,7 @@ public class StageController : MonoBehaviour
         warning_checklist_window.gameObject.SetActive(true);
         warning_checklist_window_text.text = text;
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
+        popup_sound.Play();
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
     }
@@ -815,6 +839,7 @@ public class StageController : MonoBehaviour
         warning_checklist_window.gameObject.SetActive(true);
         warning_checklist_window_text.text = text;
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
+        popup_sound.Play();
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
@@ -846,6 +871,7 @@ public class StageController : MonoBehaviour
         warning_checklist_window.gameObject.SetActive(true);
         warning_checklist_window_text.text = text;
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
+        popup_sound.Play();
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
@@ -884,6 +910,7 @@ public class StageController : MonoBehaviour
             if(check_cards.Contains(feather)){
                 // Fails
                 test_result_image_wolf.sprite = test_result_wolf_failure;
+                lose_sound.Play();
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
@@ -891,6 +918,7 @@ public class StageController : MonoBehaviour
             if(check_cards.Contains(anvil) && check_cards.Contains(elastic)){
                 // Fails
                 test_result_image_wolf.sprite = test_result_wolf_failure;
+                lose_sound.Play();
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
@@ -898,6 +926,7 @@ public class StageController : MonoBehaviour
             if(check_cards.Contains(burger)){
                 // Fails
                 test_result_image_wolf.sprite = test_result_wolf_failure;
+                lose_sound.Play();
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
@@ -905,6 +934,7 @@ public class StageController : MonoBehaviour
             if(check_cards.Contains(cable) && check_cards.Contains(ballon)){
                 // Fails
                 test_result_image_wolf.sprite = test_result_wolf_failure;
+                lose_sound.Play();
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
@@ -912,6 +942,7 @@ public class StageController : MonoBehaviour
             if(check_cards.Contains(handwork)){
                 // Fails
                 test_result_image_wolf.sprite = test_result_wolf_failure;
+                lose_sound.Play();
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
@@ -919,6 +950,7 @@ public class StageController : MonoBehaviour
             if(check_cards.Contains(elastic)){
                 // Fails
                 test_result_image_wolf.sprite = test_result_wolf_failure;
+                lose_sound.Play();
                 StartCoroutine(WarningWindowDisplay("Your trap has failed the test.", 4));
                 is_test_failed = true;
                 break;
@@ -926,6 +958,7 @@ public class StageController : MonoBehaviour
             else{
                 // Test is good
                 test_result_image_wolf.sprite = test_result_wolf_success;
+                win_sound.Play();
                 StartCoroutine(WarningWindowDisplay("Your trap has passed the tests made! Great Job!!", 4));
                 break;
             }
@@ -937,6 +970,7 @@ public class StageController : MonoBehaviour
         warning_checklist_window.gameObject.SetActive(true);
         warning_checklist_window_text.text = text;
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", true);
+        popup_sound.Play();
         yield return new WaitForSeconds(delay);
         warning_checklist_window_animator.SetBool("WarningChecklistIsOpen", false);
 
@@ -1396,7 +1430,7 @@ public class StageController : MonoBehaviour
                 StartCoroutine(WarningWindowDisplay("You can't do anything with this ability level, level it up.", 4));
             }
             else{
-                StartCoroutine(WarningWindowDisplay("This is a passive ability, the effect is already active", 4));
+                StartCoroutine(WarningWindowDisplay("This is a passive ability, the effect is already active.", 4));
             }
         }
         else if(stage_title_text.text == "MONITOR"){
@@ -1955,6 +1989,7 @@ public class StageController : MonoBehaviour
 
     void AirTrapDeployAnimation()
     {
+        deploy_impact_sound.Play();
         airtrap_deploy_animation_animator.SetBool("IsOnStartPositionAir", true);
         balloon_image.sprite = sprite_balloon_suelto;
 
@@ -1962,6 +1997,7 @@ public class StageController : MonoBehaviour
 
     void GroundTrapDeployAnimation()
     {
+        deploy_impact_sound.Play();
         groundtrap_deploy_animation_animator.SetBool("IsOnStartPosition", true);
         pulley_image.sprite = sprite_pulley_suelta;
 
@@ -1975,6 +2011,7 @@ public class StageController : MonoBehaviour
     // to display the how to play image for each stage
     void HowToPlayDisplay()
     {
+        popup_sound.Play();
         how_to_play_image.gameObject.SetActive(true);
         how_to_play_close_button.gameObject.SetActive(true);
         how_to_play_background_image.gameObject.SetActive(true);

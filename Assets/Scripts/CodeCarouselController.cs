@@ -33,6 +33,9 @@ public class CodeCarouselController : MonoBehaviour
 
     private PlayerController player_controller_script;
 
+    private AudioSource select_sound;
+    private AudioSource popup_sound;
+
     void Start()
     {
         select_button.onClick.AddListener(SelectButtonHandler);
@@ -40,6 +43,8 @@ public class CodeCarouselController : MonoBehaviour
         right_card_button.onClick.AddListener(CarouselRotationRight);
 
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
+        select_sound = GameObject.Find("AudioSelect").GetComponent<AudioSource>();
+        popup_sound = GameObject.Find("AudioPopUp").GetComponent<AudioSource>();
 
         DisableSelectedIcon();
         UpdateCardImages();
@@ -90,11 +95,13 @@ public class CodeCarouselController : MonoBehaviour
 
     void SelectButtonHandler(){
         if(deck[center_index].selected == true){
+            select_sound.Play();
             deck[center_index].selected = false;
             player_controller_script.selected_code_cards.Remove(deck[center_index]);
             selected_cards_count = Math.Max(0, selected_cards_count-1);
         }
         else if (deck[center_index].selected == false && selected_cards_count < 4) {
+            select_sound.Play();
             deck[center_index].selected = true;
             player_controller_script.selected_code_cards.Add(deck[center_index]);
             selected_cards_count += 1;

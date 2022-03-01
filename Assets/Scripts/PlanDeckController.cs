@@ -96,6 +96,9 @@ public class PlanDeckController : MonoBehaviour
     public Image operate_lifecycle_icon;
     public Image monitor_lifecycle_icon;
 
+    private AudioSource select_sound;
+    private AudioSource popup_sound;
+
     void Start()
     {   
         // the default view is the project view
@@ -124,6 +127,8 @@ public class PlanDeckController : MonoBehaviour
         plan_abilities_script = plan_abilities.GetComponent<PlanCarouselController>();
 
         levelup_sound = GameObject.Find("AudioLevelUp").GetComponent<AudioSource>();
+        select_sound = GameObject.Find("AudioSelect").GetComponent<AudioSource>();
+        popup_sound = GameObject.Find("AudioPopUp").GetComponent<AudioSource>();
 
         player_controller_script = GameObject.Find("Views").GetComponent<PlayerController>();
         plan_architecture_carousel_script = plan_architecture.GetComponent<PlanCarouselController>();
@@ -282,12 +287,15 @@ public class PlanDeckController : MonoBehaviour
         int center_index = plan_architecture_carousel_script.center_index;
 
         if(deck_button_text.text == "Architecture"){
-            if(cards_architectures[center_index].selected == true) {
+            if (cards_architectures[center_index].selected == true)
+            {
+                select_sound.Play();
                 cards_architectures[center_index].selected = false;
                 player_controller_script.selected_architecture = null;
                 selected_architecture_card = false;
             }
             else if(cards_architectures[center_index].selected == false && selected_architecture_card == false) {
+                select_sound.Play();
                 cards_architectures[center_index].selected = true;
                 player_controller_script.selected_architecture = cards_architectures[center_index];
                 selected_architecture_card = true;
@@ -406,8 +414,10 @@ public class PlanDeckController : MonoBehaviour
         }
     }
 
-    void PlanLifecycleButtonHandler(){  
-        if(is_selected_random_card == false){
+    void PlanLifecycleButtonHandler(){
+        if(is_selected_random_card == false)
+        {
+            select_sound.Play();
             player_controller_script.tool_cards["plan"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "jira" || random_tool_card.id == "git"){
@@ -420,7 +430,9 @@ public class PlanDeckController : MonoBehaviour
     }
 
     void CodeLifecycleButtonHandler(){
-        if(is_selected_random_card == false){
+        if (is_selected_random_card == false)
+        {
+            select_sound.Play();
             player_controller_script.tool_cards["code"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "bitbucket" || random_tool_card.id == "github"){
@@ -433,7 +445,8 @@ public class PlanDeckController : MonoBehaviour
     }
 
     void BuildLifecycleButtonHandler(){
-        if(is_selected_random_card == false){
+        if (is_selected_random_card == false){
+            select_sound.Play();
             player_controller_script.tool_cards["build"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "puppet" || random_tool_card.id == "gradle" || random_tool_card.id == "chef"
@@ -448,6 +461,7 @@ public class PlanDeckController : MonoBehaviour
 
     void TestLifecycleButtonHandler(){
         if(is_selected_random_card == false){
+            select_sound.Play();
             player_controller_script.tool_cards["test"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "junit" || random_tool_card.id == "vagrant" || random_tool_card.id == "selenium"){
@@ -461,6 +475,7 @@ public class PlanDeckController : MonoBehaviour
 
     void ReleaseLifecycleButtonHandler(){
         if(is_selected_random_card == false){
+            select_sound.Play();
             player_controller_script.tool_cards["release"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "docker" || random_tool_card.id == "chef" || random_tool_card.id == "jira"
@@ -475,6 +490,7 @@ public class PlanDeckController : MonoBehaviour
 
     void DeployLifecycleButtonHandler(){
         if(is_selected_random_card == false){
+            select_sound.Play();
             player_controller_script.tool_cards["deploy"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "docker" || random_tool_card.id == "aws"){
@@ -488,6 +504,7 @@ public class PlanDeckController : MonoBehaviour
 
     void OperateLifecycleButtonHandler(){
         if(is_selected_random_card == false){
+            select_sound.Play();
             player_controller_script.tool_cards["operate"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "puppet" || random_tool_card.id == "chef" || random_tool_card.id == "powershell"
@@ -502,6 +519,7 @@ public class PlanDeckController : MonoBehaviour
 
     void MonitorLifecycleButtonHandler(){
         if(is_selected_random_card == false){
+            select_sound.Play();
             player_controller_script.tool_cards["monitor"] = random_tool_card;
             is_selected_random_card = true;
             if(random_tool_card.id == "new_relic" || random_tool_card.id == "datadog" || random_tool_card.id == "powershell"){
@@ -517,6 +535,7 @@ public class PlanDeckController : MonoBehaviour
     {
         warning_levelup_window.gameObject.SetActive(true);
         warning_levelup_window_animator.SetBool("WarningMaxLevelIsOpen", true);
+        popup_sound.Play();
         yield return new WaitForSeconds(delay);
         warning_levelup_window_animator.SetBool("WarningMaxLevelIsOpen", false);
     }
