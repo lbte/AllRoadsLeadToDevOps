@@ -51,4 +51,7 @@ public class PlayerController : MonoBehaviour
     //reset bulid choices
     public bool build_categorize = false;
 
+    void Start(){
+        name = StartController.player_name;
+    }
 }
