@@ -19,8 +19,6 @@ public class LastGameController : MonoBehaviour
     public Text FinalScore2ImageText;
     public Text TimeToComplete2ImageText;
 
-    public Animator last_game_popup;
-
     void Awake()
     {
         if (LastGameController_Instance == null)
@@ -36,16 +34,14 @@ public class LastGameController : MonoBehaviour
 
     public void enableVisualization()
     {
-        //LastGameController.LastGameController_Instance.LastGameRecordsPopUp.SetActive(true);
-        LastGameController.LastGameController_Instance.last_game_popup.SetBool("IsLastGameRecordOpen", true);
+        LastGameController.LastGameController_Instance.LastGameRecordsPopUp.SetActive(true);
 
 
     }
 
     public void disableVisualization()
     {
-        //LastGameController.LastGameController_Instance.LastGameRecordsPopUp.SetActive(false);
-        LastGameController.LastGameController_Instance.last_game_popup.SetBool("IsLastGameRecordOpen", false);
+        LastGameController.LastGameController_Instance.LastGameRecordsPopUp.SetActive(false);
     }
 
     public void LoadLastGameData(int i, string name1, int player_final_score1, string player_final_time1, string selected_architecture1)

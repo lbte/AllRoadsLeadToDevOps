@@ -155,6 +155,10 @@ public class StageController : MonoBehaviour
     public bool is_operate_visited = false;
     public bool is_monitor_visited = false;
 
+    // for the load results part
+    public Image last_game_records_background_image;
+    public Button exit_game_button;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -180,6 +184,7 @@ public class StageController : MonoBehaviour
         warning_checklist_window.gameObject.SetActive(false);
         checklist_close_button.gameObject.SetActive(false);
         abilities_levels_window_animator.SetBool("IsAbilitiesLevelsWindowOpen", false);
+        
         checklist_close_button.onClick.AddListener(ChecklistCloseButton);
         checklist_button.onClick.AddListener(ChecklistButton);
         abilities_levels_button.onClick.AddListener(AbilitiesLevelsWindowButton);
@@ -189,6 +194,7 @@ public class StageController : MonoBehaviour
         use_tool_button.onClick.AddListener(UseToolButtonHanlder);
         close_button_blueprint_ground_architecture.onClick.AddListener(BlueprintGroundCloseButton);
         close_button_blueprint_air_architecture.onClick.AddListener(BlueprintAirCloseButton);
+        exit_game_button.onClick.AddListener(ExitGame);
 
         airtrap_deploy_animation_button.onClick.AddListener(AirTrapDeployAnimation);
         groundtrap_deploy_animation_button.onClick.AddListener(GroundTrapDeployAnimation);
@@ -359,72 +365,7 @@ public class StageController : MonoBehaviour
 
             StartCoroutine(LoadOperateStage(1));
 
-            fail_operate_probability = 0.4f;
-
-            // Check if fails operate
-            Card blacksmith = code_carousel_script.deck[0];
-            Card piano = code_carousel_script.deck[11];
-            Card cowboy = code_carousel_script.deck[1];
-            Card pants = code_carousel_script.deck[5];
-            Card charger = code_carousel_script.deck[17];
-            Card turkey = code_carousel_script.deck[23];
-            Card well = code_carousel_script.deck[4];
-            Card compost = code_carousel_script.deck[18];
-            Card jam = code_carousel_script.deck[3];
-
-            if(blacksmith.selected == true) fail_operate_probability += 0.1f;
-            if(piano.selected == true) fail_operate_probability += 0.1f;
-            if(cowboy.selected == true) fail_operate_probability += 0.1f;
-            if(pants.selected == true) fail_operate_probability += 0.1f;
-            if(charger.selected == true) fail_operate_probability += 0.1f;
-            if(turkey.selected == true) fail_operate_probability += 0.1f;
-            if(well.selected == true) fail_operate_probability += 0.1f;
-            if(compost.selected == true) fail_operate_probability += 0.1f;
-            if(jam.selected == true) fail_operate_probability += 0.1f;
-
-            // Tool
-            if(player_controller_script.can_use_operate_tool == true && is_operate_tool_used == false){
-                is_operate_tool_used = true;
-                fail_operate_probability -= 0.1f;
-            }
-
-            // Ability
-            int level = player_controller_script.abilities_levels["operate_level"];
-            if(level == 2){
-                if(is_operate_ability_used < 1){
-                    is_operate_ability_used += 1;
-                    fail_operate_probability -= 0.05f;
-                }
-            }
-            else if(level == 3){
-                if(is_operate_ability_used < 2){
-                    is_operate_ability_used += 1;
-                    fail_operate_probability -= 0.1f;
-                }
-            }
-
-            // Show result -> Rabbit in a cage or not ...
-            float random_probability = (float)Random.Range(0.0f, 1.0f);
-            Debug.Log(random_probability);  
-            Debug.Log(fail_operate_probability); 
-            if(random_probability <= fail_operate_probability){
-                player_controller_script.player_final_score -= 5;
-
-                // Operate fails -> Returns to plan
-                // IMAGEN CONEJITO NO ATRAPADO
-                operate_result_image_bunny.sprite = operate_result_bunny_failure;
-                StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
-
-            }
-            else{
-                if(is_operate_visited == false) player_controller_script.player_final_score += 20;
-                is_operate_visited = true;
-
-                // Operate ok -> next
-                // IMAGEN CONEJITO ATRAPADO
-                operate_result_image_bunny.sprite = operate_result_bunny_success;
-                StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));     
-            }
+            
         }
         else if (stage_title_text.text == "OPERATE")
         {   
@@ -481,13 +422,7 @@ public class StageController : MonoBehaviour
                 player_controller_script.player_final_time = time_controller_script.timer_text.text;
                 // Lobo feliz -> Wins the game
 
-                // save game data
-                SaveSystem.SaveGameplay(player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
-
-                // load last game data
-                LastGameController.LastGameController_Instance.LoadLastGameData(SaveSystem.version, player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
-
-
+                StartCoroutine(MonitorLoadLastGameData());
             }
         }
     }
@@ -726,6 +661,79 @@ public class StageController : MonoBehaviour
         tutorial_trigger = operate_stage.GetComponent<TutorialTextTrigger>();
         tutorial_trigger.TriggerTutorial();
         if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+
+        fail_operate_probability = 0.4f;
+
+        // Check if fails operate
+        Card blacksmith = code_carousel_script.deck[0];
+        Card piano = code_carousel_script.deck[11];
+        Card cowboy = code_carousel_script.deck[1];
+        Card pants = code_carousel_script.deck[5];
+        Card charger = code_carousel_script.deck[17];
+        Card turkey = code_carousel_script.deck[23];
+        Card well = code_carousel_script.deck[4];
+        Card compost = code_carousel_script.deck[18];
+        Card jam = code_carousel_script.deck[3];
+
+        if (blacksmith.selected == true) fail_operate_probability += 0.1f;
+        if (piano.selected == true) fail_operate_probability += 0.1f;
+        if (cowboy.selected == true) fail_operate_probability += 0.1f;
+        if (pants.selected == true) fail_operate_probability += 0.1f;
+        if (charger.selected == true) fail_operate_probability += 0.1f;
+        if (turkey.selected == true) fail_operate_probability += 0.1f;
+        if (well.selected == true) fail_operate_probability += 0.1f;
+        if (compost.selected == true) fail_operate_probability += 0.1f;
+        if (jam.selected == true) fail_operate_probability += 0.1f;
+
+        // Tool
+        if (player_controller_script.can_use_operate_tool == true && is_operate_tool_used == false)
+        {
+            is_operate_tool_used = true;
+            fail_operate_probability -= 0.1f;
+        }
+
+        // Ability
+        int level = player_controller_script.abilities_levels["operate_level"];
+        if (level == 2)
+        {
+            if (is_operate_ability_used < 1)
+            {
+                is_operate_ability_used += 1;
+                fail_operate_probability -= 0.05f;
+            }
+        }
+        else if (level == 3)
+        {
+            if (is_operate_ability_used < 2)
+            {
+                is_operate_ability_used += 1;
+                fail_operate_probability -= 0.1f;
+            }
+        }
+
+        // Show result -> Rabbit in a cage or not ...
+        float random_probability = (float)Random.Range(0.0f, 1.0f);
+        Debug.Log(random_probability);
+        Debug.Log(fail_operate_probability);
+        if (random_probability <= fail_operate_probability)
+        {
+            player_controller_script.player_final_score -= 5;
+
+            // Operate fails -> Returns to plan
+            // IMAGEN CONEJITO NO ATRAPADO
+            operate_result_image_bunny.sprite = operate_result_bunny_failure;
+            StartCoroutine(WarningToPlanDisplay("Your trap failed the operate phase.", 3f));
+        }
+        else
+        {
+            if (is_operate_visited == false) player_controller_script.player_final_score += 20;
+            is_operate_visited = true;
+
+            // Operate ok -> next
+            // IMAGEN CONEJITO ATRAPADO
+            operate_result_image_bunny.sprite = operate_result_bunny_success;
+            StartCoroutine(WarningToNextStageWindowDisplay("You finished the operate stage successfully! Great Job!!", 4f));
+        }
     }
 
     IEnumerator LoadMonitorStage(float delay)
@@ -742,6 +750,23 @@ public class StageController : MonoBehaviour
         tutorial_trigger = monitor_stage.GetComponent<TutorialTextTrigger>();
         tutorial_trigger.TriggerTutorial();
         if (checklist_window_animator.GetBool("IsOpen") == true) checklist_items_window.gameObject.SetActive(false);
+    }
+
+    IEnumerator MonitorLoadLastGameData()
+    {
+        // transition to the table 
+        stage_transition.SetTrigger("StartStageFade");
+        yield return new WaitForSeconds(1);
+        stage_transition.SetTrigger("EndStageFade");
+
+        last_game_records_background_image.gameObject.SetActive(true);
+        exit_game_button.gameObject.SetActive(true);
+
+        // save game data
+        SaveSystem.SaveGameplay(player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
+
+        // load last game data
+        LastGameController.LastGameController_Instance.LoadLastGameData(SaveSystem.version, player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
     }
 
     // general window display message
@@ -1901,5 +1926,10 @@ public class StageController : MonoBehaviour
         groundtrap_deploy_animation_animator.SetBool("IsOnStartPosition", true);
         pulley_image.sprite = sprite_pulley_suelta;
 
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
