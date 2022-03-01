@@ -57,6 +57,7 @@ public class SaveSystem
     {
 
         string path = Application.persistentDataPath + "/GameData_version" + i + ".gd";
+        Debug.Log(path);
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

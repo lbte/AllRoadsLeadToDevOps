@@ -6177,14 +6177,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LastGameRecordsPopUp: {fileID: 2076588016}
-  LastGames1Tittle: {fileID: 0}
-  UserName1ImageText: {fileID: 0}
-  FinalScore1ImageText: {fileID: 0}
-  TimeToComplete1ImageText: {fileID: 0}
-  LastGames2Tittle: {fileID: 0}
-  UserName2ImageText: {fileID: 0}
-  FinalScore2ImageText: {fileID: 0}
-  TimeToComplete2ImageText: {fileID: 0}
+  LastGames1Tittle: {fileID: 194457280}
+  UserName1ImageText: {fileID: 937996056}
+  FinalScore1ImageText: {fileID: 437378452}
+  TimeToComplete1ImageText: {fileID: 2111133030}
+  LastGames2Tittle: {fileID: 1778530498}
+  UserName2ImageText: {fileID: 98866173}
+  FinalScore2ImageText: {fileID: 920157898}
+  TimeToComplete2ImageText: {fileID: 750938335}
 --- !u!1 &437378450
 GameObject:
   m_ObjectHideFlags: 0

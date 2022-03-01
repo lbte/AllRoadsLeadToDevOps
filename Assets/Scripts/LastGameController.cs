@@ -47,9 +47,12 @@ public class LastGameController : MonoBehaviour
 
     public void LoadLastGameData(int i, string name1, int player_final_score1, string player_final_time1, string selected_architecture1)
     {
+        enableVisualization();
+
         GameData data = SaveSystem.LoadGameplay(i,name1, player_final_score1, player_final_time1, selected_architecture1);
         if (SaveSystem.version > 1)
         {
+            Debug.Log(i - 1);
             GameData data1 = SaveSystem.LoadGameplay(i - 1, name1, player_final_score1, player_final_time1, selected_architecture1);
 
             LastGameController.LastGameController_Instance.LastGames2Tittle.text = data1.date;
