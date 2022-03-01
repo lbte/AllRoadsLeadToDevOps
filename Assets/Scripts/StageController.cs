@@ -759,9 +759,6 @@ public class StageController : MonoBehaviour
         yield return new WaitForSeconds(1);
         stage_transition.SetTrigger("EndStageFade");
 
-        last_game_records_background_image.gameObject.SetActive(true);
-        exit_game_button.gameObject.SetActive(true);
-
         // save game data
         SaveSystem.SaveGameplay(player_controller_script.name, player_controller_script.player_final_score, player_controller_script.player_final_time, player_controller_script.selected_architecture.id);
 
