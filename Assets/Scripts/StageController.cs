@@ -340,11 +340,13 @@ public class StageController : MonoBehaviour
             {
                 deploy_air_trap.SetActive(true);
                 deploy_ground_trap.SetActive(false);
+                balloon_image.sprite = sprite_balloon_nudo;
             }
             else if(player_controller_script.selected_architecture.id == "architecture_1")
             {
                 deploy_ground_trap.SetActive(true);
                 deploy_air_trap.SetActive(false);
+                pulley_image.sprite = sprite_pulley_nudo;
             }
         }
         else if (stage_title_text.text == "DEPLOY")
