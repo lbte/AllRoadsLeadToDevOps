@@ -58,6 +58,8 @@ public class StageController : MonoBehaviour
     public int is_deploy_tool_used = 0; // min = 0, max = 1
     public int is_operate_ability_used = 0;  // min = 0, max = 2
     public int is_monitor_ability_used = 0; // min = 0, max = 2
+    public int is_release_tool_used = 0; // min = 0, max = 1
+    public bool is_test_tool_used = false;
     public bool is_test_ability_used = false;
     public bool is_test_failed = false;
     public float fail_operate_probability = 0.4f;
@@ -297,6 +299,7 @@ public class StageController : MonoBehaviour
 
                     /////// POP-UP
                     is_test_failed = false;
+                    is_test_tool_used = false;
                     StartCoroutine(WarningRightBuildingToTestDisplay("You finished the build stage successfully! Great Job!!", 3f));
                 }
                 else  // Mechanism is not correct
@@ -468,7 +471,7 @@ public class StageController : MonoBehaviour
                 player_controller_script.player_final_score -= 5;
 
                 // Lobo triste -> Returns to plan
-                StartCoroutine(WarningToPlanDisplay("Your materials didn't last long enough in order to be used again, check the way you gathered your elements and try to make it more durable this time.", 3f));
+                StartCoroutine(WarningToPlanDisplay("Your materials didn't last long enough in order to be used again, check the way you gathered your elements and try to make it more durable this time.", 5f));
             }
             else{
                 if(is_monitor_visited == false) player_controller_script.player_final_score += 20;
@@ -1582,108 +1585,267 @@ public class StageController : MonoBehaviour
                 StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
             }
         }
-        else if(stage_title_text.text == "RELEASE"){
+        else if(stage_title_text.text == "TEST"){
+            if(player_controller_script.can_use_test_tool == true){
+                if(is_test_tool_used == false){
+                    is_test_tool_used = true;
+                    foreach (KeyValuePair<string, Card> tool in player_controller_script.tool_cards) {
+                        if(tool.Value != null){
+                            string name = tool.Value.id;
+                            string phase = tool.Key;
+                            int count_wrong = 0;
 
-        }
-        else if(stage_title_text.text == "DEPLOY"){
-            if(is_deploy_tool_used < 1){
-                is_deploy_tool_used += 1;
-                int random_index = (int)Random.Range(0, 7);
-                string random_ability = "";
-                string name_ability = "";
-                if(random_index == 0){
-                    random_ability = "plan_level";
-                    name_ability = "plan";
-                }
-                else if(random_index == 1){
-                    random_ability = "code_level";
-                    name_ability = "code";
-                }
-                else if(random_index == 2){
-                    random_ability = "build_level";
-                    name_ability = "build";
-                }
-                else if(random_index == 3){
-                    random_ability = "test_level";
-                    name_ability = "test";
-                }
-                else if(random_index == 4){
-                    random_ability = "release_level";
-                    name_ability = "release";
-                }
-                else if(random_index == 5){
-                    random_ability = "deploy_level";
-                    name_ability = "deploy";
-                }
-                else if(random_index == 6){
-                    random_ability = "operate_level";
-                    name_ability = "operate";
-                }
-                else if(random_index == 7){
-                    random_ability = "monitor_level";
-                    name_ability = "monitor";
-                }
-                while(true){
-                    // Check if all abilities are at max level
-                    int plan_level = player_controller_script.abilities_levels["plan_level"];
-                    int code_level = player_controller_script.abilities_levels["code_level"];
-                    int build_level = player_controller_script.abilities_levels["build_level"];
-                    int test_level = player_controller_script.abilities_levels["test_level"];
-                    int release_level = player_controller_script.abilities_levels["release_level"];
-                    int deploy_level = player_controller_script.abilities_levels["deploy_level"];
-                    int operate_level = player_controller_script.abilities_levels["operate_level"];
-                    int monitor_level = player_controller_script.abilities_levels["monitor_level"];
+                            if(name == "bitbucket"){
+                                if(phase != "code") count_wrong += 1; // code
+                            }
+                            else if(name == "docker") {
+                                if(phase != "release" && phase != "deploy" && phase != "build"); count_wrong += 1; // release, deploy, build
+                            }
+                            else if(name == "puppet") {
+                                if(phase != "operate" && phase != "build") count_wrong += 1;; // operate, build
+                            }
+                            else if(name == "github") {
+                                if(phase != "code") count_wrong += 1; // code
+                            }
+                            else if(name == "junit") {
+                                if(phase != "test") count_wrong += 1; // test
+                            }
+                            else if(name == "gradle") if(phase != "build") count_wrong += 1; // build
+                            else if(name == "chef") if(phase != "operate" && phase != "release" && phase != "build") count_wrong += 1; // operate, release, build
+                            else if(name == "new_relic") if(phase != "monitor") count_wrong += 1; // monitor
+                            else if(name == "vagrant") if(phase != "test") count_wrong += 1; // test
+                            else if(name == "jira") if(phase != "plan" && phase != "release") count_wrong += 1; // plan, release
+                            else if(name == "powershell") if(phase != "operate") count_wrong += 1; // operate
+                            else if(name == "selenium") if(phase != "test") count_wrong += 1; // test
+                            else if(name == "datadog") if(phase != "monitor") count_wrong += 1; // monitor
+                            else if(name == "aws") if(phase != "deploy") count_wrong += 1; // deploy
+                            else if(name == "jenkins") if(phase != "release") count_wrong += 1;  // release
+                            else if(name == "git") if(phase != "plan") count_wrong += 1; // plan
+                            else if(name == "grafana") if(phase != "monitor") count_wrong += 1; // monitor
+                            else if(name == "ansible") if(phase != "operate" && phase != "release" && phase != "build") count_wrong += 1; // operate, release, build
 
-                    if(plan_level == 3 && code_level == 3 && build_level == 3 && test_level == 3 && 
-                    release_level == 3 && deploy_level == 3 && operate_level == 3 && monitor_level == 3){
-                        break;
-                    }
-
-                    if(player_controller_script.abilities_levels[random_ability] == 3){
-                        random_index = (int)Random.Range(0, 7);
-                        if(random_index == 0){
-                            random_ability = "plan_level";
-                            name_ability = "plan";
-                        }
-                        else if(random_index == 1){
-                            random_ability = "code_level";
-                            name_ability = "code";
-                        }
-                        else if(random_index == 2){
-                            random_ability = "build_level";
-                            name_ability = "build";
-                        }
-                        else if(random_index == 3){
-                            random_ability = "test_level";
-                            name_ability = "test";
-                        }
-                        else if(random_index == 4){
-                            random_ability = "release_level";
-                            name_ability = "release";
-                        }
-                        else if(random_index == 5){
-                            random_ability = "deploy_level";
-                            name_ability = "deploy";
-                        }
-                        else if(random_index == 6){
-                            random_ability = "operate_level";
-                            name_ability = "operate";
-                        }
-                        else if(random_index == 7){
-                            random_ability = "monitor_level";
-                            name_ability = "monitor";
+                            StartCoroutine(WarningWindowDisplay("There are " + count_wrong.ToString() + " tool(s) in the DevOps cycle that are not placed correctly.", 5));
                         }
                     }
-                    else{
-                        player_controller_script.abilities_levels[random_ability] += 1;
-                        StartCoroutine(WarningWindowDisplay("You have gained one level in the " + name_ability + " ability.", 4));
-
-                        break;
-                    }
+                }
+                else{
+                    StartCoroutine(WarningWindowDisplay("You have already used this tool.", 3));
                 }
             }
             else{
-                StartCoroutine(WarningWindowDisplay("You have already used this tool.", 3));
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
+            }
+        }
+        else if(stage_title_text.text == "RELEASE"){
+            if(player_controller_script.can_use_release_tool == true){
+                if(is_release_tool_used < 1){
+                    is_release_tool_used += 1;
+                    int random_index = (int)Random.Range(0, 7);
+                    string random_ability = "";
+                    string name_ability = "";
+                    if(random_index == 0){
+                        random_ability = "plan_level";
+                        name_ability = "plan";
+                    }
+                    else if(random_index == 1){
+                        random_ability = "code_level";
+                        name_ability = "code";
+                    }
+                    else if(random_index == 2){
+                        random_ability = "build_level";
+                        name_ability = "build";
+                    }
+                    else if(random_index == 3){
+                        random_ability = "test_level";
+                        name_ability = "test";
+                    }
+                    else if(random_index == 4){
+                        random_ability = "release_level";
+                        name_ability = "release";
+                    }
+                    else if(random_index == 5){
+                        random_ability = "deploy_level";
+                        name_ability = "deploy";
+                    }
+                    else if(random_index == 6){
+                        random_ability = "operate_level";
+                        name_ability = "operate";
+                    }
+                    else if(random_index == 7){
+                        random_ability = "monitor_level";
+                        name_ability = "monitor";
+                    }
+                    while(true){
+                        // Check if all abilities are at max level
+                        int plan_level = player_controller_script.abilities_levels["plan_level"];
+                        int code_level = player_controller_script.abilities_levels["code_level"];
+                        int build_level = player_controller_script.abilities_levels["build_level"];
+                        int test_level = player_controller_script.abilities_levels["test_level"];
+                        int release_level = player_controller_script.abilities_levels["release_level"];
+                        int deploy_level = player_controller_script.abilities_levels["deploy_level"];
+                        int operate_level = player_controller_script.abilities_levels["operate_level"];
+                        int monitor_level = player_controller_script.abilities_levels["monitor_level"];
+
+                        if(plan_level == 3 && code_level == 3 && build_level == 3 && test_level == 3 && 
+                        release_level == 3 && deploy_level == 3 && operate_level == 3 && monitor_level == 3){
+                            break;
+                        }
+
+                        if(player_controller_script.abilities_levels[random_ability] == 3){
+                            random_index = (int)Random.Range(0, 7);
+                            if(random_index == 0){
+                                random_ability = "plan_level";
+                                name_ability = "plan";
+                            }
+                            else if(random_index == 1){
+                                random_ability = "code_level";
+                                name_ability = "code";
+                            }
+                            else if(random_index == 2){
+                                random_ability = "build_level";
+                                name_ability = "build";
+                            }
+                            else if(random_index == 3){
+                                random_ability = "test_level";
+                                name_ability = "test";
+                            }
+                            else if(random_index == 4){
+                                random_ability = "release_level";
+                                name_ability = "release";
+                            }
+                            else if(random_index == 5){
+                                random_ability = "deploy_level";
+                                name_ability = "deploy";
+                            }
+                            else if(random_index == 6){
+                                random_ability = "operate_level";
+                                name_ability = "operate";
+                            }
+                            else if(random_index == 7){
+                                random_ability = "monitor_level";
+                                name_ability = "monitor";
+                            }
+                        }
+                        else{
+                            player_controller_script.abilities_levels[random_ability] += 1;
+                            StartCoroutine(WarningWindowDisplay("You have gained one level in the " + name_ability + " ability.", 4));
+
+                            break;
+                        }
+                    }
+                }
+                else{
+                    StartCoroutine(WarningWindowDisplay("You have already used this tool.", 3));
+                }
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
+            }
+        }
+        else if(stage_title_text.text == "DEPLOY"){
+            if(player_controller_script.can_use_deploy_tool == true){
+                if(is_deploy_tool_used < 1){
+                    is_deploy_tool_used += 1;
+                    int random_index = (int)Random.Range(0, 7);
+                    string random_ability = "";
+                    string name_ability = "";
+                    if(random_index == 0){
+                        random_ability = "plan_level";
+                        name_ability = "plan";
+                    }
+                    else if(random_index == 1){
+                        random_ability = "code_level";
+                        name_ability = "code";
+                    }
+                    else if(random_index == 2){
+                        random_ability = "build_level";
+                        name_ability = "build";
+                    }
+                    else if(random_index == 3){
+                        random_ability = "test_level";
+                        name_ability = "test";
+                    }
+                    else if(random_index == 4){
+                        random_ability = "release_level";
+                        name_ability = "release";
+                    }
+                    else if(random_index == 5){
+                        random_ability = "deploy_level";
+                        name_ability = "deploy";
+                    }
+                    else if(random_index == 6){
+                        random_ability = "operate_level";
+                        name_ability = "operate";
+                    }
+                    else if(random_index == 7){
+                        random_ability = "monitor_level";
+                        name_ability = "monitor";
+                    }
+                    while(true){
+                        // Check if all abilities are at max level
+                        int plan_level = player_controller_script.abilities_levels["plan_level"];
+                        int code_level = player_controller_script.abilities_levels["code_level"];
+                        int build_level = player_controller_script.abilities_levels["build_level"];
+                        int test_level = player_controller_script.abilities_levels["test_level"];
+                        int release_level = player_controller_script.abilities_levels["release_level"];
+                        int deploy_level = player_controller_script.abilities_levels["deploy_level"];
+                        int operate_level = player_controller_script.abilities_levels["operate_level"];
+                        int monitor_level = player_controller_script.abilities_levels["monitor_level"];
+
+                        if(plan_level == 3 && code_level == 3 && build_level == 3 && test_level == 3 && 
+                        release_level == 3 && deploy_level == 3 && operate_level == 3 && monitor_level == 3){
+                            break;
+                        }
+
+                        if(player_controller_script.abilities_levels[random_ability] == 3){
+                            random_index = (int)Random.Range(0, 7);
+                            if(random_index == 0){
+                                random_ability = "plan_level";
+                                name_ability = "plan";
+                            }
+                            else if(random_index == 1){
+                                random_ability = "code_level";
+                                name_ability = "code";
+                            }
+                            else if(random_index == 2){
+                                random_ability = "build_level";
+                                name_ability = "build";
+                            }
+                            else if(random_index == 3){
+                                random_ability = "test_level";
+                                name_ability = "test";
+                            }
+                            else if(random_index == 4){
+                                random_ability = "release_level";
+                                name_ability = "release";
+                            }
+                            else if(random_index == 5){
+                                random_ability = "deploy_level";
+                                name_ability = "deploy";
+                            }
+                            else if(random_index == 6){
+                                random_ability = "operate_level";
+                                name_ability = "operate";
+                            }
+                            else if(random_index == 7){
+                                random_ability = "monitor_level";
+                                name_ability = "monitor";
+                            }
+                        }
+                        else{
+                            player_controller_script.abilities_levels[random_ability] += 1;
+                            StartCoroutine(WarningWindowDisplay("You have gained one level in the " + name_ability + " ability.", 4));
+
+                            break;
+                        }
+                    }
+                }
+                else{
+                    StartCoroutine(WarningWindowDisplay("You have already used this tool.", 3));
+                }
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
             }
         }
         else if(stage_title_text.text == "OPERATE"){
@@ -1695,30 +1857,35 @@ public class StageController : MonoBehaviour
             }
         }
         else if(stage_title_text.text == "MONITOR"){
-            int count = 0;
+            if(player_controller_script.can_use_monitor_tool == true){
+                int count = 0;
 
-            Card blacksmith = code_carousel_script.deck[0];
-            Card piano_fight = code_carousel_script.deck[11];
-            Card piano_old = code_carousel_script.deck[6];
-            Card cowboy = code_carousel_script.deck[1];
-            Card pants = code_carousel_script.deck[5];
-            Card charger = code_carousel_script.deck[17];
-            Card turkey = code_carousel_script.deck[23];
-            Card well = code_carousel_script.deck[4];
-            Card compost = code_carousel_script.deck[18];
-            Card jam = code_carousel_script.deck[3];
+                Card blacksmith = code_carousel_script.deck[0];
+                Card piano_fight = code_carousel_script.deck[11];
+                Card piano_old = code_carousel_script.deck[6];
+                Card cowboy = code_carousel_script.deck[1];
+                Card pants = code_carousel_script.deck[5];
+                Card charger = code_carousel_script.deck[17];
+                Card turkey = code_carousel_script.deck[23];
+                Card well = code_carousel_script.deck[4];
+                Card compost = code_carousel_script.deck[18];
+                Card jam = code_carousel_script.deck[3];
 
-            if(blacksmith.selected == true) count += 1;
-            if(piano_fight.selected == true || piano_old.selected == true) count += 1;
-            if(cowboy.selected == true) count += 1;
-            if(pants.selected == true) count += 1;
-            if(charger.selected == true) count += 1;
-            if(turkey.selected == true) count += 1;
-            if(well.selected == true) count += 1;
-            if(compost.selected == true) count += 1;
-            if(jam.selected == true) count += 1;
+                if(blacksmith.selected == true) count += 1;
+                if(piano_fight.selected == true || piano_old.selected == true) count += 1;
+                if(cowboy.selected == true) count += 1;
+                if(pants.selected == true) count += 1;
+                if(charger.selected == true) count += 1;
+                if(turkey.selected == true) count += 1;
+                if(well.selected == true) count += 1;
+                if(compost.selected == true) count += 1;
+                if(jam.selected == true) count += 1;
 
-            StartCoroutine(WarningWindowDisplay("There are " + count.ToString() + " elements that were not collected in the best way.", 4));
+                StartCoroutine(WarningWindowDisplay("There are " + count.ToString() + " elements that were not collected in the best way.", 4));
+            }
+            else{
+                StartCoroutine(WarningWindowDisplay("You can't use this tool.", 3));
+            }
         }
     }
 

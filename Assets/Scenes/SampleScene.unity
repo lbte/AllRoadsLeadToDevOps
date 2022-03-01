@@ -5831,6 +5831,8 @@ MonoBehaviour:
   is_deploy_tool_used: 0
   is_operate_ability_used: 0
   is_monitor_ability_used: 0
+  is_release_tool_used: 0
+  is_test_tool_used: 0
   is_test_ability_used: 0
   is_test_failed: 0
   fail_operate_probability: 0.4
@@ -5918,7 +5920,7 @@ MonoBehaviour:
   can_use_plan_tool: 0
   can_use_code_tool: 0
   can_use_build_tool: 0
-  can_use_test_tool: 0
+  can_use_test_tool: 1
   can_use_release_tool: 0
   can_use_deploy_tool: 0
   can_use_operate_tool: 0
@@ -5962,7 +5964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &415857990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21746,7 +21748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1692005317
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25104,7 +25106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1943666735
 Animator:
   serializedVersion: 3
@@ -25639,7 +25641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1985874290
 RectTransform:
   m_ObjectHideFlags: 0
