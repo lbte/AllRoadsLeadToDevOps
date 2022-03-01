@@ -47,7 +47,7 @@ public class StartController : MonoBehaviour
 
     void AcceptNameButtonController(){
         player_name = enter_name_input_field.GetComponent<Text>().text;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game");
     }
 
     void HowToPlayButtonController(){
