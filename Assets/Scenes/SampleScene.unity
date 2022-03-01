@@ -660,8 +660,8 @@ MonoBehaviour:
     id: powershell
     card_title: PowerShell
   - card_image: {fileID: 21300000, guid: 2559d8808ed6f4146a324470aea3449d, type: 3}
-    card_description: It's a free (open-source) automated testing framework used to
-      validate web applications across different browsers and platforms.
+    card_description: It's a free (open-source) automated testing framework used
+      to validate web applications across different browsers and platforms.
     selected: 0
     category: 
     level: 0
@@ -686,10 +686,11 @@ MonoBehaviour:
     id: aws
     card_title: AWS
   - card_image: {fileID: 21300000, guid: 6eb89622430074b49bfc03b839ab12c1, type: 3}
-    card_description: 'It''s an open-source automation tool written in Java with plugins
-      built for Continuous Integration purposes. Jenkins is used to build and test
-      software projects continuously making it easier for developers to integrate
-      changes to the project, and making it easier for users to obtain a fresh build. '
+    card_description: 'It''s an open-source automation tool written in Java with
+      plugins built for Continuous Integration purposes. Jenkins is used to build
+      and test software projects continuously making it easier for developers to
+      integrate changes to the project, and making it easier for users to obtain
+      a fresh build. '
     selected: 0
     category: 
     level: 0
@@ -1175,8 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &97409424
 MonoBehaviour:
@@ -1331,6 +1331,85 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.10786}
   m_SizeDelta: {x: 800, y: 450.65}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &98866171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98866172}
+  - component: {fileID: 98866174}
+  - component: {fileID: 98866173}
+  m_Layer: 5
+  m_Name: Text (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &98866172
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98866171}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 169854995}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &98866173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98866171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 333176e4c4bfbf14789d63fcaaa4c584, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &98866174
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98866171}
+  m_CullTransparentMesh: 1
 --- !u!1 &110897333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,7 +2426,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 98866172}
   m_Father: {fileID: 2020228500}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2797,17 +2877,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck:
   - card_image: {fileID: 21300000, guid: 29c47c8604528264b8d21c83b4e0190f, type: 3}
-    card_description: 'An anvil is the main working surface of a blacksmith, you have
-      to run fast if you don''t want to get hit by a hammer or burned by hot metal
-      when stealing it from him.  '
+    card_description: 'An anvil is the main working surface of a blacksmith, you
+      have to run fast if you don''t want to get hit by a hammer or burned by hot
+      metal when stealing it from him.  '
     selected: 0
     category: impact
     level: 0
     id: blacksmith_anvil
     card_title: Anvil
   - card_image: {fileID: 21300000, guid: 1b78350b76e0639469f62a30f0cf2bfd, type: 3}
-    card_description: "The cowboy needed the rope for his rodeo, now he won't be able
-      to participate\u2026 he's looking for you\u2026 Be careful!"
+    card_description: "The cowboy needed the rope for his rodeo, now he won't be
+      able to participate\u2026 he's looking for you\u2026 Be careful!"
     selected: 0
     category: hold
     level: 0
@@ -2852,8 +2932,9 @@ MonoBehaviour:
     id: old_piano
     card_title: Piano
   - card_image: {fileID: 21300000, guid: 5a077538d33fd834288f688eed8d8f2a, type: 3}
-    card_description: Sometimes our best ally is mother nature, the eagle friend when
-      passing by left many feathers to use, too bad they were mistreated in the fall.
+    card_description: Sometimes our best ally is mother nature, the eagle friend
+      when passing by left many feathers to use, too bad they were mistreated in
+      the fall.
     selected: 0
     category: impact
     level: 0
@@ -2909,8 +2990,9 @@ MonoBehaviour:
     id: pillow_feather
     card_title: Feather
   - card_image: {fileID: 21300000, guid: d5fad3ccd111ed246b005ee2e5fcb594, type: 3}
-    card_description: 'Near Carl the baker''s house there''s a park for kids and there
-      are swings made with rope, kids will be sad but at least you''ve got your rope. '
+    card_description: 'Near Carl the baker''s house there''s a park for kids and
+      there are swings made with rope, kids will be sad but at least you''ve got
+      your rope. '
     selected: 0
     category: hold
     level: 0
@@ -2967,8 +3049,8 @@ MonoBehaviour:
     id: own_cooked_food
     card_title: Burger
   - card_image: {fileID: 21300000, guid: df5338b10f8b37b4bbf39030f5ae2f11, type: 3}
-    card_description: Doing manual work gives me anxiety, that's why I prefer to hire
-      someone to do it for me.  Too bad the charge is so expensive.
+    card_description: Doing manual work gives me anxiety, that's why I prefer to
+      hire someone to do it for me.  Too bad the charge is so expensive.
     selected: 0
     category: mechanism
     level: 0
@@ -2984,8 +3066,8 @@ MonoBehaviour:
     card_title: Pulley
   - card_image: {fileID: 21300000, guid: f546cb08a16083845adf1737c7ad1c68, type: 3}
     card_description: Usually in Turkey there are a lot of hot air balloons, it's
-      one the country's biggest attractions, maybe a trip like those in order to get
-      a balloon wouldn't be so bad.
+      one the country's biggest attractions, maybe a trip like those in order to
+      get a balloon wouldn't be so bad.
     selected: 0
     category: mechanism
     level: 0
@@ -3717,7 +3799,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 920157897}
   m_Father: {fileID: 2020228500}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4571,8 +4654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &293652833
 GameObject:
@@ -4627,8 +4709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial_dialogue:
     sentences:
-    - 'In this stage you will be told if the trap you made passed the tests that were
-      performed on it. '
+    - 'In this stage you will be told if the trap you made passed the tests that
+      were performed on it. '
     - "In case it says you didn\u2019t pass the tests, if you have the test ability
       upgraded to the third level, you can use it to get a hint about one element
       that made the trap fail."
@@ -5762,14 +5844,10 @@ MonoBehaviour:
   code_devops_cycle: {fileID: 21300000, guid: 9a960e4a115ba9c4da34fc006e7f21b7, type: 3}
   build_devops_cycle: {fileID: 21300000, guid: 862554c6c2834a743b81387dbcc38df3, type: 3}
   test_devops_cycle: {fileID: 21300000, guid: 0b16c266b5d058a45aec9a608e250072, type: 3}
-  release_devops_cycle: {fileID: 21300000, guid: fc6b5dd103695b04d8bbcc28e07d1882,
-    type: 3}
-  deploy_devops_cycle: {fileID: 21300000, guid: 28ad6f769d923ea4db162f234e708b12,
-    type: 3}
-  operate_devops_cycle: {fileID: 21300000, guid: 4ed2c6eb9f51e0e46bbd2188b040d911,
-    type: 3}
-  monitor_devops_cycle: {fileID: 21300000, guid: 6a81c62cf63bed34c98a435ed76eac41,
-    type: 3}
+  release_devops_cycle: {fileID: 21300000, guid: fc6b5dd103695b04d8bbcc28e07d1882, type: 3}
+  deploy_devops_cycle: {fileID: 21300000, guid: 28ad6f769d923ea4db162f234e708b12, type: 3}
+  operate_devops_cycle: {fileID: 21300000, guid: 4ed2c6eb9f51e0e46bbd2188b040d911, type: 3}
+  monitor_devops_cycle: {fileID: 21300000, guid: 6a81c62cf63bed34c98a435ed76eac41, type: 3}
   left_test_card: {fileID: 1004221431}
   right_test_card: {fileID: 1576776593}
   left_test_card_image: {fileID: 815974009}
@@ -5779,15 +5857,11 @@ MonoBehaviour:
   left_test_card_description: {fileID: 2132460962}
   right_test_card_description: {fileID: 635929266}
   test_result_image_wolf: {fileID: 1369495107}
-  test_result_wolf_success: {fileID: 21300000, guid: e33cc6bcb19361e408abe19bed50e604,
-    type: 3}
-  test_result_wolf_failure: {fileID: 21300000, guid: a57b28c88a0749e48834d22d0b7e3784,
-    type: 3}
+  test_result_wolf_success: {fileID: 21300000, guid: e33cc6bcb19361e408abe19bed50e604, type: 3}
+  test_result_wolf_failure: {fileID: 21300000, guid: a57b28c88a0749e48834d22d0b7e3784, type: 3}
   operate_result_image_bunny: {fileID: 41673667}
-  operate_result_bunny_success: {fileID: 21300000, guid: 5ce6243f62390e94493c812ad0fb71ee,
-    type: 3}
-  operate_result_bunny_failure: {fileID: 21300000, guid: 37b5116800ae04f4ba7f231c4f7bd6cb,
-    type: 3}
+  operate_result_bunny_success: {fileID: 21300000, guid: 5ce6243f62390e94493c812ad0fb71ee, type: 3}
+  operate_result_bunny_failure: {fileID: 21300000, guid: 37b5116800ae04f4ba7f231c4f7bd6cb, type: 3}
   videoRelease: {fileID: 256012186}
   blueprint_ground_architecture: {fileID: 806253669}
   blueprint_air_architecture: {fileID: 995373238}
@@ -5802,14 +5876,11 @@ MonoBehaviour:
   groundtrap_deploy_animation_button: {fileID: 477083433}
   groundtrap_deploy_animation_animator: {fileID: 1936420095}
   balloon_image: {fileID: 2103177537}
-  sprite_balloon_nudo: {fileID: 21300000, guid: 53baea88c00d3eb4b83ee337cc708fb8,
-    type: 3}
-  sprite_balloon_suelto: {fileID: 21300000, guid: 635be7cef01ddc647ae041992b0c8f3c,
-    type: 3}
+  sprite_balloon_nudo: {fileID: 21300000, guid: 53baea88c00d3eb4b83ee337cc708fb8, type: 3}
+  sprite_balloon_suelto: {fileID: 21300000, guid: 635be7cef01ddc647ae041992b0c8f3c, type: 3}
   pulley_image: {fileID: 1890183663}
   sprite_pulley_nudo: {fileID: 21300000, guid: f0bc9eb29a61b9147a2cb26bc9e6efc2, type: 3}
-  sprite_pulley_suelta: {fileID: 21300000, guid: 32a6798e27d1b0f499cf4ec3211c4cda,
-    type: 3}
+  sprite_pulley_suelta: {fileID: 21300000, guid: 32a6798e27d1b0f499cf4ec3211c4cda, type: 3}
   deploy_air_trap: {fileID: 396052390}
   deploy_ground_trap: {fileID: 350093879}
   is_plan_visited: 0
@@ -6043,6 +6114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 432855335}
   - component: {fileID: 432855336}
+  - component: {fileID: 432855337}
   m_Layer: 5
   m_Name: Monitor
   m_TagString: Untagged
@@ -6092,6 +6164,106 @@ MonoBehaviour:
     - If you have your abilities leveled up or the tool in the monitor stage well
       placed, you could get hints about these elements that made the trap fail through
       time.
+--- !u!114 &432855337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432855334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fe8517cf69e1a4fb02c0c62412e0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LastGameRecordsPopUp: {fileID: 2076588016}
+  LastGames1Tittle: {fileID: 0}
+  UserName1ImageText: {fileID: 0}
+  FinalScore1ImageText: {fileID: 0}
+  TimeToComplete1ImageText: {fileID: 0}
+  LastGames2Tittle: {fileID: 0}
+  UserName2ImageText: {fileID: 0}
+  FinalScore2ImageText: {fileID: 0}
+  TimeToComplete2ImageText: {fileID: 0}
+--- !u!1 &437378450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437378451}
+  - component: {fileID: 437378453}
+  - component: {fileID: 437378452}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &437378451
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437378450}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 678472151}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &437378452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437378450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 333176e4c4bfbf14789d63fcaaa4c584, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &437378453
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437378450}
+  m_CullTransparentMesh: 1
 --- !u!1 &439396768
 GameObject:
   m_ObjectHideFlags: 0
@@ -7318,8 +7490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &549299062
 MonoBehaviour:
@@ -8946,7 +9117,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 437378451}
   m_Father: {fileID: 2020228500}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9793,8 +9965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &735984138
 MonoBehaviour:
@@ -9912,6 +10083,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750047297}
+  m_CullTransparentMesh: 1
+--- !u!1 &750938333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 750938334}
+  - component: {fileID: 750938336}
+  - component: {fileID: 750938335}
+  m_Layer: 5
+  m_Name: Text (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &750938334
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750938333}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2141369088}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.0000038146973}
+  m_SizeDelta: {x: 100, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &750938335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750938333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 333176e4c4bfbf14789d63fcaaa4c584, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &750938336
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750938333}
   m_CullTransparentMesh: 1
 --- !u!1 &761842309
 GameObject:
@@ -10519,8 +10769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &794876441
 GameObject:
@@ -11219,7 +11468,8 @@ MonoBehaviour:
     Test ability:
 
 
-    Release ability:
+    Release
+    ability:
 
 
     Deploy ability:
@@ -11598,8 +11848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &859964565
 MonoBehaviour:
@@ -12237,6 +12486,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906936008}
   m_CullTransparentMesh: 1
+--- !u!1 &920157896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920157897}
+  - component: {fileID: 920157899}
+  - component: {fileID: 920157898}
+  m_Layer: 5
+  m_Name: Text (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &920157897
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920157896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 239545614}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.0000076293945}
+  m_SizeDelta: {x: 100, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &920157898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920157896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 333176e4c4bfbf14789d63fcaaa4c584, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &920157899
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920157896}
+  m_CullTransparentMesh: 1
 --- !u!1 &933884048
 GameObject:
   m_ObjectHideFlags: 0
@@ -12433,6 +12761,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933988091}
   m_CullTransparentMesh: 1
+--- !u!1 &937996054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937996055}
+  - component: {fileID: 937996057}
+  - component: {fileID: 937996056}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &937996055
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937996054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1556112513}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &937996056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937996054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 333176e4c4bfbf14789d63fcaaa4c584, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &937996057
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937996054}
+  m_CullTransparentMesh: 1
 --- !u!1 &951958295
 GameObject:
   m_ObjectHideFlags: 0
@@ -12581,8 +12988,9 @@ MonoBehaviour:
     sentences:
     - The process of releasing the project you just built is called continuous integration,
       so here you can see what is done when releasing it.
-    - 'If you have your release ability leveled up and you use it, you could get a
-      level in another ability, allowing you to possibly get advantages in other stages. '
+    - 'If you have your release ability leveled up and you use it, you could get
+      a level in another ability, allowing you to possibly get advantages in other
+      stages. '
 --- !u!1 &959074409
 GameObject:
   m_ObjectHideFlags: 0
@@ -12741,7 +13149,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2111133029}
   m_Father: {fileID: 2020228500}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15617,8 +16026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1171474704
 MonoBehaviour:
@@ -16764,8 +17172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1360789304
 MonoBehaviour:
@@ -18750,8 +19157,8 @@ MonoBehaviour:
     sentences:
     - 'When deploying your project, the only thing you have to do is press a button
       in order to deploy it, so here you can do so. '
-    - Press the button to deploy the trap and see how it behaves when you try to use
-      it with the prey.
+    - Press the button to deploy the trap and see how it behaves when you try to
+      use it with the prey.
 --- !u!1 &1535515817
 GameObject:
   m_ObjectHideFlags: 0
@@ -19182,7 +19589,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 937996055}
   m_Father: {fileID: 2020228500}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19839,8 +20247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1608200953
 GameObject:
@@ -22810,8 +23217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6,
-    type: 3}
+  card_prefab: {fileID: 8585465757186192320, guid: 4e735fc480681584e82f3af667e5bee6, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!1 &1842598525
 GameObject:
@@ -23747,7 +24153,8 @@ MonoBehaviour:
     User Name:
 
 
-    Final Score:
+    Final
+    Score:
 
 
     Time to Complete:
@@ -24525,8 +24932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &1942250481
 MonoBehaviour:
@@ -26598,8 +27004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   build_carousel: {fileID: 394113452}
-  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a,
-    type: 3}
+  card_prefab: {fileID: 2907436678460545813, guid: 967736a172ecf7440ad4555e90f0360a, type: 3}
   player_controller_script: {fileID: 0}
 --- !u!114 &2067002099
 MonoBehaviour:
@@ -26967,6 +27372,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103177535}
   m_CullTransparentMesh: 1
+--- !u!1 &2111133028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111133029}
+  - component: {fileID: 2111133031}
+  - component: {fileID: 2111133030}
+  m_Layer: 5
+  m_Name: Text (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2111133029
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111133028}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 967015520}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2111133030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111133028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 333176e4c4bfbf14789d63fcaaa4c584, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &2111133031
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111133028}
+  m_CullTransparentMesh: 1
 --- !u!1 &2117120324
 GameObject:
   m_ObjectHideFlags: 0
@@ -27018,11 +27502,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial_dialogue:
     sentences:
-    - In this stage is where you see if the trap worked by catching the bunny or not,
-      you have more chances not failing depending on the way you selected the elements
-      you used.
-    - 'Also you can reduce your chances of failing by leveling up your abilities or
-      placing the correct tool in the operate stage. '
+    - In this stage is where you see if the trap worked by catching the bunny or
+      not, you have more chances not failing depending on the way you selected the
+      elements you used.
+    - 'Also you can reduce your chances of failing by leveling up your abilities
+      or placing the correct tool in the operate stage. '
 --- !u!1 &2126573145
 GameObject:
   m_ObjectHideFlags: 0
@@ -27323,7 +27807,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 750938334}
   m_Father: {fileID: 2020228500}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
