@@ -224,7 +224,7 @@ MonoBehaviour:
     id: build_level
     card_title: Build ability
   - card_image: {fileID: 21300000, guid: 469fa3405b37f3b408ecb9840f71611b, type: 3}
-    card_description: On level 3 you'll get a hit about one element that made the
+    card_description: On level 3 you'll get a hint about one element that made the
       trap not to pass the test.
     selected: 0
     category: 
@@ -247,8 +247,8 @@ MonoBehaviour:
     card_title: Deploy ability
   - card_image: {fileID: 21300000, guid: f41269202d7ce554b8ca09157dda3622, type: 3}
     card_description: On level 2, you'll get a 5% more for the probability of not
-      failing the operate stage, and on level 3 this probability adds up to15%, which
-      means you get 10% more for not failing the operate.
+      failing the operate stage, and on level 3 this probability adds up to 15%,
+      which means you get 10% more for not failing the operate.
     selected: 0
     category: 
     level: 0
@@ -3160,7 +3160,7 @@ MonoBehaviour:
     card_title: Cable
   - card_image: {fileID: 21300000, guid: 1d485abd8a6e34b4ab964c846bd59046, type: 3}
     card_description: NO PAIN NO GAIN! or at least that's what I hear from the trainer
-      when I'm about to throw up in the gym, that work won't be done by itself!
+      when I'm about to throw up at the gym, that work won't be done by itself!
     selected: 0
     category: mechanism
     level: 0
@@ -3201,7 +3201,7 @@ MonoBehaviour:
     card_title: Feather
   - card_image: {fileID: 21300000, guid: d5fad3ccd111ed246b005ee2e5fcb594, type: 3}
     card_description: 'Near Carl the baker''s house there''s a park for kids and
-      there are swings made with rope, kids will be sad but at least you''ve got
+      there are swings that have ropes, kids will be sad but at least you''ve got
       your rope. '
     selected: 0
     category: hold
@@ -3225,9 +3225,8 @@ MonoBehaviour:
     id: elastic_rope
     card_title: Elastic
   - card_image: {fileID: 21300000, guid: 5d34ee4de01a53e4590eca42c91edda8, type: 3}
-    card_description: The old chargers can be useful again, more if people change
-      more technology than clothes. lastina that many not very secure knots are needed
-      to reach a good size.
+    card_description: 'The old chargers can be useful again, even more as people
+      change for new technology more often than clothes. '
     selected: 0
     category: hold
     level: 0
@@ -3276,8 +3275,8 @@ MonoBehaviour:
     card_title: Pulley
   - card_image: {fileID: 21300000, guid: f546cb08a16083845adf1737c7ad1c68, type: 3}
     card_description: Usually in Turkey there are a lot of hot air balloons, it's
-      one the country's biggest attractions, maybe a trip like those in order to
-      get a balloon wouldn't be so bad.
+      one of the country's biggest attractions, maybe a trip like those in order
+      to get a balloon wouldn't be so bad.
     selected: 0
     category: mechanism
     level: 0
@@ -26801,7 +26800,7 @@ MonoBehaviour:
     id: architecture_1
     card_title: Ground controller architecture
   - card_image: {fileID: 21300000, guid: f560a2a2693df9b44aeab22e9b58b90e, type: 3}
-    card_description: The system depends on a water source that will be use to move
+    card_description: The system depends on a water source that will be used to move
       a weight and impact the prey.
     selected: 0
     category: 
